@@ -1,3 +1,5 @@
+import LogoutBtn from 'components/SideBar/LogoutBtn/LogoutBtn';
+
 export const App = () => {
     return (
         <div
@@ -11,6 +13,7 @@ export const App = () => {
             }}
         >
             React homework template
+            <LogoutBtn></LogoutBtn>
         </div>
     );
 };
