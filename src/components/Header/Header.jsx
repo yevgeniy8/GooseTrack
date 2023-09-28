@@ -7,14 +7,10 @@ import {
     AddFeedbackBtn,
 } from './Header.styled';
 // import { useLocation } from 'react-router-dom';
-// import { LIGHT } from '../../constants';
 
 export const Header = () => {
     // const location = useLocation().pathname;
     // const { isLoggedIn } = useAuth();
-
-    // const { theme, onChangeTheme } = useThemeContext();
-    // const isLightTheme = theme === LIGHT;
 
     return (
         <header>
