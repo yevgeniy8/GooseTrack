@@ -1,4 +1,4 @@
-import LogoutBtn from 'components/SideBar/LogoutBtn/LogoutBtn';
+import SideBar from 'components/SideBar';
 
 export const App = () => {
     return (
@@ -12,8 +12,7 @@ export const App = () => {
                 color: '#010101',
             }}
         >
-            React homework template
-            <LogoutBtn></LogoutBtn>
+            <SideBar></SideBar>
         </div>
     );
 };

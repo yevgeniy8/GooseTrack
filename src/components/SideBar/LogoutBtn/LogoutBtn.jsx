@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { ButtonLogout } from './LogoutBtn.styled';
 
-const LogoutBtn = ({ text, onClick }) => {
+const LogoutBtn = ({ onClick }) => {
     return (
         <ButtonLogout variant="contained" onClick={onClick}>
             LogOut
