@@ -70,4 +70,13 @@ export const Login = styled(NavLink)`
     border-radius: 16px;
     background-color: #ffffff;
     color: #3e85f3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+`;
+
+export const Svg = styled.svg`
+    fill: white;
+    stroke: #3e85f3;
 `;

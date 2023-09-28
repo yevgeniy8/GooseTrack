@@ -21,20 +21,25 @@ import main_page_all_tablet2x from '../../images/main_page/main_page_all_tablet@
 import main_page_all_mob1x from '../../images/main_page/main_page_all_mob.png';
 import main_page_all_mob2x from '../../images/main_page/main_page_all_mob@2x.png';
 
+import { Li } from './Description.styled';
+
 const Description = () => {
     return (
         <div>
             <ul>
-                <li>
-                    <h1>1.</h1>
-                    <h2>Calendar</h2>
-                    <p>view</p>
-                    <p>
-                        GooseTrack's Calendar view provides a comprehensive
-                        overview of your schedule, displaying all your tasks,
-                        events, and appointments in a visually appealing and
-                        intuitive layout.
-                    </p>
+                <Li>
+                    <div>
+                        <h1>1.</h1>
+                        <h2>Calendar</h2>
+                        <p>view</p>
+                        <p>
+                            GooseTrack's Calendar view provides a comprehensive
+                            overview of your schedule, displaying all your
+                            tasks, events, and appointments in a visually
+                            appealing and intuitive layout.
+                        </p>
+                    </div>
+
                     <picture>
                         <source
                             srcSet={
@@ -60,17 +65,21 @@ const Description = () => {
                             alt=""
                         />
                     </picture>
-                </li>
-                <li>
-                    <h1>2.</h1>
-                    <p>Sidebar</p>
-                    <p>
-                        GooseTrack offers easy access to your account settings,
-                        calendar, and filters. The "My Account" section allows
-                        you to manage your profile information and preferences,
-                        while the calendar provides a quick and convenient way
-                        to view your upcoming events and tasks.
-                    </p>
+                </Li>
+                <Li>
+                    <div>
+                        <h1>2.</h1>
+                        <p>Sidebar</p>
+                        <p>
+                            GooseTrack offers easy access to your account
+                            settings, calendar, and filters. The "My Account"
+                            section allows you to manage your profile
+                            information and preferences, while the calendar
+                            provides a quick and convenient way to view your
+                            upcoming events and tasks.
+                        </p>
+                    </div>
+
                     <picture>
                         <source
                             srcSet={
@@ -96,17 +105,20 @@ const Description = () => {
                             alt=""
                         />
                     </picture>
-                </li>
-                <li>
-                    <h1>3.</h1>
-                    <h2>all in</h2>
-                    <p>one</p>
-                    <p>
-                        GooseTrack is an all-in-one productivity tool that helps
-                        you stay on top of your tasks, events, and deadlines.
-                        Say goodbye to scattered to-do lists and hello to
-                        streamlined productivity with GooseTrack.
-                    </p>
+                </Li>
+                <Li>
+                    <div>
+                        <h1>3.</h1>
+                        <h2>all in</h2>
+                        <p>one</p>
+                        <p>
+                            GooseTrack is an all-in-one productivity tool that
+                            helps you stay on top of your tasks, events, and
+                            deadlines. Say goodbye to scattered to-do lists and
+                            hello to streamlined productivity with GooseTrack.
+                        </p>
+                    </div>
+
                     <picture>
                         <source
                             srcSet={
@@ -128,7 +140,7 @@ const Description = () => {
                             alt=""
                         />
                     </picture>
-                </li>
+                </Li>
             </ul>
         </div>
     );
