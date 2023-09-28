@@ -1,13 +1,21 @@
 {
   "files": {
-    "main.css": "/GooseTrack/static/css/main.6c08baf4.css",
+    "main.css": "/GooseTrack/static/css/main.e09bd749.css",
     "main.js": "/GooseTrack/static/js/main.6b9822f6.js",
+    "static/media/inter-v13-latin-600.ttf": "/GooseTrack/static/media/inter-v13-latin-600.384b75b993dde1c303d2.ttf",
+    "static/media/inter-v13-latin-700.ttf": "/GooseTrack/static/media/inter-v13-latin-700.bf36ea94c87c881cde43.ttf",
+    "static/media/inter-v13-latin-500.ttf": "/GooseTrack/static/media/inter-v13-latin-500.286d2b0a36826979d362.ttf",
+    "static/media/inter-v13-latin-regular.ttf": "/GooseTrack/static/media/inter-v13-latin-regular.84f0b1f5b8b46de79d5f.ttf",
+    "static/media/inter-v13-latin-700.woff2": "/GooseTrack/static/media/inter-v13-latin-700.b4118e4ad76754e71d0b.woff2",
+    "static/media/inter-v13-latin-600.woff2": "/GooseTrack/static/media/inter-v13-latin-600.5d2eaa33f8194c062cad.woff2",
+    "static/media/inter-v13-latin-500.woff2": "/GooseTrack/static/media/inter-v13-latin-500.6629df60b0706dec8113.woff2",
+    "static/media/inter-v13-latin-regular.woff2": "/GooseTrack/static/media/inter-v13-latin-regular.f1535355a7df553be385.woff2",
     "index.html": "/GooseTrack/index.html",
-    "main.6c08baf4.css.map": "/GooseTrack/static/css/main.6c08baf4.css.map",
+    "main.e09bd749.css.map": "/GooseTrack/static/css/main.e09bd749.css.map",
     "main.6b9822f6.js.map": "/GooseTrack/static/js/main.6b9822f6.js.map"
   },
   "entrypoints": [
-    "static/css/main.6c08baf4.css",
+    "static/css/main.e09bd749.css",
     "static/js/main.6b9822f6.js"
   ]
 }
