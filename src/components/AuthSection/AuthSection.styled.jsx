@@ -41,6 +41,7 @@ export const Title = styled.h1`
 export const SpanTitle = styled.span`
     font-style: italic;
     padding-right: 10px;
+    margin-left: -5px;
 `;
 
 export const Nav = styled.nav`

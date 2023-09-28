@@ -21,7 +21,7 @@ import main_page_all_tablet2x from '../../images/main_page/main_page_all_tablet@
 import main_page_all_mob1x from '../../images/main_page/main_page_all_mob.png';
 import main_page_all_mob2x from '../../images/main_page/main_page_all_mob@2x.png';
 
-import { Li } from './Description.styled';
+import { Li, H1, H2, H2All } from './Description.styled';
 
 const Description = () => {
     return (
@@ -29,8 +29,8 @@ const Description = () => {
             <ul>
                 <Li>
                     <div>
-                        <h1>1.</h1>
-                        <h2>Calendar</h2>
+                        <H1>1.</H1>
+                        <H2>Calendar</H2>
                         <p>view</p>
                         <p>
                             GooseTrack's Calendar view provides a comprehensive
@@ -68,7 +68,7 @@ const Description = () => {
                 </Li>
                 <Li>
                     <div>
-                        <h1>2.</h1>
+                        <H1>2.</H1>
                         <p>Sidebar</p>
                         <p>
                             GooseTrack offers easy access to your account
@@ -108,8 +108,8 @@ const Description = () => {
                 </Li>
                 <Li>
                     <div>
-                        <h1>3.</h1>
-                        <h2>all in</h2>
+                        <H1>3.</H1>
+                        <H2All>all in</H2All>
                         <p>one</p>
                         <p>
                             GooseTrack is an all-in-one productivity tool that
