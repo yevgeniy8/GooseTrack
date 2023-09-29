@@ -3,20 +3,25 @@ import styled from '@emotion/styled';
 
 export const NavWrap = styled.div`
     width: 100%;
-    margin: 32px 24px 0 24px;
-    background-color: 'red';
 `;
 
 export const NavTitle = styled.h3`
-    font-size: 14px;
-    line-height: 1.33;
-    color: rgba(52, 52, 52, 0.5);
+    color: ${({ theme }) => theme.colors.textTitleSideBar};
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+
+    @media (min-width: 768px) {
+        font-size: 14px;
+    }
 `;
 
 export const Item = styled.li`
     border-radius: 8px;
     width: 100%;
-    height: 50px;
+    height: 56px;
 `;
 export const List = styled.ul`
     margin-top: 32px;
@@ -26,50 +31,66 @@ export const List = styled.ul`
 `;
 
 export const Icon = styled.svg`
-    width: 24px;
-    height: 24px;
-    stroke: rgba(52, 52, 52, 0.5);
-    fill: none;
+    width: 20px;
+    height: 20px;
+    stroke: ${({ theme }) => theme.colors.iconSideBar};
+    margin-right: 10px;
+
+    @media (min-width: 768px) {
+        width: 24px;
+        height: 24px;
+    }
 `;
 
 export const IconStat = styled.svg`
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    fill: ${({ theme }) => theme.colors.iconSideBar};
 
-    fill: rgba(52, 52, 52, 0.5);
+    @media (min-width: 768px) {
+        width: 24px;
+        height: 24px;
+    }
 `;
 
 export const Link = styled(NavLink)`
-    font-size: 16px;
-    line-height: 1.21;
+    color: ${({ theme }) => theme.colors.textSideBar};
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
 
-    width: 100%;
-    height: 100%;
     display: block;
     padding: 16px 20px;
     border-radius: 8px;
     transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
     align-items: center;
-    color: rgba(52, 52, 52, 0.5);
+
+    @media (min-width: 768px) {
+        font-size: 16px;
+    }
 
     &:hover,
     &:focus {
-        background-color: #e3f3ff;
+        background-color: ${({ theme }) =>
+            theme.colors.backgroundSideBarCurrentPage};
     }
 
     &.active {
-        background: #e3f3ff;
-        color: #3e85f3;
+        background: ${({ theme }) => theme.colors.backgroundSideBarCurrentPage};
+        color: ${({ theme }) => theme.colors.textSideBarCurrentPage};
 
         svg {
-            stroke: rgba(52, 52, 52, 0.5);
-            fill: rgba(52, 52, 52, 0.5);
+            stroke: ${({ theme }) => theme.colors.iconSideBar};
+            fill: ${({ theme }) => theme.colors.iconSideBar};
         }
 
         &.active svg {
-            stroke: #3e85f3;
-            fill: #3e85f3;
+            stroke: ${({ theme }) => theme.colors.iconSideBarActive};
+            fill: ${({ theme }) => theme.colors.iconSideBarActive};
         }
     }
 `;
