@@ -1,16 +1,14 @@
-import MainPage from 'pages/MainPage';
 import { Route, Routes } from 'react-router-dom';
-
-import MainLayout from '../MainLayout';
+import MainPage from 'pages/MainPage';
+import RegisterPage from 'pages/RegisterPage';
+import LoginPage from 'pages/LoginPage';
 
 export const App = () => {
     return (
         <Routes>
             <Route path="/" element={<MainPage />} />
-            <Route path="/register" element={<div>Register</div>} />
-            <Route path="/login" element={<div>Login</div>} />
-            {/* тимчасовий роут для сторінки юзера */}
-            <Route path="/user" element={<MainLayout />}></Route>
+            <Route path="/register" element={<RegisterPage />} />
+            <Route path="/login" element={<LoginPage />} />
         </Routes>
     );
 };
