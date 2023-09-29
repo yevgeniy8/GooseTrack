@@ -33,7 +33,7 @@ export const H1 = styled.h1`
 export const H2 = styled.h2`
     margin-bottom: 8px;
 
-    max-width: 228px;
+    width: 264px;
     /* float: left; */
     padding: 6px 18px;
     border-radius: 44px;
@@ -48,7 +48,7 @@ export const H2 = styled.h2`
 `;
 
 export const H2All = styled(H2)`
-    max-width: 133px;
+    width: 169px;
 `;
 
 export const P = styled.p`
