@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/GooseTrack/static/css/main.b98333bc.css",
-    "main.js": "/GooseTrack/static/js/main.78512905.js",
+    "main.css": "/GooseTrack/static/css/main.248467e2.css",
+    "main.js": "/GooseTrack/static/js/main.de67d439.js",
     "static/media/main_page_calendar_tablet@2x.png": "/GooseTrack/static/media/main_page_calendar_tablet@2x.c99a3ead380f5bfc46e8.png",
     "static/media/main_page_calendar_desktop@2x.png": "/GooseTrack/static/media/main_page_calendar_desktop@2x.5158deeda4f3c7c7a6d8.png",
     "static/media/main_page_sidebar_tablet@2x.png": "/GooseTrack/static/media/main_page_sidebar_tablet@2x.d47fd2e59326435b065d.png",
@@ -30,14 +30,14 @@
     "static/media/inter-v13-latin-600.woff2": "/GooseTrack/static/media/inter-v13-latin-600.5d2eaa33f8194c062cad.woff2",
     "static/media/inter-v13-latin-500.woff2": "/GooseTrack/static/media/inter-v13-latin-500.6629df60b0706dec8113.woff2",
     "static/media/inter-v13-latin-regular.woff2": "/GooseTrack/static/media/inter-v13-latin-regular.f1535355a7df553be385.woff2",
-    "static/media/icons.svg": "/GooseTrack/static/media/icons.7e526d152b06c176e399ba2f536ba272.svg",
+    "static/media/icons.svg": "/GooseTrack/static/media/icons.43400be4cf5bd88825b4c65703e970e8.svg",
     "static/media/goose-desktop-tablet-1x-welcome.png": "/GooseTrack/static/media/goose-desktop-tablet-1x-welcome.15a5fc151ed0468e7c09.png",
     "index.html": "/GooseTrack/index.html",
-    "main.b98333bc.css.map": "/GooseTrack/static/css/main.b98333bc.css.map",
-    "main.78512905.js.map": "/GooseTrack/static/js/main.78512905.js.map"
+    "main.248467e2.css.map": "/GooseTrack/static/css/main.248467e2.css.map",
+    "main.de67d439.js.map": "/GooseTrack/static/js/main.de67d439.js.map"
   },
   "entrypoints": [
-    "static/css/main.b98333bc.css",
-    "static/js/main.78512905.js"
+    "static/css/main.248467e2.css",
+    "static/js/main.de67d439.js"
   ]
 }
