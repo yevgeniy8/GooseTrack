@@ -1,21 +1,43 @@
 {
   "files": {
-    "main.css": "/GooseTrack/static/css/main.4c11077c.css",
-    "main.js": "/GooseTrack/static/js/main.98516dda.js",
+    "main.css": "/GooseTrack/static/css/main.aa05591e.css",
+    "main.js": "/GooseTrack/static/js/main.30598472.js",
+    "static/media/main_page_calendar_tablet@2x.png": "/GooseTrack/static/media/main_page_calendar_tablet@2x.c99a3ead380f5bfc46e8.png",
+    "static/media/main_page_calendar_desktop@2x.png": "/GooseTrack/static/media/main_page_calendar_desktop@2x.5158deeda4f3c7c7a6d8.png",
+    "static/media/main_page_sidebar_tablet@2x.png": "/GooseTrack/static/media/main_page_sidebar_tablet@2x.d47fd2e59326435b065d.png",
+    "static/media/main_page_calendar_mob@2x.png": "/GooseTrack/static/media/main_page_calendar_mob@2x.1a15b0ed88a5c0548275.png",
+    "static/media/main_page_sidebar_desktop@2x.png": "/GooseTrack/static/media/main_page_sidebar_desktop@2x.b4b29a3d2c2abff69806.png",
+    "static/media/main_page_calendar_tablet.png": "/GooseTrack/static/media/main_page_calendar_tablet.3b1622c98fcb3819b4a5.png",
+    "static/media/main_page_all_tablet@2x.png": "/GooseTrack/static/media/main_page_all_tablet@2x.81c07c5d397b256447d8.png",
+    "static/media/main_page_calendar_desktop.png": "/GooseTrack/static/media/main_page_calendar_desktop.397d4a8862f13d10638e.png",
+    "static/media/main_page_all_desktop@2x.png": "/GooseTrack/static/media/main_page_all_desktop@2x.d2ebe6f48313565af520.png",
+    "static/media/main_page_sidebar_mob@2x.png": "/GooseTrack/static/media/main_page_sidebar_mob@2x.1027480fbd4395e293e8.png",
+    "static/media/main_page_sidebar_tablet.png": "/GooseTrack/static/media/main_page_sidebar_tablet.3d6394f1e5cf7b409186.png",
+    "static/media/main_page_calendar_mob.png": "/GooseTrack/static/media/main_page_calendar_mob.beeb07609fc950e45e16.png",
+    "static/media/main_page_sidebar_desktop.png": "/GooseTrack/static/media/main_page_sidebar_desktop.584e8f9ca92d6c060ec7.png",
+    "static/media/main_page_all_mob@2x.png": "/GooseTrack/static/media/main_page_all_mob@2x.7bb124e86b2b01ce4b5d.png",
+    "static/media/main_page_all_tablet.png": "/GooseTrack/static/media/main_page_all_tablet.d3b521a384e14a4b6121.png",
+    "static/media/main_page_all_desktop.png": "/GooseTrack/static/media/main_page_all_desktop.bc980fe843de0e83d227.png",
     "static/media/inter-v13-latin-600.ttf": "/GooseTrack/static/media/inter-v13-latin-600.384b75b993dde1c303d2.ttf",
     "static/media/inter-v13-latin-700.ttf": "/GooseTrack/static/media/inter-v13-latin-700.bf36ea94c87c881cde43.ttf",
     "static/media/inter-v13-latin-500.ttf": "/GooseTrack/static/media/inter-v13-latin-500.286d2b0a36826979d362.ttf",
     "static/media/inter-v13-latin-regular.ttf": "/GooseTrack/static/media/inter-v13-latin-regular.84f0b1f5b8b46de79d5f.ttf",
+    "static/media/main_page_sidebar_mob.png": "/GooseTrack/static/media/main_page_sidebar_mob.5a4c04c875d9a46862bd.png",
+    "static/media/main_page_all_mob.png": "/GooseTrack/static/media/main_page_all_mob.c4300655e8af334a9313.png",
+    "static/media/goose-desktop-tablet-2x-welcome.png": "/GooseTrack/static/media/goose-desktop-tablet-2x-welcome.d3b18deda85de8fbe594.png",
+    "static/media/goose-mobile-2x-welcome.png": "/GooseTrack/static/media/goose-mobile-2x-welcome.818134abf0089019370d.png",
     "static/media/inter-v13-latin-700.woff2": "/GooseTrack/static/media/inter-v13-latin-700.b4118e4ad76754e71d0b.woff2",
     "static/media/inter-v13-latin-600.woff2": "/GooseTrack/static/media/inter-v13-latin-600.5d2eaa33f8194c062cad.woff2",
     "static/media/inter-v13-latin-500.woff2": "/GooseTrack/static/media/inter-v13-latin-500.6629df60b0706dec8113.woff2",
     "static/media/inter-v13-latin-regular.woff2": "/GooseTrack/static/media/inter-v13-latin-regular.f1535355a7df553be385.woff2",
+    "static/media/icons.svg": "/GooseTrack/static/media/icons.7e526d152b06c176e399ba2f536ba272.svg",
+    "static/media/goose-desktop-tablet-1x-welcome.png": "/GooseTrack/static/media/goose-desktop-tablet-1x-welcome.15a5fc151ed0468e7c09.png",
     "index.html": "/GooseTrack/index.html",
-    "main.4c11077c.css.map": "/GooseTrack/static/css/main.4c11077c.css.map",
-    "main.98516dda.js.map": "/GooseTrack/static/js/main.98516dda.js.map"
+    "main.aa05591e.css.map": "/GooseTrack/static/css/main.aa05591e.css.map",
+    "main.30598472.js.map": "/GooseTrack/static/js/main.30598472.js.map"
   },
   "entrypoints": [
-    "static/css/main.4c11077c.css",
-    "static/js/main.98516dda.js"
+    "static/css/main.aa05591e.css",
+    "static/js/main.30598472.js"
   ]
 }
