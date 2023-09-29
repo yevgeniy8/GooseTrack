@@ -21,23 +21,31 @@ import main_page_all_tablet2x from '../../images/main_page/main_page_all_tablet@
 import main_page_all_mob1x from '../../images/main_page/main_page_all_mob.png';
 import main_page_all_mob2x from '../../images/main_page/main_page_all_mob@2x.png';
 
-import { Li, H1, H2, H2All } from './Description.styled';
+import {
+    Container,
+    Li,
+    H1,
+    H2,
+    H2All,
+    P,
+    TextDescription,
+} from './Description.styled';
 
 const Description = () => {
     return (
-        <div>
+        <Container>
             <ul>
                 <Li>
                     <div>
                         <H1>1.</H1>
                         <H2>Calendar</H2>
-                        <p>view</p>
-                        <p>
+                        <P>view</P>
+                        <TextDescription>
                             GooseTrack's Calendar view provides a comprehensive
                             overview of your schedule, displaying all your
                             tasks, events, and appointments in a visually
                             appealing and intuitive layout.
-                        </p>
+                        </TextDescription>
                     </div>
 
                     <picture>
@@ -69,15 +77,15 @@ const Description = () => {
                 <Li>
                     <div>
                         <H1>2.</H1>
-                        <p>Sidebar</p>
-                        <p>
+                        <P>Sidebar</P>
+                        <TextDescription>
                             GooseTrack offers easy access to your account
                             settings, calendar, and filters. The "My Account"
                             section allows you to manage your profile
                             information and preferences, while the calendar
                             provides a quick and convenient way to view your
                             upcoming events and tasks.
-                        </p>
+                        </TextDescription>
                     </div>
 
                     <picture>
@@ -110,13 +118,13 @@ const Description = () => {
                     <div>
                         <H1>3.</H1>
                         <H2All>all in</H2All>
-                        <p>one</p>
-                        <p>
+                        <P>one</P>
+                        <TextDescription>
                             GooseTrack is an all-in-one productivity tool that
                             helps you stay on top of your tasks, events, and
                             deadlines. Say goodbye to scattered to-do lists and
                             hello to streamlined productivity with GooseTrack.
-                        </p>
+                        </TextDescription>
                     </div>
 
                     <picture>
@@ -142,7 +150,7 @@ const Description = () => {
                     </picture>
                 </Li>
             </ul>
-        </div>
+        </Container>
     );
 };
 
