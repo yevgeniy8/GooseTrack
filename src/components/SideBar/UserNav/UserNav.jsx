@@ -1,4 +1,13 @@
-import { NavWrap, NavTitle, Link, Item, List } from './UserNav.styled';
+import {
+    NavWrap,
+    NavTitle,
+    Link,
+    Item,
+    List,
+    Icon,
+    IconStat,
+} from './UserNav.styled';
+import Icons from '../../../images/icons.svg';
 
 const UserNav = () => {
     return (
@@ -7,19 +16,25 @@ const UserNav = () => {
             <List>
                 <Item>
                     <Link to="/account">
-                        <icon></icon>
+                        <Icon>
+                            <use href={`${Icons}#user-check`} />
+                        </Icon>
                         <span>My account</span>
                     </Link>
                 </Item>
                 <Item>
                     <Link to="/calendar">
-                        <icon></icon>
+                        <Icon>
+                            <use href={`${Icons}#calendar-check`} />
+                        </Icon>
                         <span>Calendar</span>
                     </Link>
                 </Item>
                 <Item>
                     <Link to="/statistics">
-                        <icon></icon>
+                        <IconStat>
+                            <use href={`${Icons}#chart-statistics`} />
+                        </IconStat>
                         <span>Statistics</span>
                     </Link>
                 </Item>

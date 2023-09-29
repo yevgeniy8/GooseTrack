@@ -24,6 +24,21 @@ export const List = styled.ul`
     flex-direction: column;
     gap: 16px;
 `;
+
+export const Icon = styled.svg`
+    width: 24px;
+    height: 24px;
+    stroke: rgba(52, 52, 52, 0.5);
+    fill: none;
+`;
+
+export const IconStat = styled.svg`
+    width: 24px;
+    height: 24px;
+
+    fill: rgba(52, 52, 52, 0.5);
+`;
+
 export const Link = styled(NavLink)`
     font-size: 16px;
     line-height: 1.21;
