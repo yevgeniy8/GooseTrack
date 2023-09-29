@@ -1,18 +1,16 @@
-import SideBar from 'components/SideBar';
+import MainPage from 'pages/MainPage';
+import { Route, Routes } from 'react-router-dom';
+
+import MainLayout from '../MainLayout';
 
 export const App = () => {
     return (
-        <div
-        // style={{
-        //     height: '100vh',
-        //     display: 'flex',
-        //     justifyContent: 'center',
-        //     alignItems: 'center',
-        //     fontSize: 40,
-        //     color: '#010101',
-        // }}
-        >
-            <SideBar></SideBar>
-        </div>
+        <Routes>
+            <Route path="/" element={<MainPage />} />
+            <Route path="/register" element={<div>Register</div>} />
+            <Route path="/login" element={<div>Login</div>} />
+            {/* тимчасовий роут для сторінки юзера */}
+            <Route path="/user" element={<MainLayout />}></Route>
+        </Routes>
     );
 };
