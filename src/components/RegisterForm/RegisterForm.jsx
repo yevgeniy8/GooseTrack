@@ -16,10 +16,16 @@ import {
 
 import sprite from '../../images/icons.svg';
 
+const emailRegexp = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
+
 const schema = yup.object().shape({
     name: yup.string().required(),
-    email: yup.string().email().required(),
-    password: yup.string().required(),
+    email: yup
+        .string()
+        .email()
+        .matches(emailRegexp, 'email invalid')
+        .required(),
+    password: yup.string().min(6).required(),
 });
 
 const RegisterForm = () => {
