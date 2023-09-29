@@ -32,7 +32,7 @@ const UserNav = () => {
                 </Item>
                 <Item>
                     <Link to="/statistics">
-                        <IconStat>
+                        <IconStat fill="inherit">
                             <use href={`${Icons}#chart-statistics`} />
                         </IconStat>
                         <span>Statistics</span>

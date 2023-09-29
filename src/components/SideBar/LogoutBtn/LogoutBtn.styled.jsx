@@ -13,9 +13,21 @@ export const ButtonLogout = styled.button`
     background-color: #3e85f3;
     transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 4px 2px 16px 0px rgba(136, 165, 191, 0.48);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 11px;
+    position: absolute;
 
     &:hover,
     &:focus {
         background-color: #2b78ef;
     }
+`;
+
+export const Icon = styled.svg`
+    width: 20px;
+    height: 20px;
+    stroke: rgba(255, 255, 255, 1);
+    fill: none;
 `;

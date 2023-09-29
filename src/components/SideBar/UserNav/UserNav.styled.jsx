@@ -61,5 +61,15 @@ export const Link = styled(NavLink)`
     &.active {
         background: #e3f3ff;
         color: #3e85f3;
+
+        svg {
+            stroke: rgba(52, 52, 52, 0.5);
+            fill: rgba(52, 52, 52, 0.5);
+        }
+
+        &.active svg {
+            stroke: #3e85f3;
+            fill: #3e85f3;
+        }
     }
 `;
