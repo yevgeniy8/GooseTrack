@@ -14,7 +14,11 @@ export const Li = styled.li`
     justify-content: flex-end;
     gap: 228px;
 
-    :nth-child(2n) {
+    /* :nth-child(2n) {
+        flex-direction: row-reverse;
+    } */
+
+    :nth-of-type(2n) {
         flex-direction: row-reverse;
     }
 `;
