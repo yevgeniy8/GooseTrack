@@ -20,8 +20,6 @@ import goose_mobile_2x_welcome from '../../images/main_page/goose-mobile-2x-welc
 
 import sprite from '../../images/icons.svg';
 
-// import loginSvg from '../../images/log-in-01.svg';
-
 const AuthSection = () => {
     return (
         <AuthSectContainer>
