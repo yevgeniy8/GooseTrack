@@ -1,6 +1,7 @@
 import { LIGHT } from 'constants';
 import { useThemeContext } from './ThemeContext';
-import { ToggleBtn } from './ThemeToggler.styled';
+import { ToggleBtn, Svg } from './ThemeToggler.styled';
+import sprite from 'images/icons.svg';
 
 const ThemeToggler = () => {
     const { theme, onChangeTheme } = useThemeContext();
@@ -8,7 +9,15 @@ const ThemeToggler = () => {
 
     return (
         <ToggleBtn onClick={onChangeTheme}>
-            {isLightTheme ? 'DARK' : 'LIGHT'}
+            {isLightTheme ? (
+                <Svg>
+                    <use href={`${sprite}#moon`} />
+                </Svg>
+            ) : (
+                <Svg>
+                    <use href={`${sprite}#sun`} />
+                </Svg>
+            )}
         </ToggleBtn>
     );
 };

@@ -16,6 +16,9 @@ import {
 
 import sprite from '../../images/icons.svg';
 
+import { useDispatch } from 'react-redux';
+import { register } from 'redux/auth/authOperations';
+
 const emailRegexp = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
 
 const schema = yup.object().shape({
@@ -29,6 +32,8 @@ const schema = yup.object().shape({
 });
 
 const RegisterForm = () => {
+    const dispatch = useDispatch();
+
     const initialValues = {
         name: '',
         email: '',
@@ -36,7 +41,8 @@ const RegisterForm = () => {
     };
 
     const handlerSubmit = (values, actions) => {
-        console.log(values);
+        dispatch(register(values));
+        // console.log(values);
         actions.resetForm();
     };
 
