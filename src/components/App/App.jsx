@@ -42,7 +42,7 @@ export const App = () => {
         // <b>Refreshing user...</b>
         <Spinner />
     ) : (
-        <Suspense>
+        <Suspense fallback={null}>
             <Routes>
                 <Route path="/" element={<MainPage />} />
                 <Route path="/register" element={<RegisterPage />} />
