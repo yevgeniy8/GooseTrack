@@ -16,6 +16,8 @@ import { useEffect } from 'react';
 
 import { refreshUser } from 'redux/auth/authOperations';
 
+import Spinner from 'components/Spinner/Spinner';
+
 // import Notiflix from 'notiflix';
 
 export const App = () => {
@@ -27,7 +29,8 @@ export const App = () => {
     }, [dispatch]);
 
     return isRefreshing ? (
-        <b>Refreshing user...</b>
+        // <b>Refreshing user...</b>
+        <Spinner />
     ) : (
         <Routes>
             <Route path="/" element={<MainPage />} />

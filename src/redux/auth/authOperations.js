@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import Notiflix from 'notiflix';
 
 axios.defaults.baseURL = 'https://goose-track-backend-q3re.onrender.com';
 
@@ -30,7 +31,9 @@ export const login = createAsyncThunk('auth/login', async (user, thunkApi) => {
         // console.log(response.data);
         return response.data;
     } catch (error) {
-        thunkApi.rejectWithValue(error);
+        console.log(error.response.data.message);
+        Notiflix.Notify.failure(error.response.data.message);
+        // thunkApi.rejectWithValue(error);
     }
 });
 
