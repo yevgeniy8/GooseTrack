@@ -18,6 +18,8 @@ import sprite from '../../images/icons.svg';
 
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/authOperations';
+import Notiflix from 'notiflix';
+import { useNavigate } from 'react-router-dom';
 
 const emailRegexp = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
 
@@ -33,6 +35,7 @@ const schema = yup.object().shape({
 
 const RegisterForm = () => {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const initialValues = {
         name: '',
@@ -42,6 +45,8 @@ const RegisterForm = () => {
 
     const handlerSubmit = (values, actions) => {
         dispatch(register(values));
+        Notiflix.Notify.success('You register');
+        navigate('/user');
         // console.log(values);
         actions.resetForm();
     };
