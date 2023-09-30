@@ -12,7 +12,7 @@ export const BurgerMenuBtn = styled.button`
     text-align: center;
     width: 24px;
     height: 24px;
-    fill: ${({ theme }) => theme.colors.textPrimary};
+    stroke: ${({ theme }) => theme.colors.textPrimary};
 
     @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
         width: 34px;

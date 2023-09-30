@@ -21,56 +21,77 @@ import {
     MenuWrapperDiv,
     AddFeedbackBtn,
 } from './Header.styled';
-// import { useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
-export const Header = () => {
-    // const location = useLocation().pathname;
-    // const { isLoggedIn } = useAuth();
+export const Header = ({ onUserPanelShow }) => {
+    const location = useLocation().pathname;
+    // для перевірки userTasks тимчасово
+    // const userTasks = [{ category: 'inProgress' }, { category: 'toDo' }];
+    const userTasks = [{}];
+
+    function formatPathname(location) {
+        const formatted = location.replace(/\//g, '');
+        return formatted.charAt(0).toUpperCase() + formatted.slice(1);
+    }
+    const pageTitle = formatPathname(location);
+
+    const hasUncompletedTask = userTasks.some(
+        i => i.category === 'inProgress' || i.category === 'toDo'
+    );
 
     return (
         <header>
             <HeaderContainer>
-                <BurgerMenuBtn>
+                <BurgerMenuBtn
+                    onClick={() => {
+                        onUserPanelShow();
+                    }}
+                >
                     <Svg>
-                        <use href={`${sprite}#star`} />
+                        <use href={`${sprite}#menu-01`} />
                     </Svg>
                 </BurgerMenuBtn>
                 <MotivationContent>
-                    <picture>
-                        <source
-                            srcSet={
-                                (goose_desktop_tablet_1x_welcome,
-                                goose_desktop_tablet_2x_welcome)
-                            }
-                            media="(min-width: 1200px)"
-                        />
-                        <source
-                            srcSet={
-                                (goose_desktop_tablet_1x_welcome,
-                                goose_desktop_tablet_2x_welcome)
-                            }
-                            media="(min-width: 768px)"
-                        />
-                        <Img
-                            srcSet={
-                                (goose_mobile_1x_welcome,
-                                goose_mobile_2x_welcome)
-                            }
-                            alt="Goose's motivation"
-                        />
-                    </picture>
+                    {hasUncompletedTask && (
+                        <picture>
+                            <source
+                                srcSet={
+                                    (goose_desktop_tablet_1x_welcome,
+                                    goose_desktop_tablet_2x_welcome)
+                                }
+                                media="(min-width: 1200px)"
+                            />
+                            <source
+                                srcSet={
+                                    (goose_desktop_tablet_1x_welcome,
+                                    goose_desktop_tablet_2x_welcome)
+                                }
+                                media="(min-width: 768px)"
+                            />
+                            <Img
+                                srcSet={
+                                    (goose_mobile_1x_welcome,
+                                    goose_mobile_2x_welcome)
+                                }
+                                alt="Goose's motivation"
+                            />
+                        </picture>
+                    )}
 
                     <TextDiv>
-                        <TitleH2>Calendar</TitleH2>
-                        <TextP>
-                            <Span>Let go</Span> of the past and focus on the
-                            present!
-                        </TextP>
+                        <TitleH2>{pageTitle}</TitleH2>
+                        {hasUncompletedTask && (
+                            <TextP>
+                                <Span>Let go</Span> of the past and focus on the
+                                present!
+                            </TextP>
+                        )}
                     </TextDiv>
                 </MotivationContent>
                 <UIComponentsWrapperDiv>
                     <MenuWrapperDiv>
                         <AddFeedbackBtn type="button">Feedback</AddFeedbackBtn>
+
                         <ThemeToggler />
                     </MenuWrapperDiv>
 
