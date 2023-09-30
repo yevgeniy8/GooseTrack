@@ -45,7 +45,7 @@ const RegisterForm = () => {
 
     const handlerSubmit = (values, actions) => {
         dispatch(register(values));
-        Notiflix.Notify.success('Ты зарегался лох');
+        Notiflix.Notify.success('You register');
         navigate('/user');
         // console.log(values);
         actions.resetForm();
