@@ -17,6 +17,9 @@ import { Svg } from '../RegisterForm/RegisterForm.styled';
 
 import sprite from '../../images/icons.svg';
 
+import { useDispatch } from 'react-redux';
+import { login } from 'redux/auth/authOperations';
+
 const emailRegexp = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
 
 const schema = yup.object().shape({
@@ -29,13 +32,18 @@ const schema = yup.object().shape({
 });
 
 const LoginForm = () => {
+    const dispatch = useDispatch();
+
+    // console.log(user);
+
     const initialValues = {
         email: '',
         password: '',
     };
 
     const handlerSubmit = (values, actions) => {
-        console.log(values);
+        dispatch(login(values));
+        // console.log(values);
         actions.resetForm();
     };
 
