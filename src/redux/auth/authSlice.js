@@ -11,7 +11,7 @@ const initialState = {
         skype: null,
         userAvatar: null,
     },
-    token: null,
+    accessToken: null,
     isLoggedIn: false,
     isRefreshing: false,
 };
@@ -28,7 +28,7 @@ export const authSlice = createSlice({
             })
             .addCase(login.fulfilled, (state, action) => {
                 state.user = action.payload.user;
-                state.token = action.payload.token;
+                state.accessToken = action.payload.accessToken;
                 state.isLoggedIn = true;
             })
             .addCase(logout.fulfilled, state => {
@@ -40,7 +40,7 @@ export const authSlice = createSlice({
                     skype: null,
                     userAvatar: null,
                 };
-                state.token = null;
+                state.accessToken = null;
                 state.isLoggedIn = false;
             })
             .addCase(refreshUser.pending, state => {
