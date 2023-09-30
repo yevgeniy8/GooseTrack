@@ -105,6 +105,10 @@ img {
   height: auto;
 }
 
+ul {
+  list-style-type: none;
+}
+
 a {
   text-decoration: none;
   font-style: normal;
