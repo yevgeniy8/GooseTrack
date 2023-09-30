@@ -44,6 +44,7 @@ export const lightTheme = {
         sliderMonthDay: '#343434',
         sliderMonthDayDisabled: '#DCE3E5',
         scrollbar: '#171820',
+        userDefaults: 'rgba(62, 133, 243, 0.18)',
     },
     shadows: {
         logOutBtn: '4px 2px 16px 0px rgba(136, 165, 191, 0.48)',
@@ -97,7 +98,7 @@ export const lightTheme = {
         l: '1440px',
     },
     animations: {
-        cubicBezier: '',
+        cubicBezier: 'cubic-bezier(0.4, 0, 0.2, 1)',
         duration: '250ms',
     },
 };
@@ -148,6 +149,7 @@ export const darkTheme = {
         sliderMonthDay: '#fff',
         sliderMonthDayDisabled: 'rgba(255, 255, 255, 0.15)',
         scrollbar: '#E7E5E5',
+        userDefaults: 'rgba(255, 255, 255, 0.18)',
     },
     shadows: {
         logOutBtn: '4px 2px 16px 0px rgba(136, 165, 191, 0.30)',
@@ -201,7 +203,7 @@ export const darkTheme = {
         l: '1440px',
     },
     animations: {
-        cubicBezier: '',
+        cubicBezier: 'cubic-bezier(0.4, 0, 0.2, 1)',
         duration: '250ms',
     },
 };
