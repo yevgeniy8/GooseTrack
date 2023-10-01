@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import { Formik, Form } from 'formik';
+import { Formik } from 'formik';
 import * as yup from 'yup';
 import sprite from '../../images/icons.svg';
 import {
     AvatarContainer,
     Button,
-    ContainerForm,
     Error,
     ImgAvatar,
     InputFile,
@@ -17,10 +16,10 @@ import {
     StyledForm,
     SvgPlus,
     UserName,
-    UserP,
-    Wrapper,
+    UserP
 } from './UserForm.styled';
 import { ImgContainer } from './UserForm.styled';
+import { FieldsWrap } from './UserForm.styled';
 
 const emailRegexp = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
 const phoneRegexp = /^\+380\d{9}$/;
@@ -72,7 +71,7 @@ export const UserForm = () => {
                 onSubmit={handleSubmit}
             >
                 <StyledForm>
-                  
+                  <FieldsWrap>
                   <LabelWrap>
                         <Label htmlFor="">
                             <Span>User name</Span>
@@ -124,7 +123,7 @@ export const UserForm = () => {
                             <Error component="div" name="skype" />
                         </Label>
                     </LabelWrap>
-                
+                  </FieldsWrap>
 
                     <Button type="submit">Save changes</Button>
                 </StyledForm>

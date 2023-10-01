@@ -15,11 +15,9 @@ export const MainContainer = styled.div`
     background-color: #fff;
     @media (min-width: 768px) {
         max-width: 704px;
-        flex-direction:column;
     }
     @media (min-width: 1140px) {
         max-width: 1087px;
-        flex-direction:column;
     }
 `;
 
@@ -114,18 +112,19 @@ export const StyledForm = styled(Form)`
     @media (min-width: 768px) {
         max-width: 354px;
         margin: 0 auto;
-        
     }
     @media (min-width: 1140px) {
         max-width: 758px;
-        flex-direction:row;
+        
         
     }
 `;
 
 export const FieldsWrap= styled.div`
+width:100%;
     @media (min-width:1140px){
-        display: flex;
+            display: flex;
+
     flex-wrap: wrap;
     column-gap: 50px;
     }
@@ -161,6 +160,9 @@ export const LabelWrap = styled.div`
     margin-bottom: 18px;
     @media (min-width: 768px) {
         margin-bottom: 24px;
+    }
+    @media (min-width: 1140px) {
+       width:354px;
     }
 `;
 
