@@ -18,7 +18,7 @@ import {
     WrapForInput,
 } from './FeedbackForm.styled';
 
-// import pencil from '../../images/icons.svg';
+import pencil from '../../images/icons.svg';
 // import trash from '../../images/icons.svg';
 import close from '../../images/icons.svg';
 
@@ -111,13 +111,18 @@ export const FeedbackForm = ({ onClose }) => {
                                         isActive={isEditActive}
                                         type="button"
                                     >
-                                        {/* <pencil /> */}
+                                        <svg width="30" height="30">
+                                            <use href={`${pencil}#pencil`} />
+                                        </svg>
+                                        
                                     </EditBtn>
                                     <DeleteBtn
                                         type="button"
                                         onClick={handleDelete}
                                     >
-                                        {/* {trash} */}
+                                        {/* <svg width="30" height="30">
+                                            <use href={`${trash}#trash`} />
+                                        </svg> */}
                                     </DeleteBtn>
                                 </WrapForEdit>
                             )}
@@ -158,7 +163,6 @@ export const FeedbackForm = ({ onClose }) => {
                         <svg width="24" height="24">
                             <use href={`${close}#x-close`} />
                         </svg>
-                        {/* <IconClose style={{ width: 24, height: 24 }} /> */}
                     </BtnCloseWrap>
                 </Form>
             </Formik>

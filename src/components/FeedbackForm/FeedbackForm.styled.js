@@ -8,7 +8,7 @@ export const Wrap = styled.div`
     padding: 28px 20px;
     border-radius: 16px;
     width: 335px;
-    /* background: */
+    /* background: $; */
     box-shadow: 0px 4px 16px 0px rgba(17, 17, 17, 0.1);
 
     @media (min-width: 768px) {
@@ -47,7 +47,7 @@ export const EditBtn = styled.button`
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    stroke: #3e85f3;
+    stroke: white;
 
     cursor: pointer;
     transition: stroke 300ms cubic-bezier(0.4, 0, 0.2, 1),
@@ -73,7 +73,8 @@ export const DeleteBtn = styled.button`
     border: none;
     border-radius: 50%;
     cursor: pointer;
-    
+    transition: {stroke: #EA3D65};
+
     &:hover,
     &:focus {
         stroke: #ffffff;

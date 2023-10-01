@@ -1,5 +1,3 @@
-// чистий код
-
 import { useEffect } from "react";
 import { createPortal } from "react-dom";
 
@@ -27,9 +25,8 @@ const CreateModal = ({ children, onClose, }) => {
         }
     };
     return createPortal(
-        <Backdrop >
-            <Modal onClick={handleClose}>
-                {/* <CloseModal onClick={onClose}/> */}
+        <Backdrop onClick={handleClose} >
+            <Modal >
                     <div>{children}</div>
             </Modal>
         </Backdrop>,
@@ -38,45 +35,3 @@ const CreateModal = ({ children, onClose, }) => {
 };
 
 export default CreateModal;
-
-
-
-// import { useEffect } from 'react';
-// import { createPortal } from 'react-dom';
-
-// import { ModalDiv, Overlay } from './Modal.styled';
-
-// const modalRoot = document.querySelector('#modal-root');
-
-// export const Modal = ({ onClose, children }) => {
-//     useEffect(() => {
-//         document.body.style.overflow = 'hidden';
-
-//         const closeModalByEsc = e => {
-//             if (e.code === 'Escape') {
-//                 onClose();
-//             }
-//         };
-
-//         document.addEventListener('keydown', closeModalByEsc);
-
-//         return () => {
-//             document.body.style.overflow = 'auto';
-
-//             document.removeEventListener('keydown', closeModalByEsc);
-//         };
-//     }, [onClose]);
-
-//     const handleOverlayClick = e => {
-//         if (e.target === e.currentTarget) {
-//             onClose();
-//         }
-//     };
-
-//     return createPortal(
-//         <Overlay onClick={handleOverlayClick}>
-//             <ModalDiv>{children}</ModalDiv>
-//         </Overlay>,
-//         modalRoot
-//     );
-// };
