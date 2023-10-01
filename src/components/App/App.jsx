@@ -1,58 +1,57 @@
-// import { Route, Routes } from 'react-router-dom';
-// import MainPage from 'pages/MainPage';
-// import RegisterPage from 'pages/RegisterPage';
-// import LoginPage from 'pages/LoginPage';
-
-// import MainLayout from '../MainLayout';
-
-// export const App = () => {
-//     return (
-//         <Routes>
-//             <Route path="/" element={<MainPage />} />
-//             <Route path="/register" element={<RegisterPage />} />
-//             <Route path="/login" element={<LoginPage />} />
-//             {/* тимчасовий роут для сторінки юзера */}
-//             <Route path="/user" element={<MainLayout />}></Route>
-//         </Routes>
-//     );
-// };
-
-
 import { Route, Routes } from 'react-router-dom';
+
+import useAuth from 'hooks/useAuth';
+
+import RestrictedRoute from 'components/RestrictedRoute/RestrictedRoute';
+import PrivateRoute from 'components/PrivateRoute/PrivateRoute';
+
 import MainPage from 'pages/MainPage';
 import RegisterPage from 'pages/RegisterPage';
 import LoginPage from 'pages/LoginPage';
+
 import MainLayout from '../MainLayout';
-import { FeedbackModal } from '../FeedbackForm/FeedbackModal'; // Імпортуємо компонент FeedbackModal
-import { useState } from 'react';
+
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+
+import { refreshUser } from 'redux/auth/authOperations';
+
+import Spinner from 'components/Spinner/Spinner';
+
+// import Notiflix from 'notiflix';
+
 export const App = () => {
-    const [isFeedbackModalOpen, setIsFeedbackModalOpen] = useState(false);
+    const { isRefreshing } = useAuth();
+    const dispatch = useDispatch();
 
-    const openFeedbackModal = () => {
-        setIsFeedbackModalOpen(true);
-    };
+    useEffect(() => {
+        dispatch(refreshUser());
+    }, [dispatch]);
 
-    const closeFeedbackModal = () => {
-        setIsFeedbackModalOpen(false);
-    };
+    return isRefreshing ? (
+        // <b>Refreshing user...</b>
+        <Spinner />
+    ) : (
+        <Routes>
+            <Route path="/" element={<MainPage />} />
+            <Route path="/register" element={<RegisterPage />} />
+            {/* <Route path="/login" element={<LoginPage />} /> */}
 
-    return (
-        <div>
-            <Routes>
-                <Route path="/" element={<MainPage />} />
-                <Route path="/register" element={<RegisterPage />} />
-                <Route path="/login" element={<LoginPage />} />
-                {/* тимчасовий роут для сторінки юзера */}
-                <Route path="/user" element={<MainLayout />} />
-            </Routes>
+            {/* тимчасовий роут для сторінки юзера */}
+            {/* <Route path="/user" element={<MainLayout />} /> */}
 
-            {/* Додайте кнопку, яка відкриває модальне вікно */}
-            <button onClick={openFeedbackModal}>Зв'язатися</button>
-
-            {/* Відобразіть модальне вікно, якщо isFeedbackModalOpen === true */}
-            {isFeedbackModalOpen && (
-                <FeedbackModal onClose={closeFeedbackModal} />
-            )}
-        </div>
+            <Route
+                path="/login"
+                element={
+                    <RestrictedRoute redirectTo="/user" component={LoginPage} />
+                }
+            />
+            <Route
+                path="/user"
+                element={
+                    <PrivateRoute redirectTo="/login" component={MainLayout} />
+                }
+            />
+        </Routes>
     );
 };

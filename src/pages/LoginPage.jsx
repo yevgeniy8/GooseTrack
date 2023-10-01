@@ -4,11 +4,32 @@ import LoginForm from 'components/LoginForm/LoginForm';
 import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
 
+import login_goose_rocket_desktop from '../images/login_register/login_goose_rocket_desktop.png';
+import login_goose_rocket_desktop2x from '../images/login_register/login_goose_rocket_desktop@2x.png';
+
 const LoginPage = () => {
     return (
         <WrapperRegister>
             <LoginForm />
             <LinkToLogin to="/register">Sign Up</LinkToLogin>
+            <Picture>
+                <source
+                    srcSet={
+                        (login_goose_rocket_desktop,
+                        login_goose_rocket_desktop2x)
+                    }
+                    media="(min-width: 1200px)"
+                />
+                <img
+                    srcSet={
+                        (login_goose_rocket_desktop,
+                        login_goose_rocket_desktop2x)
+                    }
+                    width={368}
+                    height={521}
+                    alt=""
+                />
+            </Picture>
         </WrapperRegister>
     );
 };
@@ -33,6 +54,12 @@ const LinkToLogin = styled(NavLink)`
     font-weight: 600;
     line-height: 24px; /* 133.333% */
     text-decoration-line: underline;
+`;
+
+const Picture = styled.picture`
+    position: absolute;
+    top: 230px;
+    right: 60px;
 `;
 
 export default LoginPage;
