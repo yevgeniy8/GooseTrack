@@ -17,8 +17,10 @@ export const register = createAsyncThunk(
     async (user, thunkApi) => {
         try {
             const response = await axios.post('/auth/register', user);
+            Notiflix.Notify.success('You register');
             return response.data;
         } catch (error) {
+            Notiflix.Notify.failure('Not');
             thunkApi.rejectWithValue(error);
         }
     }
@@ -31,6 +33,7 @@ export const login = createAsyncThunk('auth/login', async (user, thunkApi) => {
         console.log(response.data);
         return response.data;
     } catch (error) {
+        console.log(error);
         console.log(error.response.data.message);
         Notiflix.Notify.failure(error.response.data.message);
         // thunkApi.rejectWithValue(error);
