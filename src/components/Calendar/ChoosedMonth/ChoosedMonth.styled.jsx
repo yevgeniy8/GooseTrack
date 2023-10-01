@@ -11,8 +11,9 @@ export const WeekdaysList = styled.ul`
     justify-content: space-around;
     padding: 14px 0;
     background-color: rgba(255, 255, 255, 1);
-border: solid 1px rgba(220, 227, 229, 0.8);
-border-radius: 8px;
+    border: 1px solid rgba(220, 227, 229, 0.8);
+    border-radius: 8px;
+    overflow: hidden;
     `;
 
 export const WeekdaysItem = styled.li`

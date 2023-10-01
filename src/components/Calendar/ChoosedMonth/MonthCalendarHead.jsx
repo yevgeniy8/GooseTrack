@@ -3,7 +3,7 @@ import { WeekdaysItem, WeekdaysList } from "./ChoosedMonth.styled";
 const CalendarHead
  = () => {
      return ( 
-         <>
+         
              <WeekdaysList>
                  <WeekdaysItem>mon</WeekdaysItem>
                  <WeekdaysItem>tue</WeekdaysItem>
@@ -13,7 +13,7 @@ const CalendarHead
                  <WeekdaysItem>sat</WeekdaysItem>
                  <WeekdaysItem>sun</WeekdaysItem>
              </WeekdaysList>
-        </>
+        
      );
 }
  
