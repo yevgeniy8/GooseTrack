@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/335.b53dd9f0.chunk.js","mappings":"mKAMA,UAJqB,WACjB,OAAO,yBAAK,gBACf,C","sources":["pages/CalendarPage.jsx"],"sourcesContent":["import React from 'react';\n\nconst CalendarPage = () => {\n    return <div>CalendarPage</div>;\n};\n\nexport default CalendarPage;\n"],"names":[],"sourceRoot":""}

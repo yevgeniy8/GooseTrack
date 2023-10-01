@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/698.26037507.chunk.js","mappings":"kKAMA,UAJoB,WAChB,OAAO,yBAAK,eACf,C","sources":["pages/AccountPage.jsx"],"sourcesContent":["import React from 'react';\n\nconst AccountPage = () => {\n    return <div>AccountPage</div>;\n};\n\nexport default AccountPage;\n"],"names":[],"sourceRoot":""}
