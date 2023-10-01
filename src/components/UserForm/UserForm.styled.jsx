@@ -15,6 +15,11 @@ export const MainContainer = styled.div`
     background-color: #fff;
     @media (min-width: 768px) {
         max-width: 704px;
+        flex-direction:column;
+    }
+    @media (min-width: 1140px) {
+        max-width: 1087px;
+        flex-direction:column;
     }
 `;
 
@@ -24,14 +29,26 @@ export const AvatarContainer = styled.div`
     flex-direction: column;
     align-items: center;
     margin-bottom: 40px;
+    margin-left: auto;
+    margin-right: auto;
+`;
+export const ImgContainer = styled.div`
+    margin-bottom: 18px;
+    width: 72px;
+    height: 76px;
+    @media (min-width: 768px) {
+        width: 124px;
+        height: 130px;
+        margin-bottom: 20px;
+    };
+    
 `;
 
 export const ImgAvatar = styled.img`
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    width: 72px;
-    height: 76px;
+
     object-fit: cover;
     object-position: 50% 50%;
     margin-bottom: 18px;
@@ -43,6 +60,10 @@ export const InputFile = styled.input`
     left: 137px;
     width: 20px;
     opacity: 0;
+    @media (min-width: 768px) {
+        top: 112px;
+        left: 84px;
+    }
 `;
 
 export const SvgPlus = styled.svg`
@@ -50,8 +71,14 @@ export const SvgPlus = styled.svg`
     fill: #3e85f3;
     position: absolute;
     top: 60px;
-    left: 136px;
+    left: 48px;
     cursor: pointer;
+    @media (min-width: 768px) {
+        top: 112px;
+        left: 84px;
+        width:24px;
+        height:24px;
+    }
 `;
 
 export const UserName = styled.h2`
@@ -60,6 +87,11 @@ export const UserName = styled.h2`
     font-size: 14px;
     font-weight: 700;
     line-height: 1.285;
+    @media (min-width: 768px) {
+        margin-bottom:8px;
+        font-size: 18px;
+    }
+    
 `;
 
 export const UserP = styled.p`
@@ -68,6 +100,9 @@ export const UserP = styled.p`
     font-weight: 600;
     font-family: Inter;
     line-height: 1.1666;
+    @media (min-width: 768px){
+        font-size: 14px;
+    }
 `;
 
 export const StyledForm = styled(Form)`
@@ -75,18 +110,34 @@ export const StyledForm = styled(Form)`
     flex-direction: column;
     align-items: center;
     width: 100%;
+    margin: 0 auto;
     @media (min-width: 768px) {
         max-width: 354px;
-    }
-`;
-export const Wrapper = styled.div`
-    width: 299px;
-    @media (min-width: 768px) {
-        max-width: 354px;
+        margin: 0 auto;
+        
     }
     @media (min-width: 1140px) {
+        max-width: 758px;
+        flex-direction:row;
+        
     }
 `;
+
+export const FieldsWrap= styled.div`
+    @media (min-width:1140px){
+        display: flex;
+    flex-wrap: wrap;
+    column-gap: 50px;
+    }
+`
+// export const Wrapper = styled.div`
+//     width: 299px;
+//     @media (min-width: 768px) {
+//         max-width: 354px;
+//     }
+//     @media (min-width: 1140px) {
+//     }
+// `;
 
 export const Label = styled.label`
     position: relative;
@@ -99,11 +150,19 @@ export const Span = styled.span`
     font-size: 12px;
     line-height: 1.166;
     margin-bottom: 8px;
+    @media (min-width: 768px) {
+        font-size: 14px;
+    }
+    line-height: 1.285;
 `;
 
-export const LabelWrap=styled.div`
-    width:100%;
-`
+export const LabelWrap = styled.div`
+    width: 100%;
+    margin-bottom: 18px;
+    @media (min-width: 768px) {
+        margin-bottom: 24px;
+    }
+`;
 
 export const InputForm = styled(Field)`
     width: 100%;
@@ -111,13 +170,10 @@ export const InputForm = styled(Field)`
     border-radius: 8px;
     border: 1px solid rgba(220, 227, 229, 0.6);
 
-    color: #111;
     outline: none;
     font-family: Inter;
-    margin-bottom: 18px;
 
-    font-size: 14px;
-    line-height: 18px;
+    line-height: 1.28;
 
     &:hover,
     &:focus {
@@ -125,14 +181,23 @@ export const InputForm = styled(Field)`
     }
 
     ::placeholder {
-        color: #111111;
+        color: #111;
         font-weight: 600;
+        font-size: 14px;
+    }
+    @media (min-width: 768px) {
+        padding: 14px;
+        ::placeholder {
+            color: #111;
+            font-weight: 600;
+            font-size: 16px;
+        }
     }
 `;
 
 export const Button = styled.button`
     margin-top: 30px;
-    width: 195px;
+    /* width: 195px; */
     padding: 14px 50px;
     align-self: center;
     border: none;
@@ -145,10 +210,12 @@ export const Button = styled.button`
     color: #fff;
     font-family: Inter;
     font-size: 14px;
-    font-style: normal;
     font-weight: 600;
     line-height: 1.333;
     letter-spacing: -0.36px;
+    @media (min-width: 768px) {
+        padding: 15px 84px;
+    }
 `;
 
 export const Error = styled(ErrorMessage)`
@@ -162,4 +229,8 @@ export const Error = styled(ErrorMessage)`
     font-style: normal;
     font-weight: 400;
     line-height: 14px;
+    @media (min-width: 768px) {
+        bottom:-33px;
+        left:6px;
+    }
 `;

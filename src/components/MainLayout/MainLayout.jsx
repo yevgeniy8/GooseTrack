@@ -13,6 +13,7 @@ const MainLayout = () => {
                 <Suspense>
                     {/* <Suspense fallback={<LinearProgress />}> */}
                     <Outlet />
+                    
                 </Suspense>
             </main>
         </>
