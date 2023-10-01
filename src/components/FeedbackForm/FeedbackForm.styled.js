@@ -100,8 +100,6 @@ export const Input = styled(Field)`
     border-radius: 8px;
     border: 1px solid rgba(246, 246, 246, 1);
 
-
-
     @media (min-width: 768px) {
         width: 404px;
     }
@@ -192,7 +190,7 @@ export const BtnCloseWrap = styled.button`
     border: none;
     background-color: transparent;
     cursor: pointer;
-    /* stroke: ; */
+    stroke: #111111;
 
     transition: stroke 300ms cubic-bezier(0.4, 0, 0.2, 1);
 

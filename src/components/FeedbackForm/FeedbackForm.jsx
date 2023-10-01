@@ -18,7 +18,7 @@ import {
     WrapForInput,
 } from './FeedbackForm.styled';
 
-// import star from '../../images/icons.svg';
+// import pencil from '../../images/icons.svg';
 // import trash from '../../images/icons.svg';
 import close from '../../images/icons.svg';
 
@@ -111,7 +111,7 @@ export const FeedbackForm = ({ onClose }) => {
                                         isActive={isEditActive}
                                         type="button"
                                     >
-                                        {/* <star /> */}
+                                        {/* <pencil /> */}
                                     </EditBtn>
                                     <DeleteBtn
                                         type="button"
