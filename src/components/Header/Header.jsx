@@ -1,42 +1,47 @@
-import ThemeToggler from './ThemeToggler/ThemeToggler';
-import UserInfo from './UserInfo/UserInfo';
+// import React, { useState } from 'react';
+import ThemeToggler from './ThemeToggler';
+import UserInfo from './UserInfo';
+import AddFeedbackBtn from './AddFeedbackBtn';
+// import AddFeedbackModal from './AddFeedbackModal/AddFeedbackModal';
 import sprite from 'images/icons.svg';
 
-import goose_desktop_tablet_1x_welcome from '../../images/main_page/goose-desktop-tablet-1x-welcome.png';
-import goose_desktop_tablet_2x_welcome from '../../images/main_page/goose-desktop-tablet-2x-welcome.png';
-import goose_mobile_1x_welcome from '../../images/main_page/goose-mobile-1x-welcome.png';
-import goose_mobile_2x_welcome from '../../images/main_page/goose-mobile-2x-welcome.png';
+import image1x from '../../images/calendar-page/goose_desktop_tablet_1x_motivation.png';
+import image2x from '../../images/calendar-page/goose_desktop_tablet_2x_motivation.png';
 
 import {
     HeaderContainer,
     BurgerMenuBtn,
     Svg,
     MotivationContent,
-    Img,
     TextDiv,
     TitleH2,
     TextP,
     Span,
     UIComponentsWrapperDiv,
     MenuWrapperDiv,
-    AddFeedbackBtn,
 } from './Header.styled';
 import { useLocation } from 'react-router-dom';
 
 export const Header = ({ onUserPanelShow }) => {
+    // const [isOpenModal, setIsOpenModal] = useState(false);
+
+    const showAddFeedbackModal = () => {
+        // setIsOpenModal(true);
+    };
+
     const location = useLocation().pathname;
     // для перевірки userTasks тимчасово
-    // const userTasks = [{ category: 'inProgress' }, { category: 'toDo' }];
-    const userTasks = [{}];
+    const userTasks = [{ category: 'in-Progress' }, { category: 'to-Do' }];
+    // const userTasks = [{}];
 
-    function formatPathname(location) {
+    function formatPageTitle(location) {
         const formatted = location.replace(/\//g, '');
         return formatted.charAt(0).toUpperCase() + formatted.slice(1);
     }
-    const pageTitle = formatPathname(location);
+    const pageTitle = formatPageTitle(location);
 
     const hasUncompletedTask = userTasks.some(
-        i => i.category === 'inProgress' || i.category === 'toDo'
+        i => i.category === 'in-Progress' || i.category === 'to-Do'
     );
 
     return (
@@ -53,29 +58,13 @@ export const Header = ({ onUserPanelShow }) => {
                 </BurgerMenuBtn>
                 <MotivationContent>
                     {hasUncompletedTask && (
-                        <picture>
-                            <source
-                                srcSet={
-                                    (goose_desktop_tablet_1x_welcome,
-                                    goose_desktop_tablet_2x_welcome)
-                                }
-                                media="(min-width: 1200px)"
-                            />
-                            <source
-                                srcSet={
-                                    (goose_desktop_tablet_1x_welcome,
-                                    goose_desktop_tablet_2x_welcome)
-                                }
-                                media="(min-width: 768px)"
-                            />
-                            <Img
-                                srcSet={
-                                    (goose_mobile_1x_welcome,
-                                    goose_mobile_2x_welcome)
-                                }
-                                alt="Goose's motivation"
-                            />
-                        </picture>
+                        <img
+                            srcSet={`${image1x} 1x, ${image2x} 2x`}
+                            src={image1x}
+                            alt="Goose's motivation"
+                            width="64px"
+                            height="60px"
+                        />
                     )}
 
                     <TextDiv>
@@ -90,7 +79,7 @@ export const Header = ({ onUserPanelShow }) => {
                 </MotivationContent>
                 <UIComponentsWrapperDiv>
                     <MenuWrapperDiv>
-                        <AddFeedbackBtn type="button">Feedback</AddFeedbackBtn>
+                        <AddFeedbackBtn showModal={showAddFeedbackModal} />
 
                         <ThemeToggler />
                     </MenuWrapperDiv>
@@ -98,6 +87,9 @@ export const Header = ({ onUserPanelShow }) => {
                     <UserInfo />
                 </UIComponentsWrapperDiv>
             </HeaderContainer>
+            {/* {isOpenModal && (
+                <AddFeedbackModal isOpenModal={isOpenModal}></AddFeedbackModal>
+            )} */}
         </header>
     );
 };
