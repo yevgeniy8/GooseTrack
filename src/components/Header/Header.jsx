@@ -3,6 +3,7 @@ import ThemeToggler from './ThemeToggler';
 import UserInfo from './UserInfo';
 import AddFeedbackBtn from './AddFeedbackBtn';
 // import AddFeedbackModal from './AddFeedbackModal/AddFeedbackModal';
+// import { FeedbackModal } from '../FeedbackForm/FeedbackModal';
 import sprite from 'images/icons.svg';
 
 import image1x from '../../images/calendar-page/goose_desktop_tablet_1x_motivation.png';
@@ -22,7 +23,7 @@ import {
 } from './Header.styled';
 import { useLocation } from 'react-router-dom';
 
-export const Header = ({ onUserPanelShow }) => {
+export const Header = ({ onOpenClick }) => {
     // const [isOpenModal, setIsOpenModal] = useState(false);
 
     const showAddFeedbackModal = () => {
@@ -47,11 +48,7 @@ export const Header = ({ onUserPanelShow }) => {
     return (
         <header>
             <HeaderContainer>
-                <BurgerMenuBtn
-                    onClick={() => {
-                        onUserPanelShow();
-                    }}
-                >
+                <BurgerMenuBtn onClick={onOpenClick}>
                     <Svg>
                         <use href={`${sprite}#menu-01`} />
                     </Svg>
@@ -88,7 +85,7 @@ export const Header = ({ onUserPanelShow }) => {
                 </UIComponentsWrapperDiv>
             </HeaderContainer>
             {/* {isOpenModal && (
-                <AddFeedbackModal isOpenModal={isOpenModal}></AddFeedbackModal>
+                <FeedbackModal isOpenModal={isOpenModal}></FeedbackModal>
             )} */}
         </header>
     );

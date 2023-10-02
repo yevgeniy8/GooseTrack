@@ -4,11 +4,9 @@ import { useState } from 'react';
 import { AddFeedbackModal } from '../AddFeedbackModal/AddFeedbackModal';
 
 const AddFeedbackBtn = () => {
-    
-    const [showModal, setShowModal] = useState(false); 
+    const [showModal, setShowModal] = useState(false);
 
     const openModal = () => {
-        
         setShowModal(true);
     };
 
@@ -27,3 +25,15 @@ const AddFeedbackBtn = () => {
 };
 
 export default AddFeedbackBtn;
+
+// import { Btn } from './AddFeedbackBtn.styled';
+
+// const AddFeedbackBtn = ({ showModal }) => {
+//     return (
+//         <Btn onClick={showModal} type="button">
+//             Feedback
+//         </Btn>
+//     );
+// };
+
+// export default AddFeedbackBtn;

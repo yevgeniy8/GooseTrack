@@ -1,15 +1,28 @@
-// import { AuthNav } from '../AuthNav/AuthNav';
-import { InfoContainer, NameP, AvatarDiv, Svg } from './UserInfo.styled';
-import sprite from 'images/icons.svg';
+import useAuth from 'hooks/useAuth';
+import {
+    InfoContainer,
+    NameP,
+    AvatarDiv,
+    FirstLetterOfName,
+} from './UserInfo.styled';
 
 const UserInfo = () => {
+    const { user } = useAuth();
+
+    const { name, avatarURL } = user;
+    const firstLetterOfUserName = name.charAt(0);
+
     return (
         <InfoContainer>
-            <NameP>Goose</NameP>
+            {name ? <NameP>{name}</NameP> : <NameP>User</NameP>}
             <AvatarDiv>
-                <Svg>
-                    <use href={`${sprite}#user-check`} />
-                </Svg>
+                {avatarURL !== '' ? (
+                    <img src={avatarURL} alt={name} />
+                ) : (
+                    <FirstLetterOfName>
+                        {firstLetterOfUserName}
+                    </FirstLetterOfName>
+                )}
             </AvatarDiv>
         </InfoContainer>
     );
