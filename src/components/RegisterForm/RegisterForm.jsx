@@ -18,8 +18,12 @@ import sprite from '../../images/icons.svg';
 
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/authOperations';
+// import Notiflix from 'notiflix';
+import { useNavigate } from 'react-router-dom';
 
 const emailRegexp = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
+
+const baseURL = 'https://goose-track-backend-q3re.onrender.com';
 
 const schema = yup.object().shape({
     name: yup.string().required(),
@@ -33,6 +37,7 @@ const schema = yup.object().shape({
 
 const RegisterForm = () => {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const initialValues = {
         name: '',
@@ -42,6 +47,7 @@ const RegisterForm = () => {
 
     const handlerSubmit = (values, actions) => {
         dispatch(register(values));
+        navigate('/user');
         // console.log(values);
         actions.resetForm();
     };
@@ -97,6 +103,8 @@ const RegisterForm = () => {
                             <use href={`${sprite}#log-in`} />
                         </Svg>
                     </Button>
+
+                    <a href={`${baseURL}/auth/google`}>Google</a>
                 </Form>
             </Formik>
         </ContainerForm>

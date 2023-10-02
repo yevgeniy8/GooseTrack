@@ -15,7 +15,7 @@ const UserNav = () => {
             <NavTitle>User Panel</NavTitle>
             <List>
                 <Item>
-                    <Link to="/account">
+                    <Link to="account">
                         <Icon>
                             <use href={`${Icons}#user-check`} />
                         </Icon>
@@ -23,7 +23,7 @@ const UserNav = () => {
                     </Link>
                 </Item>
                 <Item>
-                    <Link to="/calendar">
+                    <Link to="calendar">
                         <Icon>
                             <use href={`${Icons}#calendar-check`} />
                         </Icon>
@@ -31,7 +31,7 @@ const UserNav = () => {
                     </Link>
                 </Item>
                 <Item>
-                    <Link to="/statistics">
+                    <Link to="statistics">
                         <IconStat fill="inherit">
                             <use href={`${Icons}#chart-statistics`} />
                         </IconStat>

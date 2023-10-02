@@ -12,7 +12,7 @@ export const BurgerMenuBtn = styled.button`
     text-align: center;
     width: 24px;
     height: 24px;
-    fill: ${({ theme }) => theme.colors.textPrimary};
+    stroke: ${({ theme }) => theme.colors.textPrimary};
 
     @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
         width: 34px;
@@ -37,11 +37,6 @@ export const MotivationContent = styled.div`
         align-items: center;
         gap: 8px;
     }
-`;
-
-export const Img = styled.img`
-    width: 64px;
-    height: 60px;
 `;
 
 export const HeaderContainer = styled.div`
@@ -107,35 +102,5 @@ export const MenuWrapperDiv = styled.div`
 
     @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
         gap: 24px;
-    }
-`;
-
-export const AddFeedbackBtn = styled.button`
-    padding: 0;
-    outline: none;
-    border: none;
-    cursor: pointer;
-    text-align: center;
-    font-family: Inter;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: calc(16 / 12);
-    padding: 12px 32px;
-    border-radius: 10px;
-    background-color: ${({ theme }) => theme.colors.backgroundBtn};
-    color: ${({ theme }) => theme.colors.white};
-
-    transition: ${({ theme }) =>
-        `background-color ${theme.animations.duration} ${theme.animations.cubicBezier}`};
-
-    @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
-        font-size: 14px;
-        line-height: calc(18 / 14);
-    }
-
-    :hover,
-    :focus {
-        background-color: ${({ theme }) => theme.colors.backgroundBtnHover};
     }
 `;
