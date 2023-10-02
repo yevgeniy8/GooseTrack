@@ -10,7 +10,7 @@ const CalendarPage = () => {
             <H2>Calendar</H2>
         <CalendarToolbar/>
             <ChoosedMonth/>
-        </CalendarContainer>
+        </CalendarContainer> 
      );
 }
 

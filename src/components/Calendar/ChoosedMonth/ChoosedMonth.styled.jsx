@@ -27,6 +27,33 @@ export const WeekdaysItem = styled.li`
     &:nth-last-child(-n+2) {
         color: #3E85F3;
     };
+`;
+
+export const Table = styled.div`
+      display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  ${(props) => props.fullheight && `height: calc(100% - 75px);`}
+  ${(props) =>
+    props.fullheight &&
+    `grid-template-rows: repeat(${props.is28Days ? 4 : 5}, 1fr);`}
+  div {
+    display: grid;
+    border: 1px solid;
+    span {
+      text-align: right;
+      padding-right: 15px;
+      height: fit-content;
+    }
+
+    span.active {
+      background-color: pink;
+      border-bottom: 2px solid red;
+      position: relative;
+    }
+    span.active::before {
+      content: "Today ";
+      font-size: 14px;
+    }
 `
 
 
