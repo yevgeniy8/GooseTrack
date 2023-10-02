@@ -1,7 +1,7 @@
 import { Btn } from './AddFeedbackBtn.styled';
 
 import { useState } from 'react';
-import { FeedbackModal } from '../../FeedbackForm/FeedbackModal';
+import { AddFeedbackModal } from '../AddFeedbackModal/AddFeedbackModal';
 
 const AddFeedbackBtn = () => {
     const [showModal, setShowModal] = useState(false);
@@ -19,7 +19,7 @@ const AddFeedbackBtn = () => {
             <Btn onClick={openModal} type="button">
                 Feedback
             </Btn>
-            {showModal && <FeedbackModal onClose={closeModal} />}
+            {showModal && <AddFeedbackModal onClose={closeModal}  />}
         </div>
     );
 };
