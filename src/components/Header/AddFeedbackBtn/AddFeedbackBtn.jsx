@@ -1,39 +1,11 @@
 import { Btn } from './AddFeedbackBtn.styled';
 
-import { useState } from 'react';
-import { AddFeedbackModal } from '../AddFeedbackModal/AddFeedbackModal';
-
-const AddFeedbackBtn = () => {
-    const [showModal, setShowModal] = useState(false);
-
-    const openModal = () => {
-        setShowModal(true);
-    };
-
-    const closeModal = () => {
-        setShowModal(false);
-    };
-
+const AddFeedbackBtn = ({ showModal }) => {
     return (
-        <div>
-            <Btn onClick={openModal} type="button">
-                Feedback
-            </Btn>
-            {showModal && <AddFeedbackModal onClose={closeModal}  />}
-        </div>
+        <Btn onClick={showModal} type="button">
+            Feedback
+        </Btn>
     );
 };
 
 export default AddFeedbackBtn;
-
-// import { Btn } from './AddFeedbackBtn.styled';
-
-// const AddFeedbackBtn = ({ showModal }) => {
-//     return (
-//         <Btn onClick={showModal} type="button">
-//             Feedback
-//         </Btn>
-//     );
-// };
-
-// export default AddFeedbackBtn;
