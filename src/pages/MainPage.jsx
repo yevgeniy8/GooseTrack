@@ -1,5 +1,6 @@
 import AuthSection from 'components/AuthSection/AuthSection';
 import Description from 'components/Description/Description';
+import ReviewsSlider from 'components/ReviewsSlider/ReviewsSlider';
 
 import React from 'react';
 
@@ -8,6 +9,7 @@ const MainPage = () => {
         <div>
             <AuthSection />
             <Description />
+            <ReviewsSlider />
         </div>
     );
 };
