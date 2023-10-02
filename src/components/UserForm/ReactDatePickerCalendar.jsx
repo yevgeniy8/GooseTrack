@@ -1,19 +1,23 @@
-import { useState } from "react";
-import { DatepickerWrap,DatePickerStyled, DatePickWrapper } from "./ReactDatePickerCalendar.styled"
+import { useState } from 'react';
+import {
+    DatepickerWrap,
+    DatePickerStyled,
+    DatePickWrapper,
+} from './ReactDatePickerCalendar.styled';
 import { format } from 'date-fns';
 import { registerLocale, setDefaultLocale } from 'react-datepicker';
 import en from 'date-fns/locale/en-US';
 
 // daysOfWeek: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
-const customDayNames = {
-    localize: {
-        
-              day: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
-            },
-    
-  };
-  
-  // Спеціфікуємо локалізацію та додаємо об'єкт localize
+// const customDayNames = {
+//     localize: {
+
+//               day: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
+//             },
+
+//   };
+
+// Спеціфікуємо локалізацію та додаємо об'єкт localize
 //   const customLocale = {
 //     ...en, // Використовуємо локалізацію української мови як базову
 //     localize: {
@@ -36,10 +40,17 @@ const customDayNames = {
 //     ],
 //   };
 
-export const BirthdayDatePicker=()=>{
+export const BirthdayDatePicker = () => {
     const [startDate, setStartDate] = useState(new Date());
 
-    return <DatePickWrapper>
-        <DatePickerStyled selected={startDate} onChange={(date) => setStartDate(date)} locale={customDayNames} />
-    </DatePickWrapper>
-}
+    return (
+        <DatePickWrapper>
+            <DatePickerStyled
+                selected={startDate}
+                onChange={date => setStartDate(date)}
+                formatWeekDay={nameOfDay => nameOfDay.charAt(0)} // Використовуємо тільки перший символ
+                locale=""
+            />
+        </DatePickWrapper>
+    );
+};
