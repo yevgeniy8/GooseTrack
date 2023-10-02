@@ -30,7 +30,7 @@ const SideBar = () => {
                         G<SpanTitle>oo</SpanTitle>
                         seTrack
                     </LogoTitle>
-                    <CloseBtn>
+                    <CloseBtn type="button">
                         <IconX stroke="black">
                             <use href={`${Icons}#x-close`} />
                         </IconX>
