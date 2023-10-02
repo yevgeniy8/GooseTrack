@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom';
 
 import { Header } from 'components/Header';
 import SideBar from 'components/SideBar';
+import Spinner from 'components/Spinner/Spinner';
 import { Wrapper } from './MainLayout.styled';
 
 const MainLayout = () => {
@@ -11,8 +12,7 @@ const MainLayout = () => {
             <SideBar></SideBar>
             <Header></Header>
             <main>
-                <Suspense>
-                    {/* <Suspense fallback={<LinearProgress />}> */}
+                <Suspense fallback={<Spinner />}>
                     <Outlet />
                 </Suspense>
             </main>

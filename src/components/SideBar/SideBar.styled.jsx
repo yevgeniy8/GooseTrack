@@ -67,7 +67,7 @@ export const CloseBtn = styled.button`
     text-align: center;
     border: none;
     background: none;
-    color: #000000;
+    // color: green;
     padding: 0px;
 
     @media (min-width: 768px) {
@@ -82,6 +82,7 @@ export const CloseBtn = styled.button`
 export const IconX = styled.svg`
     width: 24px;
     height: 24px;
+    stroke: ${({ theme }) => theme.colors.textTitleHeader};
 
     @media (min-width: 768px) {
         width: 34px;
