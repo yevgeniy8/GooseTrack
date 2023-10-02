@@ -88,15 +88,17 @@ export const WrapForInput = styled.div`
 
 export const Input = styled(Field)`
     resize: none;
-    padding: 12px 0 12px 14px;
+    padding: 14px 18px 14px 18px;
     width: 295px;
     box-sizing: border-box;
     height: 127px;
     font-weight: 600;
     font-size: 14px;
     line-height: calc((18 / 14) * 100%);
-    color: rgba(52, 52, 52, 1);
-
+    color: #343434;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
     background-color: rgba(246, 246, 246, 1);
     border-radius: 8px;
     border: 1px solid rgba(246, 246, 246, 1);
