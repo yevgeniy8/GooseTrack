@@ -6,7 +6,7 @@ export const Container = styled.div`
     padding-right: 12px;
     margin: 0 auto;
     margin-top: 100px;
-    /* margin-bottom: 118px; */
+    margin-bottom: 118px;
     text-align: center;
 `;
 
