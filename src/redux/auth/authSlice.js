@@ -50,6 +50,7 @@ export const authSlice = createSlice({
                 console.log(action);
                 if (action.payload.accessToken) {
                     state.accessToken = action.payload.accessToken;
+                    // window.location.reload();
                 }
                 state.user = action.payload;
 
