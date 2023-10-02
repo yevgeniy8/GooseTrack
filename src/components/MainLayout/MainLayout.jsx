@@ -1,4 +1,4 @@
-// import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 
@@ -8,16 +8,31 @@ import Spinner from 'components/Spinner/Spinner';
 import { Wrapper } from './MainLayout.styled';
 
 const MainLayout = () => {
-    // const [isSideBarVisible, setIsSideBarVisible] = useState(
-    //     window.innerWidth >= 1440
-    // );
+    const [sideBareShow, setSideBareShow] = useState(window.innerWidth >= 1440);
 
-    // const handleSideBar
+    const handleSideBareShow = () => {
+        if (window.innerWidth >= 1440) {
+            return;
+        }
+        setSideBareShow(!sideBareShow);
+    };
+
+    useEffect(() => {
+        const handleResize = () => {
+            setSideBareShow(window.innerWidth >= 1440);
+        };
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
 
     return (
         <Wrapper>
-            <SideBar></SideBar>
-            <Header></Header>
+            <SideBar isOpen={sideBareShow} onCloseClick={handleSideBareShow} />
+            <Header isOpen={sideBareShow} onOpenClick={handleSideBareShow} />
             <main>
                 <Suspense fallback={<Spinner />}>
                     <Outlet />

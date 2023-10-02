@@ -8,13 +8,22 @@ export const Wrapper = styled.div`
     flex-direction: column;
     justify-content: space-between;
     background-color: ${({ theme }) => theme.colors.backgroundSideBar};
+    position: absolute;
+    z-index: 10;
+    border-right: 1px solid rgba(220, 227, 229, 0.5);
+
+    transform: ${props =>
+        props.isOpen ? 'translateX(0)' : 'translateX(-100%)'};
 
     @media (min-width: 768px) {
         width: 289px;
     }
 
-    @media (max-width: 1439.9px) {
-        display: none;
+    @media (min-width: 1440px) {
+        position: relative;
+        z-index: 1;
+        border-right: none;
+        transform: translateX(0);
     }
 `;
 
@@ -71,7 +80,6 @@ export const CloseBtn = styled.button`
     text-align: center;
     border: none;
     background: none;
-    // color: green;
     padding: 0px;
 
     @media (min-width: 768px) {

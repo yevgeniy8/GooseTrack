@@ -22,7 +22,7 @@ import {
 } from './Header.styled';
 import { useLocation } from 'react-router-dom';
 
-export const Header = ({ onUserPanelShow }) => {
+export const Header = ({ onOpenClick }) => {
     // const [isOpenModal, setIsOpenModal] = useState(false);
 
     const showAddFeedbackModal = () => {
@@ -47,11 +47,7 @@ export const Header = ({ onUserPanelShow }) => {
     return (
         <header>
             <HeaderContainer>
-                <BurgerMenuBtn
-                    onClick={() => {
-                        onUserPanelShow();
-                    }}
-                >
+                <BurgerMenuBtn onClick={onOpenClick}>
                     <Svg>
                         <use href={`${sprite}#menu-01`} />
                     </Svg>
