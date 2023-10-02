@@ -19,6 +19,7 @@
         "notiflix": "^3.2.6",
         "prop-types": "^15.8.1",
         "react": "^18.1.0",
+        "react-big-calendar": "^1.8.4",
         "react-dom": "^18.1.0",
         "react-icons": "^4.11.0",
         "react-loader-spinner": "^5.4.5",
