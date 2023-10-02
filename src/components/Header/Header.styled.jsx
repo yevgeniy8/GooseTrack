@@ -19,7 +19,7 @@ export const BurgerMenuBtn = styled.button`
         height: 34px;
     }
 
-    @media screen and (min-width: 1200px) {
+    @media screen and (min-width: ${({ theme }) => theme.breakpoints.l}) {
         display: none;
     }
 `;
@@ -32,7 +32,7 @@ export const Svg = styled.svg`
 export const MotivationContent = styled.div`
     display: none;
 
-    @media screen and (min-width: 1200px) {
+    @media screen and (min-width: ${({ theme }) => theme.breakpoints.l}) {
         display: flex;
         align-items: center;
         gap: 8px;
