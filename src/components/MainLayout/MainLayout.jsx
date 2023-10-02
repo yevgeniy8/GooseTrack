@@ -1,3 +1,4 @@
+// import React, { useState } from 'react';
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 
@@ -7,6 +8,12 @@ import Spinner from 'components/Spinner/Spinner';
 import { Wrapper } from './MainLayout.styled';
 
 const MainLayout = () => {
+    // const [isSideBarVisible, setIsSideBarVisible] = useState(
+    //     window.innerWidth >= 1440
+    // );
+
+    // const handleSideBar
+
     return (
         <Wrapper>
             <SideBar></SideBar>
