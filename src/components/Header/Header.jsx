@@ -3,6 +3,7 @@ import ThemeToggler from './ThemeToggler';
 import UserInfo from './UserInfo';
 import AddFeedbackBtn from './AddFeedbackBtn';
 // import AddFeedbackModal from './AddFeedbackModal/AddFeedbackModal';
+// import { FeedbackModal } from '../FeedbackForm/FeedbackModal';
 import sprite from 'images/icons.svg';
 
 import image1x from '../../images/calendar-page/goose_desktop_tablet_1x_motivation.png';
@@ -84,7 +85,7 @@ export const Header = ({ onOpenClick }) => {
                 </UIComponentsWrapperDiv>
             </HeaderContainer>
             {/* {isOpenModal && (
-                <AddFeedbackModal isOpenModal={isOpenModal}></AddFeedbackModal>
+                <FeedbackModal isOpenModal={isOpenModal}></FeedbackModal>
             )} */}
         </header>
     );
