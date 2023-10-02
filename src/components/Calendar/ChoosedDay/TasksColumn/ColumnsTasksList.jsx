@@ -1,4 +1,4 @@
-import { Ulka, Container, Colonka } from './ColumnsTasksList.styled';
+import { Ulka, Container, Colonka, ColumnTitle } from './ColumnsTasksList.styled';
 // import TaskColumnCard from '../TaskColumnCard/TaskColumnCard';
 import AddTaskButton from './AddTaskBtn';
 
@@ -6,7 +6,7 @@ const TasksColumnsList = () => {
   return (
     <Container>
       <Colonka>
-        <h2>
+        <ColumnTitle>
           To do{' '}
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -23,17 +23,17 @@ const TasksColumnsList = () => {
             <line x1="12" y1="5" x2="12" y2="19"></line>
             <line x1="5" y1="12" x2="19" y2="12"></line>
           </svg>
-        </h2>
+        </ColumnTitle>
         <Ulka></Ulka>
         <AddTaskButton />
       </Colonka>
       <Colonka>
-        <h2>In progress</h2>
+        <ColumnTitle>In progress</ColumnTitle>
         <Ulka></Ulka>
         <AddTaskButton />
       </Colonka>
       <Colonka>
-        <h2>Done</h2>
+        <ColumnTitle>Done</ColumnTitle>
         <Ulka></Ulka>
         <AddTaskButton />
       </Colonka>
