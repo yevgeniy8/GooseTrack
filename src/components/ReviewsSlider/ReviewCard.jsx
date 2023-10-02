@@ -22,10 +22,11 @@ const rateStyled = {
 };
 
 const ReviewCard = ({ review }) => {
+    const user = review.user;
     return (
         <CardContainer>
             {review.avatarURL ? (
-                <Avatar src={review.avatarURL} alt="User Avatar" />
+                <Avatar src={user.avatarURL} alt="User Avatar" />
             ) : (
                 <Avatar
                     src={defaultAvatar}
@@ -36,14 +37,14 @@ const ReviewCard = ({ review }) => {
             )}
 
             <RatingContainer>
-                <Name>{review.name}</Name>
+                <Name>{user.name}</Name>
 
                 <div style={{ maxWidth: 110, marginBottom: '24px' }}>
                     <Rating
                         name="rating"
                         component="div"
                         value={Number(review.rating)}
-                        style={{ gap: 4 }}
+                        style={{ gap: 10 }}
                         itemStyles={rateStyled}
                         readOnly
                     />
