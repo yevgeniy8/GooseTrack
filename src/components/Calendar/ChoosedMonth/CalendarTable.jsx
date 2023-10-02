@@ -1,9 +1,7 @@
 
 const CalendarTable = () => {
     return ( 
-        <ul>
-            <li></li>
-        </ul>
+        <div></div>
      );
 }
  
