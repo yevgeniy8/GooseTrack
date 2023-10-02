@@ -14,9 +14,9 @@ import LogoRetina from '../../images/logo/logo-GOOSE-desk-2x.png';
 import Logo from '../../images/logo/logo-GOOSE-desk-1x.png';
 import Icons from '../../images/icons.svg';
 
-const SideBar = () => {
+const SideBar = ({ onCloseClick, isOpen }) => {
     return (
-        <Wrapper>
+        <Wrapper isOpen={isOpen}>
             <div>
                 <LogoWrapper>
                     <picture>
@@ -30,7 +30,7 @@ const SideBar = () => {
                         G<SpanTitle>oo</SpanTitle>
                         seTrack
                     </LogoTitle>
-                    <CloseBtn type="button">
+                    <CloseBtn type="button" onClick={onCloseClick}>
                         <IconX stroke="black">
                             <use href={`${Icons}#x-close`} />
                         </IconX>
