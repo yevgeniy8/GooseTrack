@@ -57,7 +57,7 @@ const ReviewsSlider = () => {
                     slidesPerView={2}
                     loop={true}
                     style={{ width: '1184px' }}
-                    autoplay={{ delay: 5000 }}
+                    autoplay={{ delay: 3000 }}
                     // onSwiper={swiper => console.log(swiper)}
                     // onSlideChange={() => console.log('slide change')}
                     navigation={{
