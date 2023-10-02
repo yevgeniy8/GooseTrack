@@ -5,7 +5,7 @@ import { Outlet } from 'react-router-dom';
 import { Header } from 'components/Header';
 import SideBar from 'components/SideBar';
 import Spinner from 'components/Spinner/Spinner';
-import { Wrapper } from './MainLayout.styled';
+import { Wrapper, Section } from './MainLayout.styled';
 
 const MainLayout = () => {
     const [sideBareShow, setSideBareShow] = useState(window.innerWidth >= 1440);
@@ -32,12 +32,17 @@ const MainLayout = () => {
     return (
         <Wrapper>
             <SideBar isOpen={sideBareShow} onCloseClick={handleSideBareShow} />
-            <Header isOpen={sideBareShow} onOpenClick={handleSideBareShow} />
-            <main>
-                <Suspense fallback={<Spinner />}>
-                    <Outlet />
-                </Suspense>
-            </main>
+            <Section>
+                <Header
+                    isOpen={sideBareShow}
+                    onOpenClick={handleSideBareShow}
+                />
+                <main>
+                    <Suspense fallback={<Spinner />}>
+                        <Outlet />
+                    </Suspense>
+                </main>
+            </Section>
         </Wrapper>
     );
 };
