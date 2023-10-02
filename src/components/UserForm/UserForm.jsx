@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import sprite from '../../images/icons.svg';
@@ -118,7 +118,7 @@ export const UserForm = () => {
                                 <InputForm
                                     type="tel"
                                     name="phone"
-                                    placeholder="Enter email"
+                                    placeholder="Enter phone number"
                                 />
                                 <Error component="div" name="phone" />
                             </Label>

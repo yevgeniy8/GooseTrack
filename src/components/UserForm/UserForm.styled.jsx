@@ -54,13 +54,14 @@ export const ImgAvatar = styled.img`
 
 export const InputFile = styled.input`
     position: absolute;
-    top: 50px;
-    left: 137px;
-    width: 20px;
+    top: 39px;
+    left: 32px;
+    width: 50px;
+    height:50px;
     opacity: 0;
     @media (min-width: 768px) {
-        top: 112px;
-        left: 84px;
+        top: 95px;
+        left: 75px;
     }
 `;
 
