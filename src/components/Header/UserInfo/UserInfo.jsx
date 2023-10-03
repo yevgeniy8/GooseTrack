@@ -9,7 +9,7 @@ import {
 const UserInfo = () => {
     const { user } = useAuth();
 
-    const { name, avatarURL } = user;
+    const { name = '', avatarURL } = user;
     const firstLetterOfUserName = name[0];
 
     return (
