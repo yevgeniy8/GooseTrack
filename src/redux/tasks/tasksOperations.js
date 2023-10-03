@@ -3,6 +3,13 @@ import axios from 'axios';
 
 axios.defaults.baseURL = 'https://goose-track-backend-q3re.onrender.com';
 
+const setAuthHeader = token => {
+    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+};
+
+const token = 'токен';
+setAuthHeader(token);
+
 export const fetchtasks = createAsyncThunk('tasks/gettasks', async thunkAPI => {
     try {
         const { data } = await axios.get(`/tasks`);
