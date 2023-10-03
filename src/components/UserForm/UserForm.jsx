@@ -1,10 +1,7 @@
-import React from 'react';
-import { Formik } from 'formik';
+import React, { useState } from 'react';
+import { Field, Form, Formik } from 'formik';
 import * as yup from 'yup';
 import sprite from '../../images/icons.svg';
-
-
-
 
 import {
     AvatarContainer,
@@ -25,6 +22,13 @@ import {
 import { ImgContainer } from './UserForm.styled';
 import { FieldsWrap } from './UserForm.styled';
 import { BirthdayDatePicker } from './ReactDatePickerCalendar';
+import { useSelector } from 'react-redux';
+import { selectUser } from 'redux/auth/authSelectors';
+import {
+    DatePickWrapper,
+    DatePickerStyled,
+} from './ReactDatePickerCalendar.styled';
+
 // import { Calendar } from './Calendar';
 
 const emailRegexp = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
@@ -37,42 +41,76 @@ const schema = yup.object().shape({
         .email()
         .matches(emailRegexp, 'email invalid')
         .required(),
-    birthday: yup.date().required(),
-    phone: yup.string().matches(phoneRegexp).required(),
-    skype: yup.string().max(16).required(),
+    birthday: yup.date(),
+    phone: yup.string().matches(phoneRegexp),
+    skype: yup.string().max(16),
 });
 
 export const UserForm = () => {
-   
+    const [currentAvatar, setCurrentAvatar] = useState('');
+    const [currentPhone, setCurrentPhone] = useState('');
+    const [currentName, setCurrentName] = useState('');
+    const [currentEmail, setCurrentEmail] = useState('');
+    const [currentSkype, setCurrentSkype] = useState('');
+    const [currentBirthday, setCurrentBirthday] = useState('');
+
+    const user = useSelector(selectUser);
+    // console.log(user);
+
     const initialValues = {
-        name: '',
-        birthday: '',
-        email: '',
-        phone: '',
-        skype: '',
+        name: currentName,
+        birthday: currentBirthday,
+        email: currentEmail,
+        phone: currentPhone,
+        skype: currentSkype,
+    };
+
+    const handleChange = ({ target }) => {
+        switch (target.name) {
+            case 'phone':
+                setCurrentPhone(target.value);
+                // console.log(currentPhone);
+                // console.log(target.value);
+                break;
+            case 'name':
+                setCurrentName(target.value);
+                break;
+            case 'email':
+                setCurrentEmail(target.value);
+                break;
+            case 'skype':
+                setCurrentSkype(target.value);
+                break;
+            case 'avatar':
+                setCurrentAvatar(target.files[0]);
+                break;
+
+            default:
+                break;
+        }
     };
 
     const handleSubmit = (values, actions) => {
         console.log(values);
         actions.resetForm();
     };
-    
- 
+
     return (
-       
         <MainContainer>
             <AvatarContainer>
                 <ImgContainer>
-                    <ImgAvatar
-                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRObPqifjaY_XhtqkVFqR54lyFL-UL1CDwE9vSJcHWBpg&s"
-                        alt="avatar"
-                    />
+                    <ImgAvatar src={user.avatarUrl} alt="avatar" />
                 </ImgContainer>
-                <InputFile type="file" />
+                <InputFile
+                    type="file"
+                    onChange={handleChange}
+                    name="avatar"
+                    accept="image/png, image/jpeg, image/jpg"
+                />
                 <SvgPlus width="14" height="14">
                     <use href={`${sprite}#icon-image`} />
                 </SvgPlus>
-                <UserName>User Name</UserName>
+                <UserName>{user.name || currentName}</UserName>
                 <UserP>User</UserP>
             </AvatarContainer>
             <Formik
@@ -89,6 +127,8 @@ export const UserForm = () => {
                                     type="text"
                                     name="name"
                                     placeholder="Enter your name"
+                                    onChange={handleChange}
+                                    value={user.name || currentName}
                                 />
                                 <Error component="div" name="name" />
                             </Label>
@@ -96,7 +136,15 @@ export const UserForm = () => {
                         <LabelWrap>
                             <Label htmlFor="">
                                 <Span> Birthday</Span>
-                             <BirthdayDatePicker/>
+                                <DatePickWrapper>
+                                    <DatePickerStyled
+                                        selected={currentBirthday}
+                                        onChange={date=>setCurrentBirthday(date)}
+                                        formatWeekDay={nameOfDay =>
+                                            nameOfDay.charAt(0)
+                                        }
+                                    />
+                                </DatePickWrapper>
                                 <Error component="div" name="birthday" />
                             </Label>
                         </LabelWrap>
@@ -108,6 +156,8 @@ export const UserForm = () => {
                                     type="email"
                                     name="email"
                                     placeholder="Enter email"
+                                    onChange={handleChange}
+                                    value={user.email || currentEmail}
                                 />
                                 <Error component="div" name="email" />
                             </Label>
@@ -119,6 +169,8 @@ export const UserForm = () => {
                                     type="tel"
                                     name="phone"
                                     placeholder="Enter phone number"
+                                    onChange={handleChange}
+                                    value={currentPhone}
                                 />
                                 <Error component="div" name="phone" />
                             </Label>
@@ -130,6 +182,8 @@ export const UserForm = () => {
                                     type="text"
                                     name="skype"
                                     placeholder="Add skype number"
+                                    value={currentSkype}
+                                    onChange={handleChange}
                                 />
                                 <Error component="div" name="skype" />
                             </Label>
@@ -140,6 +194,5 @@ export const UserForm = () => {
                 </StyledForm>
             </Formik>
         </MainContainer>
-     
     );
 };

@@ -57,11 +57,11 @@ export const InputFile = styled.input`
     top: 39px;
     left: 32px;
     width: 50px;
-    height:50px;
     opacity: 0;
+    z-index:2;
     @media (min-width: 768px) {
-        top: 95px;
-        left: 75px;
+        top: 114px;
+        left: 62px;
     }
 `;
 

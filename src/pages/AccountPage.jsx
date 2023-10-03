@@ -4,7 +4,9 @@ import { UserForm } from 'components/UserForm/UserForm';
 const AccountPage = () => {
     return (
       
-            <UserForm />
+           <div>
+             <UserForm />
+           </div>
     );
 };
 
