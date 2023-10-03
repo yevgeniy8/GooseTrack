@@ -10,7 +10,7 @@ const UserInfo = () => {
     const { user } = useAuth();
 
     const { name, avatarURL } = user;
-    const firstLetterOfUserName = name.charAt(0);
+    const firstLetterOfUserName = name[0];
 
     return (
         <InfoContainer>
