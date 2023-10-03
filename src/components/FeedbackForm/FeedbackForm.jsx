@@ -19,7 +19,7 @@ import {
 } from './FeedbackForm.styled';
 
 import pencil from '../../images/icons.svg';
-// import trash from '../../images/icons.svg';
+import trash from '../../images/icons.svg';
 import close from '../../images/icons.svg';
 
 import { useState } from 'react';
@@ -120,9 +120,9 @@ export const FeedbackForm = ({ onClose }) => {
                                         type="button"
                                         onClick={handleDelete}
                                     >
-                                        {/* <svg width="30" height="30">
+                                        <svg width="30" height="30">
                                             <use href={`${trash}#trash`} />
-                                        </svg> */}
+                                        </svg>
                                     </DeleteBtn>
                                 </WrapForEdit>
                             )}
@@ -169,3 +169,4 @@ export const FeedbackForm = ({ onClose }) => {
         </Wrap>
     );
 };
+

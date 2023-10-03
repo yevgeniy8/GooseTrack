@@ -17,6 +17,7 @@ export const register = createAsyncThunk(
     async (user, thunkApi) => {
         try {
             const response = await axios.post('/auth/register', user);
+            console.log(response.data);
             Notiflix.Notify.success('You register');
             return response.data;
         } catch (error) {
