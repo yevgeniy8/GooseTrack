@@ -9,9 +9,10 @@ import {
 
 const UserInfo = () => {
     const { user } = useAuth();
-    const { name, avatarURL } = user;
 
-    const firstLetterOfUserName = name.charAt(0);
+    const { name = '', avatarURL } = user;
+    const firstLetterOfUserName = name[0];
+
     console.log(avatarURL);
     return (
         <InfoContainer>
