@@ -8,7 +8,7 @@ export const Wrap = styled.div`
     padding: 28px 20px;
     border-radius: 16px;
     width: 335px;
-    /* background: $; */
+    background: ${({ theme }) => theme.colors.backgroundSecondary};
     box-shadow: 0px 4px 16px 0px rgba(17, 17, 17, 0.1);
 
     @media (min-width: 768px) {
@@ -18,7 +18,8 @@ export const Wrap = styled.div`
 `;
 
 export const Label = styled.label`
-    /* color: ; */
+    font-family: Inter;
+    color: ${({ theme }) => theme.colors.textTitleModalTask};
     display: block;
     margin-bottom: 8px;
     font-weight: 500;
@@ -59,7 +60,6 @@ export const EditBtn = styled.button`
         background-color: #3e85f3;
     }
 `;
-
 
 export const DeleteBtn = styled.button`
     display: flex;
@@ -184,21 +184,25 @@ export const FormBtnCancel = styled.button`
 
 export const BtnCloseWrap = styled.button`
     position: absolute;
-    top: 14px;
+    top: 18px;
     right: 18px;
-
-    width: 24px;
-    height: 24px;
     border-radius: 50%;
     border: none;
     background-color: transparent;
     cursor: pointer;
-    stroke: #111111;
-
-    transition: stroke 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    stroke: ${({ theme }) => theme.colors.textTitleHeader};
+    transform-origin: 0px 0px;
+    transition: cubic-bezier(0.4, 0, 0.2, 1);
 
     &:hover,
     &:focus {
         stroke: #2b78ef;
     }
 `;
+
+
+
+
+
+
+
