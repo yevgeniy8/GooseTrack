@@ -29,13 +29,12 @@ export const Svg = styled.svg`
     height: 100%;
 `;
 
-export const MotivationContent = styled.div`
+export const ImgWrapper = styled.div`
     display: none;
 
     @media screen and (min-width: ${({ theme }) => theme.breakpoints.l}) {
         display: flex;
-        align-items: center;
-        gap: 8px;
+        margin-right: 8px;
     }
 `;
 
@@ -57,7 +56,7 @@ export const HeaderContainer = styled.div`
 export const TextDiv = styled.div`
     display: none;
 
-    @media screen and (min-width: 1200px) {
+    @media screen and (min-width: ${({ theme }) => theme.breakpoints.l}) {
         display: flex;
         align-items: start;
         flex-direction: column;
@@ -73,7 +72,7 @@ export const TitleH2 = styled.h2`
     color: ${({ theme }) => theme.colors.textTitleHeader};
 `;
 
-export const TextP = styled.p`
+export const MotivationTextP = styled.p`
     font-size: ${({ theme }) => theme.fontSizes.s};
     font-weight: ${({ theme }) => theme.fontWeight.sb};
     line-height: calc(18 / 14);

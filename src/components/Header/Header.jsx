@@ -12,10 +12,10 @@ import {
     HeaderContainer,
     BurgerMenuBtn,
     Svg,
-    MotivationContent,
+    ImgWrapper,
     TextDiv,
     TitleH2,
-    TextP,
+    MotivationTextP,
     Span,
     UIComponentsWrapperDiv,
     MenuWrapperDiv,
@@ -35,18 +35,21 @@ export const Header = ({ onOpenClick }) => {
 
     const location = useLocation().pathname;
     // для перевірки userTasks тимчасово
-    const userTasks = [{ category: 'in-Progress' }, { category: 'to-Do' }];
+    const userTasks = [{ category: 'in-progress' }, { category: 'to-do' }];
     // const userTasks = [{}];
 
-    function formatPageTitle(location) {
-        const formatted = location.replace(/\//g, '');
-        return formatted.charAt(0).toUpperCase() + formatted.slice(1);
-    }
-    const pageTitle = formatPageTitle(location);
+    const pageTitle = location.includes('/calendar')
+        ? 'Calendar'
+        : location.includes('/account')
+        ? 'User Profile'
+        : location.includes('/statistics')
+        ? 'Statistics'
+        : '';
 
     const hasUncompletedTask = userTasks.some(
-        i => i.category === 'in-Progress' || i.category === 'to-Do'
+        i => i.category === 'in-progress' || i.category === 'to-do'
     );
+    const locationPageCalendar = pageTitle === 'Calendar';
 
     return (
         <header>
@@ -56,8 +59,8 @@ export const Header = ({ onOpenClick }) => {
                         <use href={`${sprite}#menu-01`} />
                     </Svg>
                 </BurgerMenuBtn>
-                <MotivationContent>
-                    {hasUncompletedTask && (
+                {hasUncompletedTask && locationPageCalendar && (
+                    <ImgWrapper>
                         <img
                             srcSet={`${image1x} 1x, ${image2x} 2x`}
                             src={image1x}
@@ -65,18 +68,18 @@ export const Header = ({ onOpenClick }) => {
                             width="64px"
                             height="60px"
                         />
-                    )}
+                    </ImgWrapper>
+                )}
 
-                    <TextDiv>
-                        <TitleH2>{pageTitle}</TitleH2>
-                        {hasUncompletedTask && (
-                            <TextP>
-                                <Span>Let go</Span> of the past and focus on the
-                                present!
-                            </TextP>
-                        )}
-                    </TextDiv>
-                </MotivationContent>
+                <TextDiv>
+                    <TitleH2>{pageTitle}</TitleH2>
+                    {hasUncompletedTask && locationPageCalendar && (
+                        <MotivationTextP>
+                            <Span>Let go</Span> of the past and focus on the
+                            present!
+                        </MotivationTextP>
+                    )}
+                </TextDiv>
                 <UIComponentsWrapperDiv>
                     <MenuWrapperDiv>
                         <AddFeedbackBtn showModal={showAddFeedbackModal} />
