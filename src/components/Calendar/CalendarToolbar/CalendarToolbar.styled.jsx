@@ -1,31 +1,33 @@
 import styled from '@emotion/styled';
 
-export const BtnPeriod = styled.button`
+export const Period = styled.div`
     color: white;
     font-size: 16px;
     font-family: Inter;
     font-weight: 700;
     text-transform: uppercase;
+    text-align: center;
     line-height: 18px;
     word-wrap: break-word;
     font-family: Inter;
     width: 131px;
     height: 34px;
-    padding: 8px, 12px;
+    padding: 8px 12px;
     border-radius: 8px;
     border: none;
     background-color: #3e85f3;
-    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    &:hover,
-    &:focus {
-        background-color: #2b78ef;
-    }
+    // transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    // &:hover,
+    // &:focus {
+    //     background-color: #2b78ef;
+    // }
 `;
 
 export const CalendarToolbarContainer = styled.div`
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    // justify-content: space-between;
+    justify-content: flex-end;
     margin-bottom: 32px;
 `;
 
@@ -33,6 +35,9 @@ export const Paginator = styled.div`
     display: flex;
     gap: 8px;
     align-items: center;
+    // position: fixed;
+    margin-top: -130px;
+    margin-bottom: 105px;
 `;
 
 export const BtnLeft = styled.button`
