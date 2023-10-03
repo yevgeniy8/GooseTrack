@@ -73,6 +73,14 @@ export const App = () => {
                     <Route path="account" element={<AccountPage />} />
 
                     <Route path="calendar" element={<CalendarPage />} />
+                    <Route
+                        path="calendar/month/:currentDate"
+                        element={<CalendarPage />}
+                    />
+                    <Route
+                        path="calendar/day/:currentDay"
+                        element={<CalendarPage />}
+                    />
                     <Route path="statistics" element={<StatisticsPage />} />
                 </Route>
 

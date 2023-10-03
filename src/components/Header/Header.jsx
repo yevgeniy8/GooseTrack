@@ -1,8 +1,8 @@
-// import React, { useState } from 'react';
+import React, { useState } from 'react';
 import ThemeToggler from './ThemeToggler';
 import UserInfo from './UserInfo';
 import AddFeedbackBtn from './AddFeedbackBtn';
-// import AddFeedbackModal from './AddFeedbackModal/AddFeedbackModal';
+import { AddFeedbackModal } from './AddFeedbackModal/AddFeedbackModal';
 import sprite from 'images/icons.svg';
 
 import image1x from '../../images/calendar-page/goose_desktop_tablet_1x_motivation.png';
@@ -22,11 +22,15 @@ import {
 } from './Header.styled';
 import { useLocation } from 'react-router-dom';
 
-export const Header = ({ onUserPanelShow }) => {
-    // const [isOpenModal, setIsOpenModal] = useState(false);
+export const Header = ({ onOpenClick }) => {
+    const [isOpenModal, setIsOpenModal] = useState(false);
 
     const showAddFeedbackModal = () => {
-        // setIsOpenModal(true);
+        setIsOpenModal(true);
+    };
+
+    const hiddenAddFeedbackModal = () => {
+        setIsOpenModal(false);
     };
 
     const location = useLocation().pathname;
@@ -47,11 +51,7 @@ export const Header = ({ onUserPanelShow }) => {
     return (
         <header>
             <HeaderContainer>
-                <BurgerMenuBtn
-                    onClick={() => {
-                        onUserPanelShow();
-                    }}
-                >
+                <BurgerMenuBtn onClick={onOpenClick}>
                     <Svg>
                         <use href={`${sprite}#menu-01`} />
                     </Svg>
@@ -87,9 +87,12 @@ export const Header = ({ onUserPanelShow }) => {
                     <UserInfo />
                 </UIComponentsWrapperDiv>
             </HeaderContainer>
-            {/* {isOpenModal && (
-                <AddFeedbackModal isOpenModal={isOpenModal}></AddFeedbackModal>
-            )} */}
+            {isOpenModal && (
+                <AddFeedbackModal
+                    isOpenModal={isOpenModal}
+                    onClose={hiddenAddFeedbackModal}
+                ></AddFeedbackModal>
+            )}
         </header>
     );
 };

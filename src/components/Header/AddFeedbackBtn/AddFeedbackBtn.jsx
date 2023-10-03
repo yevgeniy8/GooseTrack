@@ -1,28 +1,10 @@
 import { Btn } from './AddFeedbackBtn.styled';
 
-import { useState } from 'react';
-import { FeedbackModal } from '../../FeedbackForm/FeedbackModal';
-
-const AddFeedbackBtn = () => {
-    
-    const [showModal, setShowModal] = useState(false); 
-
-    const openModal = () => {
-        
-        setShowModal(true);
-    };
-
-    const closeModal = () => {
-        setShowModal(false);
-    };
-
+const AddFeedbackBtn = ({ showModal }) => {
     return (
-        <div>
-            <Btn onClick={openModal} type="button">
-                Feedback
-            </Btn>
-            {showModal && <FeedbackModal onClose={closeModal}  />}
-        </div>
+        <Btn onClick={showModal} type="button">
+            Feedback
+        </Btn>
     );
 };
 
