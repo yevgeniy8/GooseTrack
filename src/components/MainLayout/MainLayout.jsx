@@ -30,19 +30,6 @@ const MainLayout = () => {
     }, []);
 
     return (
-<<<<<<< HEAD
-        <>
-            <Header></Header>
-            <SideBar></SideBar>
-            <main>
-                <Suspense>
-                    {/* <Suspense fallback={<LinearProgress />}> */}
-                    <Outlet />
-                    
-                </Suspense>
-            </main>
-            </>
-=======
         <Wrapper>
             <SideBar isOpen={sideBareShow} onCloseClick={handleSideBareShow} />
             <Section>
@@ -57,7 +44,6 @@ const MainLayout = () => {
                 </main>
             </Section>
         </Wrapper>
->>>>>>> d4f6921c64672f4a8d0a552bc50850b9a166049c
     );
 };
 
