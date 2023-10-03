@@ -10,7 +10,7 @@ const setAuthHeader = token => {
 const token = 'токен';
 setAuthHeader(token);
 
-export const fetchtasks = createAsyncThunk('tasks/gettasks', async thunkAPI => {
+export const fetchTasks = createAsyncThunk('tasks/fetchTasks', async thunkAPI => {
     try {
         const { data } = await axios.get(`/tasks`);
 
@@ -20,8 +20,8 @@ export const fetchtasks = createAsyncThunk('tasks/gettasks', async thunkAPI => {
     }
 });
 
-export const addtask = createAsyncThunk(
-    'tasks/addtasks',
+export const addTask = createAsyncThunk(
+    'tasks/addTask',
     async (task, thunkAPI) => {
         try {
             const { data } = await axios.post('/tasks', task);
@@ -32,8 +32,8 @@ export const addtask = createAsyncThunk(
     }
 );
 
-export const deletetask = createAsyncThunk(
-    'tasks/deletetasks',
+export const deleteTask = createAsyncThunk(
+    'tasks/deleteTask',
     async (id, thunkAPI) => {
         try {
             const { data } = await axios.delete(`/tasks/${id}`);
@@ -45,8 +45,8 @@ export const deletetask = createAsyncThunk(
     }
 );
 
-export const edittask = createAsyncThunk(
-    'tasks/edittasks',
+export const editTask = createAsyncThunk(
+    'tasks/editTask',
     async ({ id, task }, thunkAPI) => {
         try {
             const { data } = await axios.patch(`/tasks/${id}`, task);
