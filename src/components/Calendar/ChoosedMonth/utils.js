@@ -1,4 +1,4 @@
-export const DAYS = ['Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat', 'Sun'];
+export const DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
 export const getDaysInMonth = date => {
     return new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
@@ -27,7 +27,10 @@ export const datesAreOnSameDay = (first, second) =>
     first.getDate() === second.getDate();
 
 export const getMonthYear = date => {
-    const d = date.toDateString().split(' ');
+    const d = date.toDateString('default', {
+month: 'long',
+}).split(' ');
+    // console.log(d);
     return `${d[1]} ${d[3]}`;
 };
 

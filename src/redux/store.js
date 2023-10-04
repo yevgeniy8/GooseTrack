@@ -36,8 +36,8 @@ export const store = configureStore({
             serializableCheck: {
                 ignoredActions: [
                     FLUSH,
-                    REHYDRATE,
                     PAUSE,
+                    REHYDRATE,
                     PERSIST,
                     PURGE,
                     REGISTER,
