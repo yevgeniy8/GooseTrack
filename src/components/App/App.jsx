@@ -6,25 +6,11 @@ import useAuth from 'hooks/useAuth';
 import RestrictedRoute from 'components/RestrictedRoute/RestrictedRoute';
 import PrivateRoute from 'components/PrivateRoute/PrivateRoute';
 
-import MainLayout from '../MainLayout';
-
 import { useDispatch } from 'react-redux';
 
 import { refreshUser } from 'redux/auth/authOperations';
 
-// import Spinner from 'components/Spinner/Spinner';
-
-// import MainPage from 'pages/MainPage';
-// import RegisterPage from 'pages/RegisterPage';
-// import LoginPage from 'pages/LoginPage';
-// import AccountPage from 'pages/AccountPage';
-// import CalendarPage from 'pages/CalendarPage';
-// import ErrorPage from 'pages/ErrorPage';
-// import StatisticsPage from 'pages/StatisticsPage';
-
-// import ChoosedDay from 'components/Calendar/ChoosedDay/ChoosedDay';
-// import ChoosedMonth from 'components/Calendar/ChoosedMonth/ChoosedMonth';
-
+const MainLayout = lazy(() => import('../MainLayout'));
 const MainPage = lazy(() => import('pages/MainPage'));
 const RegisterPage = lazy(() => import('pages/RegisterPage'));
 const LoginPage = lazy(() => import('pages/LoginPage'));
@@ -77,6 +63,7 @@ export const App = () => {
                         }
                     />
 
+                    {/* {isLoggedIn && ( */}
                     <Route path="/" element={<MainLayout />}>
                         <Route
                             path="account"
@@ -127,6 +114,7 @@ export const App = () => {
                             }
                         />
                     </Route>
+                    {/* )} */}
 
                     <Route path="*" element={<ErrorPage />} />
                 </Routes>

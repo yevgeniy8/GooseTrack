@@ -4,7 +4,6 @@ import useAuth from 'hooks/useAuth';
 const PrivateRoute = ({ component, redirectTo = '/' }) => {
     const { isLoggedIn, isRefreshing } = useAuth();
     const shouldRestrict = !isRefreshing && !isLoggedIn;
-
     return shouldRestrict ? <Navigate to={redirectTo} /> : component;
 };
 
