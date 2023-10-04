@@ -10,7 +10,7 @@ const UserInfo = () => {
     const { user } = useAuth();
 
     const { name, avatarURL } = user;
-    const firstLetterOfUserName = name.charAt(0);
+    // const firstLetterOfUserName = name.charAt(0);
 
     return (
         <InfoContainer>
@@ -20,7 +20,8 @@ const UserInfo = () => {
                     <img src={avatarURL} alt={name} />
                 ) : (
                     <FirstLetterOfName>
-                        {firstLetterOfUserName}
+                        {/* {firstLetterOfUserName} */}
+                        {name[0]}
                     </FirstLetterOfName>
                 )}
             </AvatarDiv>

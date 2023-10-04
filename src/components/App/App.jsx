@@ -12,8 +12,6 @@ import { useDispatch } from 'react-redux';
 
 import { refreshUser } from 'redux/auth/authOperations';
 
-import Spinner from 'components/Spinner/Spinner';
-
 // import MainPage from 'pages/MainPage';
 // import RegisterPage from 'pages/RegisterPage';
 // import LoginPage from 'pages/LoginPage';
@@ -21,6 +19,9 @@ import Spinner from 'components/Spinner/Spinner';
 // import CalendarPage from 'pages/CalendarPage';
 // import ErrorPage from 'pages/ErrorPage';
 // import StatisticsPage from 'pages/StatisticsPage';
+
+import ChoosedDay from 'components/Calendar/ChoosedDay/ChoosedDay';
+import ChoosedMonth from 'components/Calendar/ChoosedMonth/ChoosedMonth';
 
 const MainPage = lazy(() => import('pages/MainPage'));
 const RegisterPage = lazy(() => import('pages/RegisterPage'));
@@ -39,8 +40,7 @@ export const App = () => {
     }, [dispatch]);
 
     return isRefreshing ? (
-        // <b>Refreshing user...</b>
-        <Spinner />
+        <b>Refreshing user...</b>
     ) : (
         <Suspense fallback={null}>
             <Routes>
@@ -55,13 +55,14 @@ export const App = () => {
                     path="/login"
                     element={
                         <RestrictedRoute
-                            redirectTo="/user/account"
+                            redirectTo="/calendar"
                             component={LoginPage}
                         />
                     }
                 />
+
                 <Route
-                    path="/user"
+                    path="/"
                     element={
                         <PrivateRoute
                             redirectTo="/login"
@@ -72,7 +73,7 @@ export const App = () => {
                     {/* <Route index element={<AccountPage />} /> */}
                     <Route path="account" element={<AccountPage />} />
 
-                    <Route path="calendar" element={<CalendarPage />} />
+                    {/* <Route path="calendar" element={<CalendarPage />} />
                     <Route
                         path="calendar/month/:currentDate"
                         element={<CalendarPage />}
@@ -80,7 +81,27 @@ export const App = () => {
                     <Route
                         path="calendar/day/:currentDay"
                         element={<CalendarPage />}
-                    />
+                    /> */}
+
+                    <Route
+                        path="calendar"
+                        element={
+                            <PrivateRoute
+                                component={CalendarPage}
+                                redirectTo="/login"
+                            />
+                        }
+                    >
+                        <Route
+                            path="month/:currentDate"
+                            element={<ChoosedMonth />}
+                        />
+                        <Route
+                            path="day/:currentDay"
+                            element={<ChoosedDay />}
+                        />
+                    </Route>
+
                     <Route
                         path="statistics"
                         element={
