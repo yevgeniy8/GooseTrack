@@ -44,8 +44,16 @@ export const App = () => {
     ) : (
         <Suspense fallback={null}>
             <Routes>
-                <Route path="/" element={<MainPage />} />
-                <Route path="/register" element={<RegisterPage />} />
+                <Route index element={<MainPage />} />
+                <Route
+                    path="/register"
+                    element={
+                        <RestrictedRoute
+                            redirectTo="/user"
+                            component={RegisterPage}
+                        />
+                    }
+                />
                 {/* <Route path="/login" element={<LoginPage />} /> */}
 
                 {/* тимчасовий роут для сторінки юзера */}

@@ -1,4 +1,5 @@
 import useAuth from 'hooks/useAuth';
+
 import {
     InfoContainer,
     NameP,
@@ -9,21 +10,22 @@ import {
 const UserInfo = () => {
     const { user } = useAuth();
 
-    const { name, avatarURL } = user;
-    // const firstLetterOfUserName = name.charAt(0);
+    const { name = '', avatarURL } = user;
+    // const firstLetterOfUserName = name[0];
 
+    // console.log(avatarURL);
     return (
         <InfoContainer>
             {name ? <NameP>{name}</NameP> : <NameP>User</NameP>}
             <AvatarDiv>
-                {avatarURL !== '' ? (
-                    <img src={avatarURL} alt={name} />
-                ) : (
+                {(avatarURL === '' || !avatarURL) && name ? (
                     <FirstLetterOfName>
                         {/* {firstLetterOfUserName} */}
                         {name[0]}
                     </FirstLetterOfName>
-                )}
+                ) : avatarURL !== '' ? (
+                    <img src={avatarURL} alt={name} />
+                ) : null}
             </AvatarDiv>
         </InfoContainer>
     );
