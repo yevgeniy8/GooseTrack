@@ -188,6 +188,10 @@ export const InputForm = styled(Field)`
         font-weight: 600;
         font-size: 14px;
     }
+
+    &.input-error{
+        border: 1px solid red;
+    }
     @media (min-width: 768px) {
         padding: 14px;
         ::placeholder {

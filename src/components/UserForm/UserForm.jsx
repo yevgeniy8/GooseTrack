@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import sprite from '../../images/icons.svg';
+import DatePicker from 'react-datepicker';
 
 import {
     AvatarContainer,
@@ -70,8 +71,17 @@ export const UserForm = () => {
         setCurrentAvatar(target.files[0]);
     };
 
-    const handleSubmit = (values, actions) => {
-        console.log(values);
+    const handleSubmit = ({ name, email, phone, skype }, actions) => {
+        const formData = new FormData();
+
+        formData.append('name', name);
+        formData.append('email', email);
+        formData.append('phone', phone);
+        formData.append('skype', skype);
+        formData.append('birthday', currentBirthday);
+        formData.append('avatar', currentAvatar);
+        console.log(formData);
+
         actions.resetForm();
     };
 
@@ -98,11 +108,7 @@ export const UserForm = () => {
                 validationSchema={schema}
                 onSubmit={handleSubmit}
             >
-                {({
-              errors,
-              touched,
-              values
-             }) => {
+                {({ errors, touched, values, handleChange }) => {
                     return (
                         <StyledForm>
                             <FieldsWrap>
@@ -113,8 +119,11 @@ export const UserForm = () => {
                                             type="text"
                                             name="name"
                                             placeholder="Enter your name"
-                                            // onChange={handleChange}
+                                            onChange={handleChange}
                                             value={values.name}
+                                            className={
+                                                errors.name ? 'input-error' : ''
+                                            }
                                         />
                                         <Error component="div" name="name" />
                                     </Label>
@@ -131,7 +140,8 @@ export const UserForm = () => {
                                                 formatWeekDay={nameOfDay =>
                                                     nameOfDay.charAt(0)
                                                 }
-                                                name='birthday'
+                                                name="birthday"
+                                                maxDate={new Date()}
                                             />
                                         </DatePickWrapper>
                                         <Error
@@ -147,7 +157,7 @@ export const UserForm = () => {
                                         <InputForm
                                             type="email"
                                             name="email"
-                                            placeholder="Enter email"
+                                            placeholder="Enter your email"
                                             // onChange={handleChange}
                                             value={values.email}
                                         />
@@ -160,7 +170,7 @@ export const UserForm = () => {
                                         <InputForm
                                             type="tel"
                                             name="phone"
-                                            placeholder="Enter phone number"
+                                            placeholder="Enter your phone number"
                                             // onChange={handleChange}
                                             value={values.phone}
                                         />
@@ -173,7 +183,7 @@ export const UserForm = () => {
                                         <InputForm
                                             type="text"
                                             name="skype"
-                                            placeholder="Add skype number"
+                                            placeholder="Add your skype number"
                                             value={values.skype}
                                             // onChange={handleChange}
                                         />
