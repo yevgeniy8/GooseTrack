@@ -11,7 +11,7 @@ const initialState = {
         skype: null,
         userAvatar: null,
     },
-    accessToken: null,
+    token: null,
     isLoggedIn: false,
     isRefreshing: false,
 };
@@ -22,16 +22,18 @@ export const authSlice = createSlice({
     extraReducers: builder => {
         builder
             .addCase(register.fulfilled, (state, action) => {
-                // console.log(action);
+                console.log(action);
                 state.user = action.payload.user;
-                // state.isLoggedIn = true;
+                state.token = action.payload.token;
+                state.isLoggedIn = true;
             })
             .addCase(login.fulfilled, (state, action) => {
                 state.user = action.payload.user;
-                state.accessToken = action.payload.accessToken;
+                state.token = action.payload.token;
                 state.isLoggedIn = true;
             })
             .addCase(logout.fulfilled, state => {
+                console.log('slice');
                 state.user = {
                     name: null,
                     email: null,
@@ -40,7 +42,7 @@ export const authSlice = createSlice({
                     skype: null,
                     userAvatar: null,
                 };
-                state.accessToken = null;
+                state.token = null;
                 state.isLoggedIn = false;
             })
             .addCase(refreshUser.pending, state => {
