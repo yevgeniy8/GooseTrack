@@ -44,18 +44,19 @@ const StatisticsPage = () => {
 export default StatisticsPage;
 
 const SectionStat = styled.div`
-position:
-    border: 0.8px solid #e3f3ff;
-    hight: 440px;
-    width: 860px;
-    border-radius: 29px;
-    padding: 85px 40px 70px 40px;
-    color: #343434;
-    font-family: Inter;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 150%;
+    position: {
+        border: 0.8px solid #e3f3ff;
+        hight: 440px;
+        width: 860px;
+        border-radius: 29px;
+        padding: 85px 40px 70px 40px;
+        color: #343434;
+        font-family: Inter;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 150%;
+    }
 `;
 const StatBlock = styled.section`
     display: flex;
@@ -101,23 +102,20 @@ const Legend = styled.ul`
     li:first-of-type::before {
         content: '';
         display: inline-block;
-        width: 8px; 
-        height: 8px; 
-        background-color: #FFD2DD;
-        border-radius: 50%; 
-        margin-right: 8px; 
-       
-        }
-        li:last-of-type::before {
+        width: 8px;
+        height: 8px;
+        background-color: #ffd2dd;
+        border-radius: 50%;
+        margin-right: 8px;
+    }
+    li:last-of-type::before {
         content: '';
         display: inline-block;
-        width: 8px; 
-        height: 8px; 
-        background-color: #3E85F3; 
+        width: 8px;
+        height: 8px;
+        background-color: #3e85f3;
         border-radius: 50%;
-        margin-right: 8px; 
-       
-        }
+        margin-right: 8px;
     }
 `;
 const CalendarBlock = styled.div`

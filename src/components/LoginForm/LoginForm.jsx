@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Formik, Form } from 'formik';
 import * as yup from 'yup';
+
+import { BsEyeFill } from 'react-icons/bs';
+import { BsEyeSlashFill } from 'react-icons/bs';
 
 import {
     ContainerForm,
@@ -14,6 +17,7 @@ import {
 } from '../RegisterForm/RegisterForm.styled';
 
 import { Svg } from '../RegisterForm/RegisterForm.styled';
+import { ButtonEye } from '../RegisterForm/RegisterForm.styled';
 
 import sprite from '../../images/icons.svg';
 
@@ -33,6 +37,18 @@ const schema = yup.object().shape({
 
 const LoginForm = () => {
     const dispatch = useDispatch();
+
+    const [icon, setIcon] = useState(<BsEyeFill />);
+    const [type, setType] = useState('password');
+
+    const handlerEyeClick = () => {
+        if (type === 'password') {
+            setType('text');
+            return setIcon(<BsEyeSlashFill />);
+        }
+        setIcon(<BsEyeFill />);
+        setType('password');
+    };
 
     // console.log(user);
 
@@ -73,10 +89,13 @@ const LoginForm = () => {
                         <Label htmlFor="">
                             <Span>Password</Span>
                             <InputFormMargin0
-                                type="password"
+                                type={type}
                                 name="password"
                                 placeholder="*******"
                             />
+                            <ButtonEye onClick={handlerEyeClick}>
+                                {icon}
+                            </ButtonEye>
                             <Error component="div" name="password" />
                         </Label>
                     </div>
