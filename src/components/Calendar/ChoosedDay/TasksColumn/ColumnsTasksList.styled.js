@@ -1,22 +1,30 @@
 import styled from '@emotion/styled';
 
-export const Ulka = styled.ul`
+export const TaskList = styled.ul`
   list-style: none;
-  gap: 18px;
+  gap: 17px;
   display: flex;
   flex-direction: column;
   padding: 0px;
-`;
-export const Container = styled.div`
-  margin-top: 18px;
-  display: flex;
-  gap: 27px;
-  ${
-    '' /* width: 1200px;
-  margin-left: auto; */
+  overflow-y: auto;
+  max-height: 380px;
+  padding: 0 7px; /**ДЛЯ СКРОЛЛУ */
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    margin: 50px;
+    border-radius: 12px;
+    background: #e7e5e5;
   }
 `;
-export const Colonka = styled.div`
+export const ColumnList = styled.ul`
+  display: flex;
+  gap: 27px;
+`;
+export const ColumnItem = styled.li`
   flex-basis: calc((100% - 2 * 27px) / 3);
   background: snow;
   padding: 20px;
@@ -25,18 +33,18 @@ export const Colonka = styled.div`
   background: #fff;
   min-width: 135px;
 `;
-export const AddTaskBtn = styled.button`
+export const BtnToAdd = styled.button`
   border-radius: 8px;
   border: 1px dashed #3e85f3;
   background: #e3f3ff;
 
+  margin-top: 32px;
   display: flex;
-  height: 52px;
-  width: 100%;
-
   justify-content: center;
   align-items: center;
-  gap: 10px;
+
+  height: 52px;
+  width: 100%;
 
   left: 20px;
   bottom: 20px;
@@ -50,16 +58,13 @@ export const AddTaskBtn = styled.button`
     box-shadow: 0 0 4px #3e85f3;
   }
 `;
-export const TaskLi = styled.li`
-  border-radius: 8px;
-  border: 1px solid rgba(220, 227, 229, 0.8);
-  background: #f7f6f9;
-`;
-export const ColumnTitle = styled.h2`
-  color: #111;
-  font-family: Inter;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 24px; /* 120% */
+export const IconX = styled.svg`
+  width: 24px;
+  height: 24px;
+  stroke: ${({ theme }) => theme.colors.textTitleHeader};
+
+  @media (min-width: 768px) {
+    width: 34px;
+    height: 34px;
+  }
 `;
