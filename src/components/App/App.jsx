@@ -40,7 +40,7 @@ const ChoosedMonth = lazy(() =>
 );
 
 export const App = () => {
-    const { isRefreshing, isCompeteLoading } = useAuth();
+    const { isRefreshing } = useAuth();
     const dispatch = useDispatch();
 
     useEffect(() => {
