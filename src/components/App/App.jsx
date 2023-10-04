@@ -12,7 +12,7 @@ import { useDispatch } from 'react-redux';
 
 import { refreshUser } from 'redux/auth/authOperations';
 
-import Spinner from 'components/Spinner/Spinner';
+// import Spinner from 'components/Spinner/Spinner';
 
 // import MainPage from 'pages/MainPage';
 // import RegisterPage from 'pages/RegisterPage';
@@ -40,7 +40,7 @@ const ChoosedMonth = lazy(() =>
 );
 
 export const App = () => {
-    const { isRefreshing, isCompeteLoading } = useAuth();
+    const { isRefreshing } = useAuth();
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -52,7 +52,7 @@ export const App = () => {
     // ) : (
     // <Spinner />
     return (
-        isCompeteLoading &&
+        // isCompeteLoading &&
         !isRefreshing && (
             <Suspense fallback={null}>
                 <Routes>

@@ -3,10 +3,10 @@ import styled from '@emotion/styled';
 import CalendarToolbar from 'components/Calendar/CalendarToolbar/CalendarToolbar';
 // import ChoosedMonth from 'components/Calendar/ChoosedMonth/ChoosedMonth';
 // import ChoosedDay from 'components/Calendar/ChoosedDay/ChoosedDay';
-import { useLocation, useParams, useNavigate, Outlet } from 'react-router-dom';
+import { useLocation, useNavigate, Outlet } from 'react-router-dom';
 
 const CalendarPage = () => {
-    const { currentDay } = useParams();
+    // const { currentDay } = useParams();
 
     const location = useLocation();
 

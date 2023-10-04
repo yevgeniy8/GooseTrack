@@ -23,7 +23,7 @@ import sprite from '../../images/icons.svg';
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/authOperations';
 // import Notiflix from 'notiflix';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 
 const emailRegexp = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
 
