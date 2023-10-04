@@ -13,7 +13,7 @@ const UserInfo = () => {
     const { name = '', avatarURL } = user;
     const firstLetterOfUserName = name[0];
 
-    console.log(avatarURL);
+    // console.log(avatarURL);
     return (
         <InfoContainer>
             {name ? <NameP>{name}</NameP> : <NameP>User</NameP>}
