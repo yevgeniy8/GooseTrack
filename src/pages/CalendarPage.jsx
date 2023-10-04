@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import styled from '@emotion/styled';
 import CalendarToolbar from 'components/Calendar/CalendarToolbar/CalendarToolbar';
-import ChoosedMonth from 'components/Calendar/ChoosedMonth/ChoosedMonth';
-import ChoosedDay from 'components/Calendar/ChoosedDay/ChoosedDay';
+// import ChoosedMonth from 'components/Calendar/ChoosedMonth/ChoosedMonth';
+// import ChoosedDay from 'components/Calendar/ChoosedDay/ChoosedDay';
 import { useLocation, useParams, useNavigate, Outlet } from 'react-router-dom';
 
 const CalendarPage = () => {
@@ -13,9 +13,10 @@ const CalendarPage = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        console.log(location);
+        // console.log(location);
         if (location.pathname === '/calendar') {
             navigate('/calendar/month/:currentDate');
+            // navigate('/account');
         }
     });
 

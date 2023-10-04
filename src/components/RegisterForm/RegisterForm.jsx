@@ -41,7 +41,7 @@ const schema = yup.object().shape({
 
 const RegisterForm = () => {
     const dispatch = useDispatch();
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
     const initialValues = {
         name: '',
@@ -51,7 +51,7 @@ const RegisterForm = () => {
 
     const handlerSubmit = (values, actions) => {
         dispatch(register(values));
-        navigate('/user');
+        // navigate('/user');
         // console.log(values);
         actions.resetForm();
     };
