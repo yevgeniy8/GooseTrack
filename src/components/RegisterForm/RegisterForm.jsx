@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Formik, Form } from 'formik';
 import * as yup from 'yup';
+
+import { BsEyeFill } from 'react-icons/bs';
+import { BsEyeSlashFill } from 'react-icons/bs';
 
 import {
     ContainerForm,
@@ -12,6 +15,7 @@ import {
     Error,
     Label,
     Svg,
+    ButtonEye,
 } from './RegisterForm.styled';
 
 import sprite from '../../images/icons.svg';
@@ -37,7 +41,7 @@ const schema = yup.object().shape({
 
 const RegisterForm = () => {
     const dispatch = useDispatch();
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
     const initialValues = {
         name: '',
@@ -47,9 +51,21 @@ const RegisterForm = () => {
 
     const handlerSubmit = (values, actions) => {
         dispatch(register(values));
-        navigate('/user');
+        // navigate('/user');
         // console.log(values);
         actions.resetForm();
+    };
+
+    const [icon, setIcon] = useState(<BsEyeFill />);
+    const [type, setType] = useState('password');
+
+    const handlerEyeClick = () => {
+        if (type === 'password') {
+            setType('text');
+            return setIcon(<BsEyeSlashFill />);
+        }
+        setIcon(<BsEyeFill />);
+        setType('password');
     };
 
     return (
@@ -89,10 +105,14 @@ const RegisterForm = () => {
                         <Label htmlFor="">
                             <Span>Password</Span>
                             <InputFormMargin0
-                                type="password"
+                                type={type}
                                 name="password"
                                 placeholder="Enter password"
                             />
+                            <ButtonEye onClick={handlerEyeClick}>
+                                {icon}
+                            </ButtonEye>
+
                             <Error component="div" name="password" />
                         </Label>
                     </div>

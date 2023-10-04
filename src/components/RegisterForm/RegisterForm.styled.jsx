@@ -102,6 +102,18 @@ export const Svg = styled.svg`
     fill: #3e85f3;
 `;
 
+export const ButtonEye = styled.svg`
+    position: absolute;
+    top: 70%;
+    left: 90%;
+    /* right: 40px; */
+    /* transform: translateY(50%); */
+
+    outline: none;
+    border: none;
+    cursor: pointer;
+`;
+
 export const Error = styled(ErrorMessage)`
     position: absolute;
     bottom: -37px;
