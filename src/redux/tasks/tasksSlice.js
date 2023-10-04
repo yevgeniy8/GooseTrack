@@ -33,8 +33,10 @@
 // const handleDeleteFulfilled = (state, action) => {
 //     state.isLoading = false;
 //     state.error = null;
-//     const index = state.tasks.findIndex(contact => contact.id === action.payload.id);
-//       state.tasks.splice(index, 1);
+//     const index = state.tasks.findIndex(
+//         contact => contact.id === action.payload.id
+//     );
+//     state.tasks.splice(index, 1);
 // };
 
 // const taskSlice = createSlice({
