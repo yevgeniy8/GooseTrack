@@ -9,6 +9,7 @@ import PrivateRoute from 'components/PrivateRoute/PrivateRoute';
 import { useDispatch } from 'react-redux';
 
 import { refreshUser } from 'redux/auth/authOperations';
+import { Container } from 'styles/Container';
 
 const MainLayout = lazy(() => import('../MainLayout'));
 const MainPage = lazy(() => import('pages/MainPage'));
@@ -40,93 +41,95 @@ export const App = () => {
     return (
         // isCompeteLoading &&
         !isRefreshing && (
-            <Suspense fallback={null}>
-                <Routes>
-                    <Route
-                        index
-                        element={
-                            <RestrictedRoute
-                                redirectTo="/calendar"
-                                element={<MainPage />}
-                            />
-                        }
-                    />
-                    <Route
-                        path="/register"
-                        element={
-                            <RestrictedRoute
-                                redirectTo="/calendar"
-                                component={<RegisterPage />}
-                            />
-                        }
-                    />
-
-                    <Route
-                        path="/login"
-                        element={
-                            <RestrictedRoute
-                                redirectTo="/calendar"
-                                component={<LoginPage />}
-                            />
-                        }
-                    />
-
-                    {/* {isLoggedIn && ( */}
-                    <Route path="/" element={<MainLayout />}>
+            <Container>
+                <Suspense fallback={null}>
+                    <Routes>
                         <Route
-                            path="account"
+                            index
                             element={
-                                <PrivateRoute
-                                    component={<AccountPage />}
-                                    redirectTo="/login"
+                                <RestrictedRoute
+                                    redirectTo="/calendar"
+                                    element={<MainPage />}
+                                />
+                            }
+                        />
+                        <Route
+                            path="/register"
+                            element={
+                                <RestrictedRoute
+                                    redirectTo="/calendar"
+                                    component={<RegisterPage />}
                                 />
                             }
                         />
 
                         <Route
-                            path="calendar"
+                            path="/login"
                             element={
-                                <PrivateRoute
-                                    component={<CalendarPage />}
-                                    redirectTo="/login"
+                                <RestrictedRoute
+                                    redirectTo="/calendar"
+                                    component={<LoginPage />}
                                 />
                             }
-                        >
+                        />
+
+                        {/* {isLoggedIn && ( */}
+                        <Route path="/" element={<MainLayout />}>
                             <Route
-                                path="month/:currentDate"
+                                path="account"
                                 element={
                                     <PrivateRoute
-                                        component={<ChoosedMonth />}
+                                        component={<AccountPage />}
                                         redirectTo="/login"
                                     />
                                 }
                             />
+
                             <Route
-                                path="day/:currentDay"
+                                path="calendar"
                                 element={
                                     <PrivateRoute
-                                        component={<ChoosedDay />}
+                                        component={<CalendarPage />}
                                         redirectTo="/login"
+                                    />
+                                }
+                            >
+                                <Route
+                                    path="month/:currentDate"
+                                    element={
+                                        <PrivateRoute
+                                            component={<ChoosedMonth />}
+                                            redirectTo="/login"
+                                        />
+                                    }
+                                />
+                                <Route
+                                    path="day/:currentDay"
+                                    element={
+                                        <PrivateRoute
+                                            component={<ChoosedDay />}
+                                            redirectTo="/login"
+                                        />
+                                    }
+                                />
+                            </Route>
+
+                            <Route
+                                path="statistics"
+                                element={
+                                    <PrivateRoute
+                                        redirectTo="/login"
+                                        component={<StatisticsPage />}
                                     />
                                 }
                             />
                         </Route>
+                        {/* )} */}
 
-                        <Route
-                            path="statistics"
-                            element={
-                                <PrivateRoute
-                                    redirectTo="/login"
-                                    component={<StatisticsPage />}
-                                />
-                            }
-                        />
-                    </Route>
-                    {/* )} */}
-
-                    <Route path="*" element={<ErrorPage />} />
-                </Routes>
-            </Suspense>
+                        <Route path="*" element={<ErrorPage />} />
+                    </Routes>
+                </Suspense>
+            </Container>
         )
     );
 };
