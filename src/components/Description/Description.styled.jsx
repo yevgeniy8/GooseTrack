@@ -132,6 +132,7 @@ export const P = styled.p`
 `;
 
 export const TextDescription = styled.p`
+    font-family: Inter;
     width: 335px;
     color: rgba(17, 17, 17, 0.9);
     font-size: 14px;
@@ -141,5 +142,20 @@ export const TextDescription = styled.p`
 
     @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
         width: 275px;
+    }
+`;
+
+export const Img = styled.img`
+    width: 335px;
+    height: 457px;
+
+    @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
+        width: 704px;
+        height: 700px;
+    }
+
+    @media screen and (min-width: ${({ theme }) => theme.breakpoints.l}) {
+        width: 604px;
+        height: 700px;
     }
 `;

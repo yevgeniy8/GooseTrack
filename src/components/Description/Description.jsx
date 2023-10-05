@@ -30,6 +30,7 @@ import {
     H2All,
     P,
     TextDescription,
+    Img,
 } from './Description.styled';
 
 const Description = () => {
@@ -55,7 +56,7 @@ const Description = () => {
                                 (main_page_calendar_desktop1x,
                                 main_page_calendar_desktop2x)
                             }
-                            media="(min-width: 1200px)"
+                            media="(min-width: 1440px)"
                         />
                         <source
                             srcSet={
@@ -64,7 +65,7 @@ const Description = () => {
                             }
                             media="(min-width: 768px)"
                         />
-                        <img
+                        <Img
                             srcSet={
                                 (main_page_calendar_mob1x,
                                 main_page_calendar_mob2x)
@@ -95,7 +96,7 @@ const Description = () => {
                                 (main_page_sidebar_desktop1x,
                                 main_page_sidebar_desktop2x)
                             }
-                            media="(min-width: 1200px)"
+                            media="(min-width: 1440px)"
                         />
                         <source
                             srcSet={
@@ -104,7 +105,7 @@ const Description = () => {
                             }
                             media="(min-width: 768px)"
                         />
-                        <img
+                        <Img
                             srcSet={
                                 (main_page_sidebar_mob1x,
                                 main_page_sidebar_mob2x)
@@ -134,7 +135,7 @@ const Description = () => {
                                 (main_page_all_desktop1x,
                                 main_page_all_desktop2x)
                             }
-                            media="(min-width: 1200px)"
+                            media="(min-width: 1440px)"
                         />
                         <source
                             srcSet={
@@ -142,7 +143,7 @@ const Description = () => {
                             }
                             media="(min-width: 768px)"
                         />
-                        <img
+                        <Img
                             srcSet={(main_page_all_mob1x, main_page_all_mob2x)}
                             // width={604}
                             // height={700}

@@ -32,6 +32,7 @@ export const Image = styled.img`
 `;
 
 export const Title = styled.h1`
+    font-family: Inter;
     font-size: 44px;
     /* font-style: italic; */
     font-weight: 700;
