@@ -1,5 +1,6 @@
 import { useState } from 'react';
-// import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchTasks } from 'redux/tasks/tasksOperations';
 // import { selectCalendar } from 'redux/tasks/tasksSelector';
 import {
     datesAreOnSameDay,
@@ -21,8 +22,9 @@ import sprite from 'images/icons.svg';
 
 const CalendarTable = () => {
     const [currentDate, setCurrentDate] = useState(new Date());
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
     // const currentDate = useSelector(selectCalendar);
+    const tasks = dispatch(fetchTasks());
 
     const handlePrevMonth = () => prevMonth(currentDate, setCurrentDate);
     const handleNextMonth = () => nextMonth(currentDate, setCurrentDate);
