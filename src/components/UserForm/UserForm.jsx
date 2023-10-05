@@ -3,11 +3,14 @@ import { Formik } from 'formik';
 import * as yup from 'yup';
 import sprite from '../../images/icons.svg';
 import DatePicker from 'react-datepicker';
+import Notiflix from 'notiflix';
 
 import {
     AvatarContainer,
     Button,
     Error,
+    IconDone,
+    IconErr,
     ImgAvatar,
     InputFile,
     InputForm,
@@ -32,9 +35,6 @@ import moment from 'moment/moment';
 import { updateUser } from 'redux/auth/authOperations';
 
 const dayMoment = moment().format('DD/MM/YYYY');
-
-// import { Calendar } from './Calendar';
-
 const emailRegexp = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
 const phoneRegexp = /^\+380\d{9}$/;
 
@@ -50,17 +50,31 @@ const schema = yup.object().shape({
     skype: yup.string().max(16),
 });
 
+function handleInput(errors, touched, fieldName) {
+    if (errors[fieldName] && touched[fieldName]) {
+        return (
+            <IconErr width={24} height={24}>
+                <use href={`${sprite}#error-outline`} />
+            </IconErr>
+        );
+    }
+
+    else if (touched[fieldName]) {
+        return (
+            <IconDone width={24} height={24}>
+                <use href={`${sprite}#done`} />
+            </IconDone>
+        );
+    }
+};
+
 export const UserForm = () => {
     const [currentAvatar, setCurrentAvatar] = useState('');
-    // const [currentPhone, setCurrentPhone] = useState('');
-    // const [currentName, setCurrentName] = useState('');
-    // const [currentEmail, setCurrentEmail] = useState('');
-    // const [currentSkype, setCurrentSkype] = useState('');
     const [currentBirthday, setCurrentBirthday] = useState(new Date());
     const dispatch = useDispatch();
 
     const user = useSelector(selectUser);
-    console.log(user);
+    // console.log(user);
 
     const initialValues = {
         name: user.name || '',
@@ -80,14 +94,9 @@ export const UserForm = () => {
             avatar: currentAvatar,
         };
 
-        // formData.append('name', name);
-        // formData.append('email', email);
-        // formData.append('phone', phone);
-        // formData.append('skype', skype);
-        // formData.append('birthday', currentBirthday);
-        // formData.append('avatar', currentAvatar);
-
         dispatch(updateUser(newData));
+
+        Notiflix.Notify.success('Your profile updated successfuly');
 
         actions.resetForm();
     };
@@ -131,11 +140,13 @@ export const UserForm = () => {
                                             className={
                                                 errors.name && touched.name
                                                     ? 'input-error'
+                                                    : touched.name
+                                                    ? 'input-valid'
                                                     : ''
                                             }
-                                        
                                         />
                                         <Error component="div" name="name" />
+                                        {handleInput(errors, touched, 'name')}
                                     </Label>
                                 </LabelWrap>
                                 <LabelWrap>
@@ -163,6 +174,7 @@ export const UserForm = () => {
                                             component="div"
                                             name="birthday"
                                         />
+                                         {handleInput(errors, touched, 'birthday')}
                                     </Label>
                                 </LabelWrap>
 
@@ -178,10 +190,13 @@ export const UserForm = () => {
                                             className={
                                                 errors.email && touched.email
                                                     ? 'input-error'
+                                                    : touched.email
+                                                    ? 'input-valid'
                                                     : ''
                                             }
                                         />
                                         <Error component="div" name="email" />
+                                        {handleInput(errors, touched, 'email')}
                                     </Label>
                                 </LabelWrap>
                                 <LabelWrap>
@@ -196,10 +211,13 @@ export const UserForm = () => {
                                             className={[
                                                 errors.phone && touched.phone
                                                     ? 'input-error'
-                                                    : '',
+                                                    : touched.phone
+                                                    ? 'input-valid'
+                                                    : ''
                                             ]}
                                         />
                                         <Error component="div" name="phone" />
+                                        {handleInput(errors, touched, 'phone')}
                                     </Label>
                                 </LabelWrap>
                                 <LabelWrap>
@@ -214,10 +232,13 @@ export const UserForm = () => {
                                             className={
                                                 errors.skype && touched.skype
                                                     ? 'input-error'
+                                                    : touched.skype
+                                                    ? 'input-valid'
                                                     : ''
                                             }
                                         />
                                         <Error component="div" name="skype" />
+                                        {handleInput(errors, touched, 'skype')}
                                     </Label>
                                 </LabelWrap>
                             </FieldsWrap>

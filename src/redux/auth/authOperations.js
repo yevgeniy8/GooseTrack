@@ -75,10 +75,15 @@ export const refreshUser = createAsyncThunk(
 );
 
 
-export const updateUser=createAsyncThunk('auth/update', async(credentials, thunkApi)=>{
-    const {auth:{token}}= thunkApi.getState();
-    console.log(credentials)
-    console.log(token);
-    
+export const updateUser = createAsyncThunk('auth/edit', async (credentials, thunkApi) => {
+    try {
+        const response = await axios.patch('/users/edit', credentials);
+        console.log(response)
+        return response;
+    } catch (error) {
+        return thunkApi.rejectWithValue(error.message);
+    }
+   
+
 
 })
