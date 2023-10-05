@@ -190,7 +190,11 @@ export const InputForm = styled(Field)`
     }
 
     &.input-error{
-        border: 1px solid red;
+        border: 1px solid #E74A3B;
+    };
+
+    &.input-valid{
+       border: 1px solid #3CBC81;
     }
     @media (min-width: 768px) {
         padding: 14px;

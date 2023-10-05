@@ -22,13 +22,14 @@ import {
 } from './UserForm.styled';
 import { ImgContainer } from './UserForm.styled';
 import { FieldsWrap } from './UserForm.styled';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { selectUser } from 'redux/auth/authSelectors';
 import {
     DatePickWrapper,
     DatePickerStyled,
 } from './ReactDatePickerCalendar.styled';
 import moment from 'moment/moment';
+import { updateUser } from 'redux/auth/authOperations';
 
 const dayMoment = moment().format('DD/MM/YYYY');
 
@@ -56,6 +57,7 @@ export const UserForm = () => {
     // const [currentEmail, setCurrentEmail] = useState('');
     // const [currentSkype, setCurrentSkype] = useState('');
     const [currentBirthday, setCurrentBirthday] = useState(new Date());
+    const dispatch = useDispatch();
 
     const user = useSelector(selectUser);
     console.log(user);
@@ -71,17 +73,21 @@ export const UserForm = () => {
         setCurrentAvatar(target.files[0]);
     };
 
-    const handleSubmit = ({ name, email, phone, skype }, actions) => {
-        const formData = new FormData(); 
+    const handleSubmit = (values, actions) => {
+        const newData = {
+            ...values,
+            birthday: currentBirthday,
+            avatar: currentAvatar,
+        };
 
-        formData.append('name', name);
-        formData.append('email', email);
-        formData.append('phone', phone);
-        formData.append('skype', skype);
-        formData.append('birthday', currentBirthday);
-        formData.append('avatar', currentAvatar);
-       
-       
+        // formData.append('name', name);
+        // formData.append('email', email);
+        // formData.append('phone', phone);
+        // formData.append('skype', skype);
+        // formData.append('birthday', currentBirthday);
+        // formData.append('avatar', currentAvatar);
+
+        dispatch(updateUser(newData));
 
         actions.resetForm();
     };
@@ -123,8 +129,11 @@ export const UserForm = () => {
                                             onChange={handleChange}
                                             value={values.name}
                                             className={
-                                                errors.name ? 'input-error' : ''
+                                                errors.name && touched.name
+                                                    ? 'input-error'
+                                                    : ''
                                             }
+                                        
                                         />
                                         <Error component="div" name="name" />
                                     </Label>
@@ -143,6 +152,11 @@ export const UserForm = () => {
                                                 }
                                                 name="birthday"
                                                 maxDate={new Date()}
+                                                className={
+                                                    errors.birthday
+                                                        ? 'input-error'
+                                                        : ''
+                                                }
                                             />
                                         </DatePickWrapper>
                                         <Error
@@ -161,6 +175,11 @@ export const UserForm = () => {
                                             placeholder="Enter your email"
                                             // onChange={handleChange}
                                             value={values.email}
+                                            className={
+                                                errors.email && touched.email
+                                                    ? 'input-error'
+                                                    : ''
+                                            }
                                         />
                                         <Error component="div" name="email" />
                                     </Label>
@@ -174,6 +193,11 @@ export const UserForm = () => {
                                             placeholder="Enter your phone number"
                                             // onChange={handleChange}
                                             value={values.phone}
+                                            className={[
+                                                errors.phone && touched.phone
+                                                    ? 'input-error'
+                                                    : '',
+                                            ]}
                                         />
                                         <Error component="div" name="phone" />
                                     </Label>
@@ -187,6 +211,11 @@ export const UserForm = () => {
                                             placeholder="Add your skype number"
                                             value={values.skype}
                                             // onChange={handleChange}
+                                            className={
+                                                errors.skype && touched.skype
+                                                    ? 'input-error'
+                                                    : ''
+                                            }
                                         />
                                         <Error component="div" name="skype" />
                                     </Label>
