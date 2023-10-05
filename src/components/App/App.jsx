@@ -47,7 +47,7 @@ export const App = () => {
                         element={
                             <RestrictedRoute
                                 redirectTo="/calendar"
-                                element={<MainPage />}
+                                component={<MainPage />}
                             />
                         }
                     />
