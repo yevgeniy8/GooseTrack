@@ -10,6 +10,10 @@ import {
 const UserInfo = () => {
     const { user } = useAuth();
 
+    // if (!user) {
+    //     return console.log('bbwvenvenvlev');
+    // }
+
     const { name = '', avatarURL } = user;
     // const firstLetterOfUserName = name[0];
 

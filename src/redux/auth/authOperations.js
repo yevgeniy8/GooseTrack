@@ -23,7 +23,7 @@ export const register = createAsyncThunk(
             return response.data;
         } catch (error) {
             Notiflix.Notify.failure('Not');
-            thunkApi.rejectWithValue(error);
+            return thunkApi.rejectWithValue(error);
         }
     }
 );
@@ -46,7 +46,7 @@ export const logout = createAsyncThunk('auth/logout', async (_, thunkApi) => {
         await axios.post('/auth/logout');
         clearAuthHeader();
     } catch (error) {
-        thunkApi.rejectWithValue(error);
+        return thunkApi.rejectWithValue(error);
     }
 });
 
@@ -61,13 +61,15 @@ export const refreshUser = createAsyncThunk(
         }
 
         try {
+            // console.log(persistedToken);
             setAuthHeader(persistedToken);
             const response = await axios.get('/users/current');
             // console.log('User refreshed:', response.data);
             return response.data;
         } catch (error) {
             // console.error('Error refreshing user:', error);
-            thunkApi.rejectWithValue(error);
+            // throw error;
+            return thunkApi.rejectWithValue(error.message);
         }
     }
 );

@@ -42,7 +42,15 @@ export const App = () => {
         !isRefreshing && (
             <Suspense fallback={null}>
                 <Routes>
-                    <Route index element={<MainPage />} />
+                    <Route
+                        index
+                        element={
+                            <RestrictedRoute
+                                redirectTo="/calendar"
+                                component={<MainPage />}
+                            />
+                        }
+                    />
                     <Route
                         path="/register"
                         element={

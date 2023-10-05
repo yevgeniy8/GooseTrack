@@ -50,11 +50,19 @@ export const authSlice = createSlice({
             })
             .addCase(refreshUser.fulfilled, (state, action) => {
                 // console.log(action);
+                // if (action.payload === undefined) {
+                //     state.isLoggedIn = false;
+                //     state.isRefreshing = false;
+                // }
+                // else
+                // {
                 state.user = action.payload;
                 state.isLoggedIn = true;
                 state.isRefreshing = false;
+                // }
             })
             .addCase(refreshUser.rejected, state => {
+                // console.log('object');
                 state.isRefreshing = false;
             });
     },

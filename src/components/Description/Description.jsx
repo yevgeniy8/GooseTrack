@@ -24,11 +24,13 @@ import main_page_all_mob2x from '../../images/main_page/main_page_all_mob@2x.png
 import {
     Container,
     Li,
+    SideDiv,
     H1,
     H2,
     H2All,
     P,
     TextDescription,
+    Img,
 } from './Description.styled';
 
 const Description = () => {
@@ -54,7 +56,7 @@ const Description = () => {
                                 (main_page_calendar_desktop1x,
                                 main_page_calendar_desktop2x)
                             }
-                            media="(min-width: 1200px)"
+                            media="(min-width: 1440px)"
                         />
                         <source
                             srcSet={
@@ -63,19 +65,19 @@ const Description = () => {
                             }
                             media="(min-width: 768px)"
                         />
-                        <img
+                        <Img
                             srcSet={
                                 (main_page_calendar_mob1x,
                                 main_page_calendar_mob2x)
                             }
-                            width={604}
-                            height={700}
+                            // width={604}
+                            // height={700}
                             alt=""
                         />
                     </picture>
                 </Li>
                 <Li>
-                    <div>
+                    <SideDiv>
                         <H1>2.</H1>
                         <P>Sidebar</P>
                         <TextDescription>
@@ -86,7 +88,7 @@ const Description = () => {
                             provides a quick and convenient way to view your
                             upcoming events and tasks.
                         </TextDescription>
-                    </div>
+                    </SideDiv>
 
                     <picture>
                         <source
@@ -94,7 +96,7 @@ const Description = () => {
                                 (main_page_sidebar_desktop1x,
                                 main_page_sidebar_desktop2x)
                             }
-                            media="(min-width: 1200px)"
+                            media="(min-width: 1440px)"
                         />
                         <source
                             srcSet={
@@ -103,13 +105,13 @@ const Description = () => {
                             }
                             media="(min-width: 768px)"
                         />
-                        <img
+                        <Img
                             srcSet={
                                 (main_page_sidebar_mob1x,
                                 main_page_sidebar_mob2x)
                             }
-                            width={604}
-                            height={700}
+                            // width={604}
+                            // height={700}
                             alt=""
                         />
                     </picture>
@@ -133,7 +135,7 @@ const Description = () => {
                                 (main_page_all_desktop1x,
                                 main_page_all_desktop2x)
                             }
-                            media="(min-width: 1200px)"
+                            media="(min-width: 1440px)"
                         />
                         <source
                             srcSet={
@@ -141,10 +143,10 @@ const Description = () => {
                             }
                             media="(min-width: 768px)"
                         />
-                        <img
+                        <Img
                             srcSet={(main_page_all_mob1x, main_page_all_mob2x)}
-                            width={604}
-                            height={700}
+                            // width={604}
+                            // height={700}
                             alt=""
                         />
                     </picture>
