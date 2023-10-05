@@ -14,6 +14,8 @@ import {
     InputFormMargin0,
     Error,
     Label,
+    SvgStatus,
+    ErrorMes,
 } from '../RegisterForm/RegisterForm.styled';
 
 import { Svg } from '../RegisterForm/RegisterForm.styled';
@@ -70,43 +72,118 @@ const LoginForm = () => {
                 validationSchema={schema}
                 onSubmit={handlerSubmit}
             >
-                <Form>
-                    <Title>Log In</Title>
+                {({
+                    values,
+                    errors,
+                    touched,
+                    handleChange,
+                    handleBlur,
+                    handleSubmit,
+                    isSubmitting,
+                    /* and other goodies */
+                }) => (
+                    <Form>
+                        <Title>Log In</Title>
 
-                    <div>
-                        <Label htmlFor="">
-                            <Span>Email</Span>
-                            <InputForm
-                                type="email"
-                                name="email"
-                                placeholder="nadiia@gmail.com"
-                            />
-                            <Error component="div" name="email" />
-                        </Label>
-                    </div>
+                        <div>
+                            <Label htmlFor="">
+                                <Span>Email</Span>
+                                <InputForm
+                                    type="email"
+                                    name="email"
+                                    placeholder="nadiia@gmail.com"
+                                    value={values.email}
+                                    errors={errors.email}
+                                    touched={touched.email?.toString()}
+                                    onBlur={handleBlur}
+                                    onChange={handleChange}
+                                />
+                                {/* <Error component="div" name="email" /> */}
 
-                    <div>
-                        <Label htmlFor="">
-                            <Span>Password</Span>
-                            <InputFormMargin0
-                                type={type}
-                                name="password"
-                                placeholder="*******"
-                            />
-                            <ButtonEye onClick={handlerEyeClick}>
-                                {icon}
-                            </ButtonEye>
-                            <Error component="div" name="password" />
-                        </Label>
-                    </div>
+                                {touched.email &&
+                                    (errors.email ? (
+                                        <Error component="div" name="email" />
+                                    ) : (
+                                        <ErrorMes>
+                                            This is an CORRECT name
+                                        </ErrorMes>
+                                    ))}
 
-                    <Button type="submit">
-                        Log In
-                        <Svg width="20" height="20">
-                            <use href={`${sprite}#log-in`} />
-                        </Svg>
-                    </Button>
-                </Form>
+                                {touched.email && (
+                                    <SvgStatus
+                                        width="24"
+                                        height="24"
+                                        error={errors.email}
+                                    >
+                                        <use
+                                            href={`${sprite}${
+                                                errors.email
+                                                    ? '#error-outline'
+                                                    : '#done'
+                                            }`}
+                                        />
+                                    </SvgStatus>
+                                )}
+                            </Label>
+                        </div>
+
+                        <div>
+                            <Label htmlFor="">
+                                <Span>Password</Span>
+                                <InputFormMargin0
+                                    type={type}
+                                    name="password"
+                                    placeholder="*******"
+                                    value={values.password}
+                                    errors={errors.password}
+                                    touched={touched.password?.toString()}
+                                    onBlur={handleBlur}
+                                    onChange={handleChange}
+                                />
+                                <ButtonEye onClick={handlerEyeClick}>
+                                    {icon}
+                                </ButtonEye>
+
+                                {/* <Error component="div" name="password" /> */}
+
+                                {touched.password &&
+                                    (errors.password ? (
+                                        <Error
+                                            component="div"
+                                            name="password"
+                                        />
+                                    ) : (
+                                        <ErrorMes>
+                                            This is an CORRECT name
+                                        </ErrorMes>
+                                    ))}
+
+                                {touched.password && (
+                                    <SvgStatus
+                                        width="24"
+                                        height="24"
+                                        error={errors.password}
+                                    >
+                                        <use
+                                            href={`${sprite}${
+                                                errors.password
+                                                    ? '#error-outline'
+                                                    : '#done'
+                                            }`}
+                                        />
+                                    </SvgStatus>
+                                )}
+                            </Label>
+                        </div>
+
+                        <Button type="submit">
+                            Log In
+                            <Svg width="20" height="20">
+                                <use href={`${sprite}#log-in`} />
+                            </Svg>
+                        </Button>
+                    </Form>
+                )}
             </Formik>
         </ContainerForm>
     );

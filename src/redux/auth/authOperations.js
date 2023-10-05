@@ -18,11 +18,10 @@ export const register = createAsyncThunk(
         try {
             const response = await axios.post('/auth/register', user);
             setAuthHeader(response.data.token);
-            // console.log(response.data);
             Notiflix.Notify.success('You register');
             return response.data;
         } catch (error) {
-            Notiflix.Notify.failure('Not');
+            Notiflix.Notify.failure(`${error.response.data.message}`);
             return thunkApi.rejectWithValue(error);
         }
     }
@@ -32,12 +31,11 @@ export const login = createAsyncThunk('auth/login', async (user, thunkApi) => {
     try {
         const response = await axios.post('/auth/login', user);
         setAuthHeader(response.data.token);
-        console.log(response.data);
+        Notiflix.Notify.success(`Welcome ${response.data.user.name}`);
         return response.data;
     } catch (error) {
-        console.log(error);
-        console.log(error.response.data.message);
         Notiflix.Notify.failure(error.response.data.message);
+        return thunkApi.rejectWithValue(error);
     }
 });
 

@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 export const Wrapper = styled.div`
-    height: 100vh;
+    height: 812px;
     width: 225px;
     padding: 32px 24px 24px 24px;
     display: flex;
@@ -14,12 +14,15 @@ export const Wrapper = styled.div`
 
     transform: ${props =>
         props.isOpen ? 'translateX(0)' : 'translateX(-100%)'};
+    display: ${props => (props.isOpen ? 'flex' : 'none')};
 
     @media (min-width: 768px) {
         width: 289px;
+        height: 1024px;
     }
 
     @media (min-width: 1440px) {
+        height: 900px;
         position: relative;
         z-index: 1;
         border-right: none;
