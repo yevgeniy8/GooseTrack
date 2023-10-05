@@ -31,7 +31,7 @@ const AuthSection = () => {
                                 (goose_desktop_tablet_1x_welcome,
                                 goose_desktop_tablet_2x_welcome)
                             }
-                            media="(min-width: 1200px)"
+                            media="(min-width: 1440px)"
                         />
                         <source
                             srcSet={

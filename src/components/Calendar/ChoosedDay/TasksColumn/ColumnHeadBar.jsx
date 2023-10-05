@@ -1,15 +1,12 @@
-import { TaskList } from './ColumnsTasksList.styled';
+// import { TaskList } from './ColumnsTasksList.styled';
+// import TaskColumnCard from '../TaskColumnCard/TaskColumnCard';
+// import AddTaskBtn from './AddTaskBtn';
+// import { ColumnHeader } from './TasksColumn.styled';
 
-import TaskColumnCard from '../TaskColumnCard/TaskColumnCard';
-
-const ColumnsTasksList = () => {
-  return (
-    <TaskList>
-      <TaskColumnCard></TaskColumnCard>
-    </TaskList>
-  );
+const ColumnHeadBar = () => {
+  return <div>Назва колонки</div>;
 };
-export default ColumnsTasksList;
+export default ColumnHeadBar;
 // import TaskColumnCard from '../TaskColumnCard/TaskColumnCard';
 // import AddTaskButton from './AddTaskBtn';
 

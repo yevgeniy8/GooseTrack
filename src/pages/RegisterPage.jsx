@@ -18,7 +18,7 @@ const RegisterPage = () => {
                         (register_goose_rocket_desktop,
                         register_goose_rocket_desktop2x)
                     }
-                    media="(min-width: 1200px)"
+                    media="(min-width: 1440px)"
                 />
                 <img
                     srcSet={
