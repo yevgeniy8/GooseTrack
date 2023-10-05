@@ -1,4 +1,5 @@
-import styled from '@emotion/styled';
+// import styled from '@emotion/styled';
+import styled from 'styled-components';
 
 import {
     Form as FormikForm,
@@ -11,10 +12,11 @@ export const Form = styled(FormikForm)`
     width: 303px;
     max-height: 420px;
     padding: 48px 18px 40px;
-    background-color: rgba(23, 24, 32, 1);
+    background-color: #fff;
+   
 
     border-radius: 8px;
-    border: rgba(23, 24, 32, 1);
+    border: #fff;
 
     @media (min-width: 768px) {
         width: 396px;
@@ -27,7 +29,8 @@ export const Label = styled.label`
     flex-direction: column;
     gap: 8px;
 
-    color: #FFFFFF;
+    color: rgba(52, 52, 52, 0.8);
+
     font-size: 12px;
     font-family: Inter;
     font-weight: 500;
@@ -39,10 +42,10 @@ export const InputTitle = styled(Field)`
     height: 42px;
     padding: 12px 14px;
     border-radius: 8px;
-    background: rgba(23, 24, 32, 1);
-    border: 1px solid rgba(23, 24, 32, 1);
+    background: #f6f6f6;
+    border: 1px solid #f6f6f6;
 
-    color: #FFFFFF;
+    color: #343434;
     font-size: 14px;
     font-family: Inter;
     font-weight: 600;
@@ -56,7 +59,7 @@ export const InputTitle = styled(Field)`
 
     &::placeholder {
         opacity: 1;
-        color: #FFFFFF;
+        color: #343434;
         font-size: 14px;
         font-family: Inter;
         font-weight: 600;
@@ -83,7 +86,7 @@ export const InputTime = styled(Field)`
     border: 1px solid #f6f6f6;
     cursor: pointer;
 
-    color: #ffffff;
+    color: #343434;
     font-size: 14px;
     font-family: Inter;
     font-weight: 600;
@@ -118,7 +121,7 @@ export const RadioLabel = styled.label`
     align-items: center;
     margin-top: 16px;
 
-    color: #ffffff;
+    color: #343434;
     font-size: 12px;
     font-family: Inter;
     font-weight: 600;

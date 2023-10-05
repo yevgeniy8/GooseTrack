@@ -8,7 +8,7 @@ export const Wrap = styled.div`
     padding: 28px 20px;
     border-radius: 16px;
     width: 335px;
-    background: ${({ theme }) => theme.colors.backgroundSecondary};
+    background: ${({ theme }) => theme.colors.backgroundModalTask};
     box-shadow: 0px 4px 16px 0px rgba(17, 17, 17, 0.1);
 
     @media (min-width: 768px) {
@@ -73,7 +73,7 @@ export const DeleteBtn = styled.button`
     border: none;
     border-radius: 50%;
     cursor: pointer;
-    transition: {stroke: #EA3D65};
+    transition: stroke 300ms cubic-bezier(0.4, 0, 0.2, 1);
 
     &:hover,
     &:focus {
@@ -95,13 +95,12 @@ export const Input = styled(Field)`
     font-weight: 600;
     font-size: 14px;
     line-height: calc((18 / 14) * 100%);
-    color: #343434;
+    color: ${({ theme }) => theme.colors.textPrimary};
     font-family: Inter;
     font-style: normal;
     font-weight: 600;
-    background-color: rgba(246, 246, 246, 1);
+    background-color: ${({ theme }) => theme.colors.backgroundModalTaskForm};
     border-radius: 8px;
-    border: 1px solid rgba(246, 246, 246, 1);
 
     @media (min-width: 768px) {
         width: 404px;
@@ -117,7 +116,7 @@ export const Input = styled(Field)`
 
     ::placeholder {
         opacity: 1;
-        color: rgba(52, 52, 52, 1);
+        color: ${({ theme }) => theme.colors.textPrimary};
         font-weight: 600;
         font-size: 14px;
     }
@@ -165,8 +164,8 @@ export const FormBtn = styled.button`
 `;
 
 export const FormBtnCancel = styled.button`
-    color: rgba(52, 52, 52, 1);
-    background-color: #e5edfa;
+    color: ${({ theme }) => theme.colors.textPrimary};
+    background-color: ${({ theme }) => theme.colors.backgroundBtnCanceled};
     text-transform: none;
     width: 262px;
     height: 48px;
