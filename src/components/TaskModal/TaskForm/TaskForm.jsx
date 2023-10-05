@@ -19,7 +19,7 @@ import {
   TimeWrapper,
 } from "./FeedbackForm.styled";
 
-export const TaskForm = ({ onClose, action, taskToEdit }) => {
+export const TaskForm = ({ onClose, action }) => {
   return (
     <Formik>
       <Form>
