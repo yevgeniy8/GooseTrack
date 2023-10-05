@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { Field, ErrorMessage } from 'formik';
+// import { BsCheckLg } from 'react-icons/bs';
 
 export const ContainerForm = styled.div`
     width: 100%;
@@ -43,6 +44,13 @@ export const InputForm = styled(Field)`
     padding: 18px;
     border-radius: 8px;
     border: 1px solid rgba(220, 227, 229, 0.6);
+
+    border-color: ${({ errors, touched }) =>
+        touched
+            ? errors
+                ? '#E74A3B;'
+                : '#3CBC81'
+            : 'rgba(220, 227, 229, 0.6)'};
 
     color: #111;
     outline: none;
@@ -105,7 +113,7 @@ export const Svg = styled.svg`
 export const ButtonEye = styled.svg`
     position: absolute;
     top: 70%;
-    left: 90%;
+    left: 85%;
     /* right: 40px; */
     /* transform: translateY(50%); */
 
@@ -125,5 +133,25 @@ export const Error = styled(ErrorMessage)`
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
-    line-height: 14px; /* 116.667% */
+    line-height: 1.16; /* 116.667% */
+`;
+
+export const ErrorMes = styled.span`
+    position: absolute;
+    bottom: -37px;
+    left: 18px;
+    color: #3cbc81;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.16; /* 116.667% */
+`;
+
+export const SvgStatus = styled.svg`
+    position: absolute;
+    fill: ${({ error }) => (!error ? 'green' : 'red')};
+    right: 14px;
+    top: 83%;
+    transform: translateY(-50%);
 `;

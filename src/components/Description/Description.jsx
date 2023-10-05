@@ -22,7 +22,6 @@ import main_page_all_mob1x from '../../images/main_page/main_page_all_mob.png';
 import main_page_all_mob2x from '../../images/main_page/main_page_all_mob@2x.png';
 
 import {
-    Container,
     Li,
     SideDiv,
     H1,
@@ -35,7 +34,7 @@ import {
 
 const Description = () => {
     return (
-        <Container>
+        <div>
             <ul>
                 <Li>
                     <div>
@@ -152,7 +151,7 @@ const Description = () => {
                     </picture>
                 </Li>
             </ul>
-        </Container>
+        </div>
     );
 };
 
