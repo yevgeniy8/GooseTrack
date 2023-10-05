@@ -1,13 +1,13 @@
-// import { CalendarToolbarContainer } from './CalendarToolbar.styled';
-// import PeriodPaginator from './PeriodPaginator';
-// import PeriodTypeSelect from './PeriodTypeSelect';
+import DayCalendarHead from './DayCalendarHead';
+import TasksColumnsList from './TasksColumnsList/TasksColumnsList';
 
-import ColumnsTasksList from './TasksColumn/ColumnsTasksList';
 const ChoosedDay = () => {
   return (
-    <div>
-      <ColumnsTasksList />
-    </div>
+    <>
+      <DayCalendarHead />
+
+      <TasksColumnsList />
+    </>
   );
 };
 

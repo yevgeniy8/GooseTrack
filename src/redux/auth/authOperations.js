@@ -23,7 +23,7 @@ export const register = createAsyncThunk(
             return response.data;
         } catch (error) {
             Notiflix.Notify.failure('Not');
-            thunkApi.rejectWithValue(error);
+            return thunkApi.rejectWithValue(error);
         }
     }
 );
@@ -38,20 +38,15 @@ export const login = createAsyncThunk('auth/login', async (user, thunkApi) => {
         console.log(error);
         console.log(error.response.data.message);
         Notiflix.Notify.failure(error.response.data.message);
-        // thunkApi.rejectWithValue(error);
     }
 });
 
 export const logout = createAsyncThunk('auth/logout', async (_, thunkApi) => {
     try {
         await axios.post('/auth/logout');
-        // console.log(response);
         clearAuthHeader();
-        // return;
     } catch (error) {
-        // console.log(error);
-        // throw error;
-        thunkApi.rejectWithValue(error);
+        return thunkApi.rejectWithValue(error);
     }
 });
 
@@ -61,21 +56,20 @@ export const refreshUser = createAsyncThunk(
         const state = thunkApi.getState();
         const persistedToken = state.auth.token;
 
-        // console.log(state);
-
         if (!persistedToken) {
             return thunkApi.rejectWithValue('Unable to fetch user');
         }
 
-        // console.log('Refreshing');
-
         try {
+            // console.log(persistedToken);
             setAuthHeader(persistedToken);
             const response = await axios.get('/users/current');
-            // console.log(response);
+            // console.log('User refreshed:', response.data);
             return response.data;
         } catch (error) {
-            thunkApi.rejectWithValue(error);
+            // console.error('Error refreshing user:', error);
+            // throw error;
+            return thunkApi.rejectWithValue(error.message);
         }
     }
 );

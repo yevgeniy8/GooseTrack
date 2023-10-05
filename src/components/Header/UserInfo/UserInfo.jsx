@@ -10,8 +10,12 @@ import {
 const UserInfo = () => {
     const { user } = useAuth();
 
-    const { name, avatarURL } = user;
-    const firstLetterOfUserName = name[0];
+    // if (!user) {
+    //     return console.log('bbwvenvenvlev');
+    // }
+
+    const { name = '', avatarURL } = user;
+    // const firstLetterOfUserName = name[0];
 
     // console.log(avatarURL);
     return (
@@ -20,7 +24,8 @@ const UserInfo = () => {
             <AvatarDiv>
                 {(avatarURL === '' || !avatarURL) && name ? (
                     <FirstLetterOfName>
-                        {firstLetterOfUserName}
+                        {/* {firstLetterOfUserName} */}
+                        {name[0]}
                     </FirstLetterOfName>
                 ) : avatarURL !== '' ? (
                     <img src={avatarURL} alt={name} />
