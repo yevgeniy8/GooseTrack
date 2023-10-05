@@ -9,7 +9,7 @@ const initialState = {
         birthday: null,
         phone: null,
         skype: null,
-        userAvatar: null,
+        avatarURL: null,
     },
     token: null,
     isLoggedIn: false,
@@ -22,7 +22,7 @@ export const authSlice = createSlice({
     extraReducers: builder => {
         builder
             .addCase(register.fulfilled, (state, action) => {
-                console.log(action);
+                // console.log(action);
                 state.user = action.payload.user;
                 state.token = action.payload.token;
                 state.isLoggedIn = true;
@@ -33,7 +33,7 @@ export const authSlice = createSlice({
                 state.isLoggedIn = true;
             })
             .addCase(logout.fulfilled, state => {
-                console.log('slice');
+                // console.log('slice');
                 state.user = {
                     name: null,
                     email: null,
@@ -51,7 +51,6 @@ export const authSlice = createSlice({
             .addCase(refreshUser.fulfilled, (state, action) => {
                 // console.log(action);
                 state.user = action.payload;
-                // console.log(state.user);
                 state.isLoggedIn = true;
                 state.isRefreshing = false;
             })
