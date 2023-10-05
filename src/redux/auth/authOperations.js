@@ -32,7 +32,7 @@ export const login = createAsyncThunk('auth/login', async (user, thunkApi) => {
     try {
         const response = await axios.post('/auth/login', user);
         setAuthHeader(response.data.token);
-        // console.log(response.data);
+        console.log(response.data);
         return response.data;
     } catch (error) {
         console.log(error);
@@ -72,3 +72,10 @@ export const refreshUser = createAsyncThunk(
     }
 );
 
+
+export const updateUser=createAsyncThunk('auth/update', async(credentials, thunkApi)=>{
+    const state= thunkApi.getState();
+    console.log(state);
+    
+
+})

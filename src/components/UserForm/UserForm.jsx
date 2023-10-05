@@ -58,11 +58,11 @@ export const UserForm = () => {
     const [currentBirthday, setCurrentBirthday] = useState(new Date());
 
     const user = useSelector(selectUser);
-    // console.log(user);
+    console.log(user);
 
     const initialValues = {
-        name: '',
-        email: '',
+        name: user.name || '',
+        email: user.email || '',
         phone: '',
         skype: '',
     };
@@ -72,7 +72,7 @@ export const UserForm = () => {
     };
 
     const handleSubmit = ({ name, email, phone, skype }, actions) => {
-        const formData = new FormData();
+        const formData = new FormData(); 
 
         formData.append('name', name);
         formData.append('email', email);
@@ -80,7 +80,8 @@ export const UserForm = () => {
         formData.append('skype', skype);
         formData.append('birthday', currentBirthday);
         formData.append('avatar', currentAvatar);
-        console.log(formData);
+       
+       
 
         actions.resetForm();
     };
