@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import sprite from '../../images/icons.svg';
-import DatePicker from 'react-datepicker';
-import Notiflix from 'notiflix';
 
 import {
     AvatarContainer,
@@ -32,7 +30,7 @@ import {
     DatePickerStyled,
 } from './ReactDatePickerCalendar.styled';
 import moment from 'moment/moment';
-import { updateUser } from 'redux/auth/authOperations';
+// import { editUser } from 'redux/auth/authOperations';
 
 const dayMoment = moment().format('DD/MM/YYYY');
 const emailRegexp = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
@@ -57,16 +55,14 @@ function handleInput(errors, touched, fieldName) {
                 <use href={`${sprite}#error-outline`} />
             </IconErr>
         );
-    }
-
-    else if (touched[fieldName]) {
+    } else if (touched[fieldName]) {
         return (
             <IconDone width={24} height={24}>
                 <use href={`${sprite}#done`} />
             </IconDone>
         );
     }
-};
+}
 
 export const UserForm = () => {
     const [currentAvatar, setCurrentAvatar] = useState('');
@@ -79,24 +75,25 @@ export const UserForm = () => {
     const initialValues = {
         name: user.name || '',
         email: user.email || '',
-        phone: '',
-        skype: '',
+        phone: user.phone || '',
+        skype: user.skype || '',
+        avatarURL: user.avatarURL || '',
     };
 
-    const handleChange = ({ target }) => {
-        setCurrentAvatar(target.files[0]);
+    const handleChange = e => {
+        setCurrentAvatar(e.target.files[0]);
+        console.log(currentAvatar)
     };
 
     const handleSubmit = (values, actions) => {
+        console.log(currentAvatar)
         const newData = {
             ...values,
             birthday: currentBirthday,
-            avatar: currentAvatar,
+            avatarURL: currentAvatar,
         };
 
-        dispatch(updateUser(newData));
-
-        Notiflix.Notify.success('Your profile updated successfuly');
+        // dispatch(editUser(newData));
 
         actions.resetForm();
     };
@@ -105,7 +102,7 @@ export const UserForm = () => {
         <MainContainer>
             <AvatarContainer>
                 <ImgContainer>
-                    <ImgAvatar src={user.avatarUrl} alt="avatar" />
+                    <ImgAvatar src={user.avatarURL} alt="avatar" />
                 </ImgContainer>
                 <InputFile
                     type="file"
@@ -174,7 +171,11 @@ export const UserForm = () => {
                                             component="div"
                                             name="birthday"
                                         />
-                                         {handleInput(errors, touched, 'birthday')}
+                                        {handleInput(
+                                            errors,
+                                            touched,
+                                            'birthday'
+                                        )}
                                     </Label>
                                 </LabelWrap>
 
@@ -213,7 +214,7 @@ export const UserForm = () => {
                                                     ? 'input-error'
                                                     : touched.phone
                                                     ? 'input-valid'
-                                                    : ''
+                                                    : '',
                                             ]}
                                         />
                                         <Error component="div" name="phone" />

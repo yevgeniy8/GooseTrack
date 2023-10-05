@@ -120,10 +120,11 @@ export const StyledForm = styled(Form)`
 export const FieldsWrap = styled.div`
     width: 100%;
     @media (min-width: 1140px) {
-        display: flex;
-
-        flex-wrap: wrap;
-        column-gap: 50px;
+        max-width: 758px;
+        display: grid;
+        grid-template: repeat(3, 1fr) / repeat(2, 1fr);
+        justify-content: center;
+        gap: 18px 50px;
     }
 `;
 // export const Wrapper = styled.div`
@@ -213,7 +214,7 @@ export const IconErr = styled.svg`
     position: absolute;
     top: 35px;
     right: 18px;
-    fill: #E74A3B;
+    fill: #e74a3b;
 `;
 export const Button = styled.button`
     margin-top: 30px;

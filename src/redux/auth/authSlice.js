@@ -64,7 +64,16 @@ export const authSlice = createSlice({
             .addCase(refreshUser.rejected, state => {
                 // console.log('object');
                 state.isRefreshing = false;
-            });
+            })
+            //.addCase(editUser.fulfilled, (state,actions)=>{
+            //     console.log(state.user);
+            //     console.log(actions.payload);
+            // }).addCase(editUser.pending, state=>{
+            //     state.isRefreshing = true;
+            // }).addCase(editUser.rejected, (state, actions)=>{
+            //     console.log(actions.payload)
+            // })
+            ;
     },
 });
 

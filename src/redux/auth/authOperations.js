@@ -2,7 +2,7 @@ import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import Notiflix from 'notiflix';
 
-axios.defaults.baseURL = 'https://goose-track-backend-q3re.onrender.com';
+axios.defaults.baseURL = 'https://goose-track-backend-q3re.onrender.com/api';
 
 const setAuthHeader = token => {
     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -73,15 +73,21 @@ export const refreshUser = createAsyncThunk(
 );
 
 
-export const updateUser = createAsyncThunk('auth/edit', async (credentials, thunkApi) => {
-    try {
-        const response = await axios.patch('/users/edit', credentials);
-        console.log(response)
-        return response;
-    } catch (error) {
-        return thunkApi.rejectWithValue(error.message);
-    }
+// export const editUser = createAsyncThunk('auth/edit', async (credentials, thunkApi) => {
+//     try {
+//         const {auth:{token}}=thunkApi.getState();
+//         // console.log(token)
+//         setAuthHeader(token);
+//         console.log(credentials)
+//         console.log(typeof(credentials.avatarUrl))
+//         const response = await axios.patch('/users/edit', credentials);
+       
+//         console.log(response);
+//         return response.data;
+//     } catch (error) {
+//         return thunkApi.rejectWithValue(error.message);
+//     }
    
 
 
-})
+// })
