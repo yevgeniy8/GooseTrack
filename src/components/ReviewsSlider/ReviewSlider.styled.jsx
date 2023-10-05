@@ -113,3 +113,7 @@ export const ButtonRigth = styled.button`
 export const Span = styled.span`
     transform: rotate(180deg);
 `;
+
+export const ArrowContainer = styled.div`
+    margin-left: 25px;
+`;

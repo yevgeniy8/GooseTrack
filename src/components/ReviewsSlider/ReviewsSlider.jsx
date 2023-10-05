@@ -9,6 +9,7 @@ import {
     ButtonLeft,
     ButtonRigth,
     Span,
+    ArrowContainer,
 } from './ReviewSlider.styled';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -102,13 +103,13 @@ const ReviewsSlider = () => {
                     ))}
                 </Swiper>
             </CardsContainer>
-            <div>
+            <ArrowContainer>
                 <ButtonLeft onClick={handlePrev}>
                     <Span>{slidArrowLeft}</Span>
                 </ButtonLeft>
 
                 <ButtonRigth onClick={handleNext}>{slidArrowRight}</ButtonRigth>
-            </div>
+            </ArrowContainer>
         </Container>
     );
 };
