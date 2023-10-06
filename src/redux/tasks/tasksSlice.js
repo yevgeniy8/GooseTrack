@@ -50,14 +50,13 @@ const taskSlice = createSlice({
             end: '',
             priority: '',
         },
-        currentDay: '',
-        currentMonth: '',
+        selectedDate: '',
         isLoading: false,
         error: null,
     },
     reducers: {
         changeDay(state, action) {
-            state.currentDay = action.payload;
+            state.selectedDate = action.payload;
         },
         changeMonth(state, action) {
             state.currentMonth = action.payload;
@@ -80,5 +79,5 @@ const taskSlice = createSlice({
     },
 });
 
-export const { changeDay, changeMonth } = taskSlice.actions;
+export const { selectedDate } = taskSlice.actions;
 export const tasksReducer = taskSlice.reducer;
