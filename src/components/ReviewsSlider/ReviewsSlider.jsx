@@ -9,7 +9,7 @@ import {
     ButtonRigth,
     Span,
     ArrowContainer,
-    ReviewsSliderContainer,
+    ReviewsSliderSection,
     SVG,
 } from './ReviewSlider.styled';
 
@@ -77,7 +77,7 @@ const ReviewsSlider = () => {
     }
 
     return (
-        <ReviewsSliderContainer>
+        <ReviewsSliderSection>
             <ReviewTitle>Reviews</ReviewTitle>
             <CardsContainer>
                 <Swiper
@@ -118,7 +118,7 @@ const ReviewsSlider = () => {
 
                 <ButtonRigth onClick={handleNext}>{slidArrowRight}</ButtonRigth>
             </ArrowContainer>
-        </ReviewsSliderContainer>
+        </ReviewsSliderSection>
     );
 };
 

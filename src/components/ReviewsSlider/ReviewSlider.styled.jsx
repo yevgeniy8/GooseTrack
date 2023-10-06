@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const ReviewsSliderContainer = styled.div`
+export const ReviewsSliderSection = styled.section`
     text-align: center;
 
     max-width: 375px;
@@ -69,8 +69,6 @@ export const CardsContainer = styled.div`
 `;
 
 export const CardContainer = styled.div`
-    height: 200px;
-
     background-color: #ffffff;
 
     border-radius: 8px;
@@ -121,6 +119,24 @@ export const ReviewText = styled.p`
     line-height: 18px;
 
     text-align: start;
+    overflow-y: auto;
+    height: 60px;
+
+    scrollbar-width: thin;
+    scrollbar-color: #3e85f3 #f8f8f8;
+
+    &::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: #3e85f3;
+        border-radius: 4px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: #f8f8f8;
+    }
 
     @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
         margin-left: 69px;
