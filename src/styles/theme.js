@@ -116,6 +116,8 @@ export const lightTheme = {
         backgroundMonthDayActive: '#CAE8FF',
         backgroundScrollbar: '#2D3037',
 
+        backgroundPencel: '#E3F3FF',
+
         statisticsLine: '#E3F3FF',
         iconTasks: '#111',
         iconSideBar: 'rgba(52, 52, 52, 0.50)',
@@ -189,6 +191,8 @@ export const darkTheme = {
         backgroundMonthDay: '#21222C',
         backgroundMonthDayActive: '#3E85F3',
         backgroundScrollbar: '#F2F2F2',
+
+        backgroundPencel: '#353647',
 
         statisticsLine: '#rgba(227, 243, 255, 0.15)',
         iconTasks: '#fff',

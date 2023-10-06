@@ -38,8 +38,7 @@ export const ImgContainer = styled.div`
         width: 124px;
         height: 130px;
         margin-bottom: 20px;
-    };
-    
+    }
 `;
 
 export const ImgAvatar = styled.img`
@@ -57,11 +56,11 @@ export const InputFile = styled.input`
     top: 39px;
     left: 32px;
     width: 50px;
-    height:50px;
     opacity: 0;
+    z-index: 2;
     @media (min-width: 768px) {
-        top: 95px;
-        left: 75px;
+        top: 114px;
+        left: 62px;
     }
 `;
 
@@ -75,8 +74,8 @@ export const SvgPlus = styled.svg`
     @media (min-width: 768px) {
         top: 112px;
         left: 84px;
-        width:24px;
-        height:24px;
+        width: 24px;
+        height: 24px;
     }
 `;
 
@@ -87,10 +86,9 @@ export const UserName = styled.h2`
     font-weight: 700;
     line-height: 1.285;
     @media (min-width: 768px) {
-        margin-bottom:8px;
+        margin-bottom: 8px;
         font-size: 18px;
     }
-    
 `;
 
 export const UserP = styled.p`
@@ -99,7 +97,7 @@ export const UserP = styled.p`
     font-weight: 600;
     font-family: Inter;
     line-height: 1.1666;
-    @media (min-width: 768px){
+    @media (min-width: 768px) {
         font-size: 14px;
     }
 `;
@@ -116,20 +114,19 @@ export const StyledForm = styled(Form)`
     }
     @media (min-width: 1140px) {
         max-width: 758px;
-        
-        
     }
 `;
 
-export const FieldsWrap= styled.div`
-width:100%;
-    @media (min-width:1140px){
-            display: flex;
-
-    flex-wrap: wrap;
-    column-gap: 50px;
+export const FieldsWrap = styled.div`
+    width: 100%;
+    @media (min-width: 1140px) {
+        max-width: 758px;
+        display: grid;
+        grid-template: repeat(3, 1fr) / repeat(2, 1fr);
+        justify-content: center;
+        gap: 18px 50px;
     }
-`
+`;
 // export const Wrapper = styled.div`
 //     width: 299px;
 //     @media (min-width: 768px) {
@@ -163,7 +160,7 @@ export const LabelWrap = styled.div`
         margin-bottom: 24px;
     }
     @media (min-width: 1140px) {
-       width:354px;
+        width: 354px;
     }
 `;
 
@@ -188,6 +185,14 @@ export const InputForm = styled(Field)`
         font-weight: 600;
         font-size: 14px;
     }
+
+    &.input-error {
+        border: 1px solid #e74a3b;
+    }
+
+    &.input-valid {
+        border: 1px solid #3cbc81;
+    }
     @media (min-width: 768px) {
         padding: 14px;
         ::placeholder {
@@ -198,6 +203,19 @@ export const InputForm = styled(Field)`
     }
 `;
 
+export const IconDone = styled.svg`
+    position: absolute;
+    top: 35px;
+    right: 18px;
+    fill: #3cbc81;
+`;
+
+export const IconErr = styled.svg`
+    position: absolute;
+    top: 35px;
+    right: 18px;
+    fill: #e74a3b;
+`;
 export const Button = styled.button`
     margin-top: 30px;
     /* width: 195px; */
@@ -233,7 +251,7 @@ export const Error = styled(ErrorMessage)`
     font-weight: 400;
     line-height: 14px;
     @media (min-width: 768px) {
-        bottom:-33px;
-        left:6px;
+        bottom: -33px;
+        left: 6px;
     }
 `;
