@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-// import Notiflix from 'notiflix';
+import Notiflix from 'notiflix';
 
 axios.defaults.baseURL = 'https://goose-track-backend-q3re.onrender.com';
 
@@ -27,7 +27,7 @@ export const addReview = createAsyncThunk(
             return data;
         } catch (e) {
             // console.log(e);
-            // Notiflix.Notify.failure('Errrrrooooorr');
+            Notiflix.Notify.failure('You`ve already submitted feedback');
             return thunkAPI.rejectWithValue(e.message);
         }
     }
