@@ -1,5 +1,5 @@
 import { LIGHT } from 'constants';
-import { useThemeContext } from './ThemeContext';
+import { useThemeContext } from 'hooks/ThemeContext';
 import { ToggleBtn, Svg } from './ThemeToggler.styled';
 import sprite from 'images/icons.svg';
 
