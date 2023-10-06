@@ -4,11 +4,10 @@ import { fetchReviews } from '../../redux/reviews/reviewsOperations';
 import ReviewCard from './ReviewCard';
 import {
     ReviewTitle,
-    CardsContainer,
+    ReviewsCardsContainer,
     ButtonLeft,
     ButtonRigth,
     Span,
-    ArrowContainer,
     ReviewsSliderSection,
     SVG,
 } from './ReviewSlider.styled';
@@ -79,7 +78,7 @@ const ReviewsSlider = () => {
     return (
         <ReviewsSliderSection>
             <ReviewTitle>Reviews</ReviewTitle>
-            <CardsContainer>
+            <ReviewsCardsContainer>
                 <Swiper
                     modules={[Autoplay, Navigation]}
                     ref={swiperRef}
@@ -109,15 +108,15 @@ const ReviewsSlider = () => {
                         </SwiperSlide>
                     ))}
                 </Swiper>
-            </CardsContainer>
+            </ReviewsCardsContainer>
 
-            <ArrowContainer>
+            <div>
                 <ButtonLeft onClick={handlePrev}>
                     <Span>{slidArrowLeft}</Span>
                 </ButtonLeft>
 
                 <ButtonRigth onClick={handleNext}>{slidArrowRight}</ButtonRigth>
-            </ArrowContainer>
+            </div>
         </ReviewsSliderSection>
     );
 };

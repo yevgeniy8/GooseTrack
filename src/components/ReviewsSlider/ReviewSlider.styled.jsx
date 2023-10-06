@@ -30,23 +30,16 @@ export const ReviewTitle = styled.h2`
     font-size: 28px;
     font-style: normal;
     font-weight: 700;
-    line-height: 32px; /* 114.286% */
+    line-height: 1.14;
     text-transform: uppercase;
 
     @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
         font-size: 40px;
-        line-height: 44px; /* 110% */
-    }
-
-    /* @media screen and (min-width: ${({ theme }) => theme.breakpoints.l}) {
-        font-family: Inter;
-        font-size: 40px;
         line-height: 44px;
-    } */
+    }
 `;
 
-export const CardsContainer = styled.div`
-    /* text-align: center; */
+export const ReviewsCardsContainer = styled.div`
     width: 335px;
 
     margin: auto;
@@ -69,6 +62,8 @@ export const CardsContainer = styled.div`
 `;
 
 export const CardContainer = styled.div`
+    width: 335px;
+
     background-color: #ffffff;
 
     border-radius: 8px;
@@ -78,11 +73,7 @@ export const CardContainer = styled.div`
 
     @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
         width: 580px;
-        padding: 32px 32px 50px 32px;
-    }
-
-    @media screen and (min-width: ${({ theme }) => theme.breakpoints.l}) {
-        padding: 32px 32px 50px 32px;
+        padding: 32px;
     }
 `;
 
@@ -100,11 +91,12 @@ export const FlexContainerOne = styled.div`
 
 export const Name = styled.h3`
     color: #343434;
+
     font-family: Inter;
     font-size: 18px;
     font-style: normal;
     font-weight: 700;
-    line-height: 18px;
+    line-height: 1;
 
     margin-bottom: 13px;
 `;
@@ -116,21 +108,24 @@ export const ReviewText = styled.p`
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
-    line-height: 18px;
+    line-height: 1.28;
+    text-align: justify;
 
-    text-align: start;
-    overflow-y: auto;
-    height: 60px;
+    overflow-x: auto;
+
+    height: 72px;
+
+    padding-right: 13px;
 
     scrollbar-width: thin;
-    scrollbar-color: #3e85f3 #f8f8f8;
+    scrollbar-color: rgba(17, 17, 17, 0.3);
 
     &::-webkit-scrollbar {
-        width: 5px;
+        width: 4px;
     }
 
     &::-webkit-scrollbar-thumb {
-        background-color: #3e85f3;
+        background-color: rgba(17, 17, 17, 0.3);
         border-radius: 4px;
     }
 
@@ -141,6 +136,10 @@ export const ReviewText = styled.p`
     @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
         margin-left: 69px;
     }
+
+    @media screen and (min-width: ${({ theme }) => theme.breakpoints.l}) {
+        height: 55px;
+    }
 `;
 
 export const Avatar = styled.img`
@@ -150,17 +149,39 @@ export const Avatar = styled.img`
     border-radius: 50px;
 `;
 
+export const ContainerDefaultAvatar = styled.div`
+    width: 50px;
+    height: 50px;
+
+    border-radius: 50%;
+    border: 2px solid #3e85f3;
+    background: #f8f8f8;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25),
+        0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    padding: 12px;
+`;
+
+export const DefaultAvatar = styled.img`
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+`;
+
 export const ButtonLeft = styled.button`
     background-color: transparent;
     padding: 0;
     border: none;
-    cursor: pointer;
 `;
 export const ButtonRigth = styled.button`
     background-color: transparent;
     padding: 0;
     border: none;
-    cursor: pointer;
 
     margin-left: 24px;
 `;
@@ -176,33 +197,4 @@ export const SVG = styled.svg`
         width: 61px;
         height: 61px;
     }
-`;
-
-export const ArrowContainer = styled.div`
-    margin-left: 0;
-`;
-
-export const ContainerDefaultAvatar = styled.div`
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-
-    border: 2px solid #3e85f3;
-    background: #f8f8f8;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25),
-        0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-
-    padding: 12px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    flex-shrink: 0;
-`;
-
-export const DefaultAvatar = styled.img`
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
 `;
