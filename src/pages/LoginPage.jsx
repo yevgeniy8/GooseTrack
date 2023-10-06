@@ -62,9 +62,14 @@ const LinkToLogin = styled(NavLink)`
 `;
 
 const Picture = styled.picture`
-    position: absolute;
-    top: 230px;
-    right: 60px;
+    display: none;
+
+    @media screen and (min-width: ${({ theme }) => theme.breakpoints.l}) {
+        display: block;
+        position: absolute;
+        top: 230px;
+        right: 60px;
+    }
 `;
 
 export default LoginPage;
