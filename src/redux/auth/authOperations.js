@@ -73,21 +73,26 @@ export const refreshUser = createAsyncThunk(
 );
 
 
-// export const editUser = createAsyncThunk('auth/edit', async (credentials, thunkApi) => {
-//     try {
-//         const {auth:{token}}=thunkApi.getState();
-//         // console.log(token)
-//         setAuthHeader(token);
-//         console.log(credentials)
-//         console.log(typeof(credentials.avatarUrl))
-//         const response = await axios.patch('/users/edit', credentials);
+export const editUser = createAsyncThunk('auth/edit', async (newData, thunkApi) => {
+    const {auth:{token}}=thunkApi.getState();
+
+    if (!token) {
+        return thunkApi.rejectWithValue('Unable to fetch user');
+    }
+    try {
        
-//         console.log(response);
-//         return response.data;
-//     } catch (error) {
-//         return thunkApi.rejectWithValue(error.message);
-//     }
+        setAuthHeader(token);
+
+        // console.log(newData)
+
+        const response = await axios.patch('/users/edit', newData);
+    
+        return response.data;
+
+    } catch (error) {
+        return thunkApi.rejectWithValue(error.message);
+    }
    
 
 
-// })
+});

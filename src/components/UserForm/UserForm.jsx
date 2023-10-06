@@ -30,7 +30,7 @@ import {
     DatePickerStyled,
 } from './ReactDatePickerCalendar.styled';
 import moment from 'moment/moment';
-// import { editUser } from 'redux/auth/authOperations';
+import { editUser } from 'redux/auth/authOperations';
 
 const dayMoment = moment().format('DD/MM/YYYY');
 const emailRegexp = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
@@ -65,35 +65,37 @@ function handleInput(errors, touched, fieldName) {
 }
 
 export const UserForm = () => {
-    const [currentAvatar, setCurrentAvatar] = useState('');
+    const [currentAvatar, setCurrentAvatar] = useState(null);
     const [currentBirthday, setCurrentBirthday] = useState(new Date());
+
     const dispatch = useDispatch();
 
     const user = useSelector(selectUser);
-    // console.log(user);
+    console.log(user);
 
     const initialValues = {
         name: user.name || '',
         email: user.email || '',
         phone: user.phone || '',
         skype: user.skype || '',
-        avatarURL: user.avatarURL || '',
+        avatarURL: user.userAvatar || null,
     };
 
     const handleChange = e => {
+        
         setCurrentAvatar(e.target.files[0]);
-        console.log(currentAvatar)
+        // console.log(currentAvatar)
     };
 
     const handleSubmit = (values, actions) => {
-        console.log(currentAvatar)
+       
         const newData = {
             ...values,
             birthday: currentBirthday,
             avatarURL: currentAvatar,
         };
-
-        // dispatch(editUser(newData));
+        
+        dispatch(editUser(newData));
 
         actions.resetForm();
     };
@@ -165,6 +167,9 @@ export const UserForm = () => {
                                                         ? 'input-error'
                                                         : ''
                                                 }
+                                                showYearDropdown
+                                                
+                                                
                                             />
                                         </DatePickWrapper>
                                         <Error

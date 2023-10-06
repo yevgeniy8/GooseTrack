@@ -35,6 +35,11 @@ export const Text = styled.span`
     }
 `;
 
+export const Img = styled.img`
+    /* width: 81px;
+    height: 188px; */
+`;
+
 export const Info = styled.p`
     color: rgba(17, 17, 17, 0.7);
     text-align: center;
@@ -50,17 +55,17 @@ export const Info = styled.p`
         font-size: 14px;
         font-weight: 500;
         line-height: 1.28;
-    };
-    @media (min-width:1140px){
-    max-width:387px;
-}
+    }
+    @media (min-width: 1140px) {
+        max-width: 387px;
+    }
 `;
 
 export const InfoContainer = styled.div`
-max-width: 281px;
-@media (min-width:768px){
-    max-width:387px;
-};
+    max-width: 281px;
+    @media (min-width: 768px) {
+        max-width: 387px;
+    }
 `;
 
 export const BtnBack = styled.button`
