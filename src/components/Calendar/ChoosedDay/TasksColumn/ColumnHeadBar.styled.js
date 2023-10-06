@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 export const ColumnHeader = styled.h2`
-  color: #111;
+  color: ${({ theme }) => theme.colors.textPrimary};
   ${'' /* text-align: center; */}
   font-size: 20px;
   font-style: normal;
