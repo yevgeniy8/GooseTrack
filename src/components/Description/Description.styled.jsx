@@ -56,11 +56,10 @@ export const SideDiv = styled.div`
 export const H1 = styled.h1`
     margin-bottom: 14px;
 
-    color: #3e85f3;
+    color: ${({ theme }) => theme.colors.brand};
     font-size: 104px;
-    font-family: Inter;
     font-style: normal;
-    font-weight: 700;
+    font-weight: ${({ theme }) => theme.fontWeight.b};
     line-height: 100%; /* 104px */
     letter-spacing: -4px;
 
@@ -70,7 +69,6 @@ export const H1 = styled.h1`
 
     @media screen and (min-width: ${({ theme }) => theme.breakpoints.l}) {
         font-size: 104px;
-        font-weight: 700;
     }
 `;
 
@@ -79,19 +77,18 @@ export const H2 = styled.h2`
     width: 264px;
     /* float: left; */
     padding: 8px 18px;
-    border-radius: 44px;
-    background: #dcebf7;
-    color: #3e85f3;
-    font-size: 32px;
+    border-radius: ${({ theme }) => theme.borderRadius.xl};
+    background: ${({ theme }) => theme.colors.secondary};
+    color: ${({ theme }) => theme.colors.brand};
+    font-size: ${({ theme }) => theme.fontSizes.xxxl};
     font-style: normal;
-    font-weight: 700;
-    font-family: Inter;
+    font-weight: ${({ theme }) => theme.fontWeight.b};
     line-height: calc(40 / 32);
     text-transform: uppercase;
 
     @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
         padding: 6px 18px;
-        font-size: 40px;
+        font-size: ${({ theme }) => theme.fontSizes.xxxxl};
         line-height: calc(44 / 40);
     }
 `;
@@ -99,15 +96,14 @@ export const H2 = styled.h2`
 export const H2All = styled(H2)`
     padding: 8px 18px;
     width: 139px;
-    font-family: Inter;
     text-transform: uppercase;
 
     @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
         width: 169px;
         padding: 6px 18px;
-        font-size: 40px;
+        font-size: ${({ theme }) => theme.fontSizes.xxxxl};
         font-style: normal;
-        font-weight: 700;
+        font-weight: ${({ theme }) => theme.fontWeight.b};
         line-height: calc(44 / 40);
     }
 `;
@@ -116,29 +112,26 @@ export const P = styled.p`
     margin-bottom: 14px;
 
     color: #171820;
-    font-family: Inter;
-    font-size: 32px;
+    font-size: ${({ theme }) => theme.fontSizes.xxxl};
     font-style: normal;
-    font-weight: 700;
+    font-weight: ${({ theme }) => theme.fontWeight.b};
     line-height: calc(40 / 32);
     text-transform: uppercase;
 
     @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
-        text-shadow: 0px 9.399999618530273px 57.6875px rgba(0, 0, 0, 0.04),
-            0px 47px 355px rgba(0, 0, 0, 0.07);
+        text-shadow: ${({ theme }) => theme.shadows.text};
         margin-bottom: 24px;
-        font-size: 40px;
+        font-size: ${({ theme }) => theme.fontSizes.xxxxl};
         line-height: calc(44 / 40);
     }
 `;
 
 export const TextDescription = styled.p`
-    font-family: Inter;
     width: 335px;
     color: rgba(17, 17, 17, 0.9);
-    font-size: 14px;
+    font-size: ${({ theme }) => theme.fontSizes.s};
     font-style: normal;
-    font-weight: 500;
+    font-weight: ${({ theme }) => theme.fontWeight.m};
     line-height: calc(18 / 14);
 
     @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {

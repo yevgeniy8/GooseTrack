@@ -78,6 +78,9 @@ const common = {
         cubicBezier: 'cubic-bezier(0.4, 0, 0.2, 1)',
         duration: '250ms',
     },
+    fontFamily: {
+        fontInter: 'Inter, sans-serif',
+    },
 };
 
 export const lightTheme = {
@@ -112,6 +115,8 @@ export const lightTheme = {
         backgroundMonthDay: '#E3F3FF',
         backgroundMonthDayActive: '#CAE8FF',
         backgroundScrollbar: '#2D3037',
+
+        backgroundPencel: '#E3F3FF',
 
         statisticsLine: '#E3F3FF',
         iconTasks: '#111',
@@ -186,6 +191,8 @@ export const darkTheme = {
         backgroundMonthDay: '#21222C',
         backgroundMonthDayActive: '#3E85F3',
         backgroundScrollbar: '#F2F2F2',
+
+        backgroundPencel: '#353647',
 
         statisticsLine: '#rgba(227, 243, 255, 0.15)',
         iconTasks: '#fff',
