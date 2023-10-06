@@ -1,5 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchTasks, addTask, editTask, deleteTask } from './tasksOperations';
+import {
+    fetchTasks,
+    addTask,
+    editTask,
+    deleteTask,
+} from './calendarOperations';
 
 const handlePending = state => {
     state.loading = true;
@@ -39,8 +44,8 @@ const handleDeleteFulfilled = (state, action) => {
     state.tasks.splice(index, 1);
 };
 
-const taskSlice = createSlice({
-    name: 'tasks',
+const calendarSlice = createSlice({
+    name: 'calendar',
     initialState: {
         tasks: [],
         userTask: {
@@ -50,7 +55,7 @@ const taskSlice = createSlice({
             end: '',
             priority: '',
         },
-        selectedDate: '',
+        selectedDate: new Date(),
         isLoading: false,
         error: null,
     },
@@ -79,5 +84,5 @@ const taskSlice = createSlice({
     },
 });
 
-export const { selectedDate } = taskSlice.actions;
-export const tasksReducer = taskSlice.reducer;
+export const { selectedDate } = calendarSlice.actions;
+export const calendarReducer = calendarSlice.reducer;

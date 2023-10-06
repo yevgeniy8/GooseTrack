@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 // import { useDispatch, useSelector } from 'react-redux';
-import { fetchTasks } from 'redux/tasks/tasksOperations';
+import { fetchTasks } from 'redux/calendar/calendarOperations';
 // import { selectCalendar } from 'redux/tasks/tasksSelector';
 import {
     datesAreOnSameDay,

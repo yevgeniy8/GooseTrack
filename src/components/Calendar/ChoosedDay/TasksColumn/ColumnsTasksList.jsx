@@ -1,6 +1,6 @@
 import { TaskList } from './ColumnsTasksList.styled';
 import { useDispatch } from 'react-redux';
-import { fetchTasks } from 'redux/tasks/tasksOperations';
+import { fetchTasks } from 'redux/calendar/calendarOperations';
 
 import TaskColumnCard from '../TaskColumnCard/TaskColumnCard';
 // import tasks from '../data/tasksdata.json';
