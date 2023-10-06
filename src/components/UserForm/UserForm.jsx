@@ -71,20 +71,21 @@ export const UserForm = () => {
     const dispatch = useDispatch();
 
     const user = useSelector(selectUser);
-    console.log(user);
+    // console.log(user);
 
     const initialValues = {
         name: user.name || '',
         email: user.email || '',
         phone: user.phone || '',
         skype: user.skype || '',
-        avatarURL: user.userAvatar || null,
+        
     };
 
     const handleChange = e => {
         
-        setCurrentAvatar(e.target.files[0]);
-        // console.log(currentAvatar)
+      setCurrentAvatar( e.target.files[0]);
+      console.log(currentAvatar)
+      
     };
 
     const handleSubmit = (values, actions) => {
@@ -92,9 +93,10 @@ export const UserForm = () => {
         const newData = {
             ...values,
             birthday: currentBirthday,
-            avatarURL: currentAvatar,
+           
+         
         };
-        
+
         dispatch(editUser(newData));
 
         actions.resetForm();
@@ -168,8 +170,7 @@ export const UserForm = () => {
                                                         : ''
                                                 }
                                                 showYearDropdown
-                                                
-                                                
+                                                value={user.birthday}
                                             />
                                         </DatePickWrapper>
                                         <Error

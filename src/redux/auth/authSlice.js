@@ -69,7 +69,7 @@ export const authSlice = createSlice({
 
                 state.user = actions.payload.newUser;
                 state.isRefreshing = false;
-                // console.log( actions.payload);
+                console.log( actions.payload);
             }).addCase(editUser.pending, state => {
 
                 state.isRefreshing = true;

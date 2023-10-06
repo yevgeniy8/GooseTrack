@@ -74,25 +74,26 @@ export const refreshUser = createAsyncThunk(
 
 
 export const editUser = createAsyncThunk('auth/edit', async (newData, thunkApi) => {
-    const {auth:{token}}=thunkApi.getState();
+    const { auth: { token } } = thunkApi.getState();
 
     if (!token) {
         return thunkApi.rejectWithValue('Unable to fetch user');
     }
     try {
-       
+
         setAuthHeader(token);
 
-        // console.log(newData)
+        console.log(newData);
 
         const response = await axios.patch('/users/edit', newData);
-    
+        if (response) { Notiflix.Notify.success(`User has been updated successfuly`); }
+
         return response.data;
 
     } catch (error) {
         return thunkApi.rejectWithValue(error.message);
     }
-   
+
 
 
 });
