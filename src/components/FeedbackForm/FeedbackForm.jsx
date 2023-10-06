@@ -73,6 +73,7 @@ export const FeedbackForm = ({ onClose }) => {
 
     const handleEdit = () => {
         setIsEditActive(!isEditActive);
+
     };
 
     const handleDelete = () => {
@@ -114,7 +115,6 @@ export const FeedbackForm = ({ onClose }) => {
                                         <svg width="30" height="30">
                                             <use href={`${pencil}#pencil`} />
                                         </svg>
-                                        
                                     </EditBtn>
                                     <DeleteBtn
                                         type="button"
@@ -137,6 +137,7 @@ export const FeedbackForm = ({ onClose }) => {
                             disabled={
                                 !isEditActive && Boolean(userReview.review)
                             }
+                            
                         />
                         <ErrorMessage name="review" component="div" />
                     </WrapForInput>
