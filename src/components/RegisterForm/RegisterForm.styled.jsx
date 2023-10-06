@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import { Field, ErrorMessage } from 'formik';
-// import { BsCheckLg } from 'react-icons/bs';
+
+import { mobile, tablet, min } from '../../styles/media';
 
 export const ContainerForm = styled.div`
     max-width: 335px;
@@ -9,7 +10,14 @@ export const ContainerForm = styled.div`
     padding: 40px 24px;
     background-color: #fff;
 
-    @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
+    /* @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
+        width: 100%;
+        padding: 40px 40px;
+        max-width: 480px;
+        max-height: 521px;
+    } */
+
+    ${min(tablet)} {
         width: 100%;
         padding: 40px 40px;
         max-width: 480px;
@@ -18,15 +26,20 @@ export const ContainerForm = styled.div`
 `;
 
 export const Title = styled.h1`
-    margin-bottom: 40px;
+    margin-bottom: 32px;
     color: #3e85f3;
     text-shadow: 0px 9.399999618530273px 57.6875px rgba(0, 0, 0, 0.04),
         0px 47px 355px rgba(0, 0, 0, 0.07);
     font-family: Inter;
-    font-size: 24px;
+    font-size: 18px;
     font-style: normal;
     font-weight: 600;
     line-height: 24px; /* 100% */
+
+    ${min(tablet)} {
+        margin-bottom: 40px;
+        font-size: 24px;
+    }
 `;
 
 export const Label = styled.label`
@@ -37,17 +50,22 @@ export const Span = styled.span`
     display: block;
     color: #111;
     font-family: Inter;
-    font-size: 14px;
+    font-size: 12px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
 
     margin-bottom: 8px;
+
+    ${min(tablet)} {
+        font-size: 14px;
+    }
 `;
 
 export const InputForm = styled(Field)`
     padding: 14px;
     width: 100%;
+    height: 46px;
     border-radius: 8px;
     border: 1px solid rgba(220, 227, 229, 0.6);
 
@@ -78,16 +96,27 @@ export const InputForm = styled(Field)`
         font-weight: 400;
     }
 
-    @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
+    /* @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
         padding: 18px;
         margin-bottom: 18px;
 
+        font-size: 16px;
+    } */
+
+    ${min(tablet)} {
+        padding: 18px;
+        margin-bottom: 18px;
+        height: 54px;
         font-size: 16px;
     }
 `;
 
 export const InputFormMargin0 = styled(InputForm)`
-    @media screen and (min-width: ${({ theme }) => theme.breakpoints.s}) {
+    /* @media screen and (min-width: ${({ theme }) => theme.breakpoints.s}) {
+        margin-bottom: 0;
+    } */
+
+    ${min(mobile)} {
         margin-bottom: 0;
     }
 `;
@@ -119,7 +148,16 @@ export const Button = styled.button`
     line-height: 18px;
     letter-spacing: -0.28px;
 
-    @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
+    /* @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
+        margin-top: 48px;
+        width: 400px;
+        padding: 16px 152px;
+        font-size: 18px;
+        line-height: 24px;
+        letter-spacing: -0.36px;
+    } */
+
+    ${min(tablet)} {
         margin-top: 48px;
         width: 400px;
         padding: 16px 152px;
@@ -127,31 +165,6 @@ export const Button = styled.button`
         line-height: 24px;
         letter-spacing: -0.36px;
     }
-
-    /* margin-top: 48px;
-
-    display: flex;
-    width: 400px;
-    padding: 16px 152px;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 11px;
-
-    border: none;
-    outline: none;
-
-    border-radius: 16px;
-    background: #3e85f3;
-    box-shadow: 4px 2px 16px 0px rgba(136, 165, 191, 0.48);
-
-    color: #fff;
-    font-family: Inter;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 24px; 
-    letter-spacing: -0.36px; */
 `;
 
 export const Svg = styled.svg`
@@ -171,7 +184,13 @@ export const ButtonEye = styled.svg`
     border: none;
     cursor: pointer;
 
-    @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
+    /* @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
+        position: absolute;
+        top: 70%;
+        left: 85%;
+    } */
+
+    ${min(tablet)} {
         position: absolute;
         top: 70%;
         left: 85%;
