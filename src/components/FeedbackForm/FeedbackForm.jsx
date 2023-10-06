@@ -19,7 +19,7 @@ import {
 } from './FeedbackForm.styled';
 
 import pencil from '../../images/icons.svg';
-import trash from '../../images/icons.svg';
+import trashReview from '../../images/icons.svg';
 import close from '../../images/icons.svg';
 
 import { useState, useEffect } from 'react';
@@ -82,7 +82,7 @@ export const FeedbackForm = ({ onClose, existingReviewId }) => {
     };
 
     const handleDelete = () => {
-        dispatch(deleteReview(userReview._id));
+        dispatch(deleteReview(userReview.id));
         onClose();
     };
 
@@ -126,7 +126,7 @@ export const FeedbackForm = ({ onClose, existingReviewId }) => {
                                         onClick={handleDelete}
                                     >
                                         <svg width="30" height="30">
-                                            <use href={`${trash}#trash`} />
+                                            <use href={`${trashReview}#trash-review`} />
                                         </svg>
                                     </DeleteBtn>
                                 </WrapForEdit>
