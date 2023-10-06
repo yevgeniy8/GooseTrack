@@ -16,7 +16,7 @@ export const Column = styled.li`
   padding-right: 8px;
 `;
 export const Container = styled.div`
-  margin-bottom: 35px;
+  ${'' /* margin-bottom: 35px; */}
 `;
 // export const ColumnHeader = styled.div`
 //   list-style: none;
