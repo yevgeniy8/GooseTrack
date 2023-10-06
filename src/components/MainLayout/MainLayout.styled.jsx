@@ -3,12 +3,17 @@ import styled from '@emotion/styled';
 export const Wrapper = styled.div`
     background-color: ${({ theme }) => theme.colors.backgroundPrimary};
     display: flex;
-    width: 375px;
+    max-width: 375px;
     min-height: 100vh;
     margin: 0 auto;
 
+    @media (min-width: 376px) {
+        max-width: 767px;
+    }
+
     @media (min-width: 768px) {
-        width: 768px;
+        min-width: 768px;
+        max-width: 1439px;
     }
 
     @media (min-width: 1440px) {
