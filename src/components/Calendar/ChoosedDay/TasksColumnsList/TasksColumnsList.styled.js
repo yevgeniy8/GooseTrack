@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 export const ColumnList = styled.ul`
   display: flex;
   justify-content: flex-start;
-  gap: 27px;
+  gap: 16px;
   overflow: auto hidden;
   scroll-snap-type: x mandatory;
 

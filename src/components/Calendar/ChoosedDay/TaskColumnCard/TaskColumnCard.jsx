@@ -1,15 +1,17 @@
-import React from 'react';
+import Avatar from '../../../../images/Avatar.png';
 import {
   CardItem,
   CardContainer,
   CardMain,
-  CardStatus,
   CardTitle,
   Container,
-  StatusLow,
-  StatusMedium,
+  AvatarWrapper,
+  AvatarStyle,
   StatusHigh,
+  StatusMedium,
+  StatusLow,
 } from './TaskColumnCard.styled';
+// import task from '../data/tasksdata.json';
 import TaskToolbar from './TaskToolbar';
 
 const TaskColumnCard = ({ tasks }) => {
@@ -21,14 +23,12 @@ const TaskColumnCard = ({ tasks }) => {
             <CardTitle>{taskData.title}</CardTitle>
             <CardMain>
               <Container>
-                AVA
-                <CardStatus>
-                  {taskData.priority === 'high' && <StatusHigh>{taskData.priority}</StatusHigh>}
-                  {taskData.priority === 'medium' && (
-                    <StatusMedium>{taskData.priority}</StatusMedium>
-                  )}
-                  {taskData.priority === 'low' && <StatusLow>{taskData.priority}</StatusLow>}
-                </CardStatus>
+                <AvatarWrapper>
+                  <AvatarStyle src={Avatar} alt="avatar" />
+                </AvatarWrapper>
+                {taskData.priority === 'high' && <StatusHigh>{taskData.priority}</StatusHigh>}
+                {taskData.priority === 'medium' && <StatusMedium>{taskData.priority}</StatusMedium>}
+                {taskData.priority === 'low' && <StatusLow>{taskData.priority}</StatusLow>}
               </Container>
               <TaskToolbar></TaskToolbar>
             </CardMain>

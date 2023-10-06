@@ -3,12 +3,18 @@ import { Field, ErrorMessage } from 'formik';
 // import { BsCheckLg } from 'react-icons/bs';
 
 export const ContainerForm = styled.div`
-    width: 100%;
-    max-width: 480px;
-    max-height: 521px;
-    padding: 40px;
+    max-width: 335px;
+    max-height: 469px;
     border-radius: 8px;
+    padding: 40px 24px;
     background-color: #fff;
+
+    @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
+        width: 100%;
+        padding: 40px 40px;
+        max-width: 480px;
+        max-height: 521px;
+    }
 `;
 
 export const Title = styled.h1`
@@ -40,8 +46,8 @@ export const Span = styled.span`
 `;
 
 export const InputForm = styled(Field)`
+    padding: 14px;
     width: 100%;
-    padding: 18px;
     border-radius: 8px;
     border: 1px solid rgba(220, 227, 229, 0.6);
 
@@ -55,9 +61,8 @@ export const InputForm = styled(Field)`
     color: #111;
     outline: none;
     font-family: Inter;
-    margin-bottom: 18px;
-
-    font-size: 16px;
+    margin-bottom: 24px;
+    font-size: 14px;
     font-style: normal;
     font-weight: 600;
     line-height: 18px; /* 112.5% */
@@ -72,14 +77,58 @@ export const InputForm = styled(Field)`
 
         font-weight: 400;
     }
+
+    @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
+        padding: 18px;
+        margin-bottom: 18px;
+
+        font-size: 16px;
+    }
 `;
 
 export const InputFormMargin0 = styled(InputForm)`
-    margin-bottom: 0;
+    @media screen and (min-width: ${({ theme }) => theme.breakpoints.s}) {
+        margin-bottom: 0;
+    }
 `;
 
 export const Button = styled.button`
-    margin-top: 48px;
+    width: 287px;
+    margin-top: 32px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 103px;
+    padding-bottom: 14px;
+    padding-top: 14px;
+    gap: 11px;
+
+    border-radius: 16px;
+    background: #3e85f3;
+    box-shadow: 4px 2px 16px 0px rgba(136, 165, 191, 0.48);
+
+    border: none;
+    outline: none;
+
+    color: #fff;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 18px;
+    letter-spacing: -0.28px;
+
+    @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
+        margin-top: 48px;
+        width: 400px;
+        padding: 16px 152px;
+        font-size: 18px;
+        line-height: 24px;
+        letter-spacing: -0.36px;
+    }
+
+    /* margin-top: 48px;
 
     display: flex;
     width: 400px;
@@ -101,25 +150,32 @@ export const Button = styled.button`
     font-size: 18px;
     font-style: normal;
     font-weight: 600;
-    line-height: 24px; /* 133.333% */
-    letter-spacing: -0.36px;
+    line-height: 24px; 
+    letter-spacing: -0.36px; */
 `;
 
 export const Svg = styled.svg`
     stroke: white;
     fill: #3e85f3;
+    width: 18px;
+    height: 18px;
 `;
 
 export const ButtonEye = styled.svg`
     position: absolute;
     top: 70%;
-    left: 85%;
-    /* right: 40px; */
-    /* transform: translateY(50%); */
-
+    left: 75%;
+    width: 24px;
+    height: 24px;
     outline: none;
     border: none;
     cursor: pointer;
+
+    @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
+        position: absolute;
+        top: 70%;
+        left: 85%;
+    }
 `;
 
 export const Error = styled(ErrorMessage)`

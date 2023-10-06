@@ -2,6 +2,7 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import styled from '@emotion/styled';
 
+
 export const DatePickerStyled = styled(DatePicker)`
     width: 100%;
     padding: 12px;

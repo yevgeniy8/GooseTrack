@@ -3,7 +3,7 @@
     "title": "title 1",
     "start": "start 1",
     "end": "end 1",
-    "priority": "low",
+    "priority": "high",
     "date": "date 1",
     "category": "category 1",
     "id": "1"

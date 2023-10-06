@@ -116,6 +116,8 @@ export const lightTheme = {
         backgroundMonthDayActive: '#CAE8FF',
         backgroundScrollbar: '#2D3037',
 
+        backgroundPencel: '#E3F3FF',
+
         statisticsLine: '#E3F3FF',
         iconTasks: '#111',
         iconSideBar: 'rgba(52, 52, 52, 0.50)',
@@ -124,6 +126,7 @@ export const lightTheme = {
         sliderMonthDayDisabled: '#DCE3E5',
         scrollbar: '#171820',
         userDefaults: 'rgba(62, 133, 243, 0.18)',
+        buttonAddTaskHover: '#cbe6ff',
     },
 
     shadows: {
@@ -190,6 +193,8 @@ export const darkTheme = {
         backgroundMonthDayActive: '#3E85F3',
         backgroundScrollbar: '#F2F2F2',
 
+        backgroundPencel: '#353647',
+
         statisticsLine: '#rgba(227, 243, 255, 0.15)',
         iconTasks: '#fff',
         iconSideBar: '#ffffff',
@@ -198,6 +203,7 @@ export const darkTheme = {
         sliderMonthDayDisabled: 'rgba(255, 255, 255, 0.15)',
         scrollbar: '#E7E5E5',
         userDefaults: 'rgba(255, 255, 255, 0.18)',
+        buttonAddTaskHover: '#2B78EF',
     },
 
     shadows: {
