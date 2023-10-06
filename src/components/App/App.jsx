@@ -49,7 +49,7 @@ export const App = () => {
                             element={
                                 <RestrictedRoute
                                     redirectTo="/calendar"
-                                    element={<MainPage />}
+                                    component={<MainPage />}
                                 />
                             }
                         />
@@ -124,7 +124,6 @@ export const App = () => {
                                 }
                             />
                         </Route>
-                        {/* )} */}
 
                         <Route path="*" element={<ErrorPage />} />
                     </Routes>

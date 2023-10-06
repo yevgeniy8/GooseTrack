@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchReviews } from '../../redux/reviews/reviewsOperations';
 import ReviewCard from './ReviewCard';
 import {
-    Container,
     ReviewTitle,
     CardsContainer,
     ButtonLeft,
@@ -77,7 +76,7 @@ const ReviewsSlider = () => {
     }
 
     return (
-        <Container>
+        <div>
             <ReviewTitle>Reviews</ReviewTitle>
             <CardsContainer>
                 <Swiper
@@ -110,7 +109,7 @@ const ReviewsSlider = () => {
 
                 <ButtonRigth onClick={handleNext}>{slidArrowRight}</ButtonRigth>
             </ArrowContainer>
-        </Container>
+        </div>
     );
 };
 
