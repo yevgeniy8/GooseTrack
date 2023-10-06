@@ -15,7 +15,7 @@ const ColumnsTasksList = () => {
     }, [dispatch]);
 
     const sortedTasks = tasks;
-    console.log(tasks);
+    // console.log(tasks);
 
     return (
         <TaskList>
