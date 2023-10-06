@@ -24,11 +24,15 @@ export const Period = styled.div`
 `;
 
 export const CalendarToolbarContainer = styled.div`
+
+    @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
     display: flex;
     align-items: center;
     // justify-content: space-between;
     justify-content: flex-end;
     margin-bottom: 32px;
+    max-width: 1085px;
+    };
 `;
 
 export const Paginator = styled.div`

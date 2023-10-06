@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 export const AuthSectContainer = styled.div`
     height: 100vh;
-    background-color: #3e85f3;
+    background-color: ${({ theme }) => theme.colors.brand};
     display: flex;
     justify-content: center;
     align-items: center;
@@ -32,15 +32,14 @@ export const Image = styled.img`
 `;
 
 export const Title = styled.h1`
-    font-family: Inter;
     font-size: 44px;
     /* font-style: italic; */
-    font-weight: 700;
+    font-weight: ${({ theme }) => theme.fontWeight.b};
     line-height: calc(48 / 44);
     letter-spacing: 0em;
     /* text-align: left; */
     margin-bottom: 40px;
-    color: #ffffff;
+    color: ${({ theme }) => theme.colors.white};
 
     @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
         font-size: 100px;
@@ -73,37 +72,34 @@ export const Nav = styled.nav`
 `;
 
 export const Register = styled(NavLink)`
-    font-family: Inter;
-    font-size: 12px;
-    font-weight: 600;
+    font-size: ${({ theme }) => theme.fontSizes.xs};
+    font-weight: ${({ theme }) => theme.fontWeight.sb};
     line-height: calc(14 / 12);
     letter-spacing: 0em;
-    color: #ffffff;
+    color: ${({ theme }) => theme.colors.white};
     text-decoration: underline;
-    text-shadow: 0px 9.399999618530273px 57.6875px rgba(0, 0, 0, 0.04),
-        0px 47px 355px rgba(0, 0, 0, 0.07);
+    text-shadow: ${({ theme }) => theme.shadows.text};
 
     @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
-        font-size: 14px;
+        font-size: ${({ theme }) => theme.fontSizes.s};
         line-height: calc(18 / 14);
     }
 `;
 
 export const Login = styled(NavLink)`
-    min-width: 131px;
-    font-family: Inter;
-    font-size: 14px;
-    font-weight: 600;
-    line-height: calc(18 / 14);
-    letter-spacing: -0.02em;
-    padding: 14px 22px;
-    border-radius: 16px;
-    background-color: #ffffff;
-    color: #3e85f3;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 6px;
+    padding: 14px 22px;
+    min-width: 131px;
+    font-size: ${({ theme }) => theme.fontSizes.s};
+    font-weight: ${({ theme }) => theme.fontWeight.sb};
+    line-height: calc(18 / 14);
+    letter-spacing: -0.02em;
+    border-radius: ${({ theme }) => theme.borderRadius.m};
+    background-color: ${({ theme }) => theme.colors.white};
+    color: ${({ theme }) => theme.colors.brand};
 
     @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
         min-width: 121px;
@@ -111,6 +107,6 @@ export const Login = styled(NavLink)`
 `;
 
 export const Svg = styled.svg`
-    fill: white;
-    stroke: #3e85f3;
+    fill: ${({ theme }) => theme.colors.white};
+    stroke: ${({ theme }) => theme.colors.brand};
 `;

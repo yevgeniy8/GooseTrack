@@ -1,20 +1,19 @@
 import styled from '@emotion/styled';
 
 export const Wrapper = styled.div`
-    
-background-color: ${({ theme }) => theme.colors.backgroundPrimary};
-display: flex;
+    background-color: ${({ theme }) => theme.colors.backgroundPrimary};
+    display: flex;
     width: 375px;
     min-height: 100vh;
     margin: 0 auto;
-    
-    
+
     @media (min-width: 768px) {
         width: 768px;
     }
 
     @media (min-width: 1440px) {
         width: 1440px;
+    }
 `;
 
 export const Section = styled.div`
