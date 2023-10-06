@@ -63,9 +63,14 @@ const LinkToLogin = styled(NavLink)`
 `;
 
 const Picture = styled.picture`
-    position: absolute;
-    top: 354px;
-    left: 49px;
+    display: none;
+
+    @media screen and (min-width: ${({ theme }) => theme.breakpoints.l}) {
+        display: block;
+        position: absolute;
+        top: 354px;
+        left: 49px;
+    }
 `;
 
 export default RegisterPage;
