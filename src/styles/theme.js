@@ -78,6 +78,9 @@ const common = {
         cubicBezier: 'cubic-bezier(0.4, 0, 0.2, 1)',
         duration: '250ms',
     },
+    fontFamily: {
+        fontInter: 'Inter, sans-serif',
+    },
 };
 
 export const lightTheme = {
