@@ -61,7 +61,7 @@ export const editReview = createAsyncThunk(
 
 export const fetchReviewById = createAsyncThunk(
     'reviews/fetchReviewById',
-    async ( thunkAPI) => {
+    async (_, thunkAPI) => {
         try {
             const { data } = await axios.get(`/reviews/own/`);
             //  const { data } = await axios.get(`/reviews/own/${id}`);

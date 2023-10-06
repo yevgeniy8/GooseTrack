@@ -72,7 +72,7 @@ const reviewSlice = createSlice({
                 state.isLoading = true;
             })
             .addCase(editReview.fulfilled, (state, action) => {
-                state.userReview = action.payload;
+                state.userReview = action.payload.review;
                 const index = state.reviews.findIndex(
                     review => review.id === action.payload._id
                 );
