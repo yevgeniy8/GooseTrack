@@ -1,12 +1,12 @@
-export const selectTasks = state => state.tasks.tasks;
+export const selectTasks = state => state.calendar.tasks;
 
-export const selectError = state => state.tasks.error;
+export const selectError = state => state.calendar.error;
 
-export const selectIsLoading = state => state.tasks.isLoading;
+export const selectIsLoading = state => state.calendar.isLoading;
 
-export const selectUserTask = state => state.tasks.userTask;
+export const selectUserTask = state => state.calendar.userTask;
 
-export const selectSelectedDate = state => state.selectedDate;
+export const selectSelectedDate = state => state.calendar.selectedDate;
 
 // export const selectDay = state => {};
 

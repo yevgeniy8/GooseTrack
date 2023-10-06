@@ -18,7 +18,7 @@ const TaskColumnCard = ({ tasks }) => {
     return (
         <>
             {tasks.map(taskData => (
-                <CardItem key={taskData.id}>
+                <CardItem key={taskData._id}>
                     <CardContainer>
                         <CardTitle>{taskData.title}</CardTitle>
                         <CardMain>

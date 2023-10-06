@@ -1,16 +1,21 @@
 import { TaskList } from './ColumnsTasksList.styled';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { fetchTasks } from 'redux/calendar/calendarOperations';
 
 import TaskColumnCard from '../TaskColumnCard/TaskColumnCard';
+import { selectTasks } from 'redux/calendar/calendarSelector';
+import { useEffect } from 'react';
 // import tasks from '../data/tasksdata.json';
 
 const ColumnsTasksList = () => {
     const dispatch = useDispatch();
-    const tasks = dispatch(fetchTasks());
+    const tasks = useSelector(selectTasks);
+    useEffect(() => {
+        dispatch(fetchTasks());
+    }, [dispatch]);
 
-    const sortedTasks = tasks.tasks;
-    // console.log(tasks);
+    const sortedTasks = tasks;
+    console.log(tasks);
 
     return (
         <TaskList>
