@@ -1,30 +1,32 @@
 import styled from '@emotion/styled';
 
 export const CardItem = styled.li`
-    padding: 15px;
-    background: #f7f6f9;
+    width: 300px;
+    height: 112px;
+    padding: 14px 14px 18px 14px;
+    background: ${({ theme }) => theme.colors.backgroundPrimary};
     border-radius: 8px;
-    border: 1px solid rgba(220, 227, 229, 0.8);
+    border: ${({ theme }) => theme.borders.calendar};
 `;
 export const CardContainer = styled.div`
-    background: red;
+    // background: red;
     width: 100%;
 `;
 
 export const CardMain = styled.div`
     display: flex;
-    background: pink;
+    // background: pink;
 `;
 export const CardTitle = styled.h3`
-    color: #111;
+    color: ${({ theme }) => theme.colors.textPrimary};
     font-family: Inter;
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
     line-height: 18px; /* 128.571% */
-    background: orange;
+    // background: orange;
     padding: 0px;
-    margin: 14px 0px 30px 0px;
+    margin-bottom: 30px;
 `;
 export const CardStatus = styled.p`
     border-radius: 4px;
@@ -48,8 +50,21 @@ export const Container = styled.div`
         '' /* width: 32px;
   height: 32px; */
     }
-    background-color: #3e85f3;
+    // background-color: #3e85f3;
     color: blue;
+`;
+
+export const AvatarWrapper = styled.div`
+    height: 32px;
+    width: 32px;
+    padding: 6px;
+    border-radius: 50%;
+    border: 1.8px solid #3e85f3;
+`;
+
+export const AvatarStyle = styled.img`
+    width: 16px;
+    height: 16px;
 `;
 // export const Container = styled.div`
 //   display: flex;

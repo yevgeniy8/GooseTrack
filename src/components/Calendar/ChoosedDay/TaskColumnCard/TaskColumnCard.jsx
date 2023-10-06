@@ -1,3 +1,4 @@
+import Avatar from '../../../../images/Avatar.png';
 import {
     CardItem,
     CardContainer,
@@ -5,6 +6,8 @@ import {
     CardStatus,
     CardTitle,
     Container,
+    AvatarWrapper,
+    AvatarStyle,
 } from './TaskColumnCard.styled';
 import task from '../data/tasksdata.json';
 import TaskToolbar from './TaskToolbar';
@@ -18,7 +21,10 @@ const TaskColumnCard = () => {
                         <CardTitle>{taskData.title}</CardTitle>
                         <CardMain>
                             <Container>
-                                AVA <CardStatus>{taskData.priority}</CardStatus>
+                                <AvatarWrapper>
+                                    <AvatarStyle src={Avatar} alt="avatar" />
+                                </AvatarWrapper>
+                                <CardStatus>{taskData.priority}</CardStatus>
                             </Container>
                             <TaskToolbar></TaskToolbar>
                         </CardMain>

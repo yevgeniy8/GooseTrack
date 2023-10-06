@@ -121,6 +121,7 @@ export const lightTheme = {
         sliderMonthDayDisabled: '#DCE3E5',
         scrollbar: '#171820',
         userDefaults: 'rgba(62, 133, 243, 0.18)',
+        buttonAddTaskHover: '#cbe6ff',
     },
 
     shadows: {
@@ -195,6 +196,7 @@ export const darkTheme = {
         sliderMonthDayDisabled: 'rgba(255, 255, 255, 0.15)',
         scrollbar: '#E7E5E5',
         userDefaults: 'rgba(255, 255, 255, 0.18)',
+        buttonAddTaskHover: '#2B78EF',
     },
 
     shadows: {

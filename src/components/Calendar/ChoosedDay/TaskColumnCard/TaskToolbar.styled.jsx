@@ -21,7 +21,7 @@ export const CardEditBtn = styled.button`
     border: none;
     border-radius: 2px;
     display: flex;
-    // background-color: none;
+    background-color: inherit;
     transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
 
     &:hover {
