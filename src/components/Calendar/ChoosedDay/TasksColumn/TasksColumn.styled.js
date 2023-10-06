@@ -10,8 +10,10 @@ export const Column = styled.li`
   border-radius: 8px;
   border: 1px solid rgba(220, 227, 229, 0.8);
   background: ${({ theme }) => theme.colors.backgroundSecondary};
-  padding: 18px 18px 28px 14px;
-  min-width: 344px;
+
+  min-width: 329px;
+  padding-left: 14px;
+  padding-right: 8px;
 `;
 export const Container = styled.div`
   margin-bottom: 35px;

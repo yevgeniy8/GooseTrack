@@ -7,14 +7,15 @@ export const TaskList = styled.ul`
   padding: 0px;
   overflow-y: auto;
   max-height: 380px;
-  padding: 0 7px; /**ДЛЯ СКРОЛЛУ */
+  padding-right: 7px;
 
   &::-webkit-scrollbar {
     width: 8px;
+    padding: 50px;
   }
 
   &::-webkit-scrollbar-thumb {
-    margin: 50px;
+    padding: 50px;
     border-radius: 12px;
     background: #e7e5e5;
   }
@@ -46,6 +47,7 @@ export const BtnToAdd = styled.button`
   background: ${({ theme }) => theme.colors.backgroundSideBarCurrentPage};
 
   margin-top: 32px;
+  margin-bottom: 28px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -53,8 +55,6 @@ export const BtnToAdd = styled.button`
   height: 52px;
   width: 100%;
 
-  left: 20px;
-  bottom: 20px;
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
   &:hover {
     background: ${({ theme }) => theme.colors.buttonAddTaskHover};
