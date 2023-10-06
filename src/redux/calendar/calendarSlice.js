@@ -55,18 +55,10 @@ const calendarSlice = createSlice({
             end: '',
             priority: '',
         },
-        selectedDate: '',
         isLoading: false,
         error: null,
     },
-    reducers: {
-        changeDay(state, action) {
-            state.selectedDate = action.payload;
-        },
-        changeMonth(state, action) {
-            state.currentMonth = action.payload;
-        },
-    },
+
     extraReducers: builder => {
         builder
             .addCase(fetchTasks.pending, handlePending)
@@ -84,5 +76,4 @@ const calendarSlice = createSlice({
     },
 });
 
-export const { selectedDate } = calendarSlice.actions;
 export const calendarReducer = calendarSlice.reducer;
