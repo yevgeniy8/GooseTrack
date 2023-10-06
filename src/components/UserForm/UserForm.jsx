@@ -78,23 +78,17 @@ export const UserForm = () => {
         email: user.email || '',
         phone: user.phone || '',
         skype: user.skype || '',
-        
     };
 
     const handleChange = e => {
-        
-      setCurrentAvatar( e.target.files[0]);
-      console.log(currentAvatar)
-      
+        setCurrentAvatar(e.target.files[0]);
+        console.log(currentAvatar);
     };
 
     const handleSubmit = (values, actions) => {
-       
         const newData = {
             ...values,
             birthday: currentBirthday,
-           
-         
         };
 
         dispatch(editUser(newData));
