@@ -93,13 +93,13 @@ export const InputFormMargin0 = styled(InputForm)`
 `;
 
 export const Button = styled.button`
-    /* width: 287px;
+    width: 287px;
     margin-top: 32px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    padding: 14px 103px; 
+    padding: 14px 103px;
     padding-bottom: 14px;
     padding-top: 14px;
     gap: 11px;
@@ -116,7 +116,7 @@ export const Button = styled.button`
     font-size: 14px;
     font-style: normal;
     font-weight: 600;
-    line-height: 18px; 
+    line-height: 18px;
     letter-spacing: -0.28px;
 
     @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
@@ -126,9 +126,9 @@ export const Button = styled.button`
         font-size: 18px;
         line-height: 24px;
         letter-spacing: -0.36px;
-    } */
+    }
 
-    margin-top: 48px;
+    /* margin-top: 48px;
 
     display: flex;
     width: 400px;
@@ -150,8 +150,8 @@ export const Button = styled.button`
     font-size: 18px;
     font-style: normal;
     font-weight: 600;
-    line-height: 24px; /* 133.333% */
-    letter-spacing: -0.36px;
+    line-height: 24px; 
+    letter-spacing: -0.36px; */
 `;
 
 export const Svg = styled.svg`
