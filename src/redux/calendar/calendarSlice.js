@@ -55,7 +55,7 @@ const calendarSlice = createSlice({
             end: '',
             priority: '',
         },
-        selectedDate: new Date(),
+        selectedDate: '',
         isLoading: false,
         error: null,
     },

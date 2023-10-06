@@ -16,7 +16,6 @@ import storage from 'redux-persist/lib/storage';
 import authReducer from './auth/authSlice';
 import { reviewReducer } from './reviews/reviewsSlice';
 import { calendarReducer } from './calendar/calendarSlice';
-// import { calendarReducer } from './tasks/calendarSlice';
 
 const authPersistConfig = {
     key: 'auth',
@@ -29,7 +28,6 @@ export const store = configureStore({
         auth: persistReducer(authPersistConfig, authReducer),
         reviews: reviewReducer,
         calendar: calendarReducer,
-        // calendar: calendarReducer,
     },
     middleware: getDefaultMiddleware =>
         getDefaultMiddleware({

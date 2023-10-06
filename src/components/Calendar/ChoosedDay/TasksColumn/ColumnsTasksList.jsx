@@ -17,7 +17,7 @@ const ColumnsTasksList = () => {
             {tasks.length > 0 ? (
                 <TaskColumnCard tasks={sortedTasks}></TaskColumnCard>
             ) : (
-                <p>Your tasks is empty.</p>
+                <></>
             )}
             {/* <TaskColumnCard tasks={sortedTasks}></TaskColumnCard> */}
         </TaskList>

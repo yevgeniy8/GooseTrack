@@ -3,15 +3,16 @@ import { ColumnList } from './TasksColumnsList.styled';
 import TasksColumn from '../TasksColumn/TasksColumn';
 
 const TasksColumnsList = () => {
-    const columsName = ['To do', 'In progress', 'Done'];
+    const columsName = [
+        { name: 'To do', id: 1 },
+        { name: 'In progress', id: 2 },
+        { name: 'Done', id: 3 },
+    ];
     return (
         <ColumnList>
             {columsName.map(name => (
-                <TasksColumn header={name} />
+                <TasksColumn header={name.name} key={name.id} />
             ))}
-            {/* <TasksColumn></TasksColumn>
-            <TasksColumn></TasksColumn>
-            <TasksColumn></TasksColumn> */}
         </ColumnList>
     );
 };

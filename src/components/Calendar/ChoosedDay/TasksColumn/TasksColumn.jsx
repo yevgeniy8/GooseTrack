@@ -3,10 +3,10 @@ import ColumnHeadBar from './ColumnHeadBar';
 import ColumnsTasksList from './ColumnsTasksList';
 import { Column } from './TasksColumn.styled';
 
-const TasksColumn = props => {
+const TasksColumn = ({ header }) => {
     return (
         <Column>
-            <ColumnHeadBar header={props.header} />
+            <ColumnHeadBar header={header} />
 
             <ColumnsTasksList />
             <AddTaskBtn />

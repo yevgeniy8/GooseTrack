@@ -1,15 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://goose-track-backend-q3re.onrender.com';
-
-const setAuthHeader = token => {
-    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-};
-
-const token = 'токен';
-setAuthHeader(token);
-
 export const fetchTasks = createAsyncThunk(
     'tasks/fetchTasks',
     async thunkAPI => {

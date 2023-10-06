@@ -6,4 +6,8 @@ export const selectIsLoading = state => state.tasks.isLoading;
 
 export const selectUserTask = state => state.tasks.userTask;
 
-export const selectCalendar = state => state.calendar;
+export const selectSelectedDate = state => state.selectedDate;
+
+// export const selectDay = state => {};
+
+// export const selectMonth = state => {};
