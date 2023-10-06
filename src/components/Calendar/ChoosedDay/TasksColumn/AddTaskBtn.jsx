@@ -1,7 +1,15 @@
-import { BtnToAdd } from './ColumnsTasksList.styled';
+import Icons from '../../../../images/icons.svg';
+import { BtnToAdd, IconX } from './ColumnsTasksList.styled';
 
 const AddTaskBtn = () => {
-    return <BtnToAdd>S+</BtnToAdd>;
+    return (
+        <BtnToAdd>
+            <IconX>
+                <use href={`${Icons}#add-plus`} />
+            </IconX>
+            Add task
+        </BtnToAdd>
+    );
 };
 
 export default AddTaskBtn;

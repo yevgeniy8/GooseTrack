@@ -1,14 +1,13 @@
 import AddTaskBtn from './AddTaskBtn';
 import ColumnHeadBar from './ColumnHeadBar';
 import ColumnsTasksList from './ColumnsTasksList';
-import { Column, Container } from './TasksColumn.styled';
+import { Column } from './TasksColumn.styled';
 
 const TasksColumn = () => {
   return (
     <Column>
-      <Container>
-        <ColumnHeadBar />
-      </Container>
+      <ColumnHeadBar />
+
       <ColumnsTasksList />
       <AddTaskBtn />
     </Column>
