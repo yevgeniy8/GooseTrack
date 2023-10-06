@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   CardItem,
   CardContainer,
@@ -5,20 +6,29 @@ import {
   CardStatus,
   CardTitle,
   Container,
+  StatusLow,
+  StatusMedium,
+  StatusHigh,
 } from './TaskColumnCard.styled';
-import task from '../data/tasksdata.json';
 import TaskToolbar from './TaskToolbar';
 
-const TaskColumnCard = () => {
+const TaskColumnCard = ({ tasks }) => {
   return (
     <>
-      {task.map(taskData => (
+      {tasks.map(taskData => (
         <CardItem key={taskData.id}>
           <CardContainer>
             <CardTitle>{taskData.title}</CardTitle>
             <CardMain>
               <Container>
-                AVA <CardStatus>{taskData.priority}</CardStatus>
+                AVA
+                <CardStatus>
+                  {taskData.priority === 'high' && <StatusHigh>{taskData.priority}</StatusHigh>}
+                  {taskData.priority === 'medium' && (
+                    <StatusMedium>{taskData.priority}</StatusMedium>
+                  )}
+                  {taskData.priority === 'low' && <StatusLow>{taskData.priority}</StatusLow>}
+                </CardStatus>
               </Container>
               <TaskToolbar></TaskToolbar>
             </CardMain>

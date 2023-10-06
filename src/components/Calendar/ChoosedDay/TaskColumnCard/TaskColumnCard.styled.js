@@ -80,15 +80,40 @@ export const Container = styled.div`
   background-color: #3e85f3;
   color: blue;
 `;
-// export const Container = styled.div`
-//   display: flex;
-//   align-items: flex-end;
-//   gap: 8px;
-//   ${
-//     '' /* width: 32px;
-//   height: 32px; */
-//   }
-//   background-color: #3e85f3;
-//   color: yellow;
-//   border-radius: 50%;
-// `;
+export const StatusHigh = styled.p`
+  padding: 4px 12px;
+  border-radius: 4px;
+  max-height: 20px;
+
+  font-family: 'InterSemiBolt';
+  font-size: 10px;
+  line-height: 1.2;
+  color: white;
+
+  background-color: #f00;
+`;
+export const StatusLow = styled.p`
+  padding: 4px 12px;
+  border-radius: 4px;
+  max-height: 20px;
+
+  font-family: 'InterSemiBolt';
+  font-size: 10px;
+  line-height: 1.2;
+  color: white;
+
+  background-color: #0015ff;
+`;
+
+export const StatusMedium = styled.p`
+  padding: 4px 12px;
+  border-radius: 4px;
+  max-height: 20px;
+
+  font-family: 'InterSemiBolt';
+  font-size: 10px;
+  line-height: 1.2;
+  color: white;
+
+  background-color: #ff7700;
+`;
