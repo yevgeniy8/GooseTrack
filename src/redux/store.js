@@ -23,16 +23,16 @@ const authPersistConfig = {
     whitelist: ['token'],
 };
 
-const reviewsPersistConfig = {
-    key: 'reviews',
-    storage,
-    whitelist: ['userReview'],
-};
+// const reviewsPersistConfig = {
+//     key: 'reviews',
+//     storage,
+//     whitelist: ['userReview'],
+// };
 
 export const store = configureStore({
     reducer: {
         auth: persistReducer(authPersistConfig, authReducer),
-        reviews: persistReducer(reviewsPersistConfig, reviewReducer),
+        reviews: reviewReducer,
         calendar: calendarReducer,
     },
     middleware: getDefaultMiddleware =>
