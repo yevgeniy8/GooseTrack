@@ -1,7 +1,6 @@
 import styled from '@emotion/styled';
 
 export const Btn = styled.button`
-    padding: 0;
     outline: none;
     border: none;
     cursor: pointer;
@@ -11,7 +10,7 @@ export const Btn = styled.button`
     font-style: normal;
     font-weight: 600;
     line-height: calc(16 / 12);
-    padding: 12px 32px;
+    padding: 8px 20px;
     border-radius: 10px;
     background-color: ${({ theme }) => theme.colors.backgroundBtn};
     color: ${({ theme }) => theme.colors.white};
@@ -22,6 +21,7 @@ export const Btn = styled.button`
     @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
         font-size: 14px;
         line-height: calc(18 / 14);
+        padding: 12px 32px;
     }
 
     :hover,

@@ -1,10 +1,10 @@
 import CalendarTable from './CalendarTable';
-import CalendarHead from './MonthCalendarHead';
+import MonthCalendarHead from './MonthCalendarHead';
 
 const ChoosedMonth = () => {
     return (
         <div>
-            <CalendarHead />
+            <MonthCalendarHead />
             <CalendarTable />
         </div>
     );

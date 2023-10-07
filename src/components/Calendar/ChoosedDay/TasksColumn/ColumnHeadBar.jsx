@@ -1,10 +1,10 @@
 import { ColumnHeader, ColumnContainer } from './ColumnHeadBar.styled';
 
-const ColumnHeadBar = () => {
-  return (
-    <ColumnContainer>
-      <ColumnHeader>Назва колонки</ColumnHeader>
-    </ColumnContainer>
-  );
+const ColumnHeadBar = ({ header }) => {
+    return (
+        <ColumnContainer>
+            <ColumnHeader>{header}</ColumnHeader>
+        </ColumnContainer>
+    );
 };
 export default ColumnHeadBar;
