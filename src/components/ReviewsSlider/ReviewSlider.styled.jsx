@@ -40,7 +40,7 @@ export const ReviewTitle = styled.h2`
 `;
 
 export const ReviewsCardsContainer = styled.div`
-    width: 335px;
+    max-width: 335px;
 
     margin: auto;
 
@@ -48,21 +48,21 @@ export const ReviewsCardsContainer = styled.div`
     margin-bottom: 8px;
 
     @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
-        width: 580px;
+        max-width: 580px;
 
         margin-top: 50px;
         margin-bottom: 18px;
     }
 
     @media screen and (min-width: ${({ theme }) => theme.breakpoints.l}) {
-        width: 1184px;
+        max-width: 1184px;
 
         margin-bottom: 32px;
     }
 `;
 
 export const CardContainer = styled.div`
-    width: 335px;
+    max-width: 335px;
 
     background-color: #ffffff;
 
@@ -72,7 +72,7 @@ export const CardContainer = styled.div`
     padding: 24px 20px 24px 24px;
 
     @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
-        width: 580px;
+        max-width: 580px;
         padding: 32px;
     }
 `;

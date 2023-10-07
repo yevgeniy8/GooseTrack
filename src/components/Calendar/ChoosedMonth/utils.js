@@ -1,17 +1,21 @@
+// import moment from 'moment';
+
+export const DAYS_MOB = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
 export const DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
 export const getDaysInMonth = date => {
+    // console.log(date);
     return new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
 };
 
-export const range = (end) => {
-  const { result } = Array.from({ length: end }).reduce(
-    ({ result, current }) => ({
-      result: [...result, current],
-      current: current + 1
-    }),
-    { result: [], current: 1 }
-  );
+export const range = end => {
+    const { result } = Array.from({ length: end }).reduce(
+        ({ result, current }) => ({
+            result: [...result, current],
+            current: current + 1,
+        }),
+        { result: [], current: 1 }
+    );
     return result;
 };
 
@@ -27,9 +31,11 @@ export const datesAreOnSameDay = (first, second) =>
     first.getDate() === second.getDate();
 
 export const getMonthYear = date => {
-    const d = date.toDateString('default', {
-month: 'long',
-}).split(' ');
+    const d = date
+        .toDateString('default', {
+            month: 'long',
+        })
+        .split(' ');
     // console.log(d);
     return `${d[1]} ${d[3]}`;
 };
