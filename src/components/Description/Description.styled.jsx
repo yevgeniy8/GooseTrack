@@ -127,7 +127,7 @@ export const P = styled.p`
 `;
 
 export const TextDescription = styled.p`
-    width: 335px;
+    max-width: 335px;
     color: rgba(17, 17, 17, 0.9);
     font-size: ${({ theme }) => theme.fontSizes.s};
     font-style: normal;

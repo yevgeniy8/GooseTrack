@@ -83,7 +83,7 @@ const ReviewsSlider = () => {
                     modules={[Autoplay, Navigation]}
                     ref={swiperRef}
                     spaceBetween={24}
-                    slidesPerView={2}
+                    slidesPerView={1}
                     loopedSlides={2}
                     loop={true}
                     style={{ width: '100%', height: 'auto' }}
