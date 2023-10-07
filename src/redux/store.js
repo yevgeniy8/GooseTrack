@@ -32,7 +32,7 @@ const reviewsPersistConfig = {
 export const store = configureStore({
     reducer: {
         auth: persistReducer(authPersistConfig, authReducer),
-        reviews: reviewReducer,
+        reviews: persistReducer(reviewsPersistConfig, reviewReducer),
         calendar: calendarReducer,
     },
     middleware: getDefaultMiddleware =>
