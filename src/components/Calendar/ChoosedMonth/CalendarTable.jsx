@@ -3,29 +3,22 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchTasks } from 'redux/calendar/calendarOperations';
 import { selectTasks } from 'redux/calendar/calendarSelector';
 
-// import { selectCalendar } from 'redux/tasks/tasksSelector';
+
 import {
     datesAreOnSameDay,
     getDaysInMonth,
     getSortedDays,
-    getMonthYear,
-    nextMonth,
-    prevMonth,
 } from './utils';
-import {
-    BtnLeft,
-    Period,
-    BtnRight,
-    Paginator,
-    Svg,
-} from '../CalendarToolbar/CalendarToolbar.styled';
 import { Table } from './ChoosedMonth.styled';
-import sprite from 'images/icons.svg';
+// import { useParams } from 'react-router';
 
 const CalendarTable = () => {
-    const [currentDate, setCurrentDate] = useState(new Date());
-    // const currentDate = useSelector(selectCalendar);
+    // const { currentDate } = useParams();
+    // console.log(currentDate); //2023-10
 
+    const [currentDate] = useState(new Date());
+    console.log(currentDate); //Sat Oct 07 2023 13:03:40 
+    
     const dispatch = useDispatch();
     const tasks = useSelector(selectTasks);
     useEffect(() => {
@@ -35,26 +28,11 @@ const CalendarTable = () => {
     // необходимо что бы убрать Warning
     console.log(tasks);
 
-    const handlePrevMonth = () => prevMonth(currentDate, setCurrentDate);
-    const handleNextMonth = () => nextMonth(currentDate, setCurrentDate);
+    // const handlePrevMonth = () => prevMonth(currentDate, setCurrentDate);
+    // const handleNextMonth = () => nextMonth(currentDate, setCurrentDate);
 
     return (
         <>
-            <Paginator>
-                <Period type="button">{getMonthYear(currentDate)}</Period>
-                <div>
-                    <BtnLeft type="button" onClick={handlePrevMonth}>
-                        <Svg width="18" height="18">
-                            <use href={`${sprite}#chevron-left`} />
-                        </Svg>
-                    </BtnLeft>
-                    <BtnRight type="button" onClick={handleNextMonth}>
-                        <Svg width="18" height="18">
-                            <use href={`${sprite}#chevron-right`} />
-                        </Svg>
-                    </BtnRight>
-                </div>
-            </Paginator>
             <Table
                 fullheight={true}
                 is28Days={getDaysInMonth(currentDate) === 28}
@@ -62,9 +40,9 @@ const CalendarTable = () => {
                 {getSortedDays(currentDate).map((day, index) => (
                     <div
                         key={index}
-                        id={`${currentDate.getFullYear()}.${
+                        id={`${currentDate.getFullYear()}-${
                             currentDate.getMonth() + 1
-                        }.${day}`}
+                        }-${day}`}
                     >
                         <span
                             className={`nonDRAG ${
