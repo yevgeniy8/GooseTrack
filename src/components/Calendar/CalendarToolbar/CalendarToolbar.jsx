@@ -29,13 +29,15 @@ const CalendarToolbar = ({
    const handlePrevDate = format => {
     const date = moment(currentDate).subtract(1, format).format('YYYY-MM-DD');
     setCurrentDate(date);
-    localStorage.setItem('date', date);
+     localStorage.setItem('date', date);
+     console.log(date);
   };
 
    const handleNextDate = format => {
     const date = moment(currentDate).add(1, format).format('YYYY-MM-DD');
     setCurrentDate(date);
-    localStorage.setItem('date', date);
+     localStorage.setItem('date', date);
+     console.log(date);
   };
   
   const handleChangePeriod = evt => {

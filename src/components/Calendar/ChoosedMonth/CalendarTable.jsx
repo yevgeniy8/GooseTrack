@@ -51,6 +51,19 @@ const CalendarTable = () => {
                         >
                             {day}
                         </span>
+                    {/* <ul>
+                     {tasks
+                        // .filter(task => (task.date===id)) // - ?
+                        .map((task, id) => (
+                            <li
+                            key={task.date}
+                            //     bg={`color-of-task-${task.priority})`}
+                            //     color={`some-color-of-task-${task.priority})`}
+          >
+                            <LinkNav>{task.title}</LinkNav>
+                        </li>
+                        ))}
+                    </ul> */}
                     </div>
                 ))}
             </Table>
@@ -59,3 +72,5 @@ const CalendarTable = () => {
 };
 
 export default CalendarTable;
+
+
