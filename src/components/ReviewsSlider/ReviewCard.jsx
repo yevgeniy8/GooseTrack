@@ -26,12 +26,18 @@ const rateStyled = {
 
 const ReviewCard = ({ review }) => {
     const user = review.user;
+    console.log(user.avatarURL);
 
     return (
         <CardContainer>
             <FlexContainerOne>
-                {review.avatarURL ? (
-                    <Avatar src={user.avatarURL} alt="User Avatar" />
+                {user.avatarURL ? (
+                    <Avatar
+                        src={user.avatarURL}
+                        alt="User Avatar"
+                        width={20}
+                        height={20}
+                    />
                 ) : (
                     <ContainerDefaultAvatar>
                         <DefaultAvatar
