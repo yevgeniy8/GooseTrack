@@ -114,7 +114,7 @@ export const lightTheme = {
         backgroundBtnCanceled: '#E5EDFA',
         backgroundMonthDay: '#E3F3FF',
         backgroundMonthDayActive: '#CAE8FF',
-        backgroundScrollbar: '#2D3037',
+        backgroundScrollbar: '#F2F2F2',
 
         backgroundPencel: '#E3F3FF',
 
@@ -124,7 +124,7 @@ export const lightTheme = {
         iconSideBarActive: '#3E85F3',
         sliderMonthDay: '#343434',
         sliderMonthDayDisabled: '#DCE3E5',
-        scrollbar: '#171820',
+        scrollbar: '#E7E5E5',
         userDefaults: 'rgba(62, 133, 243, 0.18)',
     },
 
@@ -190,7 +190,7 @@ export const darkTheme = {
         backgroundBtnCanceled: '#21222C',
         backgroundMonthDay: '#21222C',
         backgroundMonthDayActive: '#3E85F3',
-        backgroundScrollbar: '#F2F2F2',
+        backgroundScrollbar: '#2D3037',
 
         backgroundPencel: '#353647',
 
@@ -200,7 +200,7 @@ export const darkTheme = {
         iconSideBarActive: '#fff',
         sliderMonthDay: '#fff',
         sliderMonthDayDisabled: 'rgba(255, 255, 255, 0.15)',
-        scrollbar: '#E7E5E5',
+        scrollbar: '#171820',
         userDefaults: 'rgba(255, 255, 255, 0.18)',
     },
 
