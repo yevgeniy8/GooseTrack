@@ -22,7 +22,6 @@ const CalendarPage = () => {
 
     return (
         <CalendarContainer>
-            {/* <H2>Calendar</H2> */}
             <CalendarToolbar />
             {/* <ChoosedMonth />
             {currentDay ? <ChoosedDay /> : null} */}
@@ -33,31 +32,68 @@ const CalendarPage = () => {
 
 const CalendarContainer = styled.div`
   padding: 0 32px 32px;
-  background-color: #f7f6f9;
-  max-width: 1085px;
+//   background-color: #f7f6f9;
+//   max-width: 1085px;
   margin-top: 45px; 
       @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
         margin-top: 0;
     }
 `;
-// const H2 = styled.h2`
-//   font-family: Inter;
-//   font-size: 32px;
-//   font-weight: 700;
-//   line-height: 32px;
-//   letter-spacing: 0em;
-//   text-align: left;
-//   margin-bottom: 38px;
-//   box-shadow: 0px 9.399999618530273px 57.6875px 0px rgba(0, 0, 0, 0.04);
-//   box-shadow: 0px 47px 355px 0px rgba(0, 0, 0, 0.07);
-// `;
 
 export default CalendarPage;
 
-// import React from 'react';
+
+// import React, { useEffect, useState } from 'react';
+// import styled from '@emotion/styled';
+// import CalendarToolbar from 'components/Calendar/CalendarToolbar/CalendarToolbar';
+// import { Outlet, useNavigate } from 'react-router';
+// import moment from 'moment';
 
 // const CalendarPage = () => {
-//     return <div>CalendarPage</div>;
+//   const navigate = useNavigate();
+//   const [currentDate, setCurrentDate] = useState(
+//     localStorage.getItem('date') || moment().format('YYYY-MM-DD').toString()
+//   );
+//   const [format, setFormat] = useState(localStorage.getItem('type') || 'month');
+
+//   useEffect(() => {
+//     let date;
+//     switch (format) {
+//       case 'month':
+//         date = moment(currentDate).format('YYYY-MM');
+//         navigate(`/calendar/month/${date}`);
+//         break;
+//       case 'day':
+//         date = moment(currentDate).format('YYYY-MM-DD');
+//         navigate(`/calendar/day/${date}`);
+//         break;
+//       default:
+//         return;
+//     }
+//   }, [format, navigate, currentDate]);
+
+//   return (
+//     <CalendarContainer>
+//       <CalendarToolbar
+//         currentDate={currentDate}
+//         setCurrentDate={setCurrentDate}
+//         format={format}
+//         setFormat={setFormat}
+//       />
+//       <Outlet />
+//     </CalendarContainer>
+//   );
 // };
 
 // export default CalendarPage;
+
+
+// const CalendarContainer = styled.div`
+//   padding: 0 32px 32px;
+// //   background-color: #f7f6f9;
+// //   max-width: 1085px;
+//   margin-top: 45px; 
+//       @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
+//         margin-top: 0;
+//     }
+// `;
