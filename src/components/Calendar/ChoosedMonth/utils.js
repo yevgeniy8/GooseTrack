@@ -4,6 +4,7 @@ export const DAYS_MOB = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
 export const DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
 export const getDaysInMonth = date => {
+    console.log(date);
     return new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
 };
 

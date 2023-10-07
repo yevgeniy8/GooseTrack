@@ -8,16 +8,17 @@ import {
     datesAreOnSameDay,
     getDaysInMonth,
     getSortedDays,
-    // getMonthYear,
-    // nextMonth,
-    // prevMonth,
 } from './utils';
 import { Table } from './ChoosedMonth.styled';
+// import { useParams } from 'react-router';
 
 const CalendarTable = () => {
-    const [currentDate] = useState(new Date());
-    // const currentDate = useSelector(selectCalendar);
+    // const { currentDate } = useParams();
+    // console.log(currentDate); //2023-10
 
+    const [currentDate] = useState(new Date());
+    console.log(currentDate); //Sat Oct 07 2023 13:03:40 
+    
     const dispatch = useDispatch();
     const tasks = useSelector(selectTasks);
     useEffect(() => {
