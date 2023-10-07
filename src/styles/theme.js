@@ -212,12 +212,12 @@ export const darkTheme = {
     borders: {
         ...common.borders,
 
-        sideBar: '',
-        statisticsSection: '',
-        addTask: '',
+        sideBar: 'none',
+        statisticsSection: 'none',
+        addTask: 'none',
         calendar: '1px solid rgba(255, 255, 255, 0.15)',
         rightMonth: '1px solid rgba(255, 255, 255, 0.15)',
-        modalTask: '',
+        modalTask: 'none',
     },
 
     borderRadius: {
