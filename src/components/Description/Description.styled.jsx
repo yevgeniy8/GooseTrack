@@ -1,13 +1,13 @@
 import styled from '@emotion/styled';
 
 export const Container = styled.div`
-    min-width: 375px;
+    max-width: 375px;
     padding-left: 20px;
     padding-right: 20px;
     margin: 0 auto;
 
     @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
-        min-width: 704px;
+        max-width: 704px;
         padding-left: 32px;
         padding-right: 32px;
     }
