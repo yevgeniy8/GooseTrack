@@ -115,8 +115,9 @@ export const lightTheme = {
         backgroundMonthDay: '#E3F3FF',
         backgroundMonthDayActive: '#CAE8FF',
         backgroundScrollbar: '#F2F2F2',
+        backgroundHorizontalScroll: '#F2F2F2',
 
-        backgroundPencel: '#E3F3FF',
+        backgroundPencil: '#E3F3FF',
 
         statisticsLine: '#E3F3FF',
         iconTasks: '#111',
@@ -125,6 +126,7 @@ export const lightTheme = {
         sliderMonthDay: '#343434',
         sliderMonthDayDisabled: '#DCE3E5',
         scrollbar: '#E7E5E5',
+        horizontalScroll: '#E7E5E5',
         userDefaults: 'rgba(62, 133, 243, 0.18)',
     },
 
@@ -191,8 +193,9 @@ export const darkTheme = {
         backgroundMonthDay: '#21222C',
         backgroundMonthDayActive: '#3E85F3',
         backgroundScrollbar: '#2D3037',
+        backgroundHorizontalScroll: '#21222C',
 
-        backgroundPencel: '#353647',
+        backgroundPencil: '#353647',
 
         statisticsLine: '#rgba(227, 243, 255, 0.15)',
         iconTasks: '#fff',
@@ -201,6 +204,7 @@ export const darkTheme = {
         sliderMonthDay: '#fff',
         sliderMonthDayDisabled: 'rgba(255, 255, 255, 0.15)',
         scrollbar: '#171820',
+        horizontalScroll: '#2D3037',
         userDefaults: 'rgba(255, 255, 255, 0.18)',
     },
 
