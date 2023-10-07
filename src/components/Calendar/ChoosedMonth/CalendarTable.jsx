@@ -9,7 +9,7 @@ import { useParams } from 'react-router';
 
 const CalendarTable = () => {
     const { currentDate } = useParams();
-    console.log(currentDate); //2023-10
+    // console.log(currentDate); //2023-10
 
     const date = new Date(currentDate);
 
