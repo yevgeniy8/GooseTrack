@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Rating } from '@smastrom/react-rating';
 import '@smastrom/react-rating/style.css';
 import {
@@ -27,6 +27,11 @@ const rateStyled = {
 
 const ReviewCard = ({ review }) => {
     const user = review.user;
+    const [showFullText, setShowFullText] = useState(false);
+
+    const toggleFullText = () => {
+        setShowFullText(!showFullText);
+    };
     return (
         <CardContainerOne>
             <CardContainerTwo>
@@ -65,7 +70,17 @@ const ReviewCard = ({ review }) => {
                     </FlexContainerTwo>
                 </FlexContainerOne>
 
-                <ReviewText>{review.review}</ReviewText>
+                <ReviewText>
+                    {showFullText ? review.review : review.review.slice(0, 100)}
+                    {review.review.length > 100 && !showFullText && (
+                        <span
+                            onClick={toggleFullText}
+                            style={{ color: '#3e85f3', cursor: 'pointer' }}
+                        >
+                            ...Read More
+                        </span>
+                    )}
+                </ReviewText>
             </CardContainerTwo>
         </CardContainerOne>
     );
