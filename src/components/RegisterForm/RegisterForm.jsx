@@ -29,7 +29,7 @@ import { register } from 'redux/auth/authOperations';
 
 const emailRegexp = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
 
-const baseURL = 'https://goose-track-backend-q3re.onrender.com';
+// const baseURL = 'https://goose-track-backend-q3re.onrender.com';
 
 const schema = yup.object().shape({
     name: yup.string().required(),
@@ -228,7 +228,7 @@ const RegisterForm = () => {
                             </Svg>
                         </Button>
 
-                        <a href={`${baseURL}/auth/google`}>Google</a>
+                        {/* <a href={`${baseURL}/auth/google`}>Google</a> */}
                     </Form>
                 )}
             </Formik>
