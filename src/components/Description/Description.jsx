@@ -24,7 +24,7 @@ import main_page_all_mob2x from '../../images/main_page/main_page_all_mob@2x.png
 import {
     Li,
     SideDiv,
-    H1,
+    Number,
     H2,
     H2All,
     P,
@@ -38,7 +38,7 @@ const Description = () => {
             <ul>
                 <Li>
                     <div>
-                        <H1>1.</H1>
+                        <Number>1.</Number>
                         <H2>Calendar</H2>
                         <P>view</P>
                         <TextDescription>
@@ -77,7 +77,7 @@ const Description = () => {
                 </Li>
                 <Li>
                     <SideDiv>
-                        <H1>2.</H1>
+                        <Number>2.</Number>
                         <P>Sidebar</P>
                         <TextDescription>
                             GooseTrack offers easy access to your account
@@ -117,7 +117,7 @@ const Description = () => {
                 </Li>
                 <Li>
                     <div>
-                        <H1>3.</H1>
+                        <Number>3.</Number>
                         <H2All>all in</H2All>
                         <P>one</P>
                         <TextDescription>
