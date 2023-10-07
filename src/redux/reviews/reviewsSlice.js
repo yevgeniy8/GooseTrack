@@ -41,8 +41,8 @@ const reviewSlice = createSlice({
                 state.isLoading = true;
             })
             .addCase(addReview.fulfilled, (state, action) => {
-                state.userReview = action.payload;
-                state.reviews = [...state.reviews, action.payload];
+                state.userReview = action.payload.review;
+                state.reviews = [...state.reviews, action.payload.review];
                 state.isLoading = false;
                 state.error = null;
             })
@@ -72,7 +72,7 @@ const reviewSlice = createSlice({
                 state.isLoading = true;
             })
             .addCase(editReview.fulfilled, (state, action) => {
-                state.userReview = action.payload;
+                state.userReview = action.payload.review;
                 const index = state.reviews.findIndex(
                     review => review.id === action.payload._id
                 );
@@ -89,7 +89,7 @@ const reviewSlice = createSlice({
             })
             .addCase(fetchReviewById.fulfilled, (state, action) => {
                 if (action.payload) {
-                    state.userReview = action.payload;
+                    state.userReview = action.payload.review;
                 } else {
                     state.userReview = {
                         rating: '',

@@ -23,6 +23,12 @@ const authPersistConfig = {
     whitelist: ['token'],
 };
 
+const reviewsPersistConfig = {
+    key: 'reviews',
+    storage,
+    whitelist: ['userReview'],
+};
+
 export const store = configureStore({
     reducer: {
         auth: persistReducer(authPersistConfig, authReducer),

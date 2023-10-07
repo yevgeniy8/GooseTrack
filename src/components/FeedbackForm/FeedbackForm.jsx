@@ -19,13 +19,13 @@ import {
 } from './FeedbackForm.styled';
 
 import pencil from '../../images/icons.svg';
-import trash from '../../images/icons.svg';
+import trashReview from '../../images/icons.svg';
 import close from '../../images/icons.svg';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectUserReview } from 'redux/reviews/reviewsSelectors';
-import { addReview, deleteReview, editReview } from 'redux/reviews/reviewsOperations';
+import { addReview, deleteReview, editReview, fetchReviewById } from 'redux/reviews/reviewsOperations';
 import { changeRating } from 'redux/reviews/reviewsSlice';
 import { Rating } from '@smastrom/react-rating';
 import '@smastrom/react-rating/style.css';
@@ -47,10 +47,16 @@ const FeedbackSchema = Yup.object().shape({
         .required('review is required'),
 });
 
-export const FeedbackForm = ({ onClose }) => {
+export const FeedbackForm = ({ onClose, existingReviewId }) => {
     const dispatch = useDispatch();
     const userReview = useSelector(selectUserReview);
     const [isEditActive, setIsEditActive] = useState(false);
+
+    useEffect(() => {
+        if (existingReviewId) {
+            dispatch(fetchReviewById(existingReviewId));
+        }
+    }, [dispatch, existingReviewId]);
 
     const ratingChanged = newRating => {
         // setRatingValue(newRating);
@@ -76,7 +82,7 @@ export const FeedbackForm = ({ onClose }) => {
     };
 
     const handleDelete = () => {
-        dispatch(deleteReview(userReview._id));
+        dispatch(deleteReview(userReview.id));
         onClose();
     };
 
@@ -114,14 +120,13 @@ export const FeedbackForm = ({ onClose }) => {
                                         <svg width="30" height="30">
                                             <use href={`${pencil}#pencil`} />
                                         </svg>
-                                        
                                     </EditBtn>
                                     <DeleteBtn
                                         type="button"
                                         onClick={handleDelete}
                                     >
                                         <svg width="30" height="30">
-                                            <use href={`${trash}#trash`} />
+                                            <use href={`${trashReview}#trash-review`} />
                                         </svg>
                                     </DeleteBtn>
                                 </WrapForEdit>
