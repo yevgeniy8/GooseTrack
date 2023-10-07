@@ -33,7 +33,7 @@ export const deleteTask = createAsyncThunk(
 
             return data;
         } catch (e) {
-            thunkAPI.rejectWithValue(e.message);
+            return thunkAPI.rejectWithValue(e.message);
         }
     }
 );
@@ -46,7 +46,7 @@ export const editTask = createAsyncThunk(
 
             return data;
         } catch (e) {
-            thunkAPI.rejectWithValue(e.message);
+            return thunkAPI.rejectWithValue(e.message);
         }
     }
 );
