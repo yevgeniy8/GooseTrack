@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { tablet, desktop, min } from '../../styles/media';
 
 export const ReviewsSliderSection = styled.section`
     text-align: center;
@@ -9,13 +10,13 @@ export const ReviewsSliderSection = styled.section`
     margin-top: 64px;
     margin-bottom: 64px;
 
-    @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
+    ${min(tablet)} {
         max-width: 704px;
 
         margin-bottom: 100px;
     }
 
-    @media screen and (min-width: ${({ theme }) => theme.breakpoints.l}) {
+    ${min(desktop)} {
         max-width: 1184px;
 
         margin-top: 100px;
@@ -33,7 +34,7 @@ export const ReviewTitle = styled.h2`
     line-height: 1.14;
     text-transform: uppercase;
 
-    @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
+    ${min(tablet)} {
         font-size: 40px;
         line-height: 44px;
     }
@@ -47,21 +48,21 @@ export const ReviewsCardsContainer = styled.div`
     margin-top: 40px;
     margin-bottom: 8px;
 
-    @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
+    ${min(tablet)} {
         max-width: 580px;
 
         margin-top: 50px;
         margin-bottom: 18px;
     }
 
-    @media screen and (min-width: ${({ theme }) => theme.breakpoints.l}) {
+    ${min(desktop)} {
         max-width: 1184px;
 
         margin-bottom: 32px;
     }
 `;
 
-export const CardContainer = styled.div`
+export const CardContainerOne = styled.div`
     max-width: 335px;
 
     background-color: #ffffff;
@@ -71,9 +72,36 @@ export const CardContainer = styled.div`
 
     padding: 24px 20px 24px 24px;
 
-    @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
+    ${min(tablet)} {
         max-width: 580px;
         padding: 32px;
+    }
+`;
+
+export const CardContainerTwo = styled.div`
+    height: 150px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-right: 13px;
+
+    scrollbar-width: thin;
+    scrollbar-color: rgba(17, 17, 17, 0.2);
+
+    &::-webkit-scrollbar {
+        width: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: rgba(17, 17, 17, 0.2);
+        border-radius: 4px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: #f8f8f8;
+    }
+
+    ${min(tablet)} {
+        height: 123px;
     }
 `;
 
@@ -111,34 +139,8 @@ export const ReviewText = styled.p`
     line-height: 1.28;
     text-align: justify;
 
-    overflow-x: auto;
-
-    height: 72px;
-
-    padding-right: 13px;
-
-    scrollbar-width: thin;
-    scrollbar-color: rgba(17, 17, 17, 0.3);
-
-    &::-webkit-scrollbar {
-        width: 4px;
-    }
-
-    &::-webkit-scrollbar-thumb {
-        background-color: rgba(17, 17, 17, 0.3);
-        border-radius: 4px;
-    }
-
-    &::-webkit-scrollbar-track {
-        background-color: #f8f8f8;
-    }
-
-    @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
+    ${min(tablet)} {
         margin-left: 69px;
-    }
-
-    @media screen and (min-width: ${({ theme }) => theme.breakpoints.l}) {
-        height: 55px;
     }
 `;
 
@@ -193,7 +195,8 @@ export const Span = styled.span`
 export const SVG = styled.svg`
     width: 50px;
     height: 50px;
-    @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
+
+    ${min(tablet)} {
         width: 61px;
         height: 61px;
     }
