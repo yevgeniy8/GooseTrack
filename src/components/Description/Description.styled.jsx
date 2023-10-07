@@ -13,7 +13,7 @@ export const Container = styled.div`
     }
 
     @media screen and (min-width: ${({ theme }) => theme.breakpoints.l}) {
-        width: 1208px;
+        max-width: 1208px;
         /* width: 1185px; */
         padding-left: 12px;
         padding-right: 12px;
