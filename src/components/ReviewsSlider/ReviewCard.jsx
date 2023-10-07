@@ -2,14 +2,15 @@ import React from 'react';
 import { Rating } from '@smastrom/react-rating';
 import '@smastrom/react-rating/style.css';
 import {
-    CardContainer,
+    CardContainerOne,
+    CardContainerTwo,
+    FlexContainerTwo,
+    FlexContainerOne,
     Name,
     ReviewText,
     Avatar,
     ContainerDefaultAvatar,
     DefaultAvatar,
-    FlexContainerTwo,
-    FlexContainerOne,
 } from './ReviewSlider.styled';
 
 import defaultAvatar from './ph_user.png';
@@ -26,47 +27,47 @@ const rateStyled = {
 
 const ReviewCard = ({ review }) => {
     const user = review.user;
-    console.log(user.avatarURL);
-
     return (
-        <CardContainer>
-            <FlexContainerOne>
-                {user.avatarURL ? (
-                    <Avatar
-                        src={user.avatarURL}
-                        alt="User Avatar"
-                        width={20}
-                        height={20}
-                    />
-                ) : (
-                    <ContainerDefaultAvatar>
-                        <DefaultAvatar
-                            src={defaultAvatar}
-                            alt="Default Avatar"
+        <CardContainerOne>
+            <CardContainerTwo>
+                <FlexContainerOne>
+                    {user.avatarURL ? (
+                        <Avatar
+                            src={user.avatarURL}
+                            alt="User Avatar"
                             width={20}
                             height={20}
                         />
-                    </ContainerDefaultAvatar>
-                )}
+                    ) : (
+                        <ContainerDefaultAvatar>
+                            <DefaultAvatar
+                                src={defaultAvatar}
+                                alt="Default Avatar"
+                                width={20}
+                                height={20}
+                            />
+                        </ContainerDefaultAvatar>
+                    )}
 
-                <FlexContainerTwo>
-                    <Name>{user.name}</Name>
+                    <FlexContainerTwo>
+                        <Name>{user.name}</Name>
 
-                    <div style={{ maxWidth: 110, marginBottom: '24px' }}>
-                        <Rating
-                            name="rating"
-                            component="div"
-                            value={Number(review.rating)}
-                            style={{ gap: 10 }}
-                            itemStyles={rateStyled}
-                            readOnly
-                        />
-                    </div>
-                </FlexContainerTwo>
-            </FlexContainerOne>
+                        <div style={{ maxWidth: 110, marginBottom: '24px' }}>
+                            <Rating
+                                name="rating"
+                                component="div"
+                                value={Number(review.rating)}
+                                style={{ gap: 10 }}
+                                itemStyles={rateStyled}
+                                readOnly
+                            />
+                        </div>
+                    </FlexContainerTwo>
+                </FlexContainerOne>
 
-            <ReviewText>{review.review}</ReviewText>
-        </CardContainer>
+                <ReviewText>{review.review}</ReviewText>
+            </CardContainerTwo>
+        </CardContainerOne>
     );
 };
 
