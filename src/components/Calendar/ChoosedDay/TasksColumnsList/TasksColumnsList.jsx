@@ -7,10 +7,10 @@ import { useParams } from 'react-router';
 import TasksColumn from '../TasksColumn/TasksColumn';
 
 const TasksColumnsList = () => {
-    const columsName = [
-        { name: 'To do', id: 1 },
-        { name: 'In progress', id: 2 },
-        { name: 'Done', id: 3 },
+    const categoryOptions = [
+        { name: 'To do', value: 'to-do', id: 1 },
+        { name: 'In progress', value: 'in-progress', id: 2 },
+        { name: 'Done', value: 'done', id: 3 },
     ];
 
     const { currentDay } = useParams();
@@ -27,11 +27,12 @@ const TasksColumnsList = () => {
     console.log(tasks);
     return (
         <ColumnList>
-            {columsName.map(name => (
+            {categoryOptions.map(option => (
                 <TasksColumn
-                    header={name.name}
+                    header={option.name}
                     tasks={filtredTasks}
-                    key={name.id}
+                    value={option.value}
+                    key={option.id}
                 />
             ))}
         </ColumnList>
