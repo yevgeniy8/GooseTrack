@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-// import Notiflix from 'notiflix';
+import Notiflix from 'notiflix';
 
 axios.defaults.baseURL = 'https://goose-track-backend-q3re.onrender.com';
 
@@ -27,7 +27,7 @@ export const addReview = createAsyncThunk(
             return data;
         } catch (e) {
             // console.log(e);
-            // Notiflix.Notify.failure('Errrrrooooorr');
+            Notiflix.Notify.failure('You`ve already submitted feedback');
             return thunkAPI.rejectWithValue(e.message);
         }
     }
@@ -37,8 +37,8 @@ export const deleteReview = createAsyncThunk(
     'reviews/deleteReviews',
     async (id, thunkAPI) => {
         try {
-            const { data } = await axios.delete(`/reviews/own/${id}`);
-
+            const { data } = await axios.delete(`/reviews/own/`);
+            console.log(data);
             return data;
         } catch (e) {
             thunkAPI.rejectWithValue(e.message);
@@ -50,7 +50,7 @@ export const editReview = createAsyncThunk(
     'reviews/editReviews',
     async ({ id, review }, thunkAPI) => {
         try {
-            const { data } = await axios.patch(`/reviews/own/${id}`, review);
+            const { data } = await axios.patch(`/reviews/own/`, review);
 
             return data;
         } catch (e) {
@@ -61,9 +61,10 @@ export const editReview = createAsyncThunk(
 
 export const fetchReviewById = createAsyncThunk(
     'reviews/fetchReviewById',
-    async (id, thunkAPI) => {
+    async (_, thunkAPI) => {
         try {
-            const { data } = await axios.get(`/reviews/own/${id}`);
+            const { data } = await axios.get(`/reviews/own/`);
+            //  const { data } = await axios.get(`/reviews/own/${id}`);
             return data;
         } catch (e) {
             thunkAPI.rejectWithValue(e.message);
