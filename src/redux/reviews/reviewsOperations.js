@@ -64,7 +64,6 @@ export const fetchReviewById = createAsyncThunk(
     async (_, thunkAPI) => {
         try {
             const { data } = await axios.get(`/reviews/own/`);
-            console.log(data);
             //  const { data } = await axios.get(`/reviews/own/${id}`);
             return data;
         } catch (e) {

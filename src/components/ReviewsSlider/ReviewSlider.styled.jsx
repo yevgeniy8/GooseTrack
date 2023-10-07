@@ -80,29 +80,6 @@ export const CardContainerOne = styled.div`
 
 export const CardContainerTwo = styled.div`
     height: 150px;
-    overflow-x: auto;
-    overflow-y: hidden;
-    padding-right: 13px;
-
-    scrollbar-width: thin;
-    scrollbar-color: rgba(17, 17, 17, 0.2);
-
-    &::-webkit-scrollbar {
-        width: 4px;
-    }
-
-    &::-webkit-scrollbar-thumb {
-        background-color: rgba(17, 17, 17, 0.2);
-        border-radius: 4px;
-    }
-
-    &::-webkit-scrollbar-track {
-        background-color: #f8f8f8;
-    }
-
-    ${min(tablet)} {
-        height: 123px;
-    }
 `;
 
 export const FlexContainerTwo = styled.div`
