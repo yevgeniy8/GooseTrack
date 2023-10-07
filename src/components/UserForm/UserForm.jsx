@@ -81,27 +81,29 @@ export const UserForm = () => {
     };
 
     const handleChange = e => {
+        console.dir(e.target);
         setCurrentAvatar(e.target.files[0]);
         // console.log(currentAvatar);
     };
 
     const handleSubmit = ({ name, phone, email, skype }, actions) => {
         const formData = new FormData();
-        // formData.append('name', name);
-        // formData.append('email', email);
-        // formData.append('phone', phone);
-        // formData.append('skype', skype);
-        // formData.append('birthday', currentBirthday);
-        formData.append('avatarURL', currentAvatar);
+        formData.append('name', name);
+        formData.append('email', email);
+        formData.append('phone', phone);
+        formData.append('skype', skype);
+        formData.append('birthday', currentBirthday);
+        formData.append('avatar', currentAvatar);
 
-        const newData = {
-            name,
-            phone,
-            email,
-            skype,
-            birthday: currentBirthday,
-            file: { avatarURL: formData },
-        };
+        // const newData = {
+        //     name,
+        //     phone,
+        //     email,
+        //     skype,
+        //     // birthday: currentBirthday,
+        //     // file: { avatarURL: formData },
+        //     avatar: currentAvatar,
+        // };
 
         // const newData = {
         //     body: { name, phone, email, skype, birthday: currentBirthday },
@@ -109,7 +111,7 @@ export const UserForm = () => {
         //         avatarURL: formData,
         //     },
         // };
-        dispatch(editUser(newData));
+        dispatch(editUser(formData));
 
         actions.resetForm();
     };
@@ -118,7 +120,7 @@ export const UserForm = () => {
         <MainContainer>
             <AvatarContainer>
                 <ImgContainer>
-                    <ImgAvatar src={ avatar} alt="avatar" />
+                    <ImgAvatar src={user.avatarURL} alt="avatar" />
                 </ImgContainer>
                 <InputFile
                     type="file"
