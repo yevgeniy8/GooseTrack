@@ -20,14 +20,15 @@ export const Section = styled.div`
     width: 100%;
     min-height: 100%;
     display: flex;
-    // padding: 24px 20px 40px 20px;
+    padding: 24px 20px 40px 20px;
     flex-direction: column;
 
     @media (min-width: 768px) {
-        // padding: 25px 32px 38px 32px;
+        padding: 25px 32px 38px 32px;
     }
 
     @media (min-width: 1440px) {
-        // padding: 41px 32px 32px 32px;
+        max-width: 1151px;
+        padding: 41px 32px 32px 32px;
     }
 `;
