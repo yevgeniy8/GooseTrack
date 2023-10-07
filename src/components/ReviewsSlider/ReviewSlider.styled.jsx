@@ -81,7 +81,7 @@ export const CardContainerOne = styled.div`
 export const CardContainerTwo = styled.div`
     height: 150px;
     overflow-x: auto;
-
+    overflow-y: hidden;
     padding-right: 13px;
 
     scrollbar-width: thin;
