@@ -8,7 +8,7 @@ export const Wrap = styled.div`
     padding: 28px 20px;
     border-radius: 16px;
     width: 335px;
-    background: ${({ theme }) => theme.colors.backgroundPrimary};
+    background: ${({ theme }) => theme.colors.backgroundModalTask};
     box-shadow: 0px 4px 16px 0px rgba(17, 17, 17, 0.1);
 
     @media (min-width: 768px) {
@@ -44,17 +44,16 @@ export const EditBtn = styled.button`
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #dcebf7;
     border: none;
     width: 30px;
     height: 30px;
     border-radius: 50%;
     stroke: rgba(62, 133, 243, 1);
-    fill: #dcebf7;
+    fill: ${({ theme }) => theme.colors.backgroundPencel};
+    background-color: ${({ theme }) => theme.colors.backgroundPencel};
 
-    cursor: pointer;
     transition: stroke 300ms cubic-bezier(0.4, 0, 0.2, 1);
-        
+
     &:hover,
     &:focus {
         stroke: #ffffff;
@@ -71,7 +70,7 @@ export const DeleteBtn = styled.button`
     width: 30px;
     height: 30px;
     background-color: rgba(234, 61, 101, 0.2);
-    fill: rgba(234, 61, 101, 0.20);
+    fill: rgba(234, 61, 101, 0.2);
     stroke: #ea3d65;
     border: none;
     border-radius: 50%;
@@ -104,10 +103,9 @@ export const Input = styled(Field)`
     font-family: Inter;
     font-style: normal;
     font-weight: 600;
-    /* background-color: rgba(246, 246, 246, 1); */
-    background: ${({ theme }) => theme.colors.backgroundPrimary};
+    background: ${({ theme }) => theme.colors.backgroundModalTaskForm};
     border-radius: 8px;
-    /* border: 1px solid rgba(246, 246, 246, 1); */
+    border: ${({ theme }) => theme.borders.modalTask};
 
     @media (min-width: 768px) {
         width: 404px;
