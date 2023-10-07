@@ -73,7 +73,7 @@ export const refreshUser = createAsyncThunk(
 );
 
 
-export const editUser = createAsyncThunk('auth/edit', async (newData, thunkApi) => {
+export const editUser = createAsyncThunk('auth/edit', async (newUser, thunkApi) => {
     const { auth: { token } } = thunkApi.getState();
 
     if (!token) {
@@ -83,9 +83,10 @@ export const editUser = createAsyncThunk('auth/edit', async (newData, thunkApi) 
 
         setAuthHeader(token);
 
-        console.log(newData);
+        // console.log(newUser);
 
-        const response = await axios.patch('/users/edit', newData);
+        const response = await axios.patch('/users/edit', newUser);
+
         if (response) { Notiflix.Notify.success(`User has been updated successfuly`); }
 
         return response.data;

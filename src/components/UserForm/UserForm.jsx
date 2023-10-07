@@ -2,7 +2,13 @@ import React, { useState } from 'react';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import sprite from '../../images/icons.svg';
-
+import { ImgContainer } from './UserForm.styled';
+import { FieldsWrap } from './UserForm.styled';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectUser } from 'redux/auth/authSelectors';
+import moment from 'moment/moment';
+import { editUser } from 'redux/auth/authOperations';
+import avatar from '../../images/Avatar.png';
 import {
     AvatarContainer,
     Button,
@@ -21,16 +27,10 @@ import {
     UserName,
     UserP,
 } from './UserForm.styled';
-import { ImgContainer } from './UserForm.styled';
-import { FieldsWrap } from './UserForm.styled';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectUser } from 'redux/auth/authSelectors';
 import {
     DatePickWrapper,
     DatePickerStyled,
 } from './ReactDatePickerCalendar.styled';
-import moment from 'moment/moment';
-import { editUser } from 'redux/auth/authOperations';
 
 const dayMoment = moment().format('DD/MM/YYYY');
 const emailRegexp = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
@@ -82,15 +82,33 @@ export const UserForm = () => {
 
     const handleChange = e => {
         setCurrentAvatar(e.target.files[0]);
-        console.log(currentAvatar);
+        // console.log(currentAvatar);
     };
 
-    const handleSubmit = (values, actions) => {
+    const handleSubmit = ({ name, phone, email, skype }, actions) => {
+        const formData = new FormData();
+        // formData.append('name', name);
+        // formData.append('email', email);
+        // formData.append('phone', phone);
+        // formData.append('skype', skype);
+        // formData.append('birthday', currentBirthday);
+        formData.append('avatarURL', currentAvatar);
+
         const newData = {
-            ...values,
+            name,
+            phone,
+            email,
+            skype,
             birthday: currentBirthday,
+            file: { avatarURL: formData },
         };
 
+        // const newData = {
+        //     body: { name, phone, email, skype, birthday: currentBirthday },
+        //     file: {
+        //         avatarURL: formData,
+        //     },
+        // };
         dispatch(editUser(newData));
 
         actions.resetForm();
@@ -100,7 +118,7 @@ export const UserForm = () => {
         <MainContainer>
             <AvatarContainer>
                 <ImgContainer>
-                    <ImgAvatar src={user.avatarURL} alt="avatar" />
+                    <ImgAvatar src={ avatar} alt="avatar" />
                 </ImgContainer>
                 <InputFile
                     type="file"

@@ -31,12 +31,18 @@ export const AvatarContainer = styled.div`
     margin-right: auto;
 `;
 export const ImgContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-bottom: 18px;
     width: 72px;
     height: 76px;
+    border: 2px solid #3e85f3;
+    border-radius: 50%;
+    background-color: ${({ theme }) => theme.colors.backgroundSecondary};
     @media (min-width: 768px) {
         width: 124px;
-        height: 130px;
+        height: 124px;
         margin-bottom: 20px;
     }
 `;
@@ -44,6 +50,8 @@ export const ImgContainer = styled.div`
 export const ImgAvatar = styled.img`
     width: 100%;
     height: 100%;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
 
     object-fit: cover;
