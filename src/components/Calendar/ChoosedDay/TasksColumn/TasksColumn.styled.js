@@ -9,9 +9,9 @@ export const TaskList = styled.ul`
 `;
 export const Column = styled.li`
     border-radius: 8px;
-    border: 1px solid rgba(220, 227, 229, 0.8);
+    border: ${({ theme }) => theme.borders.calendar};
     background: ${({ theme }) => theme.colors.backgroundSecondary};
-
+    margin-bottom: auto;
     min-width: 335px;
     padding-left: 14px;
     padding-right: 8px;
