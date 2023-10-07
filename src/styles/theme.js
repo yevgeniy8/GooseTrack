@@ -49,6 +49,10 @@ const common = {
         xxl: '124px',
     },
 
+    fontFamily: {
+        fontInter: 'Inter, sans-serif',
+    },
+
     fontWeight: {
         r: 400,
         m: 500,
@@ -77,9 +81,6 @@ const common = {
     animations: {
         cubicBezier: 'cubic-bezier(0.4, 0, 0.2, 1)',
         duration: '250ms',
-    },
-    fontFamily: {
-        fontInter: 'Inter, sans-serif',
     },
 };
 
@@ -110,6 +111,8 @@ export const lightTheme = {
         backgroundSideBarPageHover: '#E3F3FF',
         backgroundModalTask: '#fff',
         backgroundModalTaskForm: '#F6F6F6',
+        backgroundModal: '#fff',
+        backgroundFeedbackInput: '#F6F6F6',
 
         backgroundBtnCanceled: '#E5EDFA',
         backgroundMonthDay: '#E3F3FF',
@@ -133,6 +136,7 @@ export const lightTheme = {
 
     shadows: {
         ...common.shadows,
+        feedbackForm: '0px 4px 16px 0px rgba(17, 17, 17, 0.1)',
     },
     borders: {
         ...common.borders,
@@ -143,10 +147,14 @@ export const lightTheme = {
         calendar: '1px solid rgba(220, 227, 229, 0.80)',
         rightMonth: '1px solid rgba(62, 133, 243, 0.20)',
         modalTask: '1px solid rgba(220, 227, 229, 0.80)',
+        feedbackInput: 'none',
     },
 
     borderRadius: {
         ...common.borderRadius,
+    },
+    fontFamily: {
+        ...common.fontFamily,
     },
     fontWeight: {
         ...common.fontWeight,
@@ -189,6 +197,8 @@ export const darkTheme = {
         backgroundSideBarPageHover: '#3E85F3',
         backgroundModalTask: '#171820',
         backgroundModalTaskForm: '#171820',
+        backgroundModal: '#171820',
+        backgroundFeedbackInput: 'transparent',
 
         backgroundBtnCanceled: '#21222C',
         backgroundMonthDay: '#21222C',
@@ -212,6 +222,7 @@ export const darkTheme = {
 
     shadows: {
         ...common.shadows,
+        feedbackForm: '0px 4px 57px 0px rgba(17, 17, 17, 0.05)',
     },
     borders: {
         ...common.borders,
@@ -222,10 +233,14 @@ export const darkTheme = {
         calendar: '1px solid rgba(255, 255, 255, 0.15)',
         rightMonth: '1px solid rgba(255, 255, 255, 0.15)',
         modalTask: 'none',
+        feedbackInput: '1px solid rgba(255, 255, 255, 0.15)',
     },
 
     borderRadius: {
         ...common.borderRadius,
+    },
+    fontFamily: {
+        ...common.fontFamily,
     },
     fontWeight: {
         ...common.fontWeight,

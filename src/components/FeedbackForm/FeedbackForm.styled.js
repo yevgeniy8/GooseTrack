@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { tablet, min, desktop } from '../../styles/media';
 
 import { Field, ErrorMessage as FormikErrorMessage } from 'formik';
 
@@ -6,25 +7,25 @@ export const Wrap = styled.div`
     position: relative;
     text-align: left;
     padding: 28px 20px;
-    border-radius: 16px;
+    border: 1px solid rgba(220, 227, 229, 0.8);
+    border-radius: 8px;
     width: 335px;
-    background: ${({ theme }) => theme.colors.backgroundModalTask};
-    box-shadow: 0px 4px 16px 0px rgba(17, 17, 17, 0.1);
+    background: ${({ theme }) => theme.colors.backgroundModal};
+    box-shadow: ${({ theme }) => theme.shadows.feedbackForm};
 
-    @media (min-width: 768px) {
+    ${min(tablet)} {
         width: 468px;
         padding: 32px;
     }
 `;
 
 export const Label = styled.label`
-    font-family: Inter;
     color: ${({ theme }) => theme.colors.textTitleModalTask};
     /* background: ${({ theme }) => theme.colors.backgroundPrimary}; */
     display: block;
     margin-bottom: 8px;
-    font-weight: 500;
-    font-size: 12px;
+    font-weight: ${({ theme }) => theme.fontWeight.m};
+    font-size: ${({ theme }) => theme.fontSizes.xs};
     line-height: calc((14 / 12) * 100%);
 `;
 
@@ -66,7 +67,7 @@ export const DeleteBtn = styled.button`
     display: flex;
     justify-content: center;
     align-items: center;
-
+    /* font-family: Inter, sans-serif; */
     width: 30px;
     height: 30px;
     background-color: rgba(234, 61, 101, 0.2);
@@ -96,22 +97,21 @@ export const Input = styled(Field)`
     width: 295px;
     box-sizing: border-box;
     height: 127px;
-    font-weight: 600;
-    font-size: 14px;
+    font-weight: ${({ theme }) => theme.fontWeight.sb};
+    font-size: ${({ theme }) => theme.fontSizes.s};
     line-height: calc((18 / 14) * 100%);
-    color: ${({ theme }) => theme.colors.textPrimary};
-    font-family: Inter;
+    font-family: ${({ theme }) => theme.fontFamily.fontFamily};
     font-style: normal;
-    font-weight: 600;
-    background: ${({ theme }) => theme.colors.backgroundModalTaskForm};
+    background: ${({ theme }) => theme.colors.backgroundFeedbackInput};
+    color: ${({ theme }) => theme.colors.textPrimary};
+    border: ${({ theme }) => theme.borders.feedbackInput};
     border-radius: 8px;
-    border: ${({ theme }) => theme.borders.modalTask};
 
-    @media (min-width: 768px) {
+    ${min(tablet)} {
         width: 404px;
     }
 
-    @media (min-width: 1440px) {
+    ${min(desktop)} {
         margin-bottom: 18px;
     }
 
@@ -134,7 +134,8 @@ export const ErrorMessage = styled(FormikErrorMessage)`
     max-width: 240px;
     font-size: 12px;
     font-weight: 500;
-    @media (min-width: 768px) {
+
+    ${min(tablet)} {
         max-width: 330px;
     }
 `;
@@ -148,16 +149,19 @@ export const FormBtnWrap = styled.div`
 
 export const FormBtn = styled.button`
     color: #ffffff;
-    background-color: #3e85f3;
+    /* background-color: #3e85f3; */
     text-transform: none;
     width: 262px;
     height: 48px;
+    font-family: 'inter';
     font-weight: 600;
     font-size: 14px;
     border: none;
     border-radius: 16px;
     cursor: pointer;
-    transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: ${({ theme }) =>
+        `background-color ${theme.animations.duration} ${theme.animations.cubicBezier}`};
+
     &:hover,
     &:focus {
         background-color: #2b78ef;
@@ -203,10 +207,3 @@ export const BtnCloseWrap = styled.button`
         stroke: #2b78ef;
     }
 `;
-
-
-
-
-
-
-
