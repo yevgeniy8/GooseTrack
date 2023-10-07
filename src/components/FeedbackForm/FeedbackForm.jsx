@@ -62,9 +62,10 @@ export const FeedbackForm = ({ onClose, existingReviewId }) => {
     //     }
     // }, [dispatch, existingReviewId]);
 
-    useEffect(() => {
-        dispatch(fetchReviewById());
-    }, [dispatch, userReview.review]);
+    // useEffect(() => {
+    //     console.log('2');
+    //     dispatch(fetchReviewById());
+    // }, [dispatch, userReview.review]);
 
     // console.log(userReview);
 
@@ -101,7 +102,7 @@ export const FeedbackForm = ({ onClose, existingReviewId }) => {
             <Formik
                 initialValues={{
                     rating: userReview.rating,
-                    review: userReview.review,
+                    review: userReview.review || '',
                 }}
                 validationSchema={FeedbackSchema}
                 onSubmit={handleSubmit}
