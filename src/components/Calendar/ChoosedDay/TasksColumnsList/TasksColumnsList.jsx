@@ -21,13 +21,13 @@ const TasksColumnsList = ({ selectedDay = '03.01.23' }) => {
 
     return (
         <ColumnList>
-            <TasksColumn tasksList="To do" category={todo} />
+            <TasksColumn tasksCategoryName="To do" tasksByCategory={todo} />
             <TasksColumn
-                tasksList="In progress"
-                category={inProgress}
+                tasksCategoryName="In progress"
+                tasksByCategory={inProgress}
                 selectedDay={selectedDay}
             />
-            <TasksColumn tasksList="Done" category={done} />
+            <TasksColumn tasksCategoryName="Done" tasksByCategory={done} />
         </ColumnList>
     );
 };

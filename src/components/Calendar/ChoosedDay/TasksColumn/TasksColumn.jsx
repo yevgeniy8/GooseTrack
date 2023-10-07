@@ -3,13 +3,15 @@ import ColumnHeadBar from './ColumnHeadBar';
 import ColumnsTasksList from './ColumnsTasksList';
 import { Column } from './TasksColumn.styled';
 
-const TasksColumn = ({ tasksList, category }) => {
-    console.log(tasksList);
+const TasksColumn = ({ tasksCategoryName, tasksByCategory }) => {
     return (
         <Column>
-            <ColumnHeadBar title={tasksList} />
+            <ColumnHeadBar title={tasksCategoryName} />
 
-            <ColumnsTasksList tasksList={tasksList} category={category} />
+            <ColumnsTasksList
+                tasksList={tasksCategoryName}
+                tasksByCategory={tasksByCategory}
+            />
             <AddTaskBtn />
         </Column>
     );

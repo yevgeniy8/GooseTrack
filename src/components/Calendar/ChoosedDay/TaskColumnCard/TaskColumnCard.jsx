@@ -11,13 +11,13 @@ import {
     StatusMedium,
     StatusLow,
 } from './TaskColumnCard.styled';
-// import task from '../data/tasksdata.json';
+
 import TaskToolbar from './TaskToolbar';
 
-const TaskColumnCard = ({ tasksList, category }) => {
+const TaskColumnCard = ({ tasksCategoryName, tasksByCategory }) => {
     return (
         <>
-            {tasksList.map(taskData => (
+            {tasksByCategory.map(taskData => (
                 <CardItem key={taskData.id}>
                     <CardContainer>
                         <CardTitle>{taskData.title}</CardTitle>
@@ -38,7 +38,9 @@ const TaskColumnCard = ({ tasksList, category }) => {
                                     <StatusLow>{taskData.priority}</StatusLow>
                                 )}
                             </Container>
-                            <TaskToolbar></TaskToolbar>
+                            <TaskToolbar
+                                tasksCategoryName={tasksCategoryName}
+                            ></TaskToolbar>
                         </CardMain>
                     </CardContainer>
                 </CardItem>
