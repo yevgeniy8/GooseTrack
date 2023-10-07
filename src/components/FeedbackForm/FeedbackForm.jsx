@@ -21,14 +21,13 @@ import pencil from '../../images/icons.svg';
 import trashReview from '../../images/icons.svg';
 import close from '../../images/icons.svg';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectUserReview } from 'redux/reviews/reviewsSelectors';
 import {
     addReview,
     deleteReview,
     editReview,
-    fetchReviewById,
 } from 'redux/reviews/reviewsOperations';
 import { changeRating } from 'redux/reviews/reviewsSlice';
 import { Rating } from '@smastrom/react-rating';
@@ -62,9 +61,10 @@ export const FeedbackForm = ({ onClose, existingReviewId }) => {
     //     }
     // }, [dispatch, existingReviewId]);
 
-    useEffect(() => {
-        dispatch(fetchReviewById());
-    }, [dispatch, userReview.review]);
+    // useEffect(() => {
+    //     console.log('2');
+    //     dispatch(fetchReviewById());
+    // }, [dispatch, userReview.review]);
 
     // console.log(userReview);
 
@@ -101,7 +101,7 @@ export const FeedbackForm = ({ onClose, existingReviewId }) => {
             <Formik
                 initialValues={{
                     rating: userReview.rating,
-                    review: userReview.review,
+                    review: userReview.review || '',
                 }}
                 validationSchema={FeedbackSchema}
                 onSubmit={handleSubmit}
