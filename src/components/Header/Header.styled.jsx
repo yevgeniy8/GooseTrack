@@ -39,17 +39,14 @@ export const ImgWrapper = styled.div`
 `;
 
 export const HeaderContainer = styled.div`
+    max-width: 1087px;
     display: flex;
     align-items: center;
-    padding: 24px 20px;
+    margin-bottom: 64px;
     background-color: ${({ theme }) => theme.colors.backgroundPrimary};
 
-    @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
-        padding: 24px 32px;
-    }
-
     @media screen and (min-width: ${({ theme }) => theme.breakpoints.l}) {
-        padding: 40px 32px 32px;
+        margin-bottom: 32px;
     }
 `;
 

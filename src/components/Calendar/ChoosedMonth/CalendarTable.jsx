@@ -1,4 +1,8 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchTasks } from 'redux/calendar/calendarOperations';
+import { selectTasks } from 'redux/calendar/calendarSelector';
+
 
 import {
     datesAreOnSameDay,
@@ -11,8 +15,20 @@ import {
 import { Table } from './ChoosedMonth.styled';
 
 const CalendarTable = () => {
-    
     const [currentDate] = useState(new Date());
+    // const currentDate = useSelector(selectCalendar);
+
+    const dispatch = useDispatch();
+    const tasks = useSelector(selectTasks);
+    useEffect(() => {
+        dispatch(fetchTasks());
+    }, [dispatch]);
+
+    // необходимо что бы убрать Warning
+    console.log(tasks);
+
+    // const handlePrevMonth = () => prevMonth(currentDate, setCurrentDate);
+    // const handleNextMonth = () => nextMonth(currentDate, setCurrentDate);
 
     return (
         <>
