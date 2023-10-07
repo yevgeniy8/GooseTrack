@@ -74,7 +74,7 @@ export const Number = styled.p`
 
 export const H2 = styled.h2`
     margin-bottom: 8px;
-    width: 264px;
+    width: 214px;
     /* float: left; */
     padding: 8px 18px;
     border-radius: ${({ theme }) => theme.borderRadius.xl};
@@ -87,6 +87,7 @@ export const H2 = styled.h2`
     text-transform: uppercase;
 
     @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
+        width: 264px;
         padding: 6px 18px;
         font-size: ${({ theme }) => theme.fontSizes.xxxxl};
         line-height: calc(44 / 40);
