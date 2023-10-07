@@ -5,7 +5,7 @@ const AddTaskBtn = () => {
     return (
         <BtnToAdd>
             <IconX>
-                <use href={`${Icons}#add-plus`} />
+                <use href={`${Icons}#ad-plus`} />
             </IconX>
             Add task
         </BtnToAdd>
