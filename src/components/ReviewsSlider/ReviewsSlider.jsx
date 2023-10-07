@@ -4,21 +4,21 @@ import { fetchReviews } from '../../redux/reviews/reviewsOperations';
 import ReviewCard from './ReviewCard';
 import {
     ReviewTitle,
-    CardsContainer,
+    ReviewsCardsContainer,
     ButtonLeft,
     ButtonRigth,
     Span,
-    ArrowContainer,
+    ReviewsSliderSection,
+    SVG,
 } from './ReviewSlider.styled';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Navigation } from 'swiper/modules';
 import '../../../node_modules/swiper/swiper-bundle.min.css';
 import '../../../node_modules/swiper/modules/autoplay.min.css';
-import '../../../node_modules/swiper/modules/navigation.min.css';
 
 const slidArrowRight = (
-    <svg
+    <SVG
         width="61"
         height="61"
         viewBox="0 0 33 32"
@@ -26,11 +26,11 @@ const slidArrowRight = (
         fill="currentColor"
     >
         <path d="M21.936 14.79l1.203 0.818-22.877 0.001v0.64l22.733-0.001-1.133 0.651 0.319 0.555 2.608-1.498-2.493-1.695-0.36 0.529z"></path>
-    </svg>
+    </SVG>
 );
 
 const slidArrowLeft = (
-    <svg
+    <SVG
         width="61"
         height="61"
         viewBox="0 0 33 32"
@@ -38,7 +38,7 @@ const slidArrowLeft = (
         fill="currentColor"
     >
         <path d="M7.966 17.067l-1.203-0.818 22.877-0.001v-0.64l-22.733 0.001 1.133-0.651-0.319-0.555-2.608 1.498 2.493 1.695 0.36-0.529z"></path>
-    </svg>
+    </SVG>
 );
 
 const ReviewsSlider = () => {
@@ -76,9 +76,9 @@ const ReviewsSlider = () => {
     }
 
     return (
-        <div>
+        <ReviewsSliderSection>
             <ReviewTitle>Reviews</ReviewTitle>
-            <CardsContainer>
+            <ReviewsCardsContainer>
                 <Swiper
                     modules={[Autoplay, Navigation]}
                     ref={swiperRef}
@@ -86,13 +86,20 @@ const ReviewsSlider = () => {
                     slidesPerView={2}
                     loopedSlides={2}
                     loop={true}
-                    style={{ width: '1184px', height: 'auto' }}
+                    style={{ width: '100%', height: 'auto' }}
                     autoplay={{ delay: 5000, disableOnInteraction: false }}
                     speed={500}
                     effect="slide"
-                    navigation={{
-                        nextEl: '.swiper-button-next',
-                        prevEl: '.swiper-button-prev',
+                    breakpoints={{
+                        375: {
+                            slidesPerView: 1,
+                        },
+                        768: {
+                            slidesPerView: 1,
+                        },
+                        1440: {
+                            slidesPerView: 2,
+                        },
                     }}
                 >
                     {reviewsArray.map(review => (
@@ -101,15 +108,16 @@ const ReviewsSlider = () => {
                         </SwiperSlide>
                     ))}
                 </Swiper>
-            </CardsContainer>
-            <ArrowContainer>
+            </ReviewsCardsContainer>
+
+            <div>
                 <ButtonLeft onClick={handlePrev}>
                     <Span>{slidArrowLeft}</Span>
                 </ButtonLeft>
 
                 <ButtonRigth onClick={handleNext}>{slidArrowRight}</ButtonRigth>
-            </ArrowContainer>
-        </div>
+            </div>
+        </ReviewsSliderSection>
     );
 };
 
