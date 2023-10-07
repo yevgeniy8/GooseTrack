@@ -1,4 +1,3 @@
-
 import * as Yup from 'yup';
 import { Formik, Form } from 'formik';
 
@@ -22,10 +21,14 @@ import pencil from '../../images/icons.svg';
 import trashReview from '../../images/icons.svg';
 import close from '../../images/icons.svg';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectUserReview } from 'redux/reviews/reviewsSelectors';
-import { addReview, deleteReview, editReview, fetchReviewById } from 'redux/reviews/reviewsOperations';
+import {
+    addReview,
+    deleteReview,
+    editReview,
+} from 'redux/reviews/reviewsOperations';
 import { changeRating } from 'redux/reviews/reviewsSlice';
 import { Rating } from '@smastrom/react-rating';
 import '@smastrom/react-rating/style.css';
@@ -52,11 +55,18 @@ export const FeedbackForm = ({ onClose, existingReviewId }) => {
     const userReview = useSelector(selectUserReview);
     const [isEditActive, setIsEditActive] = useState(false);
 
-    useEffect(() => {
-        if (existingReviewId) {
-            dispatch(fetchReviewById(existingReviewId));
-        }
-    }, [dispatch, existingReviewId]);
+    // useEffect(() => {
+    //     if (existingReviewId) {
+    //         dispatch(fetchReviewById(existingReviewId));
+    //     }
+    // }, [dispatch, existingReviewId]);
+
+    // useEffect(() => {
+    //     console.log('2');
+    //     dispatch(fetchReviewById());
+    // }, [dispatch, userReview.review]);
+
+    // console.log(userReview);
 
     const ratingChanged = newRating => {
         // setRatingValue(newRating);
@@ -91,7 +101,7 @@ export const FeedbackForm = ({ onClose, existingReviewId }) => {
         <Wrap>
             <Formik
                 initialValues={{
-                    rating: userReview.rating || '',
+                    rating: userReview.rating,
                     review: userReview.review || '',
                 }}
                 validationSchema={FeedbackSchema}
@@ -127,7 +137,9 @@ export const FeedbackForm = ({ onClose, existingReviewId }) => {
                                         onClick={handleDelete}
                                     >
                                         <svg width="30" height="30">
-                                            <use href={`${trashReview}#trash-review`} />
+                                            <use
+                                                href={`${trashReview}#trash-review`}
+                                            />
                                         </svg>
                                     </DeleteBtn>
                                 </WrapForEdit>
@@ -176,4 +188,3 @@ export const FeedbackForm = ({ onClose, existingReviewId }) => {
         </Wrap>
     );
 };
-
