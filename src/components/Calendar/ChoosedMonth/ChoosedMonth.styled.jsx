@@ -11,7 +11,7 @@ export const Table = styled.div`
     div {
         display: grid;
         justify-content: end;
-        // max-width: 155px;
+        // max-width: 165px;
         height: 95px;
         background-color: white;
         border: 1px solid rgba(220, 227, 229, 0.8);

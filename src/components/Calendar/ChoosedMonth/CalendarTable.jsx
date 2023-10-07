@@ -11,9 +11,8 @@ import {
 import { Table } from './ChoosedMonth.styled';
 
 const CalendarTable = () => {
-
+    
     const [currentDate] = useState(new Date());
-    console.log(currentDate);
 
     return (
         <>
@@ -24,9 +23,9 @@ const CalendarTable = () => {
                 {getSortedDays(currentDate).map((day, index) => (
                     <div
                         key={index}
-                        id={`${currentDate.getFullYear()}.${
+                        id={`${currentDate.getFullYear()}-${
                             currentDate.getMonth() + 1
-                        }.${day}`}
+                        }-${day}`}
                     >
                         <span
                             className={`nonDRAG ${
