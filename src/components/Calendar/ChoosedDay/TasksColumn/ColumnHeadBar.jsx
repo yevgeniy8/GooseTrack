@@ -1,9 +1,9 @@
 import { ColumnHeader, ColumnContainer } from './ColumnHeadBar.styled';
 
-const ColumnHeadBar = props => {
+const ColumnHeadBar = ({ header }) => {
     return (
         <ColumnContainer>
-            <ColumnHeader>{props.header}</ColumnHeader>
+            <ColumnHeader>{header}</ColumnHeader>
         </ColumnContainer>
     );
 };
