@@ -69,25 +69,21 @@ export const DeleteBtn = styled.button`
     font-family: ${({ theme }) => theme.fontFamily.fontInter};
     width: 30px;
     height: 30px;
-    background-color: ${({ theme }) => theme.colors.backgroundDeleteBtn};
-    fill: ${({ theme }) => theme.colors.backgroundDeleteBtn};
-
-    stroke: #ea3d65;
+    background-color: ${({ theme }) =>
+        theme.colors.backgroundDeleteFeedbackBtn};
+    fill: ${({ theme }) => theme.colors.backgroundDeleteFeedbackBtn};
+    stroke: ${({ theme }) => theme.colors.deleteFeedbackBtn};
     border: none;
     border-radius: 50%;
     cursor: pointer;
 
     transition: ${({ theme }) =>
         `background-color ${theme.animations.duration} ${theme.animations.cubicBezier}, stroke ${theme.animations.duration} ${theme.animations.cubicBezier}`};
-    transition: {
-        stroke: #ea3d65;
-        background-color: #ea3d65;
-    }
 
     &:hover,
     &:focus {
-        stroke: #ffffff;
-        background-color: #ea3d65;
+        stroke: ${({ theme }) => theme.colors.white};
+        background-color: ${({ theme }) => theme.colors.deleteFeedbackBtn};
     }
 `;
 
@@ -101,10 +97,10 @@ export const Input = styled(Field)`
     width: 295px;
     box-sizing: border-box;
     height: 127px;
+    font-family: ${({ theme }) => theme.fontFamily.fontInter};
     font-weight: ${({ theme }) => theme.fontWeight.sb};
     font-size: ${({ theme }) => theme.fontSizes.s};
     line-height: calc((18 / 14) * 100%);
-    font-family: ${({ theme }) => theme.fontFamily.fontInter};
     font-style: normal;
     background: ${({ theme }) => theme.colors.backgroundFeedbackInput};
     color: ${({ theme }) => theme.colors.textPrimary};
@@ -126,18 +122,18 @@ export const Input = styled(Field)`
     ::placeholder {
         opacity: 1;
         color: rgba(52, 52, 52, 1);
-        font-weight: 600;
-        font-size: 14px;
+        font-weight: ${({ theme }) => theme.fontWeight.sb};
+        font-size: ${({ theme }) => theme.fontSizes.s};
     }
 `;
 
 export const ErrorMessage = styled(FormikErrorMessage)`
     margin-left: 18px;
     max-width: 100%;
-    color: #da1414;
+    color: ${({ theme }) => theme.colors.errorMessage};
     max-width: 240px;
-    font-size: 12px;
-    font-weight: 500;
+    font-size: ${({ theme }) => theme.fontSizes.xs};
+    font-weight: ${({ theme }) => theme.fontWeight.m};
 
     ${min(tablet)} {
         max-width: 330px;
@@ -152,14 +148,14 @@ export const FormBtnWrap = styled.div`
 `;
 
 export const FormBtn = styled.button`
-    color: #ffffff;
-    /* background-color: #3e85f3; */
+    color: ${({ theme }) => theme.colors.white};
+    background-color: ${({ theme }) => theme.colors.backgroundBtn};
     text-transform: none;
     width: 262px;
     height: 48px;
     font-family: ${({ theme }) => theme.fontFamily.fontInter};
-    font-weight: 600;
-    font-size: 14px;
+    font-weight: ${({ theme }) => theme.fontWeight.sb};
+    font-size: ${({ theme }) => theme.fontSizes.s};
     border: none;
     border-radius: 16px;
     cursor: pointer;
@@ -168,7 +164,7 @@ export const FormBtn = styled.button`
 
     &:hover,
     &:focus {
-        background-color: #2b78ef;
+        background-color: ${({ theme }) => theme.colors.backgroundBtnHover};
     }
 
     &:disabled {
@@ -177,20 +173,24 @@ export const FormBtn = styled.button`
 `;
 
 export const FormBtnCancel = styled.button`
-    color: rgba(52, 52, 52, 1);
-    background-color: #e5edfa;
+    color: ${({ theme }) => theme.colors.textPrimary};
+    background-color: ${({ theme }) => theme.colors.backgroundBtnCancel};
     text-transform: none;
     width: 262px;
     height: 48px;
-    font-weight: 600;
-    font-size: 14px;
+    font-family: ${({ theme }) => theme.fontFamily.fontInter};
+    font-weight: ${({ theme }) => theme.fontWeight.sb};
+    font-size: ${({ theme }) => theme.fontSizes.s};
     border: none;
     border-radius: 16px;
     cursor: pointer;
-    transition: color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: ${({ theme }) =>
+        `background-color ${theme.animations.duration} ${theme.animations.cubicBezier}, color ${theme.animations.duration} ${theme.animations.cubicBezier}`};
     &:hover,
     &:focus {
-        color: #2b78ef;
+        background-color: ${({ theme }) =>
+            theme.colors.backgroundBtnCancelHover};
+        color: ${({ theme }) => theme.colors.buttonCancelHover};
     }
 `;
 
@@ -204,7 +204,8 @@ export const BtnCloseWrap = styled.button`
     cursor: pointer;
     stroke: ${({ theme }) => theme.colors.textTitleHeader};
     transform-origin: 0px 0px;
-    transition: cubic-bezier(0.4, 0, 0.2, 1);
+    transition: ${({ theme }) =>
+        `stroke ${theme.animations.duration} ${theme.animations.cubicBezier}`};
 
     &:hover,
     &:focus {

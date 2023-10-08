@@ -5,9 +5,11 @@ const common = {
 
         correct: '#3CBC81',
         error: '#E74A3B',
+        errorMessage: '#da1414',
 
         editBtn: '#3E85F3',
         editBtnHover: '#fff',
+        deleteFeedbackBtn: '#ea3d65',
 
         white: '#fff',
         black: '#111',
@@ -22,7 +24,7 @@ const common = {
         backgroundBtn: '#3E85F3',
         backgroundBtnHover: '#2B78EF',
         backgroundEditBtnHover: '#3E85F3',
-        backgroundDeleteBtn: 'rgba(234, 61, 101, 0.2)',
+        backgroundDeleteFeedbackBtn: 'rgba(234, 61, 101, 0.2)',
 
         icon: '#84828A',
         iconHover: '#3E85F3',
@@ -119,7 +121,8 @@ export const lightTheme = {
         backgroundModal: '#fff',
         backgroundFeedbackInput: '#F6F6F6',
 
-        backgroundBtnCanceled: '#E5EDFA',
+        backgroundBtnCancel: '#E5EDFA',
+        backgroundBtnCancelHover: '#cae8ff',
         backgroundMonthDay: '#E3F3FF',
         backgroundMonthDayActive: '#CAE8FF',
         backgroundScrollbar: '#F2F2F2',
@@ -135,6 +138,7 @@ export const lightTheme = {
         horizontalScroll: '#E7E5E5',
         userDefaults: 'rgba(62, 133, 243, 0.18)',
         buttonAddTaskHover: '#cbe6ff',
+        buttonCancelHover: '#343434',
     },
 
     shadows: {
@@ -203,7 +207,8 @@ export const darkTheme = {
         backgroundModal: '#171820',
         backgroundFeedbackInput: 'transparent',
 
-        backgroundBtnCanceled: '#21222C',
+        backgroundBtnCancel: '#21222C',
+        backgroundBtnCancelHover: '#fff',
         backgroundMonthDay: '#21222C',
         backgroundMonthDayActive: '#3E85F3',
         backgroundScrollbar: '#2D3037',
@@ -221,6 +226,7 @@ export const darkTheme = {
         horizontalScroll: '#2D3037',
         userDefaults: 'rgba(255, 255, 255, 0.18)',
         buttonAddTaskHover: '#2B78EF',
+        buttonCancelHover: '#343434',
     },
 
     shadows: {
