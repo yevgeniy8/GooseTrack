@@ -14,7 +14,7 @@ export const Column = styled.li`
   margin-bottom: 100%;
   min-width: 335px;
   padding-left: 14px;
-  padding-right: 8px;
+  padding-right: 18px;
 
   ${min(tablet)} {
     min-width: 344px;
