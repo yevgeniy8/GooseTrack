@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { desktop, min } from '../../../../styles/media';
 
 export const ColumnList = styled.ul`
     display: flex;
@@ -7,6 +8,10 @@ export const ColumnList = styled.ul`
     // height: 100vh;
     overflow: auto hidden;
     scroll-snap-type: x mandatory;
+
+    ${min(desktop)} {
+        gap: 27px;
+    }
 
     &::-webkit-scrollbar {
         width: 8px;
