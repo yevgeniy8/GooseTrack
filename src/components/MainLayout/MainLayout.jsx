@@ -28,6 +28,7 @@ const MainLayout = () => {
     useEffect(() => {
         const handleResize = () => {
             setSideBareShow(window.innerWidth >= 1440);
+            setIsOverlayVisible(sideBareShow);
         };
 
         window.addEventListener('resize', handleResize);
@@ -35,17 +36,17 @@ const MainLayout = () => {
         return () => {
             window.removeEventListener('resize', handleResize);
         };
-    }, []);
+    }, [sideBareShow]);
 
     return (
         <Wrapper>
-            {isOverlayVisible && <Overlay />}
             <SideBar isOpen={sideBareShow} onCloseClick={handleSideBareShow} />
             {sideBareShow && window.innerWidth >= 1440 && (
                 <div id="smallScreenContainer" style={{ width: 289 }} />
             )}
 
             <Section>
+                {isOverlayVisible && window.innerWidth < 1440 && <Overlay />}
                 <Header
                     isOpen={sideBareShow}
                     onOpenClick={handleSideBareShow}

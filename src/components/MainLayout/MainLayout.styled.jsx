@@ -17,6 +17,7 @@ export const Wrapper = styled.div`
 `;
 
 export const Section = styled.div`
+    // position: relative;
     width: 100%;
     min-height: 100%;
     display: flex;
@@ -34,7 +35,8 @@ export const Section = styled.div`
 `;
 
 export const Overlay = styled.div`
-    position: fixed;
+    // position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
