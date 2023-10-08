@@ -17,7 +17,11 @@ export const TaskList = styled.ul`
     &::-webkit-scrollbar-thumb {
         padding: 50px;
         border-radius: 12px;
-        background: #e7e5e5;
+        background: ${({ theme }) => theme.colors.scrollbar};
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: ${({ theme }) => theme.colors.backgroundScrollbar};
     }
 `;
 export const ColumnList = styled.ul`
