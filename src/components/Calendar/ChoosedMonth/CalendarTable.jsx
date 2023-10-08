@@ -13,7 +13,6 @@ import { NavLink } from 'react-router-dom';
 
 const CalendarTable = () => {
     const { currentDate } = useParams();
-    // console.log(currentDate); //2023-10
 
     const date = new Date(currentDate);
 
@@ -22,9 +21,6 @@ const CalendarTable = () => {
     useEffect(() => {
         dispatch(fetchTasks());
     }, [dispatch]);
-
-    // необходимо что бы убрать Warning
-    console.log(tasks);
 
     return (
         <>
@@ -50,13 +46,13 @@ const CalendarTable = () => {
                                     : ''
                             }`}
                         >
-                        <NavLink>{day}</NavLink>                             
+                            <NavLink>{day}</NavLink>
                         </span>
-                            <TaskList
-                                    currentDate={currentDate}
-                                    day={day}
-                                    tasks={tasks}
-                                />
+                        <TaskList
+                            currentDate={currentDate}
+                            day={day}
+                            tasks={tasks}
+                        />
                         {/* <List>
                         <Task>Low, very low priority</Task>
                         <Task>Medium, medium priority</Task>
@@ -64,7 +60,6 @@ const CalendarTable = () => {
                         </List> */}
                     </div>
                 ))}
-
             </Table>
         </>
     );
