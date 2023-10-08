@@ -13,19 +13,20 @@ import { NavLink } from 'react-router-dom';
 
 const CalendarTable = () => {
     const { currentDate } = useParams();
+    const navigate = useNavigate();
 
     const date = new Date(currentDate);
 
     const dispatch = useDispatch();
     const tasks = useSelector(selectTasks);
-    const navigate = useNavigate();
 
     useEffect(() => {
         dispatch(fetchTasks());
     }, [dispatch]);
 
-const handleNavToDay = day => {
-    navigate(`day/${day}`);
+    const handleNavToDay = date => {
+        navigate(`day/${date}`);
+        console.log(date);
   };
 
     // необходимо что бы убрать Warning

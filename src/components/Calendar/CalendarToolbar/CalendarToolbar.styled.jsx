@@ -92,7 +92,7 @@ export const Period = styled.div`
 `;
 
 export const BtnMonth = styled.button`
-  width: 82px;
+  width: 76px;
   height: 34px;
   padding: 8px 16px;
   border: none;
@@ -112,10 +112,14 @@ export const BtnMonth = styled.button`
   &.active {
     background-color: rgba(62, 133, 243, 0.2);
   }
+   @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
+      font-size: 16px;
+      width: 82px;
+  }
 `;
 
 export const BtnDay = styled.button`
-  width: 82px;
+  width: 76px;
   height: 34px;
   padding: 8px 16px;
   border: none;
@@ -135,6 +139,10 @@ export const BtnDay = styled.button`
   &.active {
     background-color: rgba(62, 133, 243, 0.2);
   }
+   @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
+      font-size: 16px;
+      width: 82px;
+  };
 `;
 
 export const TypeLink = styled(NavLink)`
