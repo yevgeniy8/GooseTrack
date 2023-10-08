@@ -5,7 +5,7 @@ export default function Spinner() {
     return (
         <SpinnerStyled>
             <RotatingLines
-                strokeColor="3E85F3"
+                strokeColor="#3E85F3"
                 strokeWidth="5"
                 animationDuration="0.75"
                 width="130"
