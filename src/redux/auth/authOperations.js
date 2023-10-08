@@ -72,10 +72,18 @@ export const refreshUser = createAsyncThunk(
     }
 );
 
+export const editUser = createAsyncThunk(
+    'auth/edit',
+    async (newUser, thunkApi) => {
+        const {
+            auth: { token },
+        } = thunkApi.getState();
 
-export const editUser = createAsyncThunk('auth/edit', async (newUser, thunkApi) => {
-    const { auth: { token } } = thunkApi.getState();
-
+        if (!token) {
+            return thunkApi.rejectWithValue('Unable to fetch user');
+        }
+        try {
+            setAuthHeader(token);
         if (!token) {
             return thunkApi.rejectWithValue('Unable to fetch user');
         }

@@ -88,6 +88,7 @@ export const UserForm = () => {
   
 
     const handleChange = e => {
+        console.dir(e.target);
         setCurrentAvatar(e.target.files[0]);
     };
 
