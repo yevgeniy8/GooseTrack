@@ -65,7 +65,14 @@ export const prevMonth = (date, cb) => {
 export const getSortedDays = date => {
     const daysInMonth = range(getDaysInMonth(date));
     const index = new Date(date.getFullYear(), date.getMonth(), 1).getDay();
-    return [...Array(index === 0 ? 6 : index - 1), ...daysInMonth];
+
+    const daysToAddAtEnd = (7 - ((daysInMonth.length + index) % 7)) % 7;
+
+    return [
+        ...Array(index).fill(null),
+        ...daysInMonth,
+        ...Array(daysToAddAtEnd).fill(null),
+    ];
 };
 
 export const priorityColors = {
@@ -75,5 +82,4 @@ export const priorityColors = {
     bgColorMedium: '#FCF0D4',
     colorHgh: '#EA3D65',
     bgColorHigh: '#FFD2DD',
-}
-
+};
