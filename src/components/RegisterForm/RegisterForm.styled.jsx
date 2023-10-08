@@ -129,9 +129,9 @@ export const Button = styled.button`
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    padding: 14px 103px;
-    padding-bottom: 14px;
-    padding-top: 14px;
+    padding: 14px;
+    /* padding-bottom: 14px;
+    padding-top: 14px; */
     gap: 11px;
 
     border-radius: 16px;
