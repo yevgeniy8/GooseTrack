@@ -6,7 +6,7 @@ import { ImgContainer } from './UserForm.styled';
 import { FieldsWrap } from './UserForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectUser } from 'redux/auth/authSelectors';
-import { format, parseISO } from 'date-fns';
+// import { format, parseISO } from 'date-fns';
 import { editUser } from 'redux/auth/authOperations';
 import avatar from '../../images/Avatar.png';
 import { enGB } from 'date-fns/esm/locale';
@@ -166,7 +166,6 @@ export const UserForm = () => {
                                             type="date"
                                             name="birthday"
                                             component={ReactDatepicker}
-                                            onChange={handleChange}
                                             formatWeekDay={nameOfDay =>
                                                 nameOfDay.charAt(0)
                                             }
@@ -178,6 +177,7 @@ export const UserForm = () => {
                                             }
                                             locale="en"
                                             value={values.birthday}
+                                            values
                                             dateFormat="yyyy/MM/dd"
                                         ></Field>
                                         <Error

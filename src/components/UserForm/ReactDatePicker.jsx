@@ -14,7 +14,7 @@ export const ReactDatepicker = props => {
             <DatePickerStyled
                 selected={currentBirthday}
                 onChange={date => setCurrentBirthday(date)}
-                value={currentBirthday}
+                value={props.values.birthday}
                 
             />
         </DatePickWrapper>

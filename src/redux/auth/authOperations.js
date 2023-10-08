@@ -84,11 +84,6 @@ export const editUser = createAsyncThunk(
         }
         try {
             setAuthHeader(token);
-        if (!token) {
-            return thunkApi.rejectWithValue('Unable to fetch user');
-        }
-        try {
-            setAuthHeader(token);
 
         // console.log(newUser);
 
