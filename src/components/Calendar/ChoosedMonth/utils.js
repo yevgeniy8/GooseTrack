@@ -77,6 +77,3 @@ export const priorityColors = {
     bgColorHigh: '#FFD2DD',
 }
 
-// white-space: nowrap; /* Текст не переносится */
-//     overflow: hidden; /* Обрезаем всё за пределами блока */
-//     text-overflow: ellipsis; /* Добавляем многоточие */

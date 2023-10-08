@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchTasks } from 'redux/calendar/calendarOperations';
 import { selectTasks } from 'redux/calendar/calendarSelector';
+import styled from '@emotion/styled';
 
 import { datesAreOnSameDay, getDaysInMonth, getSortedDays } from './utils';
 import { Table } from './ChoosedMonth.styled';
@@ -55,6 +56,9 @@ const CalendarTable = () => {
                             day={day}
                             tasks={tasks}
                         />
+                        <Task>Low, very low priority</Task>
+                        <Task>Medium, medium priority</Task>
+                        <Task>High, very high priority</Task>
                     </div>
                 ))}
             </Table>
@@ -63,3 +67,12 @@ const CalendarTable = () => {
 };
 
 export default CalendarTable;
+
+const Task = styled.p`
+    padding: 0 8px;;
+    border-radius: 8px;
+    color: '#3E85F3';
+    background-color: '#CEEEFD';
+    white-space: nowrap; /* Текст не переносится */
+    overflow: hidden; /* Обрезаем всё за пределами блока */
+    text-overflow: ellipsis; /* Добавляем многоточие */`
