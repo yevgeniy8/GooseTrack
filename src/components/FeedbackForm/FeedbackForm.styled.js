@@ -49,17 +49,16 @@ export const EditBtn = styled.button`
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    stroke: rgba(62, 133, 243, 1);
-    fill: ${({ theme }) => theme.colors.backgroundPencel};
-    background-color: ${({ theme }) => theme.colors.backgroundPencel};
+    stroke: ${({ theme }) => theme.colors.editBtn};
+    background-color: ${({ theme }) => theme.colors.backgroundEditBtn};
 
-    transition: stroke 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: ${({ theme }) =>
+        `background-color ${theme.animations.duration} ${theme.animations.cubicBezier}, stroke ${theme.animations.duration} ${theme.animations.cubicBezier}`};
 
     &:hover,
     &:focus {
-        stroke: #ffffff;
-        background-color: #3e85f3;
-        fill: #3e85f3;
+        stroke: ${({ theme }) => theme.colors.editBtnHover};
+        background-color: ${({ theme }) => theme.colors.backgroundEditBtnHover};
     }
 `;
 
@@ -67,17 +66,22 @@ export const DeleteBtn = styled.button`
     display: flex;
     justify-content: center;
     align-items: center;
-    /* font-family: Inter, sans-serif; */
+    font-family: ${({ theme }) => theme.fontFamily.fontInter};
     width: 30px;
     height: 30px;
-    background-color: rgba(234, 61, 101, 0.2);
-    fill: rgba(234, 61, 101, 0.2);
+    background-color: ${({ theme }) => theme.colors.backgroundDeleteBtn};
+    fill: ${({ theme }) => theme.colors.backgroundDeleteBtn};
+
     stroke: #ea3d65;
     border: none;
     border-radius: 50%;
     cursor: pointer;
+
+    transition: ${({ theme }) =>
+        `background-color ${theme.animations.duration} ${theme.animations.cubicBezier}, stroke ${theme.animations.duration} ${theme.animations.cubicBezier}`};
     transition: {
         stroke: #ea3d65;
+        background-color: #ea3d65;
     }
 
     &:hover,
@@ -100,7 +104,7 @@ export const Input = styled(Field)`
     font-weight: ${({ theme }) => theme.fontWeight.sb};
     font-size: ${({ theme }) => theme.fontSizes.s};
     line-height: calc((18 / 14) * 100%);
-    font-family: ${({ theme }) => theme.fontFamily.fontFamily};
+    font-family: ${({ theme }) => theme.fontFamily.fontInter};
     font-style: normal;
     background: ${({ theme }) => theme.colors.backgroundFeedbackInput};
     color: ${({ theme }) => theme.colors.textPrimary};
@@ -153,7 +157,7 @@ export const FormBtn = styled.button`
     text-transform: none;
     width: 262px;
     height: 48px;
-    font-family: 'inter';
+    font-family: ${({ theme }) => theme.fontFamily.fontInter};
     font-weight: 600;
     font-size: 14px;
     border: none;

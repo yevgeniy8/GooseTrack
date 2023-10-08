@@ -6,6 +6,9 @@ const common = {
         correct: '#3CBC81',
         error: '#E74A3B',
 
+        editBtn: '#3E85F3',
+        editBtnHover: '#fff',
+
         white: '#fff',
         black: '#111',
         text: '#111',
@@ -18,6 +21,8 @@ const common = {
         backgroundBrand: '#3E85F3',
         backgroundBtn: '#3E85F3',
         backgroundBtnHover: '#2B78EF',
+        backgroundEditBtnHover: '#3E85F3',
+        backgroundDeleteBtn: 'rgba(234, 61, 101, 0.2)',
 
         icon: '#84828A',
         iconHover: '#3E85F3',
@@ -103,7 +108,7 @@ export const lightTheme = {
 
         textMonthDayActive: '#3E85F3',
         textTitleModalTask: 'rgba(52, 52, 52, 0.8)',
-        placeholder: '#DCE3E5',
+
         backgroundPrimary: '#F7F6F9',
         backgroundSecondary: '#fff',
         backgroundSideBar: '#fff',
@@ -119,8 +124,6 @@ export const lightTheme = {
         backgroundMonthDayActive: '#CAE8FF',
         backgroundScrollbar: '#F2F2F2',
         backgroundHorizontalScroll: '#F2F2F2',
-
-        backgroundPencil: '#E3F3FF',
 
         statisticsLine: '#E3F3FF',
         iconTasks: '#111',
@@ -206,7 +209,7 @@ export const darkTheme = {
         backgroundScrollbar: '#2D3037',
         backgroundHorizontalScroll: '#21222C',
 
-        backgroundPencil: '#353647',
+        backgroundEditBtn: '#353647',
 
         statisticsLine: '#rgba(227, 243, 255, 0.15)',
         iconTasks: '#fff',
