@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import moment from 'moment';
 
 import sprite from 'images/icons.svg';
@@ -10,34 +10,29 @@ import {
   PeriodTypeSelect,
   Icon,
   ToolbarContainer,
-  TypeLink,
+  // TypeLink,
   BtnRight,
   BtnLeft,
   BtnMonth,
   BtnDay,
 } from './CalendarToolbar.styled';
 
-const CalendarToolbar = ({
-  currentDate,
-  setCurrentDate,
-  format,
-  setFormat,
-}) => {
-  const month = moment(currentDate).format('YYYY-MM');
-  const day = moment(currentDate).format('YYYY-MM-DD');
+const CalendarToolbar = ({ currentDate, setCurrentDate, format, setFormat }) => {
+  // const month = moment(currentDate).format('YYYY-MM');
+  // const day = moment(currentDate).format('YYYY-MM-DD');
 
-   const handlePrevDate = format => {
+  const handlePrevDate = format => {
     const date = moment(currentDate).subtract(1, format).format('YYYY-MM-DD');
     setCurrentDate(date);
     localStorage.setItem('date', date);
   };
 
-   const handleNextDate = format => {
+  const handleNextDate = format => {
     const date = moment(currentDate).add(1, format).format('YYYY-MM-DD');
     setCurrentDate(date);
     localStorage.setItem('date', date);
   };
-  
+
   const handleChangePeriod = evt => {
     switch (evt.currentTarget.textContent) {
       case 'Month':
@@ -57,45 +52,35 @@ const CalendarToolbar = ({
     <ToolbarContainer>
       <PeriodTypeSelect>
         <DateBox>
-          <Date>
-            {moment(currentDate).format(
-              format === 'day' ? 'DD MMM YYYY' : 'MMMM YYYY'
-            )}
-          </Date>
+          <Date>{moment(currentDate).format(format === 'day' ? 'DD MMM YYYY' : 'MMMM YYYY')}</Date>
         </DateBox>
         <div>
-          <Link
-            to={format === 'month' ? `month/${month}` : `day/${day}`}
-            onClick={() => handlePrevDate(format)}
-          >
-            <BtnLeft type="button">
-              <Icon width="18" height="18">
-                <use href={`${sprite}#chevron-left`}/>
-              </Icon>
-            </BtnLeft>
-          </Link>
-          <Link
-            to={format === 'month' ? `month/${month}` : `day/${day}`}
-            onClick={() => handleNextDate(format)}
-          >
-            <BtnRight type="button">
-              <Icon width="18" height="18">
-                <use href={`${sprite}#chevron-right`}/>
-              </Icon>
-            </BtnRight>
-          </Link>
+          <BtnLeft type="button" onClick={() => handlePrevDate(format)}>
+            <Icon width="18" height="18">
+              <use href={`${sprite}#chevron-left`} />
+            </Icon>
+          </BtnLeft>
+          <BtnRight type="button" onClick={() => handleNextDate(format)}>
+            <Icon width="18" height="18">
+              <use href={`${sprite}#chevron-right`} />
+            </Icon>
+          </BtnRight>
         </div>
       </PeriodTypeSelect>
       <PeriodPaginator>
-        <BtnMonth type="button">
-          <TypeLink to={`month/${month}`} onClick={handleChangePeriod}>
-            Month
-          </TypeLink>
+        <BtnMonth
+          type="button"
+          onClick={handleChangePeriod}
+          className={format === 'month' ? 'active' : ''}
+        >
+          Month
         </BtnMonth>
-        <BtnDay type="button">
-          <Link to={`day/${day}`} onClick={handleChangePeriod}>
-            Day
-          </Link>
+        <BtnDay
+          type="button"
+          onClick={handleChangePeriod}
+          className={format === 'day' ? 'active' : ''}
+        >
+          Day
         </BtnDay>
       </PeriodPaginator>
     </ToolbarContainer>
