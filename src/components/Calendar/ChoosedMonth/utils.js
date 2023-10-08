@@ -65,13 +65,13 @@ export const prevMonth = (date, cb) => {
 export const getSortedDays = date => {
     const daysInMonth = range(getDaysInMonth(date));
     const index = new Date(date.getFullYear(), date.getMonth(), 1).getDay();
-
-    const daysToAddAtEnd = (7 - ((daysInMonth.length + index) % 7)) % 7;
+    const lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+    const lastIndex = lastDay.getDay();
 
     return [
-        ...Array(index).fill(null),
+        ...Array(index === 0 ? 6 : index - 1),
         ...daysInMonth,
-        ...Array(daysToAddAtEnd).fill(null),
+        ...Array(lastIndex === 0 ? 0 : 7 - lastIndex),
     ];
 };
 
