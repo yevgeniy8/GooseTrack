@@ -14,7 +14,6 @@ import {
     InputFormMargin0,
     Error,
     Label,
-    Svg,
     ButtonEye,
     ErrorMes,
     SvgStatus,
@@ -228,9 +227,9 @@ const RegisterForm = () => {
 
                         <Button type="submit">
                             Sign Up
-                            <Svg width="20" height="20">
+                            <svg width="20" height="20">
                                 <use href={`${sprite}#log-in`} />
-                            </Svg>
+                            </svg>
                         </Button>
 
                         {/* <a href={`${baseURL}/auth/google`}>Google</a> */}

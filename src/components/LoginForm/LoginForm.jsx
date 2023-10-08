@@ -20,7 +20,7 @@ import {
     TitleContainer,
 } from '../RegisterForm/RegisterForm.styled';
 
-import { Svg } from '../RegisterForm/RegisterForm.styled';
+// import { Svg } from '../RegisterForm/RegisterForm.styled';
 import { ButtonEye } from '../RegisterForm/RegisterForm.styled';
 
 import sprite from '../../images/icons.svg';
@@ -182,9 +182,9 @@ const LoginForm = () => {
 
                         <Button type="submit">
                             Log In
-                            <Svg width="20" height="20">
+                            <svg width="20" height="20">
                                 <use href={`${sprite}#log-in`} />
-                            </Svg>
+                            </svg>
                         </Button>
                     </Form>
                 )}

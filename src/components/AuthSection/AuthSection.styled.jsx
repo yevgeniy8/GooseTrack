@@ -119,6 +119,8 @@ export const Login = styled(NavLink)`
     border-radius: ${({ theme }) => theme.borderRadius.m};
     background-color: ${({ theme }) => theme.colors.white};
     color: ${({ theme }) => theme.colors.brand};
+    fill: ${({ theme }) => theme.colors.white};
+    stroke: ${({ theme }) => theme.colors.brand};
 
     transition: all 500ms cubic-bezier(0.4, 0, 0.2, 1);
 
@@ -126,6 +128,8 @@ export const Login = styled(NavLink)`
     &:focus {
         background-color: #1d56ac;
         color: ${({ theme }) => theme.colors.white};
+        fill: #1d56ac;
+        stroke: white;
     }
 
     @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
@@ -133,7 +137,7 @@ export const Login = styled(NavLink)`
     }
 `;
 
-export const Svg = styled.svg`
-    fill: ${({ theme }) => theme.colors.white};
-    stroke: ${({ theme }) => theme.colors.brand};
-`;
+// export const Svg = styled.svg`
+//     fill: ${({ theme }) => theme.colors.white};
+//     stroke: ${({ theme }) => theme.colors.brand};
+// `;

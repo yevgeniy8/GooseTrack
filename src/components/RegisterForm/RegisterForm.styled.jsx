@@ -148,6 +148,8 @@ export const Button = styled.button`
     font-weight: 600;
     line-height: 18px;
     letter-spacing: -0.28px;
+    stroke: white;
+    fill: #3e85f3;
 
     transition: all 500ms cubic-bezier(0.4, 0, 0.2, 1);
 
@@ -155,6 +157,8 @@ export const Button = styled.button`
     &:focus {
         background-color: #1d56ac;
         color: ${({ theme }) => theme.colors.white};
+        fill: #1d56ac;
+        stroke: white;
     }
 
     /* @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
@@ -176,12 +180,12 @@ export const Button = styled.button`
     }
 `;
 
-export const Svg = styled.svg`
-    stroke: white;
-    fill: #3e85f3;
-    width: 18px;
-    height: 18px;
-`;
+// export const Svg = styled.svg`
+//     stroke: white;
+//     fill: #3e85f3;
+//     width: 18px;
+//     height: 18px;
+// `;
 
 export const ButtonEye = styled.svg`
     position: absolute;
