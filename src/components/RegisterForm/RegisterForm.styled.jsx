@@ -149,6 +149,14 @@ export const Button = styled.button`
     line-height: 18px;
     letter-spacing: -0.28px;
 
+    transition: all 500ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover,
+    &:focus {
+        background-color: #1d56ac;
+        color: ${({ theme }) => theme.colors.white};
+    }
+
     /* @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
         margin-top: 48px;
         width: 400px;
@@ -242,6 +250,12 @@ export const Home = styled(NavLink)`
     font-style: normal;
     font-weight: 600;
     line-height: 24px; /* 100% */
+    transition: all 500ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover,
+    &:focus {
+        color: #1d56ac;
+    }
 
     ${min(tablet)} {
         margin-bottom: 40px;

@@ -235,6 +235,14 @@ export const Button = styled(motion.button)`
     font-weight: 600;
     line-height: 1.333;
     letter-spacing: -0.36px;
+
+    transition: all 500ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover,
+    &:focus {
+        background-color: #1d56ac;
+        color: ${({ theme }) => theme.colors.white};
+    }
     @media (min-width: 768px) {
         padding: 15px 84px;
     }
