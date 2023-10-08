@@ -32,7 +32,6 @@ const MainLayout = () => {
     return (
         <Wrapper>
             <SideBar isOpen={sideBareShow} onCloseClick={handleSideBareShow} />
-            <div style={{ width: 289 }}></div>
             <Section>
                 <Header
                     isOpen={sideBareShow}
