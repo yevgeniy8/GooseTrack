@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
     flex-direction: column;
     justify-content: space-between;
     background-color: ${({ theme }) => theme.colors.backgroundSideBar};
-    position: absolute;
+    position: fixed;
     z-index: 10;
 
     transform: ${props =>
@@ -21,7 +21,7 @@ export const Wrapper = styled.div`
     }
 
     @media (min-width: 1440px) {
-        position: relative;
+        /* position: relative; */
         z-index: 1;
         border-right: none;
         transform: translateX(0);
