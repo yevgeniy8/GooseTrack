@@ -116,10 +116,17 @@ export const Login = styled(NavLink)`
     font-weight: ${({ theme }) => theme.fontWeight.sb};
     line-height: calc(18 / 14);
     letter-spacing: -0.02em;
-    border-color: 1px solid transparent;
     border-radius: ${({ theme }) => theme.borderRadius.m};
     background-color: ${({ theme }) => theme.colors.white};
     color: ${({ theme }) => theme.colors.brand};
+
+    transition: all 500ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover,
+    &:focus {
+        background-color: #1d56ac;
+        color: ${({ theme }) => theme.colors.white};
+    }
 
     @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
         min-width: 121px;
