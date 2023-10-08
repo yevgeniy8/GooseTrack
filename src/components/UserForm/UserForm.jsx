@@ -6,11 +6,11 @@ import { ImgContainer } from './UserForm.styled';
 import { FieldsWrap } from './UserForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectUser } from 'redux/auth/authSelectors';
-import { format } from 'date-fns';
+import { format, parseISO } from 'date-fns';
 import { editUser } from 'redux/auth/authOperations';
 import avatar from '../../images/Avatar.png';
-import {enGB, ua} from 'date-fns/esm/locale'
-import { registerLocale, setDefaultLocale } from  "react-datepicker";
+import { enGB } from 'date-fns/esm/locale';
+import { registerLocale } from 'react-datepicker';
 import {
     AvatarContainer,
     Button,
@@ -68,10 +68,12 @@ export const UserForm = () => {
     const dispatch = useDispatch();
 
     const user = useSelector(selectUser);
-    const [currentAvatar, setCurrentAvatar] = useState(null);
-    const [currentBirthday, setCurrentBirthday] = useState(new Date(user.birthday));
+    
+    // const parsedDate = parseISO(user.birthday);
+    // const formattedDate = format(parsedDate, 'yyyy-MM-dd');
 
-   
+    const [currentAvatar, setCurrentAvatar] = useState(null);
+    // const [currentBirthday, setCurrentBirthday] = useState(new Date (user.birthday));
 
     // console.log(user.birthday);
     // console.log(user);
@@ -81,8 +83,9 @@ export const UserForm = () => {
         email: user.email || '',
         phone: user.phone || '',
         skype: user.skype || '',
-        birthday: user.birthday || new Date(),
+        birthday:user.birthday,
     };
+  
 
     const handleChange = e => {
         setCurrentAvatar(e.target.files[0]);
@@ -90,13 +93,17 @@ export const UserForm = () => {
 
     const handleSubmit = ({ name, phone, email, skype, birthday }, actions) => {
         // const date = format(new Date(currentBirthday), 'yyyy-MM-dd');
+
+        console.log(birthday)
         const formData = new FormData();
         formData.append('name', name);
         formData.append('email', email);
         formData.append('phone', phone);
         formData.append('skype', skype);
         formData.append('birthday', birthday);
-        formData.append('avatar', currentAvatar);
+        if (currentAvatar) {
+            formData.append('avatar', currentAvatar);
+        }
 
         dispatch(editUser(formData));
 
@@ -152,25 +159,24 @@ export const UserForm = () => {
                                     </Label>
                                 </LabelWrap>
                                 <LabelWrap>
-                                    <Label htmlFor="">
+                                    <Label htmlFor="name">
                                         <Span> Birthday</Span>
                                         <Field
+                                            type="date"
                                             name="birthday"
-                                            as={ReactDatepicker}
-                                            selected={currentBirthday}
-                                            onChange={date =>setCurrentBirthday(date)
-                                            }
+                                            component={ReactDatepicker}
+                                            onChange={handleChange}
                                             formatWeekDay={nameOfDay =>
                                                 nameOfDay.charAt(0)
                                             }
-                                            // maxDate={new Date()}
+                                            maxDate={new Date()}
                                             className={
                                                 errors.birthday
                                                     ? 'input-error'
                                                     : ''
                                             }
                                             locale="en"
-                                            value={currentBirthday}
+                                            value={values.birthday}
                                             dateFormat="yyyy/MM/dd"
                                         ></Field>
                                         <Error
