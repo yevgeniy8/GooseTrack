@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import styled from '@emotion/styled';
+import { tablet, min } from '../../../styles/media';
 
 export const NavWrap = styled.div`
     width: 100%;
@@ -8,12 +9,12 @@ export const NavWrap = styled.div`
 export const NavTitle = styled.h3`
     color: ${({ theme }) => theme.colors.textTitleSideBar};
     font-family: Inter;
-    font-size: 12px;
+    font-size: font-size: ${({ theme }) => theme.fontSizes.xs};
     font-style: normal;
-    font-weight: 600;
+    font-weight: ${({ theme }) => theme.fontWeight.sb};
     line-height: normal;
 
-    @media (min-width: 768px) {
+    ${min(tablet)} {
         font-size: 14px;
     }
 `;
@@ -36,7 +37,7 @@ export const Icon = styled.svg`
     stroke: ${({ theme }) => theme.colors.iconSideBar};
     margin-right: 10px;
 
-    @media (min-width: 768px) {
+    ${min(tablet)} {
         width: 24px;
         height: 24px;
     }
@@ -48,7 +49,7 @@ export const IconStat = styled.svg`
     margin-right: 10px;
     fill: ${({ theme }) => theme.colors.iconSideBar};
 
-    @media (min-width: 768px) {
+    ${min(tablet)} {
         width: 24px;
         height: 24px;
     }
@@ -57,9 +58,9 @@ export const IconStat = styled.svg`
 export const Link = styled(NavLink)`
     color: ${({ theme }) => theme.colors.textSideBar};
     font-family: Inter;
-    font-size: 14px;
+    font-size: ${({ theme }) => theme.fontSizes.s};
     font-style: normal;
-    font-weight: 600;
+    font-weight: ${({ theme }) => theme.fontWeight.sb};
     line-height: normal;
 
     display: block;
@@ -69,8 +70,8 @@ export const Link = styled(NavLink)`
     display: flex;
     align-items: center;
 
-    @media (min-width: 768px) {
-        font-size: 16px;
+    ${min(tablet)} {
+        font-size: ${({ theme }) => theme.fontSizes.m};
     }
 
     &:hover,

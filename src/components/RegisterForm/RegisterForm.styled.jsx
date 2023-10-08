@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { Field, ErrorMessage } from 'formik';
+import { NavLink } from 'react-router-dom';
 
 import { mobile, tablet, min } from '../../styles/media';
 
@@ -147,6 +148,18 @@ export const Button = styled.button`
     font-weight: 600;
     line-height: 18px;
     letter-spacing: -0.28px;
+    stroke: white;
+    fill: #3e85f3;
+
+    transition: all 500ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover,
+    &:focus {
+        background-color: #1d56ac;
+        color: ${({ theme }) => theme.colors.white};
+        fill: #1d56ac;
+        stroke: white;
+    }
 
     /* @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
         margin-top: 48px;
@@ -167,12 +180,12 @@ export const Button = styled.button`
     }
 `;
 
-export const Svg = styled.svg`
-    stroke: white;
-    fill: #3e85f3;
-    width: 18px;
-    height: 18px;
-`;
+// export const Svg = styled.svg`
+//     stroke: white;
+//     fill: #3e85f3;
+//     width: 18px;
+//     height: 18px;
+// `;
 
 export const ButtonEye = styled.svg`
     position: absolute;
@@ -229,4 +242,33 @@ export const SvgStatus = styled.svg`
     right: 14px;
     top: 83%;
     transform: translateY(-50%);
+`;
+
+export const Home = styled(NavLink)`
+    margin-bottom: 32px;
+    color: #3e85f3;
+    text-shadow: 0px 9.399999618530273px 57.6875px rgba(0, 0, 0, 0.04),
+        0px 47px 355px rgba(0, 0, 0, 0.07);
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px; /* 100% */
+    transition: all 500ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover,
+    &:focus {
+        color: #1d56ac;
+    }
+
+    ${min(tablet)} {
+        margin-bottom: 40px;
+        font-size: 24px;
+    }
+`;
+
+export const TitleContainer = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 `;
