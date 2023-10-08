@@ -176,6 +176,10 @@ export const UserForm = () => {
                                                 selected={new Date(values.birthday)}
                                                 dateFormat="yyyy/MM/dd"
                                                 maxDate={new Date()}
+                                                locale="en"
+                                                formatWeekDay={nameOfDay =>
+                                                    nameOfDay.charAt(0)
+                                                }
                                                 onChange={date => {
                                                     setFieldValue(
                                                         'birthday',
