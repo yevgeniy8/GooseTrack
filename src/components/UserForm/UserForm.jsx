@@ -115,7 +115,10 @@ export const UserForm = () => {
 
     return (
         <MainContainer>
-            <AvatarContainer>
+            <AvatarContainer
+                animate={{ y: -50 }}
+                transition={{ ease: 'easeOut', duration: 2 }}
+            >
                 <ImgContainer>
                     <ImgAvatar src={user.avatarURL || avatar} alt="avatar" />
                 </ImgContainer>
@@ -139,7 +142,10 @@ export const UserForm = () => {
                 {({ errors, touched, values, handleChange,  setFieldValue, setFieldTouched }) => {
                     return (
                         <StyledForm>
-                            <FieldsWrap>
+                            <FieldsWrap
+                                animate={{ y: -50 }}
+                                transition={{ ease: 'easeOut', duration: 2 }}
+                            >
                                 <LabelWrap>
                                     <Label htmlFor="">
                                         <Span>User name</Span>
@@ -261,7 +267,13 @@ export const UserForm = () => {
                                 </LabelWrap>
                             </FieldsWrap>
 
-                            <Button type="submit">Save changes</Button>
+                            <Button
+                                animate={{ y: -25 }}
+                                transition={{ ease: 'easeOut', duration: 2 }}
+                                type="submit"
+                            >
+                                Save changes
+                            </Button>
                         </StyledForm>
                     );
                 }}
