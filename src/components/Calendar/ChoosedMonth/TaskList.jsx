@@ -1,8 +1,13 @@
 import { NavLink } from 'react-router-dom';
 
 const TaskList = ({ currentDate, day, tasks }) => {
-    const date = currentDate + '-' + day;
+    if (!day) {
+        return;
+    }
+    const formattedDay = day.toString().padStart(2, '0');
+    const date = currentDate + '-' + formattedDay;
     const filterTasks = tasks.filter(task => task.date === date);
+
     return (
         <ul>
             {filterTasks?.map(task => (

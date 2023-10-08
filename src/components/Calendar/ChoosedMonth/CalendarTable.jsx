@@ -13,7 +13,6 @@ import { NavLink } from 'react-router-dom';
 
 const CalendarTable = () => {
     const { currentDate } = useParams();
-    // console.log(currentDate); //2023-10
 
     const date = new Date(currentDate);
 
@@ -70,7 +69,6 @@ const handleNavToDay = day => {
                         </List>
                     </div>
                 ))}
-
             </Table>
         </>
     );
