@@ -1,17 +1,21 @@
-import { WeekdaysItem, WeekdaysList } from './ChoosedMonth.styled';
-// import { nanoid } from 'nanoid'
+import { useMediaQuery } from 'react-responsive';
+import { WeekdaysItem, WeekdaysList } from './MonthCalendarHead.styled';
 
-import { DAYS } from './utils';
+import { DAYS, DAYS_MOB } from './utils';
 
-const CalendarHead = () => {
-    // const dayKey = nanoid();
+const MonthCalendarHead = () => {
+    
+    const isMobile = useMediaQuery({ maxWidth: 767 });
+
     return (
         <WeekdaysList>
-            {DAYS.map((day, index) => (
+            {isMobile?DAYS_MOB.map((day, index) => (
+                <WeekdaysItem key={index}>{day}</WeekdaysItem>
+            )):DAYS.map((day, index) => (
                 <WeekdaysItem key={index}>{day}</WeekdaysItem>
             ))}
         </WeekdaysList>
     );
 };
 
-export default CalendarHead;
+export default MonthCalendarHead;
