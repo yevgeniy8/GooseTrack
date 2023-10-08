@@ -15,6 +15,7 @@
         "axios": "^1.5.1",
         "chart.js": "^4.4.0",
         "chartjs-plugin-gradient": "^0.6.1",
+        "date-fns": "^2.30.0",
         "datepicker": "^0.0.0",
         "formik": "^2.4.5",
         "moment": "^2.29.4",

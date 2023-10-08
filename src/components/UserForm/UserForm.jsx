@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
-import { Formik } from 'formik';
+import { Field, Formik } from 'formik';
 import * as yup from 'yup';
 import sprite from '../../images/icons.svg';
 import { ImgContainer } from './UserForm.styled';
 import { FieldsWrap } from './UserForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectUser } from 'redux/auth/authSelectors';
-import moment from 'moment/moment';
+import { format } from 'date-fns';
 import { editUser } from 'redux/auth/authOperations';
 import avatar from '../../images/Avatar.png';
+import {enGB, ua} from 'date-fns/esm/locale'
+import { registerLocale, setDefaultLocale } from  "react-datepicker";
 import {
     AvatarContainer,
     Button,
@@ -27,12 +29,10 @@ import {
     UserName,
     UserP,
 } from './UserForm.styled';
-import {
-    DatePickWrapper,
-    DatePickerStyled,
-} from './ReactDatePickerCalendar.styled';
+import { ReactDatepicker } from './ReactDatePicker';
 
-const dayMoment = moment().format('DD/MM/YYYY');
+registerLocale('en', enGB);
+
 const emailRegexp = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
 const phoneRegexp = /^\+380\d{9}$/;
 
@@ -43,7 +43,7 @@ const schema = yup.object().shape({
         .email()
         .matches(emailRegexp, 'email invalid')
         .required(),
-    birthday: yup.date().max(dayMoment, 'Birthday must be earlier than today'),
+    birthday: yup.date().max(new Date(), 'Birthday must be earlier than today'),
     phone: yup.string().matches(phoneRegexp),
     skype: yup.string().max(16),
 });
@@ -65,12 +65,15 @@ function handleInput(errors, touched, fieldName) {
 }
 
 export const UserForm = () => {
-    const [currentAvatar, setCurrentAvatar] = useState(null);
-    const [currentBirthday, setCurrentBirthday] = useState(new Date());
-
     const dispatch = useDispatch();
 
     const user = useSelector(selectUser);
+    const [currentAvatar, setCurrentAvatar] = useState(null);
+    const [currentBirthday, setCurrentBirthday] = useState(new Date(user.birthday));
+
+   
+
+    // console.log(user.birthday);
     // console.log(user);
 
     const initialValues = {
@@ -78,38 +81,24 @@ export const UserForm = () => {
         email: user.email || '',
         phone: user.phone || '',
         skype: user.skype || '',
+        birthday: user.birthday || new Date(),
     };
 
     const handleChange = e => {
         setCurrentAvatar(e.target.files[0]);
-        // console.log(currentAvatar);
     };
 
-    const handleSubmit = ({ name, phone, email, skype }, actions) => {
+    const handleSubmit = ({ name, phone, email, skype, birthday }, actions) => {
+        // const date = format(new Date(currentBirthday), 'yyyy-MM-dd');
         const formData = new FormData();
-        // formData.append('name', name);
-        // formData.append('email', email);
-        // formData.append('phone', phone);
-        // formData.append('skype', skype);
-        // formData.append('birthday', currentBirthday);
-        formData.append('avatarURL', currentAvatar);
+        formData.append('name', name);
+        formData.append('email', email);
+        formData.append('phone', phone);
+        formData.append('skype', skype);
+        formData.append('birthday', birthday);
+        formData.append('avatar', currentAvatar);
 
-        const newData = {
-            name,
-            phone,
-            email,
-            skype,
-            birthday: currentBirthday,
-            file: { avatarURL: formData },
-        };
-
-        // const newData = {
-        //     body: { name, phone, email, skype, birthday: currentBirthday },
-        //     file: {
-        //         avatarURL: formData,
-        //     },
-        // };
-        dispatch(editUser(newData));
+        dispatch(editUser(formData));
 
         actions.resetForm();
     };
@@ -118,7 +107,7 @@ export const UserForm = () => {
         <MainContainer>
             <AvatarContainer>
                 <ImgContainer>
-                    <ImgAvatar src={ avatar} alt="avatar" />
+                    <ImgAvatar src={user.avatarURL || avatar} alt="avatar" />
                 </ImgContainer>
                 <InputFile
                     type="file"
@@ -165,26 +154,25 @@ export const UserForm = () => {
                                 <LabelWrap>
                                     <Label htmlFor="">
                                         <Span> Birthday</Span>
-                                        <DatePickWrapper>
-                                            <DatePickerStyled
-                                                selected={currentBirthday}
-                                                onChange={date =>
-                                                    setCurrentBirthday(date)
-                                                }
-                                                formatWeekDay={nameOfDay =>
-                                                    nameOfDay.charAt(0)
-                                                }
-                                                name="birthday"
-                                                maxDate={new Date()}
-                                                className={
-                                                    errors.birthday
-                                                        ? 'input-error'
-                                                        : ''
-                                                }
-                                                showYearDropdown
-                                                value={user.birthday}
-                                            />
-                                        </DatePickWrapper>
+                                        <Field
+                                            name="birthday"
+                                            as={ReactDatepicker}
+                                            selected={currentBirthday}
+                                            onChange={date =>setCurrentBirthday(date)
+                                            }
+                                            formatWeekDay={nameOfDay =>
+                                                nameOfDay.charAt(0)
+                                            }
+                                            // maxDate={new Date()}
+                                            className={
+                                                errors.birthday
+                                                    ? 'input-error'
+                                                    : ''
+                                            }
+                                            locale="en"
+                                            value={currentBirthday}
+                                            dateFormat="yyyy/MM/dd"
+                                        ></Field>
                                         <Error
                                             component="div"
                                             name="birthday"

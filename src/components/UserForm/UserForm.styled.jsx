@@ -16,7 +16,7 @@ export const MainContainer = styled.div`
     @media (min-width: 768px) {
         max-width: 704px;
     }
-    @media (min-width: 1140px) {
+    @media (min-width: 1440px) {
         max-width: 1087px;
     }
 `;
@@ -50,13 +50,13 @@ export const ImgContainer = styled.div`
 export const ImgAvatar = styled.img`
     width: 100%;
     height: 100%;
-    width: 48px;
-    height: 48px;
+    /* width: 48px;
+    height: 48px; */
     border-radius: 50%;
 
     object-fit: cover;
     object-position: 50% 50%;
-    margin-bottom: 18px;
+    
 `;
 
 export const InputFile = styled.input`
@@ -120,14 +120,14 @@ export const StyledForm = styled(Form)`
         max-width: 354px;
         margin: 0 auto;
     }
-    @media (min-width: 1140px) {
+    @media (min-width: 1440px) {
         max-width: 758px;
     }
 `;
 
 export const FieldsWrap = styled.div`
     width: 100%;
-    @media (min-width: 1140px) {
+    @media (min-width: 1440px) {
         max-width: 758px;
         display: grid;
         grid-template: repeat(3, 1fr) / repeat(2, 1fr);
@@ -167,7 +167,7 @@ export const LabelWrap = styled.div`
     @media (min-width: 768px) {
         margin-bottom: 24px;
     }
-    @media (min-width: 1140px) {
+    @media (min-width: 1440px) {
         width: 354px;
     }
 `;
