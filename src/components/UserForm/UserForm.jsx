@@ -10,7 +10,8 @@ import { selectUser } from 'redux/auth/authSelectors';
 import { editUser } from 'redux/auth/authOperations';
 import avatar from '../../images/Avatar.png';
 import { enGB } from 'date-fns/esm/locale';
-import { registerLocale } from 'react-datepicker';
+import ReactDatePicker, { registerLocale } from 'react-datepicker';
+import { useFormikContext, useField } from 'formik';
 import {
     AvatarContainer,
     Button,
@@ -29,7 +30,11 @@ import {
     UserName,
     UserP,
 } from './UserForm.styled';
-import { ReactDatepicker } from './ReactDatePicker';
+import CustomDatePicker, { ReactDatepicker } from './ReactDatePicker';
+import {
+    DatePickerStyled,
+    DatePickerWrapp,
+} from './ReactDatePickerCalendar.styled';
 
 registerLocale('en', enGB);
 
@@ -66,9 +71,8 @@ function handleInput(errors, touched, fieldName) {
 
 export const UserForm = () => {
     const dispatch = useDispatch();
-
     const user = useSelector(selectUser);
-    
+
     // const parsedDate = parseISO(user.birthday);
     // const formattedDate = format(parsedDate, 'yyyy-MM-dd');
 
@@ -83,19 +87,17 @@ export const UserForm = () => {
         email: user.email || '',
         phone: user.phone || '',
         skype: user.skype || '',
-        birthday:user.birthday,
+        birthday: user.birthday || '',
     };
-  
 
     const handleChange = e => {
-        console.dir(e.target);
         setCurrentAvatar(e.target.files[0]);
     };
 
     const handleSubmit = ({ name, phone, email, skype, birthday }, actions) => {
         // const date = format(new Date(currentBirthday), 'yyyy-MM-dd');
 
-        console.log(birthday)
+        console.log(birthday);
         const formData = new FormData();
         formData.append('name', name);
         formData.append('email', email);
@@ -134,7 +136,7 @@ export const UserForm = () => {
                 validationSchema={schema}
                 onSubmit={handleSubmit}
             >
-                {({ errors, touched, values, handleChange }) => {
+                {({ errors, touched, values, handleChange,  setFieldValue, setFieldTouched }) => {
                     return (
                         <StyledForm>
                             <FieldsWrap>
@@ -162,24 +164,26 @@ export const UserForm = () => {
                                 <LabelWrap>
                                     <Label htmlFor="name">
                                         <Span> Birthday</Span>
-                                        <Field
-                                            type="date"
-                                            name="birthday"
-                                            component={ReactDatepicker}
-                                            formatWeekDay={nameOfDay =>
-                                                nameOfDay.charAt(0)
-                                            }
-                                            maxDate={new Date()}
-                                            className={
-                                                errors.birthday
-                                                    ? 'input-error'
-                                                    : ''
-                                            }
-                                            locale="en"
-                                            value={values.birthday}
-                                            values
-                                            dateFormat="yyyy/MM/dd"
-                                        ></Field>
+                                        <DatePickerWrapp>
+                                            <DatePickerStyled
+                                                name="birthday"
+                                                selected={new Date(values.birthday)}
+                                                dateFormat="yyyy/MM/dd"
+                                                maxDate={new Date()}
+                                                onChange={date => {
+                                                    setFieldValue(
+                                                        'birthday',
+                                                        date
+                                                    );
+                                                }}
+                                                onBlur={() => {
+                                                    setFieldTouched(
+                                                        'birthday',
+                                                        true
+                                                    );
+                                                }}
+                                            />
+                                        </DatePickerWrapp>
                                         <Error
                                             component="div"
                                             name="birthday"
@@ -265,3 +269,5 @@ export const UserForm = () => {
         </MainContainer>
     );
 };
+
+

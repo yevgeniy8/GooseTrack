@@ -1,9 +1,9 @@
-import DatePicker from 'react-datepicker';
+import ReactDatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import styled from '@emotion/styled';
 
 
-export const DatePickerStyled = styled(DatePicker)`
+export const DatePickerStyled = styled(ReactDatePicker)`
     width: 100%;
     padding: 12px;
     border-radius: 8px;
@@ -33,7 +33,7 @@ export const DatePickerStyled = styled(DatePicker)`
         }
     }
 `;
-export const DatePickWrapper = styled.div`
+export const DatePickerWrapp = styled.div`
     .react-datepicker-wrapper {
         display: block;
     }
