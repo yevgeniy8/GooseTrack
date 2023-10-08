@@ -24,6 +24,15 @@ export const Image = styled.img`
     width: 142px;
     height: 142px;
     text-align: center;
+    transform: scale(1);
+    transition-property: transform;
+    transition-duration: 500ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover,
+    &:focus {
+        transform: scale(1.2);
+    }
 
     @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
         width: 150px;
@@ -80,6 +89,16 @@ export const Register = styled(NavLink)`
     text-decoration: underline;
     text-shadow: ${({ theme }) => theme.shadows.text};
 
+    transform: scale(1);
+    transition-property: transform;
+    transition-duration: 500ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover,
+    &:focus {
+        transform: scale(1.5);
+    }
+
     @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
         font-size: ${({ theme }) => theme.fontSizes.s};
         line-height: calc(18 / 14);
@@ -97,6 +116,7 @@ export const Login = styled(NavLink)`
     font-weight: ${({ theme }) => theme.fontWeight.sb};
     line-height: calc(18 / 14);
     letter-spacing: -0.02em;
+    border-color: 1px solid transparent;
     border-radius: ${({ theme }) => theme.borderRadius.m};
     background-color: ${({ theme }) => theme.colors.white};
     color: ${({ theme }) => theme.colors.brand};
