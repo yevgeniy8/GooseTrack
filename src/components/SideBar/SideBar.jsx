@@ -57,7 +57,7 @@ const SideBar = ({ onCloseClick, isOpen }) => {
                         </IconX>
                     </CloseBtn>
                 </LogoWrapper>
-                <UserNav />
+                <UserNav onCloseClick={onCloseClick} />
             </div>
             <BtnContainer>
                 <LogoutBtn />
