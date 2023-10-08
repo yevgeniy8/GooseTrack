@@ -17,6 +17,7 @@
         "chartjs-plugin-gradient": "^0.6.1",
         "datepicker": "^0.0.0",
         "formik": "^2.4.5",
+        "framer-motion": "^10.16.4",
         "moment": "^2.29.4",
         "nanoid": "^5.0.1",
         "notiflix": "^3.2.6",
