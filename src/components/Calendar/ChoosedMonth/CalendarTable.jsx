@@ -23,7 +23,7 @@ const CalendarTable = () => {
 
     // необходимо что бы убрать Warning
     console.log(tasks);
-    
+
     return (
         <>
             <Table fullheight={true} is28Days={getDaysInMonth(date) === 28}>
@@ -36,14 +36,25 @@ const CalendarTable = () => {
                     >
                         <span
                             className={`nonDRAG ${
-                                datesAreOnSameDay(new Date(),
-                                    new Date(date.getFullYear(),
+                                datesAreOnSameDay(
+                                    new Date(),
+                                    new Date(
+                                        date.getFullYear(),
                                         date.getMonth(),
-                                        day))? 'active':''}`}
+                                        day
+                                    )
+                                )
+                                    ? 'active'
+                                    : ''
+                            }`}
                         >
                             {day}
                         </span>
-                    <TaskList currentDate={date} tasks={tasks} />
+                        <TaskList
+                            currentDate={currentDate}
+                            day={day}
+                            tasks={tasks}
+                        />
                     </div>
                 ))}
             </Table>
@@ -52,5 +63,3 @@ const CalendarTable = () => {
 };
 
 export default CalendarTable;
-
-
