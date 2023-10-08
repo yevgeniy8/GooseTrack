@@ -17,7 +17,7 @@ export const Wrapper = styled.div`
 `;
 
 export const Section = styled.div`
-    // position: relative;
+    position: relative;
     width: 100%;
     min-height: 100%;
     display: flex;
