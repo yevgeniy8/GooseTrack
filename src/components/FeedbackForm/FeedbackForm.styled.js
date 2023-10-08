@@ -75,9 +75,11 @@ export const DeleteBtn = styled.button`
     border: none;
     border-radius: 50%;
     cursor: pointer;
+
     transition: {
         stroke: #ea3d65;
     }
+
 
     &:hover,
     &:focus {
@@ -103,6 +105,7 @@ export const Input = styled(Field)`
     font-family: Inter;
     font-style: normal;
     font-weight: 600;
+
     background: ${({ theme }) => theme.colors.backgroundModalTaskForm};
     border-radius: 8px;
     border: ${({ theme }) => theme.borders.modalTask};
@@ -121,7 +124,7 @@ export const Input = styled(Field)`
 
     ::placeholder {
         opacity: 1;
-        color: rgba(52, 52, 52, 1);
+        color: ${({ theme }) => theme.colors.textPrimary};
         font-weight: 600;
         font-size: 14px;
     }
@@ -169,8 +172,8 @@ export const FormBtn = styled.button`
 `;
 
 export const FormBtnCancel = styled.button`
-    color: rgba(52, 52, 52, 1);
-    background-color: #e5edfa;
+    color: ${({ theme }) => theme.colors.textPrimary};
+    background-color: ${({ theme }) => theme.colors.backgroundBtnCanceled};
     text-transform: none;
     width: 262px;
     height: 48px;

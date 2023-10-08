@@ -1,24 +1,18 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchTasks } from 'redux/calendar/calendarOperations';
 import { selectTasks } from 'redux/calendar/calendarSelector';
 
-
-import {
-    datesAreOnSameDay,
-    getDaysInMonth,
-    getSortedDays,
-} from './utils';
+import { datesAreOnSameDay, getDaysInMonth, getSortedDays } from './utils';
 import { Table } from './ChoosedMonth.styled';
-// import { useParams } from 'react-router';
+import { useParams } from 'react-router';
 
 const CalendarTable = () => {
-    // const { currentDate } = useParams();
+    const { currentDate } = useParams();
     // console.log(currentDate); //2023-10
 
-    const [currentDate] = useState(new Date());
-    console.log(currentDate); //Sat Oct 07 2023 13:03:40 
-    
+    const date = new Date(currentDate);
+
     const dispatch = useDispatch();
     const tasks = useSelector(selectTasks);
     useEffect(() => {
@@ -28,20 +22,17 @@ const CalendarTable = () => {
     // необходимо что бы убрать Warning
     console.log(tasks);
 
-    // const handlePrevMonth = () => prevMonth(currentDate, setCurrentDate);
-    // const handleNextMonth = () => nextMonth(currentDate, setCurrentDate);
+    // const handlePrevMonth = () => prevMonth(date, setdate);
+    // const handleNextMonth = () => nextMonth(date, setdate);
 
     return (
         <>
-            <Table
-                fullheight={true}
-                is28Days={getDaysInMonth(currentDate) === 28}
-            >
-                {getSortedDays(currentDate).map((day, index) => (
+            <Table fullheight={true} is28Days={getDaysInMonth(date) === 28}>
+                {getSortedDays(date).map((day, index) => (
                     <div
                         key={index}
-                        id={`${currentDate.getFullYear()}-${
-                            currentDate.getMonth() + 1
+                        id={`${date.getFullYear()}-${
+                            date.getMonth() + 1
                         }-${day}`}
                     >
                         <span
@@ -49,8 +40,8 @@ const CalendarTable = () => {
                                 datesAreOnSameDay(
                                     new Date(),
                                     new Date(
-                                        currentDate.getFullYear(),
-                                        currentDate.getMonth(),
+                                        date.getFullYear(),
+                                        date.getMonth(),
                                         day
                                     )
                                 )

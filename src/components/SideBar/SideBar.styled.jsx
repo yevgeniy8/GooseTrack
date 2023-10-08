@@ -1,16 +1,15 @@
 import styled from '@emotion/styled';
 
 export const Wrapper = styled.div`
-    height: 812px;
+    height: 100vh;
     width: 225px;
-    padding: 32px 24px 24px 24px;
+    padding: 24px 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     background-color: ${({ theme }) => theme.colors.backgroundSideBar};
-    position: absolute;
+    position: fixed;
     z-index: 10;
-    border-right: 1px solid rgba(220, 227, 229, 0.5);
 
     transform: ${props =>
         props.isOpen ? 'translateX(0)' : 'translateX(-100%)'};
@@ -18,22 +17,21 @@ export const Wrapper = styled.div`
 
     @media (min-width: 768px) {
         width: 289px;
-        height: 1024px;
+        padding: 24px 32px;
     }
 
     @media (min-width: 1440px) {
-        height: 900px;
-        position: relative;
+        /* position: relative; */
         z-index: 1;
         border-right: none;
         transform: translateX(0);
+        padding: 32px 24px 24px 24px;
     }
 `;
 
 export const LogoWrapper = styled.div`
     display: inline-flex;
     align-items: center;
-    gap: 10px;
     margin-bottom: 32px;
 `;
 
@@ -62,7 +60,11 @@ export const LogoTitle = styled.p`
     font-weight: 700;
     line-height: 1;
     letter-spacing: 0em;
+    margin-right: 25px;
 
+    @media (min-width: 768px) {
+        margin-right: 31px;
+    }
     @media (min-width: 1440px) {
         font-size: 24px;
     }
