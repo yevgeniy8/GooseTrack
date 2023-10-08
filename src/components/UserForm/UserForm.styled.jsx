@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import { Form } from 'formik';
 import { Field, ErrorMessage } from 'formik';
+import { motion } from 'framer-motion';
 
 export const MainContainer = styled.div`
     display: flex;
@@ -21,7 +22,7 @@ export const MainContainer = styled.div`
     }
 `;
 
-export const AvatarContainer = styled.div`
+export const AvatarContainer = styled(motion.div)`
     position: relative;
     display: flex;
     flex-direction: column;
@@ -117,7 +118,7 @@ export const StyledForm = styled(Form)`
     }
 `;
 
-export const FieldsWrap = styled.div`
+export const FieldsWrap = styled(motion.div)`
     width: 100%;
     @media (min-width: 1140px) {
         max-width: 758px;
@@ -216,7 +217,7 @@ export const IconErr = styled.svg`
     right: 18px;
     fill: #e74a3b;
 `;
-export const Button = styled.button`
+export const Button = styled(motion.button)`
     margin-top: 30px;
     /* width: 195px; */
     padding: 14px 50px;
