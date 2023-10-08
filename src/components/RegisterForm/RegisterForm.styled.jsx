@@ -116,6 +116,7 @@ export const InputFormMargin0 = styled(InputForm)`
     /* @media screen and (min-width: ${({ theme }) => theme.breakpoints.s}) {
         margin-bottom: 0;
     } */
+    margin-bottom: 0;
 
     ${min(mobile)} {
         margin-bottom: 0;
