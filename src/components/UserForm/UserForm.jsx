@@ -1,17 +1,15 @@
 import React, { useState } from 'react';
-import { Field, Formik } from 'formik';
+import { Formik } from 'formik';
 import * as yup from 'yup';
 import sprite from '../../images/icons.svg';
 import { ImgContainer } from './UserForm.styled';
 import { FieldsWrap } from './UserForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectUser } from 'redux/auth/authSelectors';
-// import { format, parseISO } from 'date-fns';
 import { editUser } from 'redux/auth/authOperations';
 import avatar from '../../images/Avatar.png';
 import { enGB } from 'date-fns/esm/locale';
-import ReactDatePicker, { registerLocale } from 'react-datepicker';
-import { useFormikContext, useField } from 'formik';
+import { registerLocale } from 'react-datepicker';
 import {
     AvatarContainer,
     Button,
@@ -30,7 +28,6 @@ import {
     UserName,
     UserP,
 } from './UserForm.styled';
-import CustomDatePicker, { ReactDatepicker } from './ReactDatePicker';
 import {
     DatePickerStyled,
     DatePickerWrapp,
@@ -73,14 +70,7 @@ export const UserForm = () => {
     const dispatch = useDispatch();
     const user = useSelector(selectUser);
 
-    // const parsedDate = parseISO(user.birthday);
-    // const formattedDate = format(parsedDate, 'yyyy-MM-dd');
-
     const [currentAvatar, setCurrentAvatar] = useState(null);
-    // const [currentBirthday, setCurrentBirthday] = useState(new Date (user.birthday));
-
-    // console.log(user.birthday);
-    // console.log(user);
 
     const initialValues = {
         name: user.name || '',
@@ -95,9 +85,7 @@ export const UserForm = () => {
     };
 
     const handleSubmit = ({ name, phone, email, skype, birthday }, actions) => {
-        // const date = format(new Date(currentBirthday), 'yyyy-MM-dd');
 
-        console.log(birthday);
         const formData = new FormData();
         formData.append('name', name);
         formData.append('email', email);
@@ -177,6 +165,13 @@ export const UserForm = () => {
                                                 dateFormat="yyyy/MM/dd"
                                                 maxDate={new Date()}
                                                 locale="en"
+                                                className={
+                                                    errors.birthday && touched.birthday
+                                                        ? 'input-error'
+                                                        : touched.birthday
+                                                        ? 'input-valid'
+                                                        : ''
+                                                }
                                                 formatWeekDay={nameOfDay =>
                                                     nameOfDay.charAt(0)
                                                 }

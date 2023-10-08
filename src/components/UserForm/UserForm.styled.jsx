@@ -13,7 +13,7 @@ export const MainContainer = styled.div`
     padding-right: 18px;
     padding-bottom: 40px;
     border-radius: 16px;
-    background-color: #fff;
+    background-color:${({ theme }) => theme.colors.backgroundSecondary};
     @media (min-width: 768px) {
         max-width: 704px;
     }
@@ -89,7 +89,7 @@ export const SvgPlus = styled.svg`
 `;
 
 export const UserName = styled.h2`
-    color: #343434;
+    color: ${({ theme }) => theme.colors.textPrimary};
     font-family: Inter;
     font-size: 14px;
     font-weight: 700;
@@ -101,7 +101,7 @@ export const UserName = styled.h2`
 `;
 
 export const UserP = styled.p`
-    color: #343434;
+    color: ${({ theme }) => theme.colors.textPrimary};
     font-size: 12px;
     font-weight: 600;
     font-family: Inter;
@@ -151,8 +151,7 @@ export const Label = styled.label`
 
 export const Span = styled.span`
     display: block;
-    color: #111;
-    font-family: Inter;
+    color: ${({ theme }) => theme.colors.textPrimary};
     font-size: 12px;
     line-height: 1.166;
     margin-bottom: 8px;
@@ -180,8 +179,6 @@ export const InputForm = styled(Field)`
     border: 1px solid rgba(220, 227, 229, 0.6);
 
     outline: none;
-    font-family: Inter;
-
     line-height: 1.28;
 
     &:hover,
@@ -190,7 +187,7 @@ export const InputForm = styled(Field)`
     }
 
     ::placeholder {
-        color: #111;
+        color: ${({ theme }) => theme.colors.textPrimary}
         font-weight: 600;
         font-size: 14px;
     }
@@ -238,13 +235,11 @@ export const Button = styled(motion.button)`
     box-shadow: 4px 2px 16px 0px rgba(136, 165, 191, 0.48);
 
     color: #fff;
-    font-family: Inter;
     font-size: 14px;
     font-weight: 600;
     line-height: 1.333;
     letter-spacing: -0.36px;
-
-    transition: all 500ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color 500ms cubic-bezier(0.4, 0, 0.2, 1);
 
     &:hover,
     &:focus {

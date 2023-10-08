@@ -31,6 +31,13 @@ export const DatePickerStyled = styled(ReactDatePicker)`
             font-weight: 600;
             font-size: 16px;
         }
+        &.input-error {
+        border: 1px solid #e74a3b;
+    }
+
+    &.input-valid {
+        border: 1px solid #3cbc81;
+    }
     }
 `;
 export const DatePickerWrapp = styled.div`
