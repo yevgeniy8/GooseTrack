@@ -1,6 +1,6 @@
 // import { Link } from 'react-router-dom';
 import moment from 'moment';
-
+import DayCalendarHead from '../ChoosedDay/DayCalendarHead'; // Импортируем компонент
 import sprite from 'images/icons.svg';
 
 import {
@@ -83,6 +83,11 @@ const CalendarToolbar = ({ currentDate, setCurrentDate, format, setFormat }) => 
           Day
         </BtnDay>
       </PeriodPaginator>
+      <DayCalendarHead
+        currentDate={currentDate}
+        handlePrevDate={date => handlePrevDate(format, date)} // Передаем handlePrevDate в DayCalendarHead
+        handleNextDate={date => handleNextDate(format, date)} // Передаем handleNextDate в DayCalendarHead
+      />
     </ToolbarContainer>
   );
 };
