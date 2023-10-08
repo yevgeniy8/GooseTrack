@@ -18,6 +18,8 @@ import {
     ButtonEye,
     ErrorMes,
     SvgStatus,
+    Home,
+    TitleContainer,
 } from './RegisterForm.styled';
 
 import sprite from '../../images/icons.svg';
@@ -88,7 +90,10 @@ const RegisterForm = () => {
                     /* and other goodies */
                 }) => (
                     <Form>
-                        <Title>Sign Up</Title>
+                        <TitleContainer>
+                            <Title>Sign Up</Title>
+                            <Home to={'/'}>Home</Home>
+                        </TitleContainer>
                         <div>
                             <Label htmlFor="">
                                 <Span>Name</Span>

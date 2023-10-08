@@ -16,6 +16,8 @@ import {
     Label,
     SvgStatus,
     ErrorMes,
+    Home,
+    TitleContainer,
 } from '../RegisterForm/RegisterForm.styled';
 
 import { Svg } from '../RegisterForm/RegisterForm.styled';
@@ -83,8 +85,10 @@ const LoginForm = () => {
                     /* and other goodies */
                 }) => (
                     <Form>
-                        <Title>Log In</Title>
-
+                        <TitleContainer>
+                            <Title>Log In</Title>
+                            <Home to={'/'}>Home</Home>
+                        </TitleContainer>
                         <div>
                             <Label htmlFor="">
                                 <Span>Email</Span>

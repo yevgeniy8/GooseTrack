@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { Field, ErrorMessage } from 'formik';
+import { NavLink } from 'react-router-dom';
 
 import { mobile, tablet, min } from '../../styles/media';
 
@@ -229,4 +230,27 @@ export const SvgStatus = styled.svg`
     right: 14px;
     top: 83%;
     transform: translateY(-50%);
+`;
+
+export const Home = styled(NavLink)`
+    margin-bottom: 32px;
+    color: #3e85f3;
+    text-shadow: 0px 9.399999618530273px 57.6875px rgba(0, 0, 0, 0.04),
+        0px 47px 355px rgba(0, 0, 0, 0.07);
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px; /* 100% */
+
+    ${min(tablet)} {
+        margin-bottom: 40px;
+        font-size: 24px;
+    }
+`;
+
+export const TitleContainer = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 `;
