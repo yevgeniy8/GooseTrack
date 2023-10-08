@@ -31,8 +31,6 @@ export const WeekdaysItem = styled.li`
     color: #3e85f3;
   } */
 
-    background-color: ${selected => console.log(selected)};
-
     &.current-day {
         background-color: #ffcc00; /* Цвет выделения */
         font-weight: bold; /* Жирный шрифт для текущего дня */

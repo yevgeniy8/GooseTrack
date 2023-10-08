@@ -1,6 +1,6 @@
 // import { Link } from 'react-router-dom';
 import moment from 'moment';
-import DayCalendarHead from '../ChoosedDay/DayCalendarHead'; // Импортируем компонент
+// import DayCalendarHead from '../ChoosedDay/DayCalendarHead'; // Импортируем компонент
 import sprite from 'images/icons.svg';
 
 import {
