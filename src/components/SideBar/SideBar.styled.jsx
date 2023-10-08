@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 export const Wrapper = styled.div`
-    height: 100vh;
+    min-height: 100vh;
     width: 225px;
     padding: 24px 20px;
     display: flex;
@@ -10,7 +10,6 @@ export const Wrapper = styled.div`
     background-color: ${({ theme }) => theme.colors.backgroundSideBar};
     position: absolute;
     z-index: 10;
-    // border-right: 1px solid rgba(220, 227, 229, 0.5);
 
     transform: ${props =>
         props.isOpen ? 'translateX(0)' : 'translateX(-100%)'};
