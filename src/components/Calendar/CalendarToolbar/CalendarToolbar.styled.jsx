@@ -19,12 +19,15 @@ export const PeriodTypeSelect = styled.div`
 
 export const DateBox = styled.div`
   background-color: #3e85f3;
-  width: 148px;
+  width: 146px;
   display: flex;
   padding: 6px 10px;
   justify-content: center;
   align-items: center;
   border-radius: 8px;
+   @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
+    width: 165px;
+  }
 `;
 
 export const Date = styled.span`
@@ -34,21 +37,9 @@ export const Date = styled.span`
   font-style: normal;
   font-weight: 700;
   line-height: 18px;
-`;
-
-export const ToggleBox = styled.div`
-  display: flex;
-  background-color: #fff;
-  border: 1px solid rgba(220, 227, 229, 0.8);
-  border-radius: 8px;
-  gap: 1px;
-  overflow: hidden;
-  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
-`;
-
-export const ToggleBtn = styled.div`
-  padding: 7px 10px;
-  background-color: #fff;
+   @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
+    font-size: 16px;
+  }
 `;
 
 export const Icon = styled.svg`
@@ -101,7 +92,7 @@ export const Period = styled.div`
 `;
 
 export const BtnMonth = styled.button`
-    width: 82px;
+    width: 76px;
     height: 34px;
     padding: 8px 16px;
     border: none;
@@ -109,7 +100,7 @@ export const BtnMonth = styled.button`
     border-right: 1px solid rgba(62, 133, 243, 0.2);
     background-color: #e3f3ff;
     font-family: Inter;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 500;
     line-height: 18px;
     letter-spacing: 0em;
@@ -120,11 +111,15 @@ export const BtnMonth = styled.button`
     &:focus,
     &:active {
         background-color: rgba(62, 133, 243, 0.2);
-    }
+    };
+     @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
+      font-size: 16px;
+      width: 82px;
+  };
 `;
 
 export const BtnDay = styled.button`
-    width: 82px;
+    width: 76px;
     height: 34px;
     padding: 8px 16px;
     border: none;
@@ -132,7 +127,7 @@ export const BtnDay = styled.button`
     border-left: 1px solid rgba(62, 133, 243, 0.2);
     background-color: #e3f3ff;
     font-family: Inter;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 500;
     line-height: 18px;
     letter-spacing: 0em;
@@ -143,7 +138,11 @@ export const BtnDay = styled.button`
     &:focus,
     &:active {
         background-color: rgba(62, 133, 243, 0.2);
-    }
+    };
+     @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
+      font-size: 16px;
+      width: 82px;
+  };
 `;
 
 export const TypeLink = styled(NavLink)`

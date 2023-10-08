@@ -94,7 +94,7 @@ const CalendarToolbar = ({
             Month
           </TypeLink>
         </BtnMonth>
-        <BtnDay type="button">
+        <BtnDay type="button"> 
           <Link to={`day/${day}`} onClick={handleChangePeriod}>
             Day
           </Link>

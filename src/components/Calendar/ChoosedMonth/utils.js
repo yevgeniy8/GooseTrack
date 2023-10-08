@@ -67,3 +67,16 @@ export const getSortedDays = date => {
     const index = new Date(date.getFullYear(), date.getMonth(), 1).getDay();
     return [...Array(index === 0 ? 6 : index - 1), ...daysInMonth];
 };
+
+export const priorityColors = {
+    colorLow: '#3E85F3',
+    bgColorLow: '#CEEEFD',
+    colorMedium: '#F3B249',
+    bgColorMedium: '#FCF0D4',
+    colorHgh: '#EA3D65',
+    bgColorHigh: '#FFD2DD',
+}
+
+// white-space: nowrap; /* Текст не переносится */
+//     overflow: hidden; /* Обрезаем всё за пределами блока */
+//     text-overflow: ellipsis; /* Добавляем многоточие */
