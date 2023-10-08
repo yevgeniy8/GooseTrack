@@ -10,7 +10,6 @@ import {
     Nav,
     Register,
     Login,
-    Svg,
 } from './AuthSection.styled';
 
 import goose_desktop_tablet_1x_welcome from '../../images/main_page/goose-desktop-tablet-1x-welcome.png';
@@ -58,9 +57,9 @@ const AuthSection = () => {
                     <Register to="/register">Sign up</Register>
                     <Login to="/login">
                         Log in
-                        <Svg width="18" height="18">
+                        <svg width="18" height="18">
                             <use href={`${sprite}#log-in`} />
-                        </Svg>
+                        </svg>
                     </Login>
                 </Nav>
             </Content>

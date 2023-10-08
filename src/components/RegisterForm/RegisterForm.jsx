@@ -14,10 +14,11 @@ import {
     InputFormMargin0,
     Error,
     Label,
-    Svg,
     ButtonEye,
     ErrorMes,
     SvgStatus,
+    Home,
+    TitleContainer,
 } from './RegisterForm.styled';
 
 import sprite from '../../images/icons.svg';
@@ -88,7 +89,10 @@ const RegisterForm = () => {
                     /* and other goodies */
                 }) => (
                     <Form>
-                        <Title>Sign Up</Title>
+                        <TitleContainer>
+                            <Title>Sign Up</Title>
+                            <Home to={'/'}>Home</Home>
+                        </TitleContainer>
                         <div>
                             <Label htmlFor="">
                                 <Span>Name</Span>
@@ -223,9 +227,9 @@ const RegisterForm = () => {
 
                         <Button type="submit">
                             Sign Up
-                            <Svg width="20" height="20">
+                            <svg width="20" height="20">
                                 <use href={`${sprite}#log-in`} />
-                            </Svg>
+                            </svg>
                         </Button>
 
                         {/* <a href={`${baseURL}/auth/google`}>Google</a> */}
