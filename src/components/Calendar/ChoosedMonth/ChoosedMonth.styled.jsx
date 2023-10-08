@@ -9,8 +9,12 @@ export const Table = styled.div`
         props.fullheight &&
         `grid-template-rows: repeat(${props.is28Days ? 4 : 5}, 1fr);`}
     div {
-        display: grid;
-        justify-content: end;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        align-items: flex-end;
+        padding: 8px;
+        overflow: hidden;
         // max-width: 165px;
         height: 95px;
         background-color: white;
@@ -30,11 +34,11 @@ export const Table = styled.div`
             height: 22px;
             border-radius: 8px;
             padding: 4px;
-            margin: 8px 4px 0 0;
+            // margin: 8px 4px 0 0;
             // height: fit-content;
             color: #343434;
                 @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
-                  margin: 14px 14px 0 0;
+                //   margin: 14px 14px 0 0;
                   font-size: 16px;
                   font-weight: 700;
                   line-height: 18px;
