@@ -1,3 +1,5 @@
+import { useEffect, useRef } from 'react';
+
 import UserNav from './UserNav';
 import LogoutBtn from './LogoutBtn';
 import {
@@ -15,8 +17,27 @@ import Logo from '../../images/logo/logo-GOOSE-desk-1x.png';
 import Icons from '../../images/icons.svg';
 
 const SideBar = ({ onCloseClick, isOpen }) => {
+    const sideBarRef = useRef(null);
+
+    useEffect(() => {
+        const handleClickOutside = event => {
+            if (
+                isOpen &&
+                sideBarRef.current &&
+                !sideBarRef.current.contains(event.target)
+            ) {
+                onCloseClick();
+            }
+        };
+
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [isOpen, onCloseClick]);
+
     return (
-        <Wrapper isOpen={isOpen}>
+        <Wrapper isOpen={isOpen} ref={sideBarRef}>
             <div>
                 <LogoWrapper>
                     <picture>
