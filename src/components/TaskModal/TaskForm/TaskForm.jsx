@@ -63,7 +63,8 @@ const TaskSchema = Yup.object().shape({
     //     .required('Category is required'),
 });
 
-export const TaskForm = ({ value, onClose, action }) => {
+export const TaskForm = ({ value, onClose, action, task }) => {
+    console.log(task);
     const dispatch = useDispatch();
 
     const userTask = useSelector(state => state.calendar.tasks);
@@ -105,9 +106,10 @@ export const TaskForm = ({ value, onClose, action }) => {
             validationSchema={TaskSchema}
             initialValues={{
                 // name: ['low', 'medium', 'high'],
-                title: '',
-                start: '',
-                end: '',
+                title: task?.title || '',
+                start: task?.start || '11:00',
+                end: task?.end || '11:30',
+                priority: task?.priority || '',
             }}
             onSubmit={handleSubmit}
         >
