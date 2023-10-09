@@ -30,7 +30,7 @@ const AuthSection = () => {
                 <WrapperImage>
                     <picture>
                         <source
-                            srcset={
+                            srcSet={
                                 (goose_mobile_1x_welcome_webp,
                                 goose_mobile_2x_welcome_webp)
                             }
@@ -38,7 +38,7 @@ const AuthSection = () => {
                             type="image/webp"
                         />
                         <source
-                            srcset={
+                            srcSet={
                                 (goose_mobile_1x_welcome,
                                 goose_mobile_2x_welcome)
                             }
@@ -46,7 +46,7 @@ const AuthSection = () => {
                             type="image/png"
                         />
                         <source
-                            srcset={
+                            srcSet={
                                 (goose_desktop_tablet_1x_welcome_webp,
                                 goose_desktop_tablet_2x_welcome_webp)
                             }
@@ -54,7 +54,7 @@ const AuthSection = () => {
                             type="image/webp"
                         />
                         <source
-                            srcset={
+                            srcSet={
                                 (goose_desktop_tablet_1x_welcome,
                                 goose_desktop_tablet_2x_welcome)
                             }
