@@ -25,13 +25,16 @@ export const CardEditBtn = styled.button`
     transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
 
     &:hover {
+        /* outline: none;
+        border: none; */
         svg {
             stroke: #3e85f3;
         }
     }
 
     &:focus {
-        outline: none;
-        box-shadow: 0 0 2px 2px #3e85f3;
+        /* outline: none; */
+        /* border: none; */
+        /* box-shadow: 0 0 2px 2px #3e85f3; */
     }
 `;
