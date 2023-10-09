@@ -22,7 +22,7 @@ import {
 
 import { addTask, editTask } from 'redux/calendar/calendarOperations';
 
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 // import { useEffect } from 'react';
 
@@ -64,12 +64,12 @@ const TaskSchema = Yup.object().shape({
 });
 
 export const TaskForm = ({ value, onClose, action, task }) => {
-    console.log(task);
+    // console.log(task);
     const dispatch = useDispatch();
 
-    const userTask = useSelector(state => state.calendar.tasks);
+    // const userTask = useSelector(state => state.calendar.tasks);
 
-    console.log(userTask);
+    // console.log(userTask);
 
     // useEffect(() => {
     //     dispatch(fetchTasks());
@@ -199,6 +199,7 @@ export const TaskForm = ({ value, onClose, action, task }) => {
                             <RadioSpan value="high" />
                             High
                         </RadioLabel>
+                        <ErrorMessage name="priority" component="div" />
                     </RadioWrapper>
 
                     {/* <button type="submit">Ok</button> */}
