@@ -131,12 +131,10 @@ export const Button = styled.button`
     align-items: center;
     justify-content: center;
     padding: 14px;
-    /* padding-bottom: 14px;
-    padding-top: 14px; */
     gap: 11px;
 
     border-radius: 16px;
-    background: #3e85f3;
+    background-color: #3e85f3;
     box-shadow: 4px 2px 16px 0px rgba(136, 165, 191, 0.48);
 
     border: none;
@@ -151,16 +149,10 @@ export const Button = styled.button`
     letter-spacing: -0.28px;
     stroke: white;
     fill: #3e85f3;
-
-    transition: all 500ms cubic-bezier(0.4, 0, 0.2, 1);
-
-    &:hover,
-    &:focus {
-        background-color: #1d56ac;
-        color: ${({ theme }) => theme.colors.white};
-        fill: #1d56ac;
-        stroke: white;
-    }
+    transition: background-color 500ms cubic-bezier(0.4, 0, 0.2, 1),
+        color 500ms cubic-bezier(0.4, 0, 0.2, 1),
+        fill 500ms cubic-bezier(0.4, 0, 0.2, 1),
+        stroke 500ms cubic-bezier(0.4, 0, 0.2, 1);
 
     /* @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
         margin-top: 48px;
@@ -178,6 +170,12 @@ export const Button = styled.button`
         font-size: 18px;
         line-height: 24px;
         letter-spacing: -0.36px;
+        &:hover {
+            background-color: #1d56ac;
+            color: ${({ theme }) => theme.colors.white};
+            fill: #1d56ac;
+            stroke: white;
+        }
     }
 `;
 
