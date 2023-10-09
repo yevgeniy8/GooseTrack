@@ -1,32 +1,23 @@
 import React, { useState } from 'react';
 import { Formik } from 'formik';
-import * as yup from 'yup';
-import sprite from '../../images/icons.svg';
-import { ImgContainer } from './UserForm.styled';
 import { FieldsWrap } from './UserForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectUser } from 'redux/auth/authSelectors';
 import { editUser } from 'redux/auth/authOperations';
-import avatar from '../../images/Avatar.png';
+import { UserInfo } from './UserInfo';
+import handleInput from './helpers/handleInput';
+import schema from './schemas/userSchema';
 import { enGB } from 'date-fns/esm/locale';
 import { registerLocale } from 'react-datepicker';
 import {
-    AvatarContainer,
     Button,
     Error,
-    IconDone,
-    IconErr,
-    ImgAvatar,
-    InputFile,
     InputForm,
     Label,
     LabelWrap,
     MainContainer,
     Span,
     StyledForm,
-    SvgPlus,
-    UserName,
-    UserP,
 } from './UserForm.styled';
 import {
     DatePickerStyled,
@@ -34,38 +25,6 @@ import {
 } from './ReactDatePickerCalendar.styled';
 
 registerLocale('en', enGB);
-
-const emailRegexp = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
-const phoneRegexp = /^\+\d{1,15}\d{1,15}$/;
-
-const schema = yup.object().shape({
-    name: yup.string().max(16).required(),
-    email: yup
-        .string()
-        .email()
-        .matches(emailRegexp, 'email invalid')
-        .required(),
-    birthday: yup.date().max(new Date(), 'Birthday must be earlier than today'),
-    phone: yup.string().matches(phoneRegexp),
-    skype: yup.string().max(16),
-});
-
-function handleInput(errors, touched, fieldName) {
-    if (errors[fieldName] && touched[fieldName]) {
-        return (
-            <IconErr width={24} height={24}>
-                <use href={`${sprite}#error-outline`} />
-            </IconErr>
-        );
-    } else if (touched[fieldName]) {
-        return (
-            <IconDone width={24} height={24}>
-                <use href={`${sprite}#done`} />
-            </IconDone>
-        );
-    }
-}
-
 export const UserForm = () => {
     const dispatch = useDispatch();
     const [currentAvatar, setCurrentAvatar] = useState(null);
@@ -78,11 +37,6 @@ export const UserForm = () => {
         phone: user.phone || '',
         skype: user.skype || '',
         birthday: user.birthday || new Date(),
-    };
-
-    const handleChange = e => {
-        setCurrentAvatar(e.target.files[0]);
-        console.log(e.target.files)
     };
 
     const handleSubmit = ({ name, phone, email, skype, birthday }, actions) => {
@@ -103,25 +57,11 @@ export const UserForm = () => {
 
     return (
         <MainContainer>
-            <AvatarContainer
-                animate={{ y: -50 }}
-                transition={{ ease: 'easeOut', duration: 2 }}
-            >
-                <ImgContainer>
-                    <ImgAvatar src={user.avatarURL || avatar} alt="avatar" />
-                </ImgContainer>
-                <InputFile
-                    type="file"
-                    onChange={handleChange}
-                    name="avatar"
-                    accept="image/png, image/jpeg, image/jpg"
-                />
-                <SvgPlus width="14" height="14">
-                    <use href={`${sprite}#icon-image`} />
-                </SvgPlus>
-                <UserName>{user.name || 'User Name'}</UserName>
-                <UserP>User</UserP>
-            </AvatarContainer>
+            <UserInfo
+                avatarURL={user.avatarURL}
+                userName={user.name}
+                setCurrentAvatar={setCurrentAvatar}
+            />
             <Formik
                 initialValues={initialValues}
                 validationSchema={schema}
@@ -136,7 +76,7 @@ export const UserForm = () => {
                     setFieldValue,
                     setFieldTouched,
                 }) => {
-                       return (
+                    return (
                         <StyledForm>
                             <FieldsWrap
                                 animate={{ y: -50 }}
@@ -215,7 +155,6 @@ export const UserForm = () => {
                                         )}
                                     </Label>
                                 </LabelWrap>
-
                                 <LabelWrap>
                                     <Label htmlFor="">
                                         <Span>Email</Span>
