@@ -75,11 +75,11 @@ export const getSortedDays = date => {
     ];
 };
 
-export const priorityColors = {
-    colorLow: '#3E85F3',
-    bgColorLow: '#CEEEFD',
-    colorMedium: '#F3B249',
-    bgColorMedium: '#FCF0D4',
-    colorHgh: '#EA3D65',
-    bgColorHigh: '#FFD2DD',
-};
+// export const priorityColors = {
+//     colorLow: '#3E85F3',
+//     bgColorLow: '#CEEEFD',
+//     colorMedium: '#F3B249',
+//     bgColorMedium: '#FCF0D4',
+//     colorHgh: '#EA3D65',
+//     bgColorHigh: '#FFD2DD',
+// };

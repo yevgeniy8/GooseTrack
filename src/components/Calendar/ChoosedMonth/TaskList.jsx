@@ -13,8 +13,8 @@ const TaskList = ({ currentDate, day, tasks }) => {
         <List>
             {filterTasks?.map(task => (
                 <Task key={task._id}
-                color={`color${task.priority}`}
-                bg={`bgcolor${task.priority}`}
+                color={`color${task.priority}`} //подтянется, когда пропишем цвета в переменных
+                bg={`bgcolor${task.priority}`} //подтянется, когда пропишем цвета в переменных
                 >
                     <NavLink>{task.title}</NavLink>
                 </Task>
@@ -42,8 +42,8 @@ const Task = styled.li`
     border-radius: 8px;
     margin-bottom: 8px;
     max-width: 100%;
-    color: #3E85F3;
-    background-color: #CEEEFD;
+    color: #3E85F3; //временно, чтобы увидеть стили
+    background-color: #CEEEFD; //временно, чтобы увидеть стили
     // background-color: ${props => props.bg};
     // color: ${props => props.color};
     font-family: Inter;
@@ -61,7 +61,9 @@ const Task = styled.li`
         padding: 4px 10px;
   };
     `
-
+// прописать в переменных, чтобы подтянуть цвет динамически
+// формат нужет без камелкейса, т.к. приоритет приходит с мал.буквы
+    
     export const priorityColors = {
     colorLow: '#3E85F3',
     bgColorLow: '#CEEEFD',
