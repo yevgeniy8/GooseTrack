@@ -4,8 +4,11 @@ import axios from 'axios';
 export const fetchTasks = createAsyncThunk(
     'tasks/fetchTasks',
     async (date, thunkAPI) => {
+        const params = {
+            date: date,
+        };
         try {
-            const { data } = await axios.get(`/tasks`, date);
+            const { data } = await axios.get(`/tasks`, { params });
             return data;
         } catch (e) {
             return thunkAPI.rejectWithValue(e.message);
