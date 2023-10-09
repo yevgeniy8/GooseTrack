@@ -2,8 +2,6 @@
 import styled from '@emotion/styled';
 import { useState } from 'react';
 
-import { TaskModal } from '../../../TaskModal/TaskModal';
-
 const TaskList = ({ currentDate, day, tasks }) => {
     if (!day) {
         return;
@@ -12,20 +10,13 @@ const TaskList = ({ currentDate, day, tasks }) => {
     const date = currentDate + '-' + formattedDay;
     const filterTasks = tasks.filter(task => task.date === date);
 
-    const [modalOpen, setModalOpen] = useState(false);
-
-    const openModal = () => setModalOpen(true);
-    const closeModal = () => {
-        setModalOpen(false);
-    };
-
     return (
         <List>
             {filterTasks?.map(task => (
                 <Task
-                    onClick={() => {
-                        openModal(task._id);
-                    }}
+                    // onClick={() => {
+                    //     openModal(task._id);
+                    // }}
                     key={task._id}
                     color={`color${task.priority}`}
                     bg={`bgcolor${task.priority}`}
@@ -33,7 +24,6 @@ const TaskList = ({ currentDate, day, tasks }) => {
                     <p>{task.title}</p>
                 </Task>
             ))}
-            {modalOpen && <TaskModal closeModal={closeModal} />}
         </List>
     );
 };

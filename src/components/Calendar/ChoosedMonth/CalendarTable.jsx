@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchTasks } from 'redux/calendar/calendarOperations';
 import { selectTasks } from 'redux/calendar/calendarSelector';
@@ -8,6 +8,7 @@ import { datesAreOnSameDay, getDaysInMonth, getSortedDays } from './utils';
 import { Table } from './ChoosedMonth.styled';
 import { useNavigate, useParams } from 'react-router';
 
+import { TaskModal } from '../../TaskModal/TaskModal';
 import TaskList from './TaskList';
 import { NavLink } from 'react-router-dom';
 import moment from 'moment';
@@ -37,6 +38,13 @@ const CalendarTable = () => {
 
     // необходимо что бы убрать Warning
     // console.log(tasks);
+
+    const [modalOpen, setModalOpen] = useState(false);
+
+    const openModal = () => setModalOpen(true);
+    const closeModal = () => {
+        setModalOpen(false);
+    };
 
     return (
         <>
@@ -81,6 +89,7 @@ const CalendarTable = () => {
                     </div>
                 ))}
             </Table>
+            {modalOpen && <TaskModal closeModal={closeModal} />}
         </>
     );
 };
