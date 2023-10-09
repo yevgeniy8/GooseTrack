@@ -49,7 +49,8 @@ export const Header = ({ onOpenClick }) => {
     const hasUncompletedTask = userTasks.some(
         i => i.category === 'in-progress' || i.category === 'to-do'
     );
-    const locationPageCalendar = pageTitle === 'Calendar';
+
+    const locationIncludesDay = location.includes('/calendar/day');
 
     return (
         <header>
@@ -59,7 +60,7 @@ export const Header = ({ onOpenClick }) => {
                         <use href={`${sprite}#menu-01`} />
                     </Svg>
                 </BurgerMenuBtn>
-                {hasUncompletedTask && locationPageCalendar && (
+                {hasUncompletedTask && locationIncludesDay && (
                     <ImgWrapper>
                         <img
                             srcSet={`${image1x} 1x, ${image2x} 2x`}
@@ -73,7 +74,7 @@ export const Header = ({ onOpenClick }) => {
 
                 <TextDiv>
                     <TitleH2>{pageTitle}</TitleH2>
-                    {hasUncompletedTask && locationPageCalendar && (
+                    {hasUncompletedTask && locationIncludesDay && (
                         <MotivationTextP>
                             <Span>Let go</Span> of the past and focus on the
                             present!
