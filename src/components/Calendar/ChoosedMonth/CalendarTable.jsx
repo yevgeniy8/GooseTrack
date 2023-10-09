@@ -10,6 +10,7 @@ import { useNavigate, useParams } from 'react-router';
 
 import TaskList from './TaskList';
 import { NavLink } from 'react-router-dom';
+import moment from 'moment';
 
 const CalendarTable = () => {
     const { currentDate } = useParams();
@@ -24,13 +25,18 @@ const CalendarTable = () => {
         dispatch(fetchTasks());
     }, [dispatch]);
 
-    const handleNavToDay = date => {
-        navigate(`day/${date}`);
-        console.log(date);
+    const handleNavToDay = selectedDate => {
+        const day = moment(selectedDate).format('YYYY-MM-DD');
+        localStorage.getItem('day');
+    // localStorage.setItem('type', 'day');
+        localStorage.setItem('date', day);
+        navigate(`/calendar/day/${day}`);
+        console.log(selectedDate); // Sun Oct 01 2023 
+        console.log(day); // 2023-10-01
   };
 
     // необходимо что бы убрать Warning
-    console.log(tasks);
+    // console.log(tasks);
 
     return (
         <>
