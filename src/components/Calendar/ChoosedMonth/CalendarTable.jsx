@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchTasks } from 'redux/calendar/calendarOperations';
 import { selectTasks } from 'redux/calendar/calendarSelector';
@@ -6,15 +6,17 @@ import { selectTasks } from 'redux/calendar/calendarSelector';
 
 import { datesAreOnSameDay, getDaysInMonth, getSortedDays } from './utils';
 import { Table } from './ChoosedMonth.styled';
-import { useNavigate, useParams } from 'react-router';
+// import { useNavigate, useParams } from 'react-router';
+import { useParams } from 'react-router';
 
+import { TaskModal } from '../../TaskModal/TaskModal';
 import TaskList from './TaskList';
 import { NavLink } from 'react-router-dom';
-import moment from 'moment';
+// import moment from 'moment';
 
 const CalendarTable = () => {
     const { currentDate } = useParams();
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
     const date = new Date(currentDate);
 
@@ -25,18 +27,22 @@ const CalendarTable = () => {
         dispatch(fetchTasks());
     }, [dispatch]);
 
-    const handleNavToDay = selectedDate => {
-        const day = moment(selectedDate).format('YYYY-MM-DD');
-        localStorage.getItem('day');
-    // localStorage.setItem('type', 'day');
-        localStorage.setItem('date', day);
-        navigate(`/calendar/day/${day}`);
-        console.log(selectedDate); // Sun Oct 01 2023 
-        console.log(day); // 2023-10-01
-  };
+    // const handleNavToDay = selectedDate => {
+    //     // const day = moment(selectedDate).format('YYYY-MM-DD');
+    //     // localStorage.getItem('day');
+    //     // // localStorage.setItem('type', 'day');
+    //     // localStorage.setItem('date', day);
+    //     navigate(`/calendar/day/${selectedDate}`);
+    //     // console.log(selectedDate); // Sun Oct 01 2023
+    //     // console.log(day); // 2023-10-01
+    // };
 
-    // необходимо что бы убрать Warning
-    // console.log(tasks);
+    const [modalOpen, setModalOpen] = useState(false);
+
+    const openModal = () => setModalOpen(true);
+    const closeModal = () => {
+        setModalOpen(false);
+    };
 
     return (
         <>
@@ -48,27 +54,32 @@ const CalendarTable = () => {
                             date.getMonth() + 1
                         }-${day}`}
                     >
-                        <span
-                            className={`nonDRAG ${
-                                datesAreOnSameDay(
-                                    new Date(),
-                                    new Date(
-                                        date.getFullYear(),
-                                        date.getMonth(),
-                                        day
-                                    )
-                                )
-                                    ? 'active'
-                                    : ''
-                            }`}
+                        <NavLink
+                            to={`/calendar/day/${currentDate + '-' + day}`}
                         >
-                            <NavLink onClick={() => handleNavToDay(date)}>{day}</NavLink>                             
-                        </span>
-                                <TaskList
-                                    currentDate={currentDate}
-                                    day={day}
-                                    tasks={tasks}
-                                />
+                            <span
+                                className={`nonDRAG ${
+                                    datesAreOnSameDay(
+                                        new Date(),
+                                        new Date(
+                                            date.getFullYear(),
+                                            date.getMonth(),
+                                            day
+                                        )
+                                    )
+                                        ? 'active'
+                                        : ''
+                                }`}
+                            >
+                                {day}
+                            </span>
+                        </NavLink>
+                        <TaskList
+                            openModal={openModal}
+                            currentDate={currentDate}
+                            day={day}
+                            tasks={tasks}
+                        />
                         {/* <List>
                         <Task>Low, very low priority</Task>
                         <Task>Medium, medium priority</Task>
@@ -77,6 +88,7 @@ const CalendarTable = () => {
                     </div>
                 ))}
             </Table>
+            {modalOpen && <TaskModal closeModal={closeModal} />}
         </>
     );
 };
@@ -121,7 +133,6 @@ export default CalendarTable;
 
 //     // color={`color${task.priority}`}
 //     // bg={`bgcolor{task.priority}`}
-
 
 //     export const priorityColors = {
 //     colorLow: '#3E85F3',
