@@ -163,7 +163,11 @@ export const BtnDay = styled.button`
         width: 82px;
     }
 `;
-// візьми стилі з кнопок
-export const TypeLink = styled(NavLink)``;
-
-// ще псевдоклас :active так не працюе, треба глянути як стилізувати NavLink з бібліотекою @emotion. принайми у мене так як тут вказано не вийшло.
+// візьми стилі з кнопок на задай клас актів як нижче у тебе буде LinkDay та LinkMonth
+export const TypeLink = styled(NavLink)`
+    &.active {
+        background-color: ${({ theme }) =>
+            theme.colors.backgroundMonthDayActive};
+        color: ${({ theme }) => theme.colors.textMonthDayActive};
+    }
+`;
