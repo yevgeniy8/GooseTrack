@@ -4,7 +4,8 @@ export const WeekdaysList = styled.ul`
   display: flex;
   justify-content: space-around;
   padding: 14px 0;
-  background-color: rgba(255, 255, 255, 1);
+  color: ${({ theme }) => theme.colors.textTitleHeader};
+  background: ${({ theme }) => theme.colors.backgroundSecondary};
   border: 1px solid rgba(220, 227, 229, 0.8);
   border-radius: 8px;
   overflow: hidden;

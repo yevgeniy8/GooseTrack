@@ -8,8 +8,7 @@ const TasksColumn = ({ header, tasks, value }) => {
   // console.log(header);
   return (
     <Column>
-      <ColumnHeadBar header={header} />
-
+      <ColumnHeadBar header={header} value={value} />
       <ColumnsTasksList tasks={filterTasks} />
       <AddTaskBtn value={value} />
     </Column>
