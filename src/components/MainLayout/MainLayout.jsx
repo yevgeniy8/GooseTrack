@@ -5,52 +5,46 @@ import { Outlet } from 'react-router-dom';
 import { Header } from 'components/Header';
 import SideBar from 'components/SideBar';
 import Spinner from 'components/Spinner/Spinner';
-import { Wrapper, Section, Overlay } from './MainLayout.styled';
+import {
+    Wrapper,
+    Section,
+    ContainerSideBar,
+    Overlay,
+} from './MainLayout.styled';
 
 const MainLayout = () => {
-    const [sideBareShow, setSideBareShow] = useState(window.innerWidth >= 1440);
-    const [isOverlayVisible, setIsOverlayVisible] = useState(false);
+    const [sideBareShow, setSideBareShow] = useState(false);
 
-    const handleSideBareShow = () => {
-        if (window.innerWidth >= 1440) {
-            return;
-        }
-        setSideBareShow(!sideBareShow);
-        setIsOverlayVisible(!sideBareShow);
-
-        if (!sideBareShow) {
-            document.body.style.overflow = 'hidden';
+    const toggleSideBarShow = (status = null) => {
+        if (status === null) {
+            setSideBareShow(prev => !prev);
         } else {
-            document.body.style.overflow = '';
+            setSideBareShow(status);
         }
     };
 
     useEffect(() => {
-        const handleResize = () => {
-            setSideBareShow(window.innerWidth >= 1440);
-            setIsOverlayVisible(sideBareShow);
-        };
-
-        window.addEventListener('resize', handleResize);
+        const body = document.body;
+        if (sideBareShow && window.innerWidth < 1440) {
+            body.style.overflow = 'hidden';
+        } else {
+            body.style.overflow = '';
+        }
 
         return () => {
-            window.removeEventListener('resize', handleResize);
+            body.style.overflow = '';
         };
     }, [sideBareShow]);
 
     return (
-        <Wrapper>
-            <SideBar isOpen={sideBareShow} onCloseClick={handleSideBareShow} />
-            {sideBareShow && window.innerWidth >= 1440 && (
-                <div id="smallScreenContainer" style={{ width: 289 }} />
-            )}
+        <Wrapper sideBareShow={sideBareShow}>
+            {sideBareShow && window.innerWidth < 1440 && <Overlay />}
+            <ContainerSideBar sideBareShow={sideBareShow}>
+                <SideBar toggleSideBarShow={toggleSideBarShow} />
+            </ContainerSideBar>
 
             <Section>
-                {isOverlayVisible && window.innerWidth < 1440 && <Overlay />}
-                <Header
-                    isOpen={sideBareShow}
-                    onOpenClick={handleSideBareShow}
-                />
+                <Header onOpenClick={toggleSideBarShow} />
                 <main>
                     <Suspense fallback={<Spinner />}>
                         <Outlet />

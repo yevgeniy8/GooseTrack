@@ -12,10 +12,6 @@ export const Wrapper = styled.div`
     position: fixed;
     z-index: 10;
 
-    transform: ${props =>
-        props.isOpen ? 'translateX(0)' : 'translateX(-100%)'};
-    display: ${props => (props.isOpen ? 'flex' : 'none')};
-
     ${min(tablet)} {
         width: 289px;
         padding: 24px 32px;
