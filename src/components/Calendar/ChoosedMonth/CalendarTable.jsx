@@ -26,14 +26,14 @@ const CalendarTable = () => {
     }, [dispatch]);
 
     const handleNavToDay = selectedDate => {
-        const day = moment(selectedDate).format('YYYY-MM-DD');
-        localStorage.getItem('day');
-    // localStorage.setItem('type', 'day');
-        localStorage.setItem('date', day);
-        navigate(`/calendar/day/${day}`);
-        console.log(selectedDate); // Sun Oct 01 2023 
-        console.log(day); // 2023-10-01
-  };
+        // const day = moment(selectedDate).format('YYYY-MM-DD');
+        // localStorage.getItem('day');
+        // // localStorage.setItem('type', 'day');
+        // localStorage.setItem('date', day);
+        navigate(`/calendar/day/${selectedDate}`);
+        // console.log(selectedDate); // Sun Oct 01 2023
+        // console.log(day); // 2023-10-01
+    };
 
     // необходимо что бы убрать Warning
     // console.log(tasks);
@@ -62,13 +62,17 @@ const CalendarTable = () => {
                                     : ''
                             }`}
                         >
-                            <NavLink onClick={() => handleNavToDay(date)}>{day}</NavLink>                             
+                            <NavLink
+                                onClick={() => handleNavToDay(date + '-' + day)}
+                            >
+                                {day}
+                            </NavLink>
                         </span>
-                                <TaskList
-                                    currentDate={currentDate}
-                                    day={day}
-                                    tasks={tasks}
-                                />
+                        <TaskList
+                            currentDate={currentDate}
+                            day={day}
+                            tasks={tasks}
+                        />
                         {/* <List>
                         <Task>Low, very low priority</Task>
                         <Task>Medium, medium priority</Task>
@@ -121,7 +125,6 @@ export default CalendarTable;
 
 //     // color={`color${task.priority}`}
 //     // bg={`bgcolor{task.priority}`}
-
 
 //     export const priorityColors = {
 //     colorLow: '#3E85F3',
