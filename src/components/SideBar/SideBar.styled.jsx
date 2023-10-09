@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { desktop, tablet, min } from '../../styles/media';
 
 export const Wrapper = styled.div`
     height: 100vh;
@@ -15,13 +16,12 @@ export const Wrapper = styled.div`
         props.isOpen ? 'translateX(0)' : 'translateX(-100%)'};
     display: ${props => (props.isOpen ? 'flex' : 'none')};
 
-    @media (min-width: 768px) {
+    ${min(tablet)} {
         width: 289px;
         padding: 24px 32px;
     }
 
-    @media (min-width: 1440px) {
-        /* position: relative; */
+    ${min(desktop)} {
         z-index: 1;
         border-right: none;
         transform: translateX(0);
@@ -40,12 +40,12 @@ export const LogoImg = styled.img`
     width: 36px;
     margin-right: 6px;
 
-    @media (min-width: 768px) {
+    ${min(tablet)} {
         height: 58px;
         width: 60px;
     }
 
-    @media (min-width: 1440px) {
+    ${min(desktop)} {
         height: 68px;
         width: 71px;
         margin-right: 10px;
@@ -55,17 +55,17 @@ export const LogoImg = styled.img`
 export const LogoTitle = styled.p`
     color: ${({ theme }) => theme.colors.textTitleLogo};
     font-family: Inter;
-    font-size: 16px;
+    font-size: ${({ theme }) => theme.fontSizes.m};
     font-style: normal;
-    font-weight: 700;
+    font-weight: ${({ theme }) => theme.fontWeight.b};
     line-height: 1;
     letter-spacing: 0em;
     margin-right: 25px;
 
-    @media (min-width: 768px) {
+    ${min(tablet)} {
         margin-right: 31px;
     }
-    @media (min-width: 1440px) {
+    ${min(desktop)}) {
         font-size: 24px;
     }
 `;
@@ -87,11 +87,11 @@ export const CloseBtn = styled.button`
     background: none;
     padding: 0px;
 
-    @media (min-width: 768px) {
+    ${min(tablet)} {
         width: 34px;
         height: 34px;
     }
-    @media (min-width: 1440px) {
+    ${min(desktop)} {
         display: none;
     }
 `;
@@ -101,7 +101,7 @@ export const IconX = styled.svg`
     height: 24px;
     stroke: ${({ theme }) => theme.colors.textTitleHeader};
 
-    @media (min-width: 768px) {
+    ${min(tablet)} {
         width: 34px;
         height: 34px;
     }

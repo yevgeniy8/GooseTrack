@@ -32,7 +32,7 @@ const MainLayout = () => {
     return (
         <Wrapper>
             <SideBar isOpen={sideBareShow} onCloseClick={handleSideBareShow} />
-            {sideBareShow && (
+            {sideBareShow && window.innerWidth >= 1440 && (
                 <div id="smallScreenContainer" style={{ width: 289 }} />
             )}
 
