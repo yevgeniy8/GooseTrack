@@ -14,23 +14,24 @@ const TasksColumnsList = () => {
     ];
 
     const { currentDay } = useParams();
-    // console.log(currentDay);
-    // const date = new Date(currentDay);
 
     const dispatch = useDispatch();
     const tasks = useSelector(selectTasks);
     useEffect(() => {
-        dispatch(fetchTasks());
-    }, [dispatch]);
+        dispatch(fetchTasks(currentDay));
+    }, [currentDay, dispatch]);
 
-    const filtredTasks = tasks.filter(task => task.date === currentDay);
-    // console.log(tasks);
+    const filtredTasksByDay = tasks.filter(task => task.date === currentDay);
+
+    const filterTasksByCategory = category =>
+        filtredTasksByDay.filter(task => task.category === category);
+
     return (
         <ColumnList>
             {categoryOptions.map(option => (
                 <TasksColumn
                     header={option.name}
-                    tasks={filtredTasks}
+                    tasks={filterTasksByCategory(option.value)}
                     value={option.value}
                     key={option.id}
                 />
