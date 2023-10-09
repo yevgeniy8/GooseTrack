@@ -26,6 +26,7 @@ import { selectTasks } from 'redux/calendar/calendarSelector';
 
 export const Header = ({ onOpenClick }) => {
     const userTasks = useSelector(selectTasks);
+
     const [isOpenModal, setIsOpenModal] = useState(false);
 
     const date = new Date();
