@@ -21,8 +21,8 @@ const TaskList = ({ currentDate, day, tasks, openModal }) => {
                         openModal(task._id);
                     }}
                     key={task._id}
-                    color={`color${task.priority}`}
-                    bg={`bgcolor${task.priority}`}
+                    color={`color${task.priority}`} //подтянется, когда пропишем цвета в переменных
+                    bg={`bgcolor${task.priority}`} //подтянется, когда пропишем цвета в переменных
                 >
                     <p>{task.title}</p>
                 </Task>
@@ -51,8 +51,8 @@ const Task = styled.li`
     border-radius: 8px;
     margin-bottom: 8px;
     max-width: 100%;
-    color: #3e85f3;
-    background-color: #ceeefd;
+    color: #3E85F3; //временно, чтобы увидеть стили
+    background-color: #CEEEFD; //временно, чтобы увидеть стили
     // background-color: ${props => props.bg};
     // color: ${props => props.color};
     font-family: Inter;
@@ -68,10 +68,12 @@ const Task = styled.li`
         font-size: 14px;
         line-height: 18px;
         padding: 4px 10px;
-    }
-`;
-
-export const priorityColors = {
+  };
+    `
+// прописать в переменных, чтобы подтянуть цвет динамически
+// формат нужет без камелкейса, т.к. приоритет приходит с мал.буквы
+    
+    export const priorityColors = {
     colorLow: '#3E85F3',
     bgColorLow: '#CEEEFD',
     colorMedium: '#F3B249',

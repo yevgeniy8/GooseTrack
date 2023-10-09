@@ -36,7 +36,7 @@ export const Table = styled.div`
             width: 22px;
             height: 22px;
             border-radius: 8px;
-            padding: 4px;
+            padding: 4px 8px;
             // margin: 8px 4px 0 0;
             // height: fit-content;
             color: #343434;

@@ -6,6 +6,7 @@ export const fetchTasks = createAsyncThunk(
     async thunkAPI => {
         try {
             const { data } = await axios.get(`/tasks`);
+            console.log(data);
             return data;
         } catch (e) {
             return thunkAPI.rejectWithValue(e.message);
@@ -31,9 +32,10 @@ export const deleteTask = createAsyncThunk(
     'tasks/deleteTask',
     async (id, thunkAPI) => {
         try {
-            const { data } = await axios.delete(`/tasks/${id}`);
+            console.log(id);
+            await axios.delete(`/tasks/${id}`);
 
-            return data;
+            return id;
         } catch (e) {
             return thunkAPI.rejectWithValue(e.message);
         }

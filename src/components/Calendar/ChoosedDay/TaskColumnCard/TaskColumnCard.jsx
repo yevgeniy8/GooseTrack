@@ -38,7 +38,7 @@ const TaskColumnCard = ({ tasks }) => {
                                     <StatusLow>{taskData.priority}</StatusLow>
                                 )}
                             </Container>
-                            <TaskToolbar></TaskToolbar>
+                            <TaskToolbar taskId={taskData._id}></TaskToolbar>
                         </CardMain>
                     </CardContainer>
                 </CardItem>

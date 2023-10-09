@@ -1,14 +1,16 @@
-import { ColumnHeader, ColumnContainer, PlusIcon, TopAddBTN } from './ColumnHeadBar.styled';
+import { ColumnHeader, ColumnContainer } from './ColumnHeadBar.styled';
+import { PlusIcon } from './AddBtns.styled';
 import Icons from '../../../../images/icons.svg';
-const ColumnHeadBar = ({ header }) => {
+import AddTopBtn from './AddTopBtn';
+const ColumnHeadBar = ({ header, value }) => {
   return (
     <ColumnContainer>
       <ColumnHeader>{header}</ColumnHeader>
-      <TopAddBTN>
+      <AddTopBtn value={value}>
         <PlusIcon>
           <use href={`${Icons}#icon-plus-add`} />
         </PlusIcon>
-      </TopAddBTN>
+      </AddTopBtn>
     </ColumnContainer>
   );
 };
