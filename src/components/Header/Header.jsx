@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import ThemeToggler from './ThemeToggler';
 import UserInfo from './UserInfo';
 import AddFeedbackBtn from './AddFeedbackBtn';
@@ -21,8 +22,10 @@ import {
     MenuWrapperDiv,
 } from './Header.styled';
 import { useLocation } from 'react-router-dom';
+import { selectTasks } from 'redux/calendar/calendarSelector';
 
 export const Header = ({ onOpenClick }) => {
+    const userTasks = useSelector(selectTasks);
     const [isOpenModal, setIsOpenModal] = useState(false);
 
     const showAddFeedbackModal = () => {
@@ -34,9 +37,6 @@ export const Header = ({ onOpenClick }) => {
     };
 
     const location = useLocation().pathname;
-    // для перевірки userTasks тимчасово
-    const userTasks = [{ category: 'in-progress' }, { category: 'to-do' }];
-    // const userTasks = [{}];
 
     const pageTitle = location.includes('/calendar')
         ? 'Calendar'
