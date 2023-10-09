@@ -36,7 +36,7 @@ import {
 registerLocale('en', enGB);
 
 const emailRegexp = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
-const phoneRegexp = /^\+380\d{9}$/;
+const phoneRegexp = /^\+\d{1,15}\d{1,15}$/;
 
 const schema = yup.object().shape({
     name: yup.string().max(16).required(),
@@ -68,24 +68,24 @@ function handleInput(errors, touched, fieldName) {
 
 export const UserForm = () => {
     const dispatch = useDispatch();
-    const user = useSelector(selectUser);
-
     const [currentAvatar, setCurrentAvatar] = useState(null);
+
+    const user = useSelector(selectUser);
 
     const initialValues = {
         name: user.name || '',
         email: user.email || '',
         phone: user.phone || '',
         skype: user.skype || '',
-        birthday: user.birthday || '',
+        birthday: user.birthday || new Date(),
     };
 
     const handleChange = e => {
         setCurrentAvatar(e.target.files[0]);
+        console.log(e.target.files)
     };
 
     const handleSubmit = ({ name, phone, email, skype, birthday }, actions) => {
-
         const formData = new FormData();
         formData.append('name', name);
         formData.append('email', email);
@@ -127,8 +127,16 @@ export const UserForm = () => {
                 validationSchema={schema}
                 onSubmit={handleSubmit}
             >
-                {({ errors, touched, values, handleChange,  setFieldValue, setFieldTouched }) => {
-                    return (
+                {({
+                    errors,
+                    touched,
+                    values,
+                    dirty,
+                    handleChange,
+                    setFieldValue,
+                    setFieldTouched,
+                }) => {
+                       return (
                         <StyledForm>
                             <FieldsWrap
                                 animate={{ y: -50 }}
@@ -161,12 +169,16 @@ export const UserForm = () => {
                                         <DatePickerWrapp>
                                             <DatePickerStyled
                                                 name="birthday"
-                                                selected={new Date(values.birthday)}
+                                                selected={
+                                                    new Date(values.birthday) ||
+                                                    new Date()
+                                                }
                                                 dateFormat="yyyy/MM/dd"
                                                 maxDate={new Date()}
                                                 locale="en"
                                                 className={
-                                                    errors.birthday && touched.birthday
+                                                    errors.birthday &&
+                                                    touched.birthday
                                                         ? 'input-error'
                                                         : touched.birthday
                                                         ? 'input-valid'
@@ -175,6 +187,9 @@ export const UserForm = () => {
                                                 formatWeekDay={nameOfDay =>
                                                     nameOfDay.charAt(0)
                                                 }
+                                                // showYearDropdown
+                                                // yearDropdownItemNumber={30}
+                                                // scrollableYearDropdown
                                                 onChange={date => {
                                                     setFieldValue(
                                                         'birthday',
@@ -270,6 +285,7 @@ export const UserForm = () => {
                                 animate={{ y: -25 }}
                                 transition={{ ease: 'easeOut', duration: 2 }}
                                 type="submit"
+                                disabled={!dirty}
                             >
                                 Save changes
                             </Button>
@@ -280,5 +296,3 @@ export const UserForm = () => {
         </MainContainer>
     );
 };
-
-
