@@ -187,7 +187,7 @@ export const InputForm = styled(Field)`
     }
 
     ::placeholder {
-        color: ${({ theme }) => theme.colors.textPrimary}
+        color: ${({ theme }) => theme.colors.textPrimary};
         font-weight: 600;
         font-size: 14px;
     }
