@@ -4,31 +4,39 @@ import {
     InfoContainer,
     NameP,
     AvatarDiv,
+    Img,
     FirstLetterOfName,
 } from './UserInfo.styled';
 
 const UserInfo = () => {
     const { user } = useAuth();
 
-    // if (!user) {
-    //     return console.log('bbwvenvenvlev');
-    // }
+    const { name, avatarURL } = user;
 
-    const { name = '', avatarURL } = user;
-    // const firstLetterOfUserName = name[0];
+    function getFirstName(name) {
+        if (name) {
+            const nameParts = name.split(' ');
+            if (nameParts.length >= 2) {
+                const firstName = nameParts[0];
+                if (firstName.length > 14) {
+                    return `${firstName.substring(0, 12)}...`;
+                }
+                return firstName;
+            }
+        }
+        return name;
+    }
 
-    // console.log(avatarURL);
+    const firstName = getFirstName(name);
+
     return (
         <InfoContainer>
-            {name ? <NameP>{name}</NameP> : <NameP>User</NameP>}
+            {name ? <NameP>{firstName}</NameP> : <NameP>User</NameP>}
             <AvatarDiv>
                 {(avatarURL === '' || !avatarURL) && name ? (
-                    <FirstLetterOfName>
-                        {/* {firstLetterOfUserName} */}
-                        {name[0]}
-                    </FirstLetterOfName>
+                    <FirstLetterOfName>{name[0]}</FirstLetterOfName>
                 ) : avatarURL !== '' ? (
-                    <img src={avatarURL} alt={name} />
+                    <Img src={avatarURL} alt={name} />
                 ) : null}
             </AvatarDiv>
         </InfoContainer>

@@ -4,7 +4,8 @@ export const WeekdaysList = styled.ul`
     display: flex;
     justify-content: space-around;
     padding: 14px 0;
-    background-color: rgba(255, 255, 255, 1);
+    color: ${({ theme }) => theme.colors.textTitleHeader};
+    background: ${({ theme }) => theme.colors.backgroundSecondary};
     border: 1px solid rgba(220, 227, 229, 0.8);
     border-radius: 8px;
     overflow: hidden;
@@ -31,8 +32,35 @@ export const WeekdaysItem = styled.li`
     color: #3e85f3;
   } */
 
+    /* &.current-day {
+        border-radius: 8px;
+        color: white;
+        width: 45px;
+        padding: 2px;
+        background-color: #3e85f3; /* Цвет выделения 
+        font-weight: bold; /* Жирный шрифт для текущего дня 
+    } */
+`;
+
+export const Number = styled.div`
     &.current-day {
-        background-color: #ffcc00; /* Цвет выделения */
+        border-radius: 8px;
+        color: white;
+        width: 45px;
+        padding: 2px;
+        background-color: #3e85f3; /* Цвет выделения */
         font-weight: bold; /* Жирный шрифт для текущего дня */
     }
+`;
+
+export const Day = styled.div`
+    color: #343434;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 18px; /* 128.571% */
+    text-transform: uppercase;
+
+    margin-bottom: 4px;
 `;

@@ -1,4 +1,9 @@
-import { WeekdaysItem, WeekdaysList } from './DayCalendarHead.styled';
+import {
+    WeekdaysItem,
+    WeekdaysList,
+    Number,
+    Day,
+} from './DayCalendarHead.styled';
 import { useMediaQuery } from 'react-responsive';
 // import { DAYS, DAYS_MOB } from '../ChoosedMonth/utils';
 import { useParams } from 'react-router-dom';
@@ -36,9 +41,9 @@ const DayCalendarHead = () => {
             {[...Array(7)].map((_, index) => (
                 <WeekdaysItem
                     key={index}
-                    className={index === isSelected ? 'current-day' : ''}
+                    // className={index === isSelected ? 'current-day' : ''}
                 >
-                    <div>
+                    <Day>
                         {isMobile
                             ? moment()
                                   .day(index + 1)
@@ -46,14 +51,16 @@ const DayCalendarHead = () => {
                             : moment()
                                   .day(index + 1)
                                   .format('ddd')}
-                    </div>
-                    <div>
+                    </Day>
+                    <Number
+                        className={index === isSelected ? 'current-day' : ''}
+                    >
                         {moment(currentDay)
                             .clone()
                             .startOf('week')
                             .day(index + 1)
                             .format('D')}
-                    </div>
+                    </Number>
                 </WeekdaysItem>
             ))}
         </WeekdaysList>

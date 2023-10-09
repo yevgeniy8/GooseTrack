@@ -12,6 +12,7 @@ export const ColumnContainer = styled.div`
   display: flex;
   margin-top: 27px;
   margin-bottom: 47px;
+  justify-content: space-between;
 `;
 export const PlusIcon = styled.svg`
   width: 100%;
