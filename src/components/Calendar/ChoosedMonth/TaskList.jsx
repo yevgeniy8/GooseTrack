@@ -8,11 +8,14 @@ const TaskList = ({ currentDate, day, tasks, openModal }) => {
     }
     const formattedDay = day.toString().padStart(2, '0');
     const date = currentDate + '-' + formattedDay;
-    const filterTasks = tasks.filter(task => task.date === date);
+    const filterTasksByDate = tasks.filter(task => task.date === date);
+    const filterTasksByStatus = filterTasksByDate.filter(
+        task => task.category === 'to-do' || task.category === 'in-progress'
+    );
 
     return (
         <List>
-            {filterTasks?.map(task => (
+            {filterTasksByStatus?.map(task => (
                 <Task
                     onClick={() => {
                         openModal(task._id);
