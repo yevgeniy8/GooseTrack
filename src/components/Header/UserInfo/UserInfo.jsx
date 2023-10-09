@@ -1,3 +1,4 @@
+import React, { useEffect } from 'react';
 import useAuth from 'hooks/useAuth';
 
 import {
@@ -10,8 +11,24 @@ import {
 
 const UserInfo = () => {
     const { user } = useAuth();
+    const { name, avatarURL, birthday } = user;
 
-    const { name, avatarURL } = user;
+    const currentDate = new Date();
+    // const currentYear = currentDate.getFullYear();
+    const currentMonth = currentDate.getMonth() + 1;
+    const currentDay = currentDate.getDate();
+
+    const userBirthday = new Date(birthday);
+    const userMonth = userBirthday.getMonth() + 1;
+    const userDay = userBirthday.getDate();
+
+    useEffect(() => {
+        const checkBirthday = () => {
+            if (currentMonth === userMonth && currentDay === userDay) {
+            }
+        };
+        checkBirthday();
+    }, [currentDay, currentMonth, user, userDay, userMonth]);
 
     function getFirstName(name) {
         if (name) {

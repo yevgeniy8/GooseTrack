@@ -28,6 +28,20 @@ export const Header = ({ onOpenClick }) => {
     const userTasks = useSelector(selectTasks);
     const [isOpenModal, setIsOpenModal] = useState(false);
 
+    const date = new Date();
+
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+
+    const filterTasks = userTasks
+        .filter(
+            task => task.category === 'to-do' || task.category === 'in-progress'
+        )
+        .filter(task => task.date === `${year} - ${month} - ${day}`);
+
+    console.log(`rrrrr ${filterTasks}`);
+
     const showAddFeedbackModal = () => {
         setIsOpenModal(true);
     };
@@ -46,12 +60,15 @@ export const Header = ({ onOpenClick }) => {
         ? 'Statistics'
         : '';
 
-    const hasUncompletedTask = userTasks.some(
-        i => i.category === 'in-progress' || i.category === 'to-do'
+    // const hasUncompletedTask = userTasks.some(
+    //     i => i.category === 'in-progress' || i.category === 'to-do'
+    // );
+
+    const locationCurrentDay = location.includes(
+        `/calendar/day/${year} - ${month} - ${day}`
     );
 
-    const locationIncludesDay = location.includes('/calendar/day');
-
+    // console.log(locationCurrentDay);
     return (
         <header>
             <HeaderContainer>
@@ -60,7 +77,7 @@ export const Header = ({ onOpenClick }) => {
                         <use href={`${sprite}#menu-01`} />
                     </Svg>
                 </BurgerMenuBtn>
-                {hasUncompletedTask && locationIncludesDay && (
+                {filterTasks && locationCurrentDay && (
                     <ImgWrapper>
                         <img
                             srcSet={`${image1x} 1x, ${image2x} 2x`}
@@ -74,7 +91,7 @@ export const Header = ({ onOpenClick }) => {
 
                 <TextDiv>
                     <TitleH2>{pageTitle}</TitleH2>
-                    {hasUncompletedTask && locationIncludesDay && (
+                    {filterTasks && locationCurrentDay && (
                         <MotivationTextP>
                             <Span>Let go</Span> of the past and focus on the
                             present!
