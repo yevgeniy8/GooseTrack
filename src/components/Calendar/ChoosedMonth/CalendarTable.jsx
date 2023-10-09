@@ -48,12 +48,14 @@ const CalendarTable = () => {
         <>
             <Table fullheight={true} is28Days={getDaysInMonth(date) === 28}>
                 {getSortedDays(date).map((day, index) => (
-                    <NavLink to={`/calendar/day/${currentDate + '-' + day}`}>
-                        <div
-                            key={index}
-                            id={`${date.getFullYear()}-${
-                                date.getMonth() + 1
-                            }-${day}`}
+                    <div
+                        key={index}
+                        id={`${date.getFullYear()}-${
+                            date.getMonth() + 1
+                        }-${day}`}
+                    >
+                        <NavLink
+                            to={`/calendar/day/${currentDate + '-' + day}`}
                         >
                             <span
                                 className={`nonDRAG ${
@@ -71,19 +73,19 @@ const CalendarTable = () => {
                             >
                                 {day}
                             </span>
-                            <TaskList
-                                openModal={openModal}
-                                currentDate={currentDate}
-                                day={day}
-                                tasks={tasks}
-                            />
-                            {/* <List>
+                        </NavLink>
+                        <TaskList
+                            openModal={openModal}
+                            currentDate={currentDate}
+                            day={day}
+                            tasks={tasks}
+                        />
+                        {/* <List>
                         <Task>Low, very low priority</Task>
                         <Task>Medium, medium priority</Task>
                         <Task>High, very high priority</Task>
                         </List> */}
-                        </div>
-                    </NavLink>
+                    </div>
                 ))}
             </Table>
             {modalOpen && <TaskModal closeModal={closeModal} />}
