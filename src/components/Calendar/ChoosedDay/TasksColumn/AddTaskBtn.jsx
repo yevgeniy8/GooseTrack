@@ -1,9 +1,9 @@
 import Icons from '../../../../images/icons.svg';
-import { BtnToAdd, IconX } from './ColumnsTasksList.styled';
+import { BtnToAdd, IconX } from './AddBtns.styled';
 import { TaskModal } from '../../../TaskModal/TaskModal';
 import React, { useState } from 'react';
 
-const AddTaskBtn = () => {
+const AddTaskBtn = ({ value }) => {
   const [modalOpen, setModalOpen] = useState(false);
 
   const openModal = () => setModalOpen(true);
@@ -11,15 +11,15 @@ const AddTaskBtn = () => {
     setModalOpen(false);
   };
   return (
-    <div>
+    <>
       <BtnToAdd onClick={openModal}>
         <IconX>
           <use href={`${Icons}#add-plus`} />
         </IconX>
         Add task
       </BtnToAdd>
-      {modalOpen && <TaskModal closeModal={closeModal} />}
-    </div>
+      {modalOpen && <TaskModal value={value} closeModal={closeModal} />}
+    </>
   );
 };
 

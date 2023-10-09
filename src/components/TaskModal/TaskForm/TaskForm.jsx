@@ -20,9 +20,11 @@ import {
     TimeWrapper,
 } from './TaskForm.styled';
 
-import { addTask } from 'redux/calendar/calendarOperations';
+import { addTask, fetchTasks } from 'redux/calendar/calendarOperations';
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { useEffect } from 'react';
 
 // const TaskSchema = Yup.object().shape({
 //     title: Yup.string()
@@ -63,20 +65,30 @@ import { useDispatch } from 'react-redux';
 //         .required('Category is required'),
 // });
 
-export const TaskForm = ({ onClose, action }) => {
+export const TaskForm = ({ value, onClose, action }) => {
     const dispatch = useDispatch();
 
-    const handleSubmit = (values, actions) => {
-        // console.log(values);
+    const userTask = useSelector(state => state.calendar.tasks);
 
-        const currentDate = new Date();
-        const dateString = currentDate.toLocaleDateString();
-        // console.log(dateString.split('.').reverse().join('-'));
+    console.log(userTask);
+
+    useEffect(() => {
+        dispatch(fetchTasks());
+    }, [dispatch]);
+
+    // console.log(value);
+    const { currentDay } = useParams();
+    // console.log(currentDay);
+
+    const handleSubmit = (values, actions) => {
+        if (action) {
+            return console.log(action);
+        }
 
         const obj = {
             ...values,
-            category: 'to-do',
-            date: dateString.split('.').reverse().join('-'),
+            category: value,
+            date: currentDay,
         };
         console.log(obj);
         dispatch(addTask(obj));
