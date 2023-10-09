@@ -14,7 +14,7 @@ const TasksColumnsList = () => {
     ];
 
     const { currentDay } = useParams();
-    console.log(currentDay);
+    // console.log(currentDay);
     // const date = new Date(currentDay);
 
     const dispatch = useDispatch();
@@ -24,7 +24,7 @@ const TasksColumnsList = () => {
     }, [dispatch]);
 
     const filtredTasks = tasks.filter(task => task.date === currentDay);
-    console.log(tasks);
+    // console.log(tasks);
     return (
         <ColumnList>
             {categoryOptions.map(option => (

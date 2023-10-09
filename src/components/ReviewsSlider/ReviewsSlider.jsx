@@ -85,6 +85,8 @@ const ReviewsSlider = () => {
                     spaceBetween={24}
                     slidesPerView={1}
                     loopedSlides={2}
+                    allowTouchMove={true}
+                    freeMode={true}
                     loop={true}
                     style={{ width: '100%', height: 'auto' }}
                     autoplay={{ delay: 5000, disableOnInteraction: false }}

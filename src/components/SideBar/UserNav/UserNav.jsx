@@ -9,13 +9,13 @@ import {
 } from './UserNav.styled';
 import Icons from '../../../images/icons.svg';
 
-const UserNav = () => {
+const UserNav = ({ onCloseClick }) => {
     return (
         <NavWrap>
             <NavTitle>User Panel</NavTitle>
             <List>
                 <Item>
-                    <Link to="account">
+                    <Link to="account" onClick={onCloseClick}>
                         <Icon>
                             <use href={`${Icons}#user-check`} />
                         </Icon>
@@ -23,7 +23,7 @@ const UserNav = () => {
                     </Link>
                 </Item>
                 <Item>
-                    <Link to="calendar">
+                    <Link to="calendar" onClick={onCloseClick}>
                         <Icon>
                             <use href={`${Icons}#calendar-check`} />
                         </Icon>
@@ -31,7 +31,7 @@ const UserNav = () => {
                     </Link>
                 </Item>
                 <Item>
-                    <Link to="statistics">
+                    <Link to="statistics" onClick={onCloseClick}>
                         <IconStat fill="inherit">
                             <use href={`${Icons}#chart-statistics`} />
                         </IconStat>

@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { tablet, min } from '../../../../styles/media';
 
 export const TaskList = styled.ul`
   gap: 18px;
@@ -8,12 +9,16 @@ export const TaskList = styled.ul`
 `;
 export const Column = styled.li`
   border-radius: 8px;
-  border: 1px solid rgba(220, 227, 229, 0.8);
+  border: ${({ theme }) => theme.borders.calendar};
   background: ${({ theme }) => theme.colors.backgroundSecondary};
-
-  min-width: 329px;
+  margin-bottom: 100%;
+  min-width: 335px;
   padding-left: 14px;
-  padding-right: 8px;
+  padding-right: 18px;
+
+  ${min(tablet)} {
+    min-width: 344px;
+  }
 `;
 export const Container = styled.div`
   ${'' /* margin-bottom: 35px; */}

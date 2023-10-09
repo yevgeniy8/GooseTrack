@@ -42,15 +42,13 @@ const CalendarPage = () => {
 
 export default CalendarPage;
 
-
 const CalendarContainer = styled.div`
-  padding: 0 32px 32px;
-//   background-color: #f7f6f9;
-//   max-width: 1085px;
-  margin-top: 45px; 
-      @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
-        margin-top: 0;
-    }
+  //   background-color: #f7f6f9;
+  //   max-width: 1085px;
+  // margin-top: 45px;
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
+    margin-top: 0;
+  }
 `;
 
 // import React, { useEffect } from 'react';
@@ -89,7 +87,7 @@ const CalendarContainer = styled.div`
 //   padding: 0 32px 32px;
 // //   background-color: #f7f6f9;
 // //   max-width: 1085px;
-//   margin-top: 45px; 
+//   margin-top: 45px;
 //       @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
 //         margin-top: 0;
 //     }
