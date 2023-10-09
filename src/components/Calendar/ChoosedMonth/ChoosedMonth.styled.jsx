@@ -4,20 +4,27 @@ import styled from '@emotion/styled';
 export const Table = styled.div`
     display: grid;
     grid-template-columns: repeat(7, 1fr);
+    border-radius: 8px;
     ${props => props.fullheight}
     ${props =>
         props.fullheight &&
         `grid-template-rows: repeat(${props.is28Days ? 4 : 5}, 1fr);`}
     div {
-        display: grid;
-        justify-content: end;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        align-items: flex-end;
+        padding: 4px;
+        overflow: hidden;
         // max-width: 165px;
         height: 95px;
         background-color: white;
         border: 1px solid rgba(220, 227, 229, 0.8);
+        
             @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
               max-width: 155px;
-              height: 125px;
+              height: 134px;
+              padding: 8px;
             };
         span {
             font-family: Inter;
@@ -29,12 +36,12 @@ export const Table = styled.div`
             width: 22px;
             height: 22px;
             border-radius: 8px;
-            padding: 4px;
-            margin: 8px 4px 0 0;
+            padding: 4px 8px;
+            // margin: 8px 4px 0 0;
             // height: fit-content;
             color: #343434;
                 @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
-                  margin: 14px 14px 0 0;
+                //   margin: 14px 14px 0 0;
                   font-size: 16px;
                   font-weight: 700;
                   line-height: 18px;
