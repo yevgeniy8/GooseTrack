@@ -82,7 +82,7 @@ export const UserForm = () => {
 
     const handleChange = e => {
         setCurrentAvatar(e.target.files[0]);
-        console.log(e.target.files)
+        console.log(e.target.files);
     };
 
     const handleSubmit = ({ name, phone, email, skype, birthday }, actions) => {
@@ -131,19 +131,12 @@ export const UserForm = () => {
                     errors,
                     touched,
                     values,
-<<<<<<< HEAD
-=======
                     dirty,
->>>>>>> 2c3aa16ab159709bdc9177a0e71b236e1a4300c1
                     handleChange,
                     setFieldValue,
                     setFieldTouched,
                 }) => {
-<<<<<<< HEAD
                     return (
-=======
-                       return (
->>>>>>> 2c3aa16ab159709bdc9177a0e71b236e1a4300c1
                         <StyledForm>
                             <FieldsWrap
                                 animate={{ y: -50 }}
@@ -177,12 +170,8 @@ export const UserForm = () => {
                                             <DatePickerStyled
                                                 name="birthday"
                                                 selected={
-<<<<<<< HEAD
-                                                    new Date(values.birthday)
-=======
                                                     new Date(values.birthday) ||
                                                     new Date()
->>>>>>> 2c3aa16ab159709bdc9177a0e71b236e1a4300c1
                                                 }
                                                 dateFormat="yyyy/MM/dd"
                                                 maxDate={new Date()}

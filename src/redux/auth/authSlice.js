@@ -82,7 +82,6 @@ export const authSlice = createSlice({
                 // console.log('object');
                 state.isRefreshing = false;
             })
-<<<<<<< HEAD
             .addCase(editUser.fulfilled, (state, { payload }) => {
                 state.user.name = payload.newUser.name;
                 state.user.email = payload.newUser.email;
@@ -93,12 +92,6 @@ export const authSlice = createSlice({
                 state.user.birthday = payload.newUser.birthday;
                 state.isLoggedIn = true;
                 state.isRefreshing = false;
-=======
-            .addCase(editUser.fulfilled, (state, actions) => {
-                state.user = actions.payload.newUser;
-                state.isRefreshing = false;
-                console.log(state.user);
->>>>>>> 2c3aa16ab159709bdc9177a0e71b236e1a4300c1
             })
             .addCase(editUser.pending, (state, _) => {
                 state.isRefreshing = true;
