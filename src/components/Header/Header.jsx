@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import ThemeToggler from './ThemeToggler';
 import UserInfo from './UserInfo';
 import AddFeedbackBtn from './AddFeedbackBtn';
@@ -21,8 +22,10 @@ import {
     MenuWrapperDiv,
 } from './Header.styled';
 import { useLocation } from 'react-router-dom';
+import { selectTasks } from 'redux/calendar/calendarSelector';
 
 export const Header = ({ onOpenClick }) => {
+    const userTasks = useSelector(selectTasks);
     const [isOpenModal, setIsOpenModal] = useState(false);
 
     const showAddFeedbackModal = () => {
@@ -34,9 +37,6 @@ export const Header = ({ onOpenClick }) => {
     };
 
     const location = useLocation().pathname;
-    // для перевірки userTasks тимчасово
-    const userTasks = [{ category: 'in-progress' }, { category: 'to-do' }];
-    // const userTasks = [{}];
 
     const pageTitle = location.includes('/calendar')
         ? 'Calendar'
@@ -49,7 +49,8 @@ export const Header = ({ onOpenClick }) => {
     const hasUncompletedTask = userTasks.some(
         i => i.category === 'in-progress' || i.category === 'to-do'
     );
-    const locationPageCalendar = pageTitle === 'Calendar';
+
+    const locationIncludesDay = location.includes('/calendar/day');
 
     return (
         <header>
@@ -59,7 +60,7 @@ export const Header = ({ onOpenClick }) => {
                         <use href={`${sprite}#menu-01`} />
                     </Svg>
                 </BurgerMenuBtn>
-                {hasUncompletedTask && locationPageCalendar && (
+                {hasUncompletedTask && locationIncludesDay && (
                     <ImgWrapper>
                         <img
                             srcSet={`${image1x} 1x, ${image2x} 2x`}
@@ -73,7 +74,7 @@ export const Header = ({ onOpenClick }) => {
 
                 <TextDiv>
                     <TitleH2>{pageTitle}</TitleH2>
-                    {hasUncompletedTask && locationPageCalendar && (
+                    {hasUncompletedTask && locationIncludesDay && (
                         <MotivationTextP>
                             <Span>Let go</Span> of the past and focus on the
                             present!
