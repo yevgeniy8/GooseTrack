@@ -8,56 +8,53 @@ import moment from 'moment';
 import { useEffect, useState } from 'react';
 
 const DayCalendarHead = () => {
-    const isMobile = useMediaQuery({ maxWidth: 767 });
+  const isMobile = useMediaQuery({ maxWidth: 767 });
 
-    const [isSelected, setIsSelected] = useState('');
+  const [isSelected, setIsSelected] = useState('');
 
-    const { currentDay } = useParams();
+  const { currentDay } = useParams();
 
-    useEffect(() => {
-        moment.updateLocale('en', { week: { dow: 1 } });
+  useEffect(() => {
+    moment.updateLocale('en', { week: { dow: 1 } });
 
-        [...Array(7)].map((_, idx) => {
-            const curr = moment(currentDay)
-                .clone()
-                .startOf('week')
-                .day(idx + 1)
-                .format('DD');
+    [...Array(7)].map((_, idx) => {
+      const curr = moment(currentDay)
+        .clone()
+        .startOf('week')
+        .day(idx + 1)
+        .format('DD');
 
-            if (curr === currentDay.split('-')[2]) {
-                setIsSelected(idx);
-            }
-            return null;
-        });
-    }, [currentDay]);
+      if (curr === currentDay.split('-')[2]) {
+        setIsSelected(idx);
+      }
+      return null;
+    });
+  }, [currentDay]);
 
-    return (
-        <WeekdaysList>
-            {[...Array(7)].map((_, index) => (
-                <WeekdaysItem
-                    key={index}
-                    className={index === isSelected ? 'current-day' : ''}
-                >
-                    <div>
-                        {isMobile
-                            ? moment()
-                                  .day(index + 1)
-                                  .format('ddd')[0]
-                            : moment()
-                                  .day(index + 1)
-                                  .format('ddd')}
-                    </div>
-                    <div>
-                        {moment(currentDay)
-                            .clone()
-                            .startOf('week')
-                            .day(index + 1)
-                            .format('D')}
-                    </div>
-                </WeekdaysItem>
-            ))}
-        </WeekdaysList>
-    );
+  return (
+    <WeekdaysList>
+      {[...Array(7)].map((_, index) => (
+        <WeekdaysItem key={index} className={index === isSelected ? 'current-day' : ''}>
+          <div>
+            {isMobile
+              ? moment()
+                  .day(index + 1)
+                  .format('ddd')[0]
+              : moment()
+                  .day(index + 1)
+                  .format('ddd')}
+          </div>
+          <div>
+            {moment(currentDay)
+              .clone()
+              .startOf('week')
+              .day(index + 1)
+              .format('D')}
+          </div>
+        </WeekdaysItem>
+      ))}
+    </WeekdaysList>
+  );
 };
 
 export default DayCalendarHead;
