@@ -85,7 +85,6 @@ export const UserForm = () => {
     };
 
     const handleSubmit = ({ name, phone, email, skype, birthday }, actions) => {
-
         const formData = new FormData();
         formData.append('name', name);
         formData.append('email', email);
@@ -127,7 +126,14 @@ export const UserForm = () => {
                 validationSchema={schema}
                 onSubmit={handleSubmit}
             >
-                {({ errors, touched, values, handleChange,  setFieldValue, setFieldTouched }) => {
+                {({
+                    errors,
+                    touched,
+                    values,
+                    handleChange,
+                    setFieldValue,
+                    setFieldTouched,
+                }) => {
                     return (
                         <StyledForm>
                             <FieldsWrap
@@ -161,12 +167,15 @@ export const UserForm = () => {
                                         <DatePickerWrapp>
                                             <DatePickerStyled
                                                 name="birthday"
-                                                selected={new Date(values.birthday)}
+                                                selected={
+                                                    new Date(values.birthday)
+                                                }
                                                 dateFormat="yyyy/MM/dd"
                                                 maxDate={new Date()}
                                                 locale="en"
                                                 className={
-                                                    errors.birthday && touched.birthday
+                                                    errors.birthday &&
+                                                    touched.birthday
                                                         ? 'input-error'
                                                         : touched.birthday
                                                         ? 'input-valid'
@@ -280,5 +289,3 @@ export const UserForm = () => {
         </MainContainer>
     );
 };
-
-
