@@ -38,6 +38,17 @@ export const authSlice = createSlice({
                 state.token = action.payload.token;
                 state.isLoggedIn = true;
             })
+            // .addCase(login.fulfilled, (state, { payload }) => {
+            //     state.user.name = payload.user.name;
+            //     state.user.email = payload.user.email;
+            //     state.user.birthday = payload.user.birthday;
+            //     state.user.phone = payload.user.phone;
+            //     state.user.skype = payload.user.skype;
+            //     state.user.avatarURL = payload.user.avatarURL;
+            //     state.user.birthday = payload.user.birthday;
+            //     state.token = payload.token;
+            //     state.isLoggedIn = true;
+            // })
             .addCase(logout.fulfilled, state => {
                 // console.log('slice');
                 state.user = {
@@ -71,16 +82,23 @@ export const authSlice = createSlice({
                 // console.log('object');
                 state.isRefreshing = false;
             })
-            .addCase(editUser.fulfilled, (state, actions) => {
-                state.user = actions.payload.newUser;
+            .addCase(editUser.fulfilled, (state, { payload }) => {
+                state.user.name = payload.newUser.name;
+                state.user.email = payload.newUser.email;
+                state.user.birthday = payload.newUser.birthday;
+                state.user.phone = payload.newUser.phone;
+                state.user.skype = payload.newUser.skype;
+                state.user.avatarURL = payload.newUser.avatarURL;
+                state.user.birthday = payload.newUser.birthday;
+                state.isLoggedIn = true;
                 state.isRefreshing = false;
-                console.log(state.user);
             })
-            .addCase(editUser.pending, state => {
+            .addCase(editUser.pending, (state, _) => {
                 state.isRefreshing = true;
             })
-            .addCase(editUser.rejected, (_, actions) => {
-                console.log(actions.payload);
+            .addCase(editUser.rejected, (state, _) => {
+                state.isLoggedIn = true;
+                state.isRefreshing = false;
             });
     },
 });
