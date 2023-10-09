@@ -6,7 +6,8 @@ import { selectTasks } from 'redux/calendar/calendarSelector';
 
 import { datesAreOnSameDay, getDaysInMonth, getSortedDays } from './utils';
 import { Table } from './ChoosedMonth.styled';
-import { useNavigate, useParams } from 'react-router';
+// import { useNavigate, useParams } from 'react-router';
+import { useParams } from 'react-router';
 
 import { TaskModal } from '../../TaskModal/TaskModal';
 import TaskList from './TaskList';
@@ -15,7 +16,7 @@ import { NavLink } from 'react-router-dom';
 
 const CalendarTable = () => {
     const { currentDate } = useParams();
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
     const date = new Date(currentDate);
 
@@ -26,15 +27,15 @@ const CalendarTable = () => {
         dispatch(fetchTasks());
     }, [dispatch]);
 
-    const handleNavToDay = selectedDate => {
-        // const day = moment(selectedDate).format('YYYY-MM-DD');
-        // localStorage.getItem('day');
-        // // localStorage.setItem('type', 'day');
-        // localStorage.setItem('date', day);
-        navigate(`/calendar/day/${selectedDate}`);
-        // console.log(selectedDate); // Sun Oct 01 2023
-        // console.log(day); // 2023-10-01
-    };
+    // const handleNavToDay = selectedDate => {
+    //     // const day = moment(selectedDate).format('YYYY-MM-DD');
+    //     // localStorage.getItem('day');
+    //     // // localStorage.setItem('type', 'day');
+    //     // localStorage.setItem('date', day);
+    //     navigate(`/calendar/day/${selectedDate}`);
+    //     // console.log(selectedDate); // Sun Oct 01 2023
+    //     // console.log(day); // 2023-10-01
+    // };
 
     const [modalOpen, setModalOpen] = useState(false);
 
@@ -47,44 +48,42 @@ const CalendarTable = () => {
         <>
             <Table fullheight={true} is28Days={getDaysInMonth(date) === 28}>
                 {getSortedDays(date).map((day, index) => (
-                    <div
-                        key={index}
-                        id={`${date.getFullYear()}-${
-                            date.getMonth() + 1
-                        }-${day}`}
-                    >
-                        <span
-                            className={`nonDRAG ${
-                                datesAreOnSameDay(
-                                    new Date(),
-                                    new Date(
-                                        date.getFullYear(),
-                                        date.getMonth(),
-                                        day
-                                    )
-                                )
-                                    ? 'active'
-                                    : ''
-                            }`}
+                    <NavLink to={`/calendar/day/${currentDate + '-' + day}`}>
+                        <div
+                            key={index}
+                            id={`${date.getFullYear()}-${
+                                date.getMonth() + 1
+                            }-${day}`}
                         >
-                            <NavLink
-                                onClick={() => handleNavToDay(date + '-' + day)}
+                            <span
+                                className={`nonDRAG ${
+                                    datesAreOnSameDay(
+                                        new Date(),
+                                        new Date(
+                                            date.getFullYear(),
+                                            date.getMonth(),
+                                            day
+                                        )
+                                    )
+                                        ? 'active'
+                                        : ''
+                                }`}
                             >
                                 {day}
-                            </NavLink>
-                        </span>
-                        <TaskList
-                            openModal={openModal}
-                            currentDate={currentDate}
-                            day={day}
-                            tasks={tasks}
-                        />
-                        {/* <List>
+                            </span>
+                            <TaskList
+                                openModal={openModal}
+                                currentDate={currentDate}
+                                day={day}
+                                tasks={tasks}
+                            />
+                            {/* <List>
                         <Task>Low, very low priority</Task>
                         <Task>Medium, medium priority</Task>
                         <Task>High, very high priority</Task>
                         </List> */}
-                    </div>
+                        </div>
+                    </NavLink>
                 ))}
             </Table>
             {modalOpen && <TaskModal closeModal={closeModal} />}
