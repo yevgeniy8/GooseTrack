@@ -20,11 +20,11 @@ import {
     TimeWrapper,
 } from './TaskForm.styled';
 
-import { addTask, fetchTasks } from 'redux/calendar/calendarOperations';
+import { addTask, editTask } from 'redux/calendar/calendarOperations';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 
 const TaskSchema = Yup.object().shape({
     title: Yup.string()
@@ -71,9 +71,9 @@ export const TaskForm = ({ value, onClose, action, task }) => {
 
     console.log(userTask);
 
-    useEffect(() => {
-        dispatch(fetchTasks());
-    }, [dispatch]);
+    // useEffect(() => {
+    //     dispatch(fetchTasks());
+    // }, [dispatch]);
 
     // console.log(value);
     const { currentDay } = useParams();
@@ -81,7 +81,10 @@ export const TaskForm = ({ value, onClose, action, task }) => {
 
     const handleSubmit = (values, actions) => {
         if (action) {
-            return console.log(action);
+            dispatch(editTask({ id: task._id, task: values }));
+            onClose();
+            // return console.log(action);
+            return;
         }
 
         const obj = {
