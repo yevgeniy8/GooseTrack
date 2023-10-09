@@ -3,7 +3,7 @@ import { BtnToAdd, IconX } from './ColumnsTasksList.styled';
 import { TaskModal } from '../../../TaskModal/TaskModal';
 import React, { useState } from 'react';
 
-const AddTaskBtn = ({ value }) => {
+const TopAddBtn = ({ value }) => {
   const [modalOpen, setModalOpen] = useState(false);
 
   const openModal = () => setModalOpen(true);
@@ -23,4 +23,4 @@ const AddTaskBtn = ({ value }) => {
   );
 };
 
-export default AddTaskBtn;
+export default TopAddBtn;
