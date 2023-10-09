@@ -36,7 +36,7 @@ import {
 registerLocale('en', enGB);
 
 const emailRegexp = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
-const phoneRegexp = /^\+380\d{9}$/;
+const phoneRegexp = /^\+\d{1,15}\d{1,15}$/;
 
 const schema = yup.object().shape({
     name: yup.string().max(16).required(),
@@ -68,20 +68,21 @@ function handleInput(errors, touched, fieldName) {
 
 export const UserForm = () => {
     const dispatch = useDispatch();
-    const user = useSelector(selectUser);
-
     const [currentAvatar, setCurrentAvatar] = useState(null);
+
+    const user = useSelector(selectUser);
 
     const initialValues = {
         name: user.name || '',
         email: user.email || '',
         phone: user.phone || '',
         skype: user.skype || '',
-        birthday: user.birthday || '',
+        birthday: user.birthday || new Date(),
     };
 
     const handleChange = e => {
         setCurrentAvatar(e.target.files[0]);
+        console.log(e.target.files)
     };
 
     const handleSubmit = ({ name, phone, email, skype, birthday }, actions) => {
@@ -130,11 +131,19 @@ export const UserForm = () => {
                     errors,
                     touched,
                     values,
+<<<<<<< HEAD
+=======
+                    dirty,
+>>>>>>> 2c3aa16ab159709bdc9177a0e71b236e1a4300c1
                     handleChange,
                     setFieldValue,
                     setFieldTouched,
                 }) => {
+<<<<<<< HEAD
                     return (
+=======
+                       return (
+>>>>>>> 2c3aa16ab159709bdc9177a0e71b236e1a4300c1
                         <StyledForm>
                             <FieldsWrap
                                 animate={{ y: -50 }}
@@ -168,7 +177,12 @@ export const UserForm = () => {
                                             <DatePickerStyled
                                                 name="birthday"
                                                 selected={
+<<<<<<< HEAD
                                                     new Date(values.birthday)
+=======
+                                                    new Date(values.birthday) ||
+                                                    new Date()
+>>>>>>> 2c3aa16ab159709bdc9177a0e71b236e1a4300c1
                                                 }
                                                 dateFormat="yyyy/MM/dd"
                                                 maxDate={new Date()}
@@ -184,6 +198,9 @@ export const UserForm = () => {
                                                 formatWeekDay={nameOfDay =>
                                                     nameOfDay.charAt(0)
                                                 }
+                                                // showYearDropdown
+                                                // yearDropdownItemNumber={30}
+                                                // scrollableYearDropdown
                                                 onChange={date => {
                                                     setFieldValue(
                                                         'birthday',
@@ -279,6 +296,7 @@ export const UserForm = () => {
                                 animate={{ y: -25 }}
                                 transition={{ ease: 'easeOut', duration: 2 }}
                                 type="submit"
+                                disabled={!dirty}
                             >
                                 Save changes
                             </Button>

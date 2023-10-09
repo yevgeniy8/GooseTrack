@@ -31,6 +31,7 @@ export const login = createAsyncThunk('auth/login', async (user, thunkApi) => {
     try {
         const response = await axios.post('/auth/login', user);
         setAuthHeader(response.data.token);
+        console.log(response.data);
         Notiflix.Notify.success(`Welcome ${response.data.user.name}`);
         return response.data;
     } catch (error) {
@@ -62,7 +63,7 @@ export const refreshUser = createAsyncThunk(
             // console.log(persistedToken);
             setAuthHeader(persistedToken);
             const response = await axios.get('/users/current');
-            // console.log('User refreshed:', response.data);
+            console.log('User refreshed:', response.data);
             return response.data;
         } catch (error) {
             // console.error('Error refreshing user:', error);
