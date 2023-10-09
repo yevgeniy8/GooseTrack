@@ -20,7 +20,6 @@ export const UserInfo = ({ setCurrentAvatar, avatarURL, userName }) => {
 
     const handleChange = async e => {
         setCurrentAvatar(e.target.files[0]);
-        console.log(e.target.files);
         const formData = new FormData();
         formData.append('avatar', e.target.files[0]);
         const {
