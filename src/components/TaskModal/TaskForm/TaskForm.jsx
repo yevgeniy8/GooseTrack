@@ -23,6 +23,7 @@ import {
 import { addTask } from 'redux/calendar/calendarOperations';
 
 import { useDispatch } from 'react-redux';
+import { useParams } from 'react-router-dom';
 
 // const TaskSchema = Yup.object().shape({
 //     title: Yup.string()
@@ -63,20 +64,24 @@ import { useDispatch } from 'react-redux';
 //         .required('Category is required'),
 // });
 
-export const TaskForm = ({ onClose, action }) => {
+export const TaskForm = ({ value, onClose, action }) => {
+    // console.log(value);
     const dispatch = useDispatch();
+    const { currentDay } = useParams();
+    console.log(currentDay);
 
     const handleSubmit = (values, actions) => {
         // console.log(values);
 
-        const currentDate = new Date();
-        const dateString = currentDate.toLocaleDateString();
+        // const currentDate = new Date();
+        // const dateString = currentDate.toLocaleDateString();
         // console.log(dateString.split('.').reverse().join('-'));
 
         const obj = {
             ...values,
-            category: 'to-do',
-            date: dateString.split('.').reverse().join('-'),
+            category: value,
+            // date: dateString.split('.').reverse().join('-'),
+            date: currentDay,
         };
         console.log(obj);
         dispatch(addTask(obj));

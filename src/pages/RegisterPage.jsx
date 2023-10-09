@@ -49,17 +49,34 @@ const WrapperRegister = styled.div`
 `;
 
 const LinkToLogin = styled(NavLink)`
-    margin-top: 24px;
-
+    width: 287px;
+    text-align: center;
+    margin-top: 18px;
+    display: block;
     color: #3e85f3;
     text-shadow: 0px 9.399999618530273px 57.6875px rgba(0, 0, 0, 0.04),
         0px 47px 355px rgba(0, 0, 0, 0.07);
     font-family: Inter;
-    font-size: 18px;
+    font-size: 12px;
     font-style: normal;
     font-weight: 600;
-    line-height: 24px; /* 133.333% */
+    line-height: 14px;
     text-decoration-line: underline;
+    padding: 14px 103px;
+    border-radius: 16px;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+        color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
+        margin-top: 24px;
+        font-size: 18px;
+        line-height: 24px;
+        width: 400px;
+        &:hover {
+            background-color: #1d56ac;
+            color: ${({ theme }) => theme.colors.white};
+        }
+    }
 `;
 
 const Picture = styled.picture`

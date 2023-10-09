@@ -11,7 +11,7 @@ export const Column = styled.li`
   border-radius: 8px;
   border: ${({ theme }) => theme.borders.calendar};
   background: ${({ theme }) => theme.colors.backgroundSecondary};
-  margin-bottom: 100%;
+  /* margin-bottom: 100%; */
   min-width: 335px;
   padding-left: 14px;
   padding-right: 18px;
