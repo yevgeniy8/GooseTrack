@@ -71,17 +71,28 @@ export const authSlice = createSlice({
                 // console.log('object');
                 state.isRefreshing = false;
             })
-            .addCase(editUser.fulfilled, (state, actions) => {
-                console.log(actions);
-                state.user = actions.payload.newUser;
+            .addCase(editUser.fulfilled, (state, { payload }) => {
+                state.user.name = payload.newUser.name;
+                state.user.email = payload.newUser.email;
+                state.user.birthday = payload.newUser.birthday;
+                state.user.phone = payload.newUser.phone;
+                state.user.skype = payload.newUser.skype;
+                state.user.avatarURL = payload.newUser.avatarURL;
+                state.user.birthday = payload.newUser.birthday;
+                state.isLoggedIn = true;
                 state.isRefreshing = false;
-                console.log(actions.payload);
+                // console.log(actions);
+                // state.user = actions.payload.newUser;
+                // state.isRefreshing = false;
+                // console.log(actions.payload);
             })
-            .addCase(editUser.pending, state => {
+            .addCase(editUser.pending, (state, _) => {
                 state.isRefreshing = true;
             })
-            .addCase(editUser.rejected, (_, actions) => {
-                console.log(actions.payload);
+            .addCase(editUser.rejected, (state, _) => {
+                // console.log(actions.payload);
+                state.isLoggedIn = true;
+                state.isRefreshing = false;
             });
     },
 });
