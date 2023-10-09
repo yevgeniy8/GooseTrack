@@ -5,12 +5,13 @@ import { Column } from './TasksColumn.styled';
 
 const TasksColumn = ({ header, tasks, value }) => {
     const filterTasks = tasks.filter(task => task.category === value);
+    // console.log(header);
     return (
         <Column>
             <ColumnHeadBar header={header} />
 
             <ColumnsTasksList tasks={filterTasks} />
-            <AddTaskBtn />
+            <AddTaskBtn value={value} />
         </Column>
     );
 };
