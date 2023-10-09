@@ -11,7 +11,7 @@ import { useNavigate, useParams } from 'react-router';
 import { TaskModal } from '../../TaskModal/TaskModal';
 import TaskList from './TaskList';
 import { NavLink } from 'react-router-dom';
-import moment from 'moment';
+// import moment from 'moment';
 
 const CalendarTable = () => {
     const { currentDate } = useParams();
@@ -35,9 +35,6 @@ const CalendarTable = () => {
         // console.log(selectedDate); // Sun Oct 01 2023
         // console.log(day); // 2023-10-01
     };
-
-    // необходимо что бы убрать Warning
-    // console.log(tasks);
 
     const [modalOpen, setModalOpen] = useState(false);
 
@@ -77,6 +74,7 @@ const CalendarTable = () => {
                             </NavLink>
                         </span>
                         <TaskList
+                            openModal={openModal}
                             currentDate={currentDate}
                             day={day}
                             tasks={tasks}

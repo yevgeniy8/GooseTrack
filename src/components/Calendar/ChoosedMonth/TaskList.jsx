@@ -1,8 +1,8 @@
 // import { NavLink } from 'react-router-dom';
 import styled from '@emotion/styled';
-import { useState } from 'react';
+// import { useState } from 'react';
 
-const TaskList = ({ currentDate, day, tasks }) => {
+const TaskList = ({ currentDate, day, tasks, openModal }) => {
     if (!day) {
         return;
     }
@@ -14,9 +14,9 @@ const TaskList = ({ currentDate, day, tasks }) => {
         <List>
             {filterTasks?.map(task => (
                 <Task
-                    // onClick={() => {
-                    //     openModal(task._id);
-                    // }}
+                    onClick={() => {
+                        openModal(task._id);
+                    }}
                     key={task._id}
                     color={`color${task.priority}`}
                     bg={`bgcolor${task.priority}`}
