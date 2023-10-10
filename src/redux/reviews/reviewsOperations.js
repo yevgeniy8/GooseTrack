@@ -22,6 +22,7 @@ export const fetchReviews = createAsyncThunk(
 export const addReview = createAsyncThunk(
     'reviews/addReviews',
     async (review, thunkAPI) => {
+        console.log(review);
         try {
             const { data } = await axios.post('/reviews/own', review);
             return data;
