@@ -92,9 +92,11 @@ export const authSlice = createSlice({
                 state.user.birthday = payload.newUser.birthday;
                 state.isLoggedIn = true;
                 state.isRefreshing = false;
+                console.log(state.user.name);
             })
             .addCase(editUser.pending, (state, _) => {
-                state.isRefreshing = true;
+                // state.isRefreshing = true;
+                console.log('pending')
             })
             .addCase(editUser.rejected, (state, _) => {
                 state.isLoggedIn = true;

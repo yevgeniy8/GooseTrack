@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Formik } from 'formik';
+import { Formik} from 'formik';
 import { FieldsWrap } from './UserForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectUser } from 'redux/auth/authSelectors';
@@ -25,10 +25,12 @@ import {
 } from './ReactDatePickerCalendar.styled';
 
 registerLocale('en', enGB);
+
 export const UserForm = () => {
     const dispatch = useDispatch();
+    const [isFormChanged, setIsFormChanged] = useState(false);
     const [currentAvatar, setCurrentAvatar] = useState(null);
-
+    
     const user = useSelector(selectUser);
 
     const initialValues = {
@@ -50,9 +52,15 @@ export const UserForm = () => {
             formData.append('avatar', currentAvatar);
         }
 
-        dispatch(editUser(formData));
-
-        actions.resetForm();
+        try {
+        
+           dispatch(editUser(formData));
+          
+            actions.resetForm();
+          } catch (error) {
+           
+            console.error( error);
+          }
     };
 
     return (
@@ -61,8 +69,10 @@ export const UserForm = () => {
                 avatarURL={user.avatarURL}
                 userName={user.name}
                 setCurrentAvatar={setCurrentAvatar}
+                setIsFormChanged={setIsFormChanged}
             />
             <Formik
+                enableReinitialize={false}
                 initialValues={initialValues}
                 validationSchema={schema}
                 onSubmit={handleSubmit}
@@ -75,7 +85,10 @@ export const UserForm = () => {
                     handleChange,
                     setFieldValue,
                     setFieldTouched,
+                    handleBlur
                 }) => {
+                    
+                    
                     return (
                         <StyledForm>
                             <FieldsWrap
@@ -90,6 +103,7 @@ export const UserForm = () => {
                                             name="name"
                                             placeholder="Enter your name"
                                             onChange={handleChange}
+                                            onBlur={handleBlur}
                                             value={values.name}
                                             className={
                                                 errors.name && touched.name
@@ -162,7 +176,8 @@ export const UserForm = () => {
                                             type="email"
                                             name="email"
                                             placeholder="Enter your email"
-                                            // onChange={handleChange}
+                                            onChange={handleChange}
+                                            onBlur={handleBlur}
                                             value={values.email}
                                             className={
                                                 errors.email && touched.email
@@ -183,7 +198,8 @@ export const UserForm = () => {
                                             type="tel"
                                             name="phone"
                                             placeholder="Enter your phone number"
-                                            // onChange={handleChange}
+                                            onChange={handleChange}
+                                            onBlur={handleBlur}
                                             value={values.phone}
                                             className={[
                                                 errors.phone && touched.phone
@@ -205,7 +221,8 @@ export const UserForm = () => {
                                             name="skype"
                                             placeholder="Add your skype number"
                                             value={values.skype}
-                                            // onChange={handleChange}
+                                            onChange={handleChange}
+                                            onBlur={handleBlur}
                                             className={
                                                 errors.skype && touched.skype
                                                     ? 'input-error'
@@ -224,7 +241,7 @@ export const UserForm = () => {
                                 animate={{ y: -25 }}
                                 transition={{ ease: 'easeOut', duration: 2 }}
                                 type="submit"
-                                disabled={!dirty}
+                                disabled={!dirty && !isFormChanged}
                             >
                                 Save changes
                             </Button>

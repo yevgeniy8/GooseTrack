@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
-import { Form } from 'formik';
-import { Field, ErrorMessage } from 'formik';
+
+import { Field, ErrorMessage, Form } from 'formik';
 import { motion } from 'framer-motion';
 
 export const MainContainer = styled.div`
@@ -14,6 +14,7 @@ export const MainContainer = styled.div`
     padding-bottom: 40px;
     border-radius: 16px;
     background-color:${({ theme }) => theme.colors.backgroundSecondary};
+
     @media (min-width: 768px) {
         max-width: 704px;
     }
@@ -248,6 +249,9 @@ export const Button = styled(motion.button)`
     }
     @media (min-width: 768px) {
         padding: 15px 84px;
+    }
+    &:disabled{
+        opacity:0.75;
     }
 `;
 

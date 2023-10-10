@@ -15,7 +15,7 @@ import { useState } from 'react';
 
 axios.defaults.baseURL = 'https://goose-track-backend-q3re.onrender.com/api';
 
-export const UserInfo = ({ setCurrentAvatar, avatarURL, userName }) => {
+export const UserInfo = ({ setCurrentAvatar, avatarURL, userName, setIsFormChanged }) => {
     const [avatar, setAvatar] = useState(null);
 
     const handleChange = async e => {
@@ -26,6 +26,7 @@ export const UserInfo = ({ setCurrentAvatar, avatarURL, userName }) => {
             data: { newUser },
         } = await axios.patch('/users/edit', formData);
         setAvatar(newUser.avatarURL);
+        setIsFormChanged(true);
     };
 
     return (
