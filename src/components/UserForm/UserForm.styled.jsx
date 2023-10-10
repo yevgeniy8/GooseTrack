@@ -240,7 +240,7 @@ export const Button = styled(motion.button)`
 
     &:hover,
     &:focus {
-        background-color: #1d56ac;
+        background-color: ${({ theme }) => theme.colors.backgroundBtnHover};
         color: ${({ theme }) => theme.colors.white};
     }
     @media (min-width: 768px) {
