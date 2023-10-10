@@ -30,7 +30,7 @@ const CalendarTable = () => {
     const handleNavToDay = selectedDate => {
         localStorage.setItem('type', 'day');
         localStorage.setItem('date', selectedDate);
-        // navigate(`/calendar/day/${selectedDate}`);
+        navigate(`/calendar/day/${selectedDate}`);
     };
 
     const [modalOpen, setModalOpen] = useState(false);
