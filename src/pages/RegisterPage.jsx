@@ -63,23 +63,19 @@ const LinkToLogin = styled(NavLink)`
     line-height: 14px;
     text-decoration-line: underline;
     padding: 14px 103px;
-    padding-bottom: 14px;
-    padding-top: 14px;
-    transition: all 500ms cubic-bezier(0.4, 0, 0.2, 1);
-
-    &:hover,
-    &:focus {
-        background-color: #1d56ac;
-        color: ${({ theme }) => theme.colors.white};
-        border-radius: 16px;
-        box-shadow: 4px 2px 16px 0px rgba(136, 165, 191, 0.48);
-    }
+    border-radius: 16px;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+        color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
     @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
         margin-top: 24px;
         font-size: 18px;
         line-height: 24px;
         width: 400px;
+        &:hover {
+            background-color: #1d56ac;
+            color: ${({ theme }) => theme.colors.white};
+        }
     }
 `;
 

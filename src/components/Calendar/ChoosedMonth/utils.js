@@ -65,5 +65,21 @@ export const prevMonth = (date, cb) => {
 export const getSortedDays = date => {
     const daysInMonth = range(getDaysInMonth(date));
     const index = new Date(date.getFullYear(), date.getMonth(), 1).getDay();
-    return [...Array(index === 0 ? 6 : index - 1), ...daysInMonth];
+    const lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+    const lastIndex = lastDay.getDay();
+
+    return [
+        ...Array(index === 0 ? 6 : index - 1),
+        ...daysInMonth,
+        ...Array(lastIndex === 0 ? 0 : 7 - lastIndex),
+    ];
 };
+
+// export const priorityColors = {
+//     colorLow: '#3E85F3',
+//     bgColorLow: '#CEEEFD',
+//     colorMedium: '#F3B249',
+//     bgColorMedium: '#FCF0D4',
+//     colorHgh: '#EA3D65',
+//     bgColorHigh: '#FFD2DD',
+// };

@@ -1,35 +1,37 @@
 import useAuth from 'hooks/useAuth';
-
+import hotBirthday from '../../../images/birthday.svg';
+import { getCurrentDate, isBirthdayToday, getFirstName } from 'helpers';
 import {
     InfoContainer,
     NameP,
     AvatarDiv,
+    Img,
     FirstLetterOfName,
+    BirthdayDiv,
 } from './UserInfo.styled';
 
 const UserInfo = () => {
     const { user } = useAuth();
+    const { name, avatarURL, birthday } = user;
+    const userBirthday = new Date(birthday);
+    const currentDate = getCurrentDate();
+    const isBirthday = isBirthdayToday(userBirthday, currentDate);
+    const firstName = getFirstName(name);
 
-    // if (!user) {
-    //     return console.log('bbwvenvenvlev');
-    // }
-
-    const { name = '', avatarURL } = user;
-    // const firstLetterOfUserName = name[0];
-
-    // console.log(avatarURL);
     return (
         <InfoContainer>
-            {name ? <NameP>{name}</NameP> : <NameP>User</NameP>}
+            {name ? <NameP>{firstName}</NameP> : <NameP>User</NameP>}
             <AvatarDiv>
                 {(avatarURL === '' || !avatarURL) && name ? (
-                    <FirstLetterOfName>
-                        {/* {firstLetterOfUserName} */}
-                        {name[0]}
-                    </FirstLetterOfName>
+                    <FirstLetterOfName>{name[0]}</FirstLetterOfName>
                 ) : avatarURL !== '' ? (
-                    <img src={avatarURL} alt={name} />
+                    <Img src={avatarURL} alt={name} />
                 ) : null}
+                {isBirthday && (
+                    <BirthdayDiv>
+                        <img src={hotBirthday} alt="Birthday" />
+                    </BirthdayDiv>
+                )}
             </AvatarDiv>
         </InfoContainer>
     );
