@@ -1,47 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import styled from '@emotion/styled';
 import CalendarToolbar from 'components/Calendar/CalendarToolbar/CalendarToolbar';
-import { Outlet, useNavigate } from 'react-router';
-import moment from 'moment';
+import { Outlet } from 'react-router';
 
 const CalendarPage = () => {
-    const navigate = useNavigate();
-    const [currentDate, setCurrentDate] = useState(
-        localStorage.getItem('date') || moment().format('YYYY-MM-DD').toString()
-    );
-    const [format, setFormat] = useState(
-        localStorage.getItem('type') || 'month'
-    );
-
-    useEffect(() => {
-        let date;
-        setFormat(localStorage.getItem('type') || 'month');
-        setCurrentDate(
-            localStorage.getItem('date') ||
-                moment().format('YYYY-MM-DD').toString()
-        );
-        switch (format) {
-            case 'month':
-                date = moment(currentDate).format('YYYY-MM');
-                navigate(`/calendar/month/${date}`);
-                break;
-            case 'day':
-                date = moment(currentDate).format('YYYY-MM-DD');
-                navigate(`/calendar/day/${date}`);
-                break;
-            default:
-                return;
-        }
-    }, [format, navigate, currentDate]);
-
     return (
         <CalendarContainer>
-            <CalendarToolbar
-                currentDate={currentDate}
-                setCurrentDate={setCurrentDate}
-                format={format}
-                setFormat={setFormat}
-            />
+            <CalendarToolbar />
             <Outlet />
         </CalendarContainer>
     );

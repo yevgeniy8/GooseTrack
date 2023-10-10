@@ -16,16 +16,39 @@ import {
     BtnMonth,
     BtnDay,
 } from './CalendarToolbar.styled';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const CalendarToolbar = ({
-    currentDate,
-    setCurrentDate,
-    format,
-    setFormat,
-}) => {
-    // const month = moment(currentDate).format('YYYY-MM');
-    // const day = moment(currentDate).format('YYYY-MM-DD');
+const CalendarToolbar = () => {
+    const navigate = useNavigate();
+    const [currentDate, setCurrentDate] = useState(
+        localStorage.getItem('date') || moment().format('YYYY-MM-DD').toString()
+    );
+    const [format, setFormat] = useState(
+        localStorage.getItem('type') || 'month'
+    );
+
+    useEffect(() => {
+        let date;
+        setFormat(localStorage.getItem('type') || 'month');
+        setCurrentDate(
+            localStorage.getItem('date') ||
+                moment().format('YYYY-MM-DD').toString()
+        );
+
+        switch (format) {
+            case 'month':
+                date = moment(currentDate).format('YYYY-MM');
+                navigate(`/calendar/month/${date}`);
+                break;
+            case 'day':
+                date = moment(currentDate).format('YYYY-MM-DD');
+                navigate(`/calendar/day/${date}`);
+                break;
+            default:
+                return;
+        }
+    }, [currentDate, format, navigate]);
 
     const handlePrevDate = format => {
         const date = moment(currentDate)
@@ -55,14 +78,6 @@ const CalendarToolbar = ({
                 return format;
         }
     };
-
-    // useEffect(() => {
-    //     setFormat(localStorage.getItem('type') || 'month');
-    //     setCurrentDate(
-    //         localStorage.getItem('date') ||
-    //             moment().format('YYYY-MM-DD').toString()
-    //     );
-    // });
 
     return (
         <ToolbarContainer>

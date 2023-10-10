@@ -28,13 +28,9 @@ const CalendarTable = () => {
     }, [currentDate, dispatch]);
 
     const handleNavToDay = selectedDate => {
-        // const day = moment(selectedDate).format('YYYY-MM-DD');
-        // localStorage.getItem('type');
         localStorage.setItem('type', 'day');
         localStorage.setItem('date', selectedDate);
-
-        navigate(`/calendar/day/${selectedDate}`);
-        // return `/calendar/day/${selectedDate}`;
+        // navigate(`/calendar/day/${selectedDate}`);
     };
 
     const [modalOpen, setModalOpen] = useState(false);
