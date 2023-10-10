@@ -28,9 +28,11 @@ import { getCurrentDate, filterUncompletedTasks, getPageTitle } from 'helpers';
 export const Header = ({ onOpenClick }) => {
     const userTasks = useSelector(selectTasks);
     const location = useLocation().pathname;
+
     const currentDate = getCurrentDate();
     const filteredTasks = filterUncompletedTasks(userTasks, currentDate);
     const pageTitle = getPageTitle(location);
+    const hasUncompletedTask = filteredTasks.length > 0;
 
     const [isOpenModal, setIsOpenModal] = useState(false);
 
@@ -41,8 +43,6 @@ export const Header = ({ onOpenClick }) => {
     const hiddenAddFeedbackModal = () => {
         setIsOpenModal(false);
     };
-
-    const hasUncompletedTask = filteredTasks.length > 0;
 
     const locationCurrentDay = location.includes(
         `/calendar/day/${currentDate}`
