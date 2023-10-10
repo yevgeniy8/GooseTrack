@@ -44,14 +44,14 @@ export const EditBtn = styled.button`
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: ${({ theme }) => theme.colors.backgroundPencil};
     border: none;
     width: 30px;
     height: 30px;
     border-radius: 50%;
     stroke: rgba(62, 133, 243, 1);
-    fill: ${({ theme }) => theme.colors.backgroundPencel};
-    background-color: ${({ theme }) => theme.colors.backgroundPencel};
-
+    /* fill: ${({ theme }) => theme.colors.backgroundPencil}; */
+    
     transition: stroke 300ms cubic-bezier(0.4, 0, 0.2, 1);
 
     &:hover,
@@ -108,7 +108,7 @@ export const Input = styled(Field)`
 
     background: ${({ theme }) => theme.colors.backgroundModalTaskForm};
     border-radius: 8px;
-    border: ${({ theme }) => theme.borders.modalTask};
+    border: ${({ theme }) => theme.borders.calendar};
 
     @media (min-width: 768px) {
         width: 404px;
