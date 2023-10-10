@@ -28,8 +28,11 @@ const handleAddFulfilled = (state, action) => {
 };
 
 const handleEditFulfilled = (state, action) => {
+    console.log(action.payload);
     state.userTask = action.payload;
-    const index = state.tasks.findIndex(task => task.id === action.payload._id);
+    const index = state.tasks.findIndex(
+        task => task._id === action.payload._id
+    );
     state.tasks.splice(index, 1, action.payload);
     state.isLoading = false;
     state.error = null;
