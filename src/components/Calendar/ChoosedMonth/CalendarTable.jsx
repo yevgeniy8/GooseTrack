@@ -31,6 +31,8 @@ const CalendarTable = () => {
         // const day = moment(selectedDate).format('YYYY-MM-DD');
         // localStorage.getItem('type');
         localStorage.setItem('type', 'day');
+        localStorage.setItem('date', selectedDate);
+
         navigate(`/calendar/day/${selectedDate}`);
         // return `/calendar/day/${selectedDate}`;
     };

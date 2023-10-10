@@ -56,9 +56,13 @@ const CalendarToolbar = ({
         }
     };
 
-    useEffect(() => {
-        setFormat(localStorage.getItem('type') || 'month');
-    });
+    // useEffect(() => {
+    //     setFormat(localStorage.getItem('type') || 'month');
+    //     setCurrentDate(
+    //         localStorage.getItem('date') ||
+    //             moment().format('YYYY-MM-DD').toString()
+    //     );
+    // });
 
     return (
         <ToolbarContainer>
