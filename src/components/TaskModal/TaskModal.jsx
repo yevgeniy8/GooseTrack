@@ -1,10 +1,15 @@
 import Modal from '../Modal/Modal';
 import { TaskForm } from './TaskForm/TaskForm';
 
-export const TaskModal = ({ value, closeModal }) => {
+export const TaskModal = ({ action, value, closeModal, task }) => {
     return (
         <Modal onClose={closeModal}>
-            <TaskForm value={value} onClose={closeModal} />
+            <TaskForm
+                action={action}
+                value={value}
+                onClose={closeModal}
+                task={task}
+            />
         </Modal>
     );
 };

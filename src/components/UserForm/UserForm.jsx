@@ -52,15 +52,9 @@ export const UserForm = () => {
             formData.append('avatar', currentAvatar);
         }
 
-        try {
-        
-           dispatch(editUser(formData));
-          
-            actions.resetForm();
-          } catch (error) {
-           
-            console.error( error);
-          }
+        dispatch(editUser(formData));
+
+        // actions.resetForm();
     };
 
     return (

@@ -2,17 +2,34 @@ import Icons from '../../../../images/icons.svg';
 import { Icon, CardEditMenu, CardEditBtn } from './TaskToolbar.styled';
 import {} from './TaskColumnCard.styled';
 
-const TaskToolbar = () => {
+import { deleteTask } from 'redux/calendar/calendarOperations';
+
+import { TaskModal } from 'components/TaskModal/TaskModal';
+
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+
+const TaskToolbar = ({ taskId, task }) => {
+    const [isOpenModal, setIsOpenModal] = useState(false);
+    const dispatch = useDispatch();
+
+    const handleEditClick = () => setIsOpenModal(true);
+    const closeModal = () => {
+        setIsOpenModal(false);
+    };
+
     const handleAddClick = () => {
         alert('Вы нажали на кнопку "Добавить"');
     };
 
-    const handleEditClick = () => {
-        alert('Вы нажали на кнопку "Редактировать"');
-    };
+    // const handleEditClick = () => {
+    //     setIsOpenModal(!isOpenModal);
+    //     // alert('Вы нажали на кнопку "Редактировать"');
+    // };
 
     const handleDeleteClick = () => {
-        alert('Вы нажали на кнопку "Удалить"');
+        dispatch(deleteTask(taskId));
+        // alert('Вы нажали на кнопку "Удалить"');
     };
 
     return (
@@ -40,6 +57,14 @@ const TaskToolbar = () => {
                     </CardEditBtn>
                 </li>
             </CardEditMenu>
+
+            {isOpenModal && (
+                <TaskModal
+                    action={'edit'}
+                    closeModal={closeModal}
+                    task={task}
+                />
+            )}
         </>
     );
 };
