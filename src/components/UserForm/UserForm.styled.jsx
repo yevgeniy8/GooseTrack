@@ -13,11 +13,11 @@ export const MainContainer = styled.div`
     padding-right: 18px;
     padding-bottom: 40px;
     border-radius: 16px;
-    background-color: #fff;
+    background-color:${({ theme }) => theme.colors.backgroundSecondary};
     @media (min-width: 768px) {
         max-width: 704px;
     }
-    @media (min-width: 1140px) {
+    @media (min-width: 1440px) {
         max-width: 1087px;
     }
 `;
@@ -32,12 +32,18 @@ export const AvatarContainer = styled(motion.div)`
     margin-right: auto;
 `;
 export const ImgContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-bottom: 18px;
     width: 72px;
     height: 76px;
+    border: 2px solid #3e85f3;
+    border-radius: 50%;
+    background-color: ${({ theme }) => theme.colors.backgroundSecondary};
     @media (min-width: 768px) {
         width: 124px;
-        height: 130px;
+        height: 124px;
         margin-bottom: 20px;
     }
 `;
@@ -45,11 +51,13 @@ export const ImgContainer = styled.div`
 export const ImgAvatar = styled.img`
     width: 100%;
     height: 100%;
+    /* width: 48px;
+    height: 48px; */
     border-radius: 50%;
 
     object-fit: cover;
     object-position: 50% 50%;
-    margin-bottom: 18px;
+    
 `;
 
 export const InputFile = styled.input`
@@ -81,7 +89,7 @@ export const SvgPlus = styled.svg`
 `;
 
 export const UserName = styled.h2`
-    color: #343434;
+    color: ${({ theme }) => theme.colors.textPrimary};
     font-family: Inter;
     font-size: 14px;
     font-weight: 700;
@@ -93,7 +101,7 @@ export const UserName = styled.h2`
 `;
 
 export const UserP = styled.p`
-    color: #343434;
+    color: ${({ theme }) => theme.colors.textPrimary};
     font-size: 12px;
     font-weight: 600;
     font-family: Inter;
@@ -113,14 +121,14 @@ export const StyledForm = styled(Form)`
         max-width: 354px;
         margin: 0 auto;
     }
-    @media (min-width: 1140px) {
+    @media (min-width: 1440px) {
         max-width: 758px;
     }
 `;
 
 export const FieldsWrap = styled(motion.div)`
     width: 100%;
-    @media (min-width: 1140px) {
+    @media (min-width: 1440px) {
         max-width: 758px;
         display: grid;
         grid-template: repeat(3, 1fr) / repeat(2, 1fr);
@@ -143,8 +151,7 @@ export const Label = styled.label`
 
 export const Span = styled.span`
     display: block;
-    color: #111;
-    font-family: Inter;
+    color: ${({ theme }) => theme.colors.textPrimary};
     font-size: 12px;
     line-height: 1.166;
     margin-bottom: 8px;
@@ -160,7 +167,7 @@ export const LabelWrap = styled.div`
     @media (min-width: 768px) {
         margin-bottom: 24px;
     }
-    @media (min-width: 1140px) {
+    @media (min-width: 1440px) {
         width: 354px;
     }
 `;
@@ -172,8 +179,6 @@ export const InputForm = styled(Field)`
     border: 1px solid rgba(220, 227, 229, 0.6);
 
     outline: none;
-    font-family: Inter;
-
     line-height: 1.28;
 
     &:hover,
@@ -182,7 +187,7 @@ export const InputForm = styled(Field)`
     }
 
     ::placeholder {
-        color: #111;
+        color: ${({ theme }) => theme.colors.textPrimary};
         font-weight: 600;
         font-size: 14px;
     }
@@ -230,13 +235,11 @@ export const Button = styled(motion.button)`
     box-shadow: 4px 2px 16px 0px rgba(136, 165, 191, 0.48);
 
     color: #fff;
-    font-family: Inter;
     font-size: 14px;
     font-weight: 600;
     line-height: 1.333;
     letter-spacing: -0.36px;
-
-    transition: all 500ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color 500ms cubic-bezier(0.4, 0, 0.2, 1);
 
     &:hover,
     &:focus {
