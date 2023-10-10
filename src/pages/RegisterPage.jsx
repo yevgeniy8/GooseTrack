@@ -73,7 +73,7 @@ const LinkToLogin = styled(NavLink)`
         line-height: 24px;
         width: 400px;
         &:hover {
-            background-color: #1d56ac;
+            background-color: ${({ theme }) => theme.colors.backgroundBtnHover};
             color: ${({ theme }) => theme.colors.white};
         }
     }

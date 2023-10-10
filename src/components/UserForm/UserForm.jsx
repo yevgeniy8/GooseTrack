@@ -1,128 +1,81 @@
 import React, { useState } from 'react';
 import { Formik } from 'formik';
-import * as yup from 'yup';
-import sprite from '../../images/icons.svg';
-
+import { FieldsWrap } from './UserForm.styled';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectUser } from 'redux/auth/authSelectors';
+import { editUser } from 'redux/auth/authOperations';
+import { UserInfo } from './UserInfo';
+import handleInput from './helpers/handleInput';
+import schema from './schemas/userSchema';
+import { enGB } from 'date-fns/esm/locale';
+import { registerLocale } from 'react-datepicker';
 import {
-    AvatarContainer,
     Button,
     Error,
-    IconDone,
-    IconErr,
-    ImgAvatar,
-    InputFile,
     InputForm,
     Label,
     LabelWrap,
     MainContainer,
     Span,
     StyledForm,
-    SvgPlus,
-    UserName,
-    UserP,
 } from './UserForm.styled';
-import { ImgContainer } from './UserForm.styled';
-import { FieldsWrap } from './UserForm.styled';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectUser } from 'redux/auth/authSelectors';
 import {
-    DatePickWrapper,
     DatePickerStyled,
+    DatePickerWrapp,
 } from './ReactDatePickerCalendar.styled';
-import moment from 'moment/moment';
-import { editUser } from 'redux/auth/authOperations';
 
-const dayMoment = moment().format('DD/MM/YYYY');
-const emailRegexp = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
-const phoneRegexp = /^\+380\d{9}$/;
-
-const schema = yup.object().shape({
-    name: yup.string().max(16).required(),
-    email: yup
-        .string()
-        .email()
-        .matches(emailRegexp, 'email invalid')
-        .required(),
-    birthday: yup.date().max(dayMoment, 'Birthday must be earlier than today'),
-    phone: yup.string().matches(phoneRegexp),
-    skype: yup.string().max(16),
-});
-
-function handleInput(errors, touched, fieldName) {
-    if (errors[fieldName] && touched[fieldName]) {
-        return (
-            <IconErr width={24} height={24}>
-                <use href={`${sprite}#error-outline`} />
-            </IconErr>
-        );
-    } else if (touched[fieldName]) {
-        return (
-            <IconDone width={24} height={24}>
-                <use href={`${sprite}#done`} />
-            </IconDone>
-        );
-    }
-}
-
+registerLocale('en', enGB);
 export const UserForm = () => {
-    const [currentAvatar, setCurrentAvatar] = useState(null);
-    const [currentBirthday, setCurrentBirthday] = useState(new Date());
-
     const dispatch = useDispatch();
+    const [currentAvatar, setCurrentAvatar] = useState(null);
 
     const user = useSelector(selectUser);
-    // console.log(user);
 
     const initialValues = {
         name: user.name || '',
         email: user.email || '',
         phone: user.phone || '',
         skype: user.skype || '',
+        birthday: user.birthday || new Date(),
     };
 
-    const handleChange = e => {
-        setCurrentAvatar(e.target.files[0]);
-        console.log(currentAvatar);
-    };
+    const handleSubmit = ({ name, phone, email, skype, birthday }, actions) => {
+        const formData = new FormData();
+        formData.append('name', name);
+        formData.append('email', email);
+        formData.append('phone', phone);
+        formData.append('skype', skype);
+        formData.append('birthday', birthday);
+        if (currentAvatar) {
+            formData.append('avatar', currentAvatar);
+        }
 
-    const handleSubmit = (values, actions) => {
-        const newData = {
-            ...values,
-            birthday: currentBirthday,
-        };
+        dispatch(editUser(formData));
 
-        dispatch(editUser(newData));
-
-        actions.resetForm();
+        // actions.resetForm();
     };
 
     return (
         <MainContainer>
-            <AvatarContainer
-                animate={{ y: -50 }}
-                transition={{ ease: 'easeOut', duration: 2 }}
-            >
-                <ImgContainer>
-                    <ImgAvatar src={user.avatarURL} alt="avatar" />
-                </ImgContainer>
-                <InputFile
-                    type="file"
-                    onChange={handleChange}
-                    name="avatar"
-                    accept="image/png, image/jpeg, image/jpg"
-                />
-                <SvgPlus width="14" height="14">
-                    <use href={`${sprite}#icon-image`} />
-                </SvgPlus>
-                <UserName>{user.name || 'User Name'}</UserName>
-                <UserP>User</UserP>
-            </AvatarContainer>
+            <UserInfo
+                avatarURL={user.avatarURL}
+                userName={user.name}
+                setCurrentAvatar={setCurrentAvatar}
+            />
             <Formik
                 initialValues={initialValues}
                 validationSchema={schema}
                 onSubmit={handleSubmit}
             >
-                {({ errors, touched, values, handleChange }) => {
+                {({
+                    errors,
+                    touched,
+                    values,
+                    dirty,
+                    handleChange,
+                    setFieldValue,
+                    setFieldTouched,
+                }) => {
                     return (
                         <StyledForm>
                             <FieldsWrap
@@ -151,28 +104,48 @@ export const UserForm = () => {
                                     </Label>
                                 </LabelWrap>
                                 <LabelWrap>
-                                    <Label htmlFor="">
+                                    <Label htmlFor="name">
                                         <Span> Birthday</Span>
-                                        <DatePickWrapper>
+                                        <DatePickerWrapp>
                                             <DatePickerStyled
-                                                selected={currentBirthday}
-                                                onChange={date =>
-                                                    setCurrentBirthday(date)
+                                                name="birthday"
+                                                selected={
+                                                    new Date(values.birthday) ||
+                                                    new Date()
+                                                }
+                                                dateFormat="yyyy/MM/dd"
+                                                maxDate={new Date()}
+                                                locale="en"
+                                                showYearDropdown
+                                                scrollableYearDropdown
+                                                className={
+                                                    errors.birthday &&
+                                                    touched.birthday
+                                                        ? 'input-error'
+                                                        : touched.birthday
+                                                        ? 'input-valid'
+                                                        : ''
                                                 }
                                                 formatWeekDay={nameOfDay =>
                                                     nameOfDay.charAt(0)
                                                 }
-                                                name="birthday"
-                                                maxDate={new Date()}
-                                                className={
-                                                    errors.birthday
-                                                        ? 'input-error'
-                                                        : ''
-                                                }
-                                                showYearDropdown
-                                                value={user.birthday}
+                                                // showYearDropdown
+                                                // yearDropdownItemNumber={30}
+                                                // scrollableYearDropdown
+                                                onChange={date => {
+                                                    setFieldValue(
+                                                        'birthday',
+                                                        date
+                                                    );
+                                                }}
+                                                onBlur={() => {
+                                                    setFieldTouched(
+                                                        'birthday',
+                                                        true
+                                                    );
+                                                }}
                                             />
-                                        </DatePickWrapper>
+                                        </DatePickerWrapp>
                                         <Error
                                             component="div"
                                             name="birthday"
@@ -184,7 +157,6 @@ export const UserForm = () => {
                                         )}
                                     </Label>
                                 </LabelWrap>
-
                                 <LabelWrap>
                                     <Label htmlFor="">
                                         <Span>Email</Span>
@@ -254,6 +226,7 @@ export const UserForm = () => {
                                 animate={{ y: -25 }}
                                 transition={{ ease: 'easeOut', duration: 2 }}
                                 type="submit"
+                                disabled={!dirty}
                             >
                                 Save changes
                             </Button>
