@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useParams } from 'react';
+import React, { useEffect } from 'react';
 import styled from '@emotion/styled';
 import CalendarToolbar from 'components/Calendar/CalendarToolbar/CalendarToolbar';
 import { Outlet, useNavigate } from 'react-router';
@@ -17,8 +17,6 @@ const CalendarPage = () => {
         const date =
             localStorage.getItem('date') ||
             moment().format('YYYY-MM-DD').toString();
-
-        console.log(moment(date).format('YYYY-MM'));
 
         if (format === 'month') {
             navigate(`/calendar/month/${moment(date).format('YYYY-MM')}`);

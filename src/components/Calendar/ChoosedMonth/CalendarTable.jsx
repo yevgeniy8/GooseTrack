@@ -12,7 +12,6 @@ import { useParams } from 'react-router';
 import { TaskModal } from '../../TaskModal/TaskModal';
 import TaskList from './TaskList';
 import { NavLink } from 'react-router-dom';
-import { Navigate } from 'react-router-dom';
 
 const CalendarTable = () => {
     const { currentDate } = useParams();
@@ -50,9 +49,13 @@ const CalendarTable = () => {
             console.log(day);
         }
 
+        // const loc = localStorage.getItem('type');
+
+        // console.log(loc);
+
         localStorage.setItem('type', 'day');
         localStorage.setItem('date', currentDate + '-' + day);
-        navigate(`/calendar/day/${currentDate + '-' + day}`);
+        navigate(`/day/${currentDate + '-' + day}`);
     };
 
     return (
