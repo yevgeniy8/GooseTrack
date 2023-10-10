@@ -65,7 +65,7 @@ const CalendarTable = () => {
                             date.getMonth() + 1
                         }-${day}`}
                     >
-                        <div
+                        <NavLink
                             onClick={() => handleClick(day)}
                             // to={`/calendar/day/${currentDate + '-' + day}`}
                             // to={'/calendar/day/2023-10-10'}
@@ -86,7 +86,7 @@ const CalendarTable = () => {
                             >
                                 {day}
                             </span>
-                        </div>
+                        </NavLink>
                         <TaskList
                             openModal={openModal}
                             currentDate={currentDate}
