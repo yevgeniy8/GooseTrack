@@ -11,7 +11,9 @@ export const Table = styled.div`
         `grid-template-rows: repeat(${props.is28Days ? 4 : 5}, 1fr);`}
     div {
         display: flex;
-        justify-content: space-between;
+        gap: 4px;
+        justify-content: space-around;
+        // justify-content: space-between;
         flex-direction: column;
         align-items: flex-end;
         padding: 4px;

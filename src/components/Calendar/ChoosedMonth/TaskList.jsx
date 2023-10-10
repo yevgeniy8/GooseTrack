@@ -21,7 +21,7 @@ const TaskList = ({ currentDate, day, tasks, openModal }) => {
                     color={`color${task.priority}`} //подтянется, когда пропишем цвета в переменных
                     bg={`bgcolor${task.priority}`} //подтянется, когда пропишем цвета в переменных
                 >
-                    <p>{task.title}</p>
+                    {task.title}
                 </Task>
             ))}
         </List>
@@ -34,13 +34,13 @@ const List = styled.ul`
     list-style: none;
     height: 65px;
     max-width: 44px;
-    padding: 0 2px;
+    padding: 2px;
     margin: 0;
     overflow: hidden;
     // overflow-y: auto;
     @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
         max-width: 100%;
-        padding: 0 4px;
+        padding: 4px;
     }
 `;
 const Task = styled.li`
