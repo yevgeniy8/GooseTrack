@@ -16,17 +16,16 @@ import LogoRetina from '../../images/logo/logo-GOOSE-desk-2x.png';
 import Logo from '../../images/logo/logo-GOOSE-desk-1x.png';
 import Icons from '../../images/icons.svg';
 
-const SideBar = ({ onCloseClick, isOpen }) => {
+const SideBar = ({ onClick, toggleSideBarShow }) => {
     const sideBarRef = useRef(null);
 
     useEffect(() => {
         const handleClickOutside = event => {
             if (
-                isOpen &&
                 sideBarRef.current &&
                 !sideBarRef.current.contains(event.target)
             ) {
-                onCloseClick();
+                toggleSideBarShow(false);
             }
         };
 
@@ -34,10 +33,10 @@ const SideBar = ({ onCloseClick, isOpen }) => {
         return () => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
-    }, [isOpen, onCloseClick]);
+    }, [toggleSideBarShow]);
 
     return (
-        <Wrapper isOpen={isOpen} ref={sideBarRef}>
+        <Wrapper ref={sideBarRef}>
             <div>
                 <LogoWrapper>
                     <picture>
@@ -51,13 +50,16 @@ const SideBar = ({ onCloseClick, isOpen }) => {
                         G<SpanTitle>oo</SpanTitle>
                         seTrack
                     </LogoTitle>
-                    <CloseBtn type="button" onClick={onCloseClick}>
+                    <CloseBtn
+                        type="button"
+                        onClick={() => toggleSideBarShow(false)}
+                    >
                         <IconX stroke="black">
                             <use href={`${Icons}#x-close`} />
                         </IconX>
                     </CloseBtn>
                 </LogoWrapper>
-                <UserNav onCloseClick={onCloseClick} />
+                <UserNav onLinkClick={() => toggleSideBarShow(false)} />
             </div>
             <BtnContainer>
                 <LogoutBtn />
