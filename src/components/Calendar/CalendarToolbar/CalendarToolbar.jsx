@@ -24,7 +24,7 @@ const CalendarToolbar = () => {
     const [format, setFormat] = useState('');
 
     const month = moment(currentDate).format('YYYY-MM');
-    const day = moment(currentDate).format('YYYY-MM-DD');
+    // const day = moment(currentDate).format('YYYY-MM-DD');
 
     const date = useParams();
     // console.log(date);
@@ -67,22 +67,22 @@ const CalendarToolbar = () => {
         }
     };
 
-    useEffect(() => {
-        const storedDate = localStorage.getItem('date');
-        const storedType = localStorage.getItem('type');
+    // useEffect(() => {
+    //     const storedDate = localStorage.getItem('date');
+    //     const storedType = localStorage.getItem('type');
 
-        if (storedDate) {
-            setCurrentDate(storedDate);
-        } else {
-            setCurrentDate(moment().format('YYYY-MM-DD'));
-        }
+    //     if (storedDate) {
+    //         setCurrentDate(storedDate);
+    //     } else {
+    //         setCurrentDate(moment().format('YYYY-MM-DD'));
+    //     }
 
-        if (storedType) {
-            setFormat(storedType);
-        } else {
-            setFormat('month');
-        }
-    }, []);
+    //     if (storedType) {
+    //         setFormat(storedType);
+    //     } else {
+    //         setFormat('month');
+    //     }
+    // }, []);
 
     const handleChangeType = e => {
         switch (e.currentTarget.textContent) {
@@ -92,9 +92,10 @@ const CalendarToolbar = () => {
                 navigate(`month/${month}`);
                 break;
             case 'Day':
+                // console.log(localStorage.getItem('date'));
                 setFormat('day');
                 localStorage.setItem('type', 'day');
-                navigate(`day/${day}`);
+                navigate(`day/${localStorage.getItem('date')}`);
                 break;
             default:
                 return format;

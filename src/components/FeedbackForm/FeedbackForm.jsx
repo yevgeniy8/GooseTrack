@@ -29,7 +29,7 @@ import {
     deleteReview,
     editReview,
 } from 'redux/reviews/reviewsOperations';
-import { changeRating } from 'redux/reviews/reviewsSlice';
+// import { changeRating } from 'redux/reviews/reviewsSlice';
 import { Rating } from '@smastrom/react-rating';
 import '@smastrom/react-rating/style.css';
 
