@@ -4,7 +4,9 @@ import { tablet, min } from 'styles/media';
 export const Table = styled.div`
     display: grid;
     grid-template-columns: repeat(7, 1fr);
+    border: ${({ theme }) => theme.borders.calendar};
     border-radius: 8px;
+    overflow: hidden;
     ${props => props.fullheight}
     ${props =>
         props.fullheight &&
@@ -27,7 +29,7 @@ export const Table = styled.div`
             `background-color ${theme.animations.duration} ${theme.animations.cubicBezier}, border ${theme.animations.duration} ${theme.animations.cubicBezier}`};
 
         ${min(tablet)} {
-            max-width: 155px;
+            max-width: 156px;
             height: 125px;
         }
         span {
@@ -40,7 +42,7 @@ export const Table = styled.div`
             width: 22px;
             height: 22px;
             border-radius: 8px;
-            padding: 4px 8px;
+            padding: 4px 6px;
             // margin: 8px 4px 0 0;
             // height: fit-content;
             color: ${({ theme }) => theme.colors.textPrimary};
