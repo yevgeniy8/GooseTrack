@@ -1,52 +1,54 @@
-import React, { useEffect, useState, useParams } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from '@emotion/styled';
 import CalendarToolbar from 'components/Calendar/CalendarToolbar/CalendarToolbar';
 import { Outlet, useNavigate } from 'react-router';
 import moment from 'moment';
 
 const CalendarPage = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
+  const [currentDate, setCurrentDate] = useState(
+    localStorage.getItem('date') || moment().format('YYYY-MM-DD').toString()
+  );
+  const [format, setFormat] = useState(localStorage.getItem('type') || 'month');
 
-    useEffect(() => {
-        const month = moment().format('YYYY-MM').toString();
-        navigate(`/calendar/month/${month}`);
-    }, [navigate]);
+  useEffect(() => {
+    let date;
+    switch (format) {
+      case 'month':
+        date = moment(currentDate).format('YYYY-MM');
+        navigate(`/calendar/month/${date}`);
+        break;
+      case 'day':
+        date = moment(currentDate).format('YYYY-MM-DD');
+        navigate(`/calendar/day/${date}`);
+        break;
+      default:
+        return;
+    }
+  }, [format, navigate, currentDate]);
 
-    const format = localStorage.getItem('type') || 'month';
-    useEffect(() => {
-        const date =
-            localStorage.getItem('date') ||
-            moment().format('YYYY-MM-DD').toString();
-
-        console.log(moment(date).format('YYYY-MM'));
-
-        if (format === 'month') {
-            navigate(`/calendar/month/${moment(date).format('YYYY-MM')}`);
-        } else {
-            navigate(`/calendar/day/${date}`);
-        }
-
-        localStorage.setItem('date', date);
-        localStorage.setItem('type', format);
-    }, [navigate, format]);
-
-    return (
-        <CalendarContainer>
-            <CalendarToolbar />
-            <Outlet />
-        </CalendarContainer>
-    );
+  return (
+    <CalendarContainer>
+      <CalendarToolbar
+        currentDate={currentDate}
+        setCurrentDate={setCurrentDate}
+        format={format}
+        setFormat={setFormat}
+      />
+      <Outlet />
+    </CalendarContainer>
+  );
 };
 
 export default CalendarPage;
 
 const CalendarContainer = styled.div`
-    //   background-color: #f7f6f9;
-    //   max-width: 1085px;
-    // margin-top: 45px;
-    @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
-        margin-top: 0;
-    }
+  //   background-color: #f7f6f9;
+  //   max-width: 1085px;
+  // margin-top: 45px;
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
+    margin-top: 0;
+  }
 `;
 
 // import React, { useEffect } from 'react';

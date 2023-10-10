@@ -16,17 +16,15 @@ import {
     BtnMonth,
     BtnDay,
 } from './CalendarToolbar.styled';
-import { useNavigate } from 'react-router-dom';
-import { useEffect, useState } from 'react';
 
-const CalendarToolbar = () => {
-    const [currentDate, setCurrentDate] = useState('');
-    const [format, setFormat] = useState('');
-
-    const month = moment(currentDate).format('YYYY-MM');
-    const day = moment(currentDate).format('YYYY-MM-DD');
-
-    const navigate = useNavigate();
+const CalendarToolbar = ({
+    currentDate,
+    setCurrentDate,
+    format,
+    setFormat,
+}) => {
+    // const month = moment(currentDate).format('YYYY-MM');
+    // const day = moment(currentDate).format('YYYY-MM-DD');
 
     const handlePrevDate = format => {
         const date = moment(currentDate)
@@ -42,34 +40,15 @@ const CalendarToolbar = () => {
         localStorage.setItem('date', date);
     };
 
-    useEffect(() => {
-        const storedDate = localStorage.getItem('date');
-        const storedType = localStorage.getItem('type');
-
-        if (storedDate) {
-            setCurrentDate(storedDate);
-        } else {
-            setCurrentDate(moment().format('YYYY-MM-DD'));
-        }
-
-        if (storedType) {
-            setFormat(storedType);
-        } else {
-            setFormat('month');
-        }
-    }, []);
-
-    const handleChangeType = e => {
-        switch (e.currentTarget.textContent) {
+    const handleChangePeriod = evt => {
+        switch (evt.currentTarget.textContent) {
             case 'Month':
                 setFormat('month');
                 localStorage.setItem('type', 'month');
-                navigate(`month/${month}`);
                 break;
             case 'Day':
                 setFormat('day');
                 localStorage.setItem('type', 'day');
-                navigate(`day/${day}`);
                 break;
             default:
                 return format;
@@ -108,14 +87,14 @@ const CalendarToolbar = () => {
             <PeriodPaginator>
                 <BtnMonth
                     type="button"
-                    onClick={handleChangeType}
+                    onClick={handleChangePeriod}
                     className={format === 'month' ? 'active' : ''}
                 >
                     Month
                 </BtnMonth>
                 <BtnDay
                     type="button"
-                    onClick={handleChangeType}
+                    onClick={handleChangePeriod}
                     className={format === 'day' ? 'active' : ''}
                 >
                     Day
