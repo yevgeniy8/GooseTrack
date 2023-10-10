@@ -24,8 +24,8 @@ const CalendarTable = () => {
     const tasks = useSelector(selectTasks);
 
     useEffect(() => {
-        dispatch(fetchTasks());
-    }, [dispatch]);
+        dispatch(fetchTasks(currentDate));
+    }, [currentDate, dispatch]);
 
     const handleNavToDay = selectedDate => {
         // const day = moment(selectedDate).format('YYYY-MM-DD');
