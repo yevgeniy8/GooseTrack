@@ -4,13 +4,11 @@ import ColumnsTasksList from './ColumnsTasksList';
 import { Column } from './TasksColumn.styled';
 
 const TasksColumn = ({ header, tasks, value }) => {
-    const filterTasks = tasks.filter(task => task.category === value);
     return (
         <Column>
-            <ColumnHeadBar header={header} />
-
-            <ColumnsTasksList tasks={filterTasks} />
-            <AddTaskBtn />
+            <ColumnHeadBar header={header} value={value} />
+            <ColumnsTasksList tasks={tasks} />
+            <AddTaskBtn value={value} />
         </Column>
     );
 };

@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { tablet, desktop, min } from 'styles/media';
 
 export const BurgerMenuBtn = styled.button`
     display: flex;
@@ -14,12 +15,15 @@ export const BurgerMenuBtn = styled.button`
     height: 24px;
     stroke: ${({ theme }) => theme.colors.textPrimary};
 
-    @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
+    transition: ${({ theme }) =>
+        `stroke ${theme.animations.duration} ${theme.animations.cubicBezier}`};
+
+    ${min(tablet)} {
         width: 34px;
         height: 34px;
     }
 
-    @media screen and (min-width: ${({ theme }) => theme.breakpoints.l}) {
+    ${min(desktop)} {
         display: none;
     }
 `;
@@ -32,7 +36,7 @@ export const Svg = styled.svg`
 export const ImgWrapper = styled.div`
     display: none;
 
-    @media screen and (min-width: ${({ theme }) => theme.breakpoints.l}) {
+    ${min(desktop)} {
         display: flex;
         margin-right: 8px;
     }
@@ -43,9 +47,9 @@ export const HeaderContainer = styled.div`
     display: flex;
     align-items: center;
     margin-bottom: 64px;
-    background-color: ${({ theme }) => theme.colors.backgroundPrimary};
+    background-color: transparent;
 
-    @media screen and (min-width: ${({ theme }) => theme.breakpoints.l}) {
+    ${min(desktop)} {
         margin-bottom: 32px;
     }
 `;
@@ -53,7 +57,7 @@ export const HeaderContainer = styled.div`
 export const TextDiv = styled.div`
     display: none;
 
-    @media screen and (min-width: ${({ theme }) => theme.breakpoints.l}) {
+    ${min(desktop)} {
         display: flex;
         align-items: start;
         flex-direction: column;
@@ -85,7 +89,7 @@ export const UIComponentsWrapperDiv = styled.div`
     margin-left: auto;
     gap: 8px;
 
-    @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
+    ${min(tablet)} {
         gap: 14px;
     }
 `;
@@ -96,7 +100,7 @@ export const MenuWrapperDiv = styled.div`
     justify-content: center;
     gap: 18px;
 
-    @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
+    ${min(tablet)} {
         gap: 24px;
     }
 `;

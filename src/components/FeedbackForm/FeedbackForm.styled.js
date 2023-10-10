@@ -45,6 +45,7 @@ export const EditBtn = styled.button`
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: ${({ theme }) => theme.colors.backgroundPencil};
     border: none;
     width: 30px;
     height: 30px;
