@@ -4,8 +4,8 @@ import ThemeToggler from './ThemeToggler';
 import UserInfo from './UserInfo';
 import AddFeedbackBtn from './AddFeedbackBtn';
 import { AddFeedbackModal } from './AddFeedbackModal/AddFeedbackModal';
-import sprite from 'images/icons.svg';
 
+import sprite from 'images/icons.svg';
 import image1x from '../../images/calendar-page/goose_desktop_tablet_1x_motivation.png';
 import image2x from '../../images/calendar-page/goose_desktop_tablet_2x_motivation.png';
 
@@ -23,9 +23,16 @@ import {
 } from './Header.styled';
 import { useLocation } from 'react-router-dom';
 import { selectTasks } from 'redux/calendar/calendarSelector';
+import { getCurrentDate, filterUncompletedTasks, getPageTitle } from 'helpers';
 
 export const Header = ({ onOpenClick }) => {
     const userTasks = useSelector(selectTasks);
+    const location = useLocation().pathname;
+
+    const currentDate = getCurrentDate();
+    const filteredTasks = filterUncompletedTasks(userTasks, currentDate);
+    const pageTitle = getPageTitle(location);
+    const hasUncompletedTask = filteredTasks.length > 0;
 
     const [isOpenModal, setIsOpenModal] = useState(false);
 
@@ -37,21 +44,9 @@ export const Header = ({ onOpenClick }) => {
         setIsOpenModal(false);
     };
 
-    const location = useLocation().pathname;
-
-    const pageTitle = location.includes('/calendar')
-        ? 'Calendar'
-        : location.includes('/account')
-        ? 'User Profile'
-        : location.includes('/statistics')
-        ? 'Statistics'
-        : '';
-
-    const hasUncompletedTask = userTasks.some(
-        i => i.category === 'in-progress' || i.category === 'to-do'
+    const locationCurrentDay = location.includes(
+        `/calendar/day/${currentDate}`
     );
-
-    const locationIncludesDay = location.includes('/calendar/day');
 
     return (
         <header>
@@ -61,7 +56,7 @@ export const Header = ({ onOpenClick }) => {
                         <use href={`${sprite}#menu-01`} />
                     </Svg>
                 </BurgerMenuBtn>
-                {hasUncompletedTask && locationIncludesDay && (
+                {hasUncompletedTask && locationCurrentDay && (
                     <ImgWrapper>
                         <img
                             srcSet={`${image1x} 1x, ${image2x} 2x`}
@@ -75,7 +70,7 @@ export const Header = ({ onOpenClick }) => {
 
                 <TextDiv>
                     <TitleH2>{pageTitle}</TitleH2>
-                    {hasUncompletedTask && locationIncludesDay && (
+                    {hasUncompletedTask && locationCurrentDay && (
                         <MotivationTextP>
                             <Span>Let go</Span> of the past and focus on the
                             present!
