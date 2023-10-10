@@ -9,7 +9,7 @@ export const ContainerForm = styled.div`
     max-height: 469px;
     border-radius: 8px;
     padding: 40px 24px;
-    background-color: #fff;
+    background-color: ${({ theme }) => theme.colors.white};
 
     /* @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
         width: 100%;
@@ -28,7 +28,7 @@ export const ContainerForm = styled.div`
 
 export const Title = styled.h1`
     margin-bottom: 32px;
-    color: #3e85f3;
+    color: ${({ theme }) => theme.colors.brand};
     text-shadow: 0px 9.399999618530273px 57.6875px rgba(0, 0, 0, 0.04),
         0px 47px 355px rgba(0, 0, 0, 0.07);
     font-family: Inter;
@@ -49,7 +49,7 @@ export const Label = styled.label`
 
 export const Span = styled.span`
     display: block;
-    color: #111;
+    color: ${({ theme }) => theme.colors.black};
     font-family: Inter;
     font-size: 12px;
     font-style: normal;
@@ -77,7 +77,7 @@ export const InputForm = styled(Field)`
                 : '#3CBC81'
             : 'rgba(220, 227, 229, 0.6)'};
 
-    color: #111;
+    color: ${({ theme }) => theme.colors.black};
     outline: none;
     font-family: Inter;
     margin-bottom: 24px;
@@ -88,11 +88,11 @@ export const InputForm = styled(Field)`
 
     &:hover,
     &:focus {
-        border: 1px solid #111;
+        border: 1px solid ${({ theme }) => theme.colors.black};
     }
 
     ::placeholder {
-        color: #dce3e5;
+        color: ${({ theme }) => theme.colors.placeholder};
 
         font-weight: 400;
     }
@@ -134,26 +134,24 @@ export const Button = styled.button`
     gap: 11px;
 
     border-radius: 16px;
-    background-color: #3e85f3;
+    background-color: ${({ theme }) => theme.colors.brand};
     box-shadow: 4px 2px 16px 0px rgba(136, 165, 191, 0.48);
 
     border: none;
     outline: none;
 
-    color: #fff;
+    color: ${({ theme }) => theme.colors.white};
     font-family: Inter;
     font-size: 14px;
     font-style: normal;
     font-weight: 600;
     line-height: 18px;
     letter-spacing: -0.28px;
-    stroke: white;
-    fill: #3e85f3;
-    transition: background-color 500ms cubic-bezier(0.4, 0, 0.2, 1),
-        color 500ms cubic-bezier(0.4, 0, 0.2, 1),
-        fill 500ms cubic-bezier(0.4, 0, 0.2, 1),
-        stroke 500ms cubic-bezier(0.4, 0, 0.2, 1);
+    stroke: ${({ theme }) => theme.colors.white};
+    fill: ${({ theme }) => theme.colors.brand};
 
+    transition: ${({ theme }) =>
+        `background-color ${theme.animations.duration} ${theme.animations.cubicBezier}, color ${theme.animations.duration} ${theme.animations.cubicBezier}, fill ${theme.animations.duration} ${theme.animations.cubicBezier}, stroke ${theme.animations.duration} ${theme.animations.cubicBezier},`};
     /* @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
         margin-top: 48px;
         width: 400px;
@@ -171,17 +169,17 @@ export const Button = styled.button`
         line-height: 24px;
         letter-spacing: -0.36px;
         &:hover {
-            background-color: #1d56ac;
+            background-color: ${({ theme }) => theme.colors.backgroundBtnHover};
             color: ${({ theme }) => theme.colors.white};
-            fill: #1d56ac;
-            stroke: white;
+            fill: ${({ theme }) => theme.colors.backgroundBtnHover};
+            stroke: ${({ theme }) => theme.colors.white};
         }
     }
 `;
 
 // export const Svg = styled.svg`
 //     stroke: white;
-//     fill: #3e85f3;
+//     fill: ${({ theme }) => theme.colors.brand};
 //     width: 18px;
 //     height: 18px;
 // `;
@@ -245,7 +243,7 @@ export const SvgStatus = styled.svg`
 
 export const Home = styled(NavLink)`
     margin-bottom: 32px;
-    color: #3e85f3;
+    color: ${({ theme }) => theme.colors.brand};
     text-shadow: 0px 9.399999618530273px 57.6875px rgba(0, 0, 0, 0.04),
         0px 47px 355px rgba(0, 0, 0, 0.07);
     font-family: Inter;
@@ -253,11 +251,12 @@ export const Home = styled(NavLink)`
     font-style: normal;
     font-weight: 600;
     line-height: 24px; /* 100% */
-    transition: all 500ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: ${({ theme }) =>
+        ` color ${theme.animations.duration} ${theme.animations.cubicBezier}`};
 
     &:hover,
     &:focus {
-        color: #1d56ac;
+        color: ${({ theme }) => theme.colors.backgroundBtnHover};
     }
 
     ${min(tablet)} {

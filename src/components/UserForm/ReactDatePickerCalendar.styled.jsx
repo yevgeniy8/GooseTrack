@@ -1,9 +1,9 @@
-import DatePicker from 'react-datepicker';
+import ReactDatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import styled from '@emotion/styled';
 
 
-export const DatePickerStyled = styled(DatePicker)`
+export const DatePickerStyled = styled(ReactDatePicker)`
     width: 100%;
     padding: 12px;
     border-radius: 8px;
@@ -31,9 +31,16 @@ export const DatePickerStyled = styled(DatePicker)`
             font-weight: 600;
             font-size: 16px;
         }
+        &.input-error {
+        border: 1px solid #e74a3b;
+    }
+
+    &.input-valid {
+        border: 1px solid #3cbc81;
+    }
     }
 `;
-export const DatePickWrapper = styled.div`
+export const DatePickerWrapp = styled.div`
     .react-datepicker-wrapper {
         display: block;
     }
