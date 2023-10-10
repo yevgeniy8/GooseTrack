@@ -45,6 +45,7 @@ export const EditBtn = styled.button`
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: ${({ theme }) => theme.colors.backgroundPencil};
     border: none;
     width: 30px;
     height: 30px;
@@ -106,6 +107,7 @@ export const Input = styled(Field)`
     color: ${({ theme }) => theme.colors.textPrimary};
     border: ${({ theme }) => theme.borders.feedbackInput};
     border-radius: 8px;
+    border: ${({ theme }) => theme.borders.modalTask};
 
     ${min(tablet)} {
         width: 404px;

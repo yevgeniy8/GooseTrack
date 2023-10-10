@@ -28,8 +28,11 @@ const handleAddFulfilled = (state, action) => {
 };
 
 const handleEditFulfilled = (state, action) => {
+    console.log(action.payload);
     state.userTask = action.payload;
-    const index = state.tasks.findIndex(task => task.id === action.payload._id);
+    const index = state.tasks.findIndex(
+        task => task._id === action.payload._id
+    );
     state.tasks.splice(index, 1, action.payload);
     state.isLoading = false;
     state.error = null;
@@ -38,9 +41,7 @@ const handleEditFulfilled = (state, action) => {
 const handleDeleteFulfilled = (state, action) => {
     state.isLoading = false;
     state.error = null;
-    const index = state.tasks.findIndex(
-        contact => contact.id === action.payload.id
-    );
+    const index = state.tasks.findIndex(task => task._id === action.payload);
     state.tasks.splice(index, 1);
 };
 
