@@ -63,7 +63,7 @@ export const refreshUser = createAsyncThunk(
             // console.log(persistedToken);
             setAuthHeader(persistedToken);
             const response = await axios.get('/users/current');
-            console.log('User refreshed:', response.data);
+            // console.log('User refreshed:', response.data);
             return response.data;
         } catch (error) {
             // console.error('Error refreshing user:', error);
@@ -86,11 +86,13 @@ export const editUser = createAsyncThunk(
         try {
             setAuthHeader(token);
 
-        // console.log(newUser);
+            // console.log(newUser);
 
-        const response = await axios.patch('/users/edit', newUser);
+            const response = await axios.patch('/users/edit', newUser);
 
-        if (response) { Notiflix.Notify.success(`User has been updated successfuly`); }
+            if (response) {
+                Notiflix.Notify.success(`User has been updated successfuly`);
+            }
 
             return response.data;
         } catch (error) {
