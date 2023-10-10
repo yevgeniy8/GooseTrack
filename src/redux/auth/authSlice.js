@@ -94,7 +94,8 @@ export const authSlice = createSlice({
                 state.isRefreshing = false;
             })
             .addCase(editUser.pending, (state, _) => {
-                state.isRefreshing = true;
+                // state.isRefreshing = true;
+                state.loading = true;
             })
             .addCase(editUser.rejected, (state, _) => {
                 state.isLoggedIn = true;

@@ -52,7 +52,7 @@ export const UserForm = () => {
 
         dispatch(editUser(formData));
 
-        actions.resetForm();
+        // actions.resetForm();
     };
 
     return (
