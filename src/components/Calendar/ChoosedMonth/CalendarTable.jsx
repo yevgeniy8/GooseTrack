@@ -30,12 +30,9 @@ const CalendarTable = () => {
     const handleNavToDay = selectedDate => {
         // const day = moment(selectedDate).format('YYYY-MM-DD');
         // localStorage.getItem('type');
-        // localStorage.setItem('type', 'day');
         localStorage.setItem('type', 'day');
         navigate(`/calendar/day/${selectedDate}`);
         // return `/calendar/day/${selectedDate}`;
-        // console.log(selectedDate); // Sun Oct 01 2023
-        // console.log(day); // 2023-10-01
     };
 
     const [modalOpen, setModalOpen] = useState(false);
