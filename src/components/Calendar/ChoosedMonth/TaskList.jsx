@@ -1,9 +1,8 @@
 // import { NavLink } from 'react-router-dom';
 import styled from '@emotion/styled';
-import { useState } from 'react';
-import { TaskModal } from 'components/TaskModal/TaskModal';
+// import { useState } from 'react';
 
-const TaskList = ({ currentDate, day, tasks }) => {
+const TaskList = ({ currentDate, day, tasks, openModal }) => {
     if (!day) {
         return;
     }
@@ -11,18 +10,13 @@ const TaskList = ({ currentDate, day, tasks }) => {
     const date = currentDate + '-' + formattedDay;
     const filterTasks = tasks.filter(task => task.date === date);
 
-    const [modalOpen, setModalOpen] = useState(false);
-
-    const openModal = () => setModalOpen(true);
-    const closeModal = () => {
-        setModalOpen(false);
-    };
-
     return (
         <List>
             {filterTasks?.map(task => (
                 <Task
-                    onClick={openModal}
+                    onClick={() => {
+                        openModal(task._id);
+                    }}
                     key={task._id}
                     color={`color${task.priority}`} //подтянется, когда пропишем цвета в переменных
                     bg={`bgcolor${task.priority}`} //подтянется, когда пропишем цвета в переменных
@@ -30,13 +24,6 @@ const TaskList = ({ currentDate, day, tasks }) => {
                     <p>{task.title}</p>
                 </Task>
             ))}
-            {modalOpen && (
-                <TaskModal
-                    action={'edit'}
-                    closeModal={closeModal}
-                    task={task}
-                />
-            )}
         </List>
     );
 };
