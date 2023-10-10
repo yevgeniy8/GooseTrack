@@ -6,17 +6,17 @@ import { selectTasks } from 'redux/calendar/calendarSelector';
 
 import { datesAreOnSameDay, getDaysInMonth, getSortedDays } from './utils';
 import { Table } from './ChoosedMonth.styled';
-// import { useNavigate, useParams } from 'react-router';
+import { useNavigate } from 'react-router';
 import { useParams } from 'react-router';
 
 import { TaskModal } from '../../TaskModal/TaskModal';
 import TaskList from './TaskList';
 import { NavLink } from 'react-router-dom';
-// import moment from 'moment';
+import { Navigate } from 'react-router-dom';
 
 const CalendarTable = () => {
     const { currentDate } = useParams();
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
 
     const date = new Date(currentDate);
 
@@ -44,6 +44,17 @@ const CalendarTable = () => {
         setModalOpen(false);
     };
 
+    const handleClick = day => {
+        if (day < 10) {
+            day = `${0}${day}`;
+            console.log(day);
+        }
+
+        localStorage.setItem('type', 'day');
+        localStorage.setItem('date', currentDate + '-' + day);
+        navigate(`/calendar/day/${currentDate + '-' + day}`);
+    };
+
     return (
         <>
             <Table fullheight={true} is28Days={getDaysInMonth(date) === 28}>
@@ -54,8 +65,10 @@ const CalendarTable = () => {
                             date.getMonth() + 1
                         }-${day}`}
                     >
-                        <NavLink
-                            to={`/calendar/day/${currentDate + '-' + day}`}
+                        <div
+                            onClick={() => handleClick(day)}
+                            // to={`/calendar/day/${currentDate + '-' + day}`}
+                            // to={'/calendar/day/2023-10-10'}
                         >
                             <span
                                 className={`nonDRAG ${
@@ -73,7 +86,7 @@ const CalendarTable = () => {
                             >
                                 {day}
                             </span>
-                        </NavLink>
+                        </div>
                         <TaskList
                             openModal={openModal}
                             currentDate={currentDate}
