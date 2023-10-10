@@ -1,8 +1,9 @@
 // import { NavLink } from 'react-router-dom';
 import styled from '@emotion/styled';
-// import { useState } from 'react';
+import { useState } from 'react';
+import { TaskModal } from 'components/TaskModal/TaskModal';
 
-const TaskList = ({ currentDate, day, tasks, openModal }) => {
+const TaskList = ({ currentDate, day, tasks }) => {
     if (!day) {
         return;
     }
@@ -10,13 +11,18 @@ const TaskList = ({ currentDate, day, tasks, openModal }) => {
     const date = currentDate + '-' + formattedDay;
     const filterTasks = tasks.filter(task => task.date === date);
 
+    const [modalOpen, setModalOpen] = useState(false);
+
+    const openModal = () => setModalOpen(true);
+    const closeModal = () => {
+        setModalOpen(false);
+    };
+
     return (
         <List>
             {filterTasks?.map(task => (
                 <Task
-                    onClick={() => {
-                        openModal(task._id);
-                    }}
+                    onClick={openModal}
                     key={task._id}
                     color={`color${task.priority}`} //подтянется, когда пропишем цвета в переменных
                     bg={`bgcolor${task.priority}`} //подтянется, когда пропишем цвета в переменных
@@ -24,6 +30,13 @@ const TaskList = ({ currentDate, day, tasks, openModal }) => {
                     <p>{task.title}</p>
                 </Task>
             ))}
+            {modalOpen && (
+                <TaskModal
+                    action={'edit'}
+                    closeModal={closeModal}
+                    task={task}
+                />
+            )}
         </List>
     );
 };
@@ -48,8 +61,8 @@ const Task = styled.li`
     border-radius: 8px;
     margin-bottom: 8px;
     max-width: 100%;
-    color: #3E85F3; //временно, чтобы увидеть стили
-    background-color: #CEEEFD; //временно, чтобы увидеть стили
+    color: #3e85f3; //временно, чтобы увидеть стили
+    background-color: #ceeefd; //временно, чтобы увидеть стили
     // background-color: ${props => props.bg};
     // color: ${props => props.color};
     font-family: Inter;
@@ -65,12 +78,12 @@ const Task = styled.li`
         font-size: 14px;
         line-height: 18px;
         padding: 4px 10px;
-  };
-    `
+    }
+`;
 // прописать в переменных, чтобы подтянуть цвет динамически
 // формат нужет без камелкейса, т.к. приоритет приходит с мал.буквы
-    
-    export const priorityColors = {
+
+export const priorityColors = {
     colorLow: '#3E85F3',
     bgColorLow: '#CEEEFD',
     colorMedium: '#F3B249',

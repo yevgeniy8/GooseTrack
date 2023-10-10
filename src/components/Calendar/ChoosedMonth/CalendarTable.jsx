@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchTasks } from 'redux/calendar/calendarOperations';
 import { selectTasks } from 'redux/calendar/calendarSelector';
@@ -9,7 +9,6 @@ import { Table } from './ChoosedMonth.styled';
 // import { useNavigate, useParams } from 'react-router';
 import { useParams } from 'react-router';
 
-import { TaskModal } from '../../TaskModal/TaskModal';
 import TaskList from './TaskList';
 import { NavLink } from 'react-router-dom';
 // import moment from 'moment';
@@ -36,13 +35,6 @@ const CalendarTable = () => {
     //     // console.log(selectedDate); // Sun Oct 01 2023
     //     // console.log(day); // 2023-10-01
     // };
-
-    const [modalOpen, setModalOpen] = useState(false);
-
-    const openModal = () => setModalOpen(true);
-    const closeModal = () => {
-        setModalOpen(false);
-    };
 
     return (
         <>
@@ -75,7 +67,6 @@ const CalendarTable = () => {
                             </span>
                         </NavLink>
                         <TaskList
-                            openModal={openModal}
                             currentDate={currentDate}
                             day={day}
                             tasks={tasks}
@@ -88,7 +79,6 @@ const CalendarTable = () => {
                     </div>
                 ))}
             </Table>
-            {modalOpen && <TaskModal closeModal={closeModal} />}
         </>
     );
 };
