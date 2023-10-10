@@ -10,8 +10,7 @@ import { useDispatch } from 'react-redux';
 
 import { refreshUser } from 'redux/auth/authOperations';
 import { Container } from 'styles/Container';
-
-import Spinner from '../Spinner/Spinner';
+import Spinner from '../Spinner/Spinner'
 
 const MainLayout = lazy(() => import('../MainLayout'));
 const MainPage = lazy(() => import('pages/MainPage'));
@@ -45,7 +44,7 @@ export const App = () => {
         !isRefreshing && (
             <Container>
                 <Suspense fallback={<Spinner/>}>
-                    <Routes >
+                    <Routes>
                         <Route
                             index
                             element={
