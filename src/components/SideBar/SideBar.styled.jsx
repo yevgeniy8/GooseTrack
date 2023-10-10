@@ -61,7 +61,7 @@ export const LogoTitle = styled.p`
     ${min(tablet)} {
         margin-right: 31px;
     }
-    ${min(desktop)}) {
+    ${min(desktop)} {
         font-size: 24px;
     }
 `;

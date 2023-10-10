@@ -22,6 +22,7 @@ export const Wrapper = styled.div`
 export const ContainerSideBar = styled.div`
     z-index: 100;
     position: absolute;
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
     left: ${props => (props.sideBareShow ? '0' : '-200%')};
 
     @media (min-width: 768px) {
@@ -72,8 +73,8 @@ export const Overlay = styled.div`
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    min-width: 100vw;
+    min-height: 100vh;
     background-color: rgba(62, 133, 243, 0.2);
     z-index: 5;
 
