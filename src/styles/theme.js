@@ -3,13 +3,6 @@ const common = {
         brand: '#3E85F3',
         secondary: '#DCEBF7',
 
-        colorLow: '#3E85F3',
-        bgColorLow: '#CEEEFD',
-        colorMedium: '#F3B249',
-        bgColorMedium: '#FCF0D4',
-        colorHigh: '#EA3D65',
-        bgColorHigh: '#FFD2DD',
-
         correct: '#3CBC81',
         error: '#E74A3B',
         errorMessage: '#da1414',
