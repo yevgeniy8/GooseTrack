@@ -21,15 +21,16 @@ export const PeriodTypeSelect = styled.div`
 
 export const DateBox = styled.div`
     background-color: ${({ theme }) => theme.colors.brand};
-    width: 146px;
+    // width: 146px;
     display: flex;
-    padding: 6px 10px;
+    padding: 6px 12px;
     justify-content: center;
     align-items: center;
+    text-align: center;
     border-radius: 8px;
 
     ${min(tablet)} {
-        width: 165px;
+        max-width: 168px;
     }
 `;
 
@@ -57,9 +58,9 @@ export const Icon = styled.svg`
 `;
 
 export const BtnLeft = styled.button`
-    padding: 8px 10px;
-    width: 38px;
-    height: 34px;
+    padding: 6px;
+    width: 36px;
+    height: 30px;
     background-color: ${({ theme }) => theme.colors.backgroundSecondary};
     border: ${({ theme }) => theme.borders.calendar};
     border-radius: 8px 0 0 8px;
@@ -69,13 +70,17 @@ export const BtnLeft = styled.button`
     fill: none;
     &:hover {
         stroke: ${({ theme }) => theme.colors.sliderMonthDayHover};
-    }
+    };
+    ${min(tablet)} {
+        padding: 8px;
+        height: 34px;
+    };
 `;
 
 export const BtnRight = styled.button`
-    padding: 8px 10px;
-    width: 38px;
-    height: 34px;
+    padding: 6px 8px;
+    width: 36px;
+    height: 30px;
     background-color: ${({ theme }) => theme.colors.backgroundSecondary};
     border: ${({ theme }) => theme.borders.calendar};
     border-radius: 0 8px 8px 0;
@@ -85,7 +90,11 @@ export const BtnRight = styled.button`
     fill: none;
     &:hover {
         stroke: ${({ theme }) => theme.colors.sliderMonthDayHover};
-    }
+    };
+    ${min(tablet)} {
+        padding: 8px;
+        height: 34px;
+    };
 `;
 //якщо не потрібно прибрати PeriodPaginator Period
 export const PeriodPaginator = styled.div`
