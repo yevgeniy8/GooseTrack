@@ -239,7 +239,7 @@ export const UserForm = () => {
                                 animate={{ y: -25 }}
                                 transition={{ ease: 'easeOut', duration: 2 }}
                                 type="submit"
-                                disabled={isFormChanged && dirty===false}
+                                disabled={!dirty && !isFormChanged}
                             >
                                 Save changes
                             </Button>
