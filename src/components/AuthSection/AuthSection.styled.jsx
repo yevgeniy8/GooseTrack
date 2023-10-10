@@ -126,9 +126,9 @@ export const Login = styled(NavLink)`
 
     &:hover,
     &:focus {
-        background-color: #1d56ac;
+        background-color: ${({ theme }) => theme.colors.backgroundBtnHover};
         color: ${({ theme }) => theme.colors.white};
-        fill: #1d56ac;
+        fill: ${({ theme }) => theme.colors.backgroundBtnHover};
         stroke: white;
     }
 
