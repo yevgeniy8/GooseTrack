@@ -5,6 +5,11 @@ const common = {
 
         correct: '#3CBC81',
         error: '#E74A3B',
+        errorMessage: '#da1414',
+
+        editBtn: '#3E85F3',
+        editBtnHover: '#fff',
+        deleteFeedbackBtn: '#ea3d65',
 
         white: '#fff',
         black: '#111',
@@ -18,6 +23,8 @@ const common = {
         backgroundBrand: '#3E85F3',
         backgroundBtn: '#3E85F3',
         backgroundBtnHover: '#2B78EF',
+        backgroundEditBtnHover: '#3E85F3',
+        backgroundDeleteFeedbackBtn: 'rgba(234, 61, 101, 0.2)',
 
         icon: '#84828A',
         iconHover: '#3E85F3',
@@ -49,6 +56,10 @@ const common = {
         xxl: '124px',
     },
 
+    fontFamily: {
+        fontInter: 'Inter, sans-serif',
+    },
+
     fontWeight: {
         r: 400,
         m: 500,
@@ -78,9 +89,6 @@ const common = {
         cubicBezier: 'cubic-bezier(0.4, 0, 0.2, 1)',
         duration: '250ms',
     },
-    fontFamily: {
-        fontInter: 'Inter, sans-serif',
-    },
 };
 
 export const lightTheme = {
@@ -99,10 +107,9 @@ export const lightTheme = {
         textSideBarHover: '#3E85F3',
         textSideBarCurrentPage: '#3E85F3',
         textUserName: '#343434',
-
         textMonthDayActive: '#3E85F3',
         textTitleModalTask: 'rgba(52, 52, 52, 0.8)',
-        placeholder: '#DCE3E5',
+
         backgroundPrimary: '#F7F6F9',
         backgroundSecondary: '#fff',
         backgroundSideBar: '#fff',
@@ -110,29 +117,32 @@ export const lightTheme = {
         backgroundSideBarPageHover: '#E3F3FF',
         backgroundModalTask: '#fff',
         backgroundModalTaskForm: '#F6F6F6',
+        backgroundModal: '#fff',
+        backgroundFeedbackInput: '#F6F6F6',
 
-        backgroundBtnCanceled: '#E5EDFA',
+        backgroundBtnCancel: '#E5EDFA',
+        backgroundBtnCancelHover: '#cae8ff',
         backgroundMonthDay: '#E3F3FF',
         backgroundMonthDayActive: '#CAE8FF',
         backgroundScrollbar: '#F2F2F2',
         backgroundHorizontalScroll: '#F2F2F2',
 
-        backgroundPencil: '#E3F3FF',
-
         statisticsLine: '#E3F3FF',
         iconTasks: '#111',
         iconSideBar: 'rgba(52, 52, 52, 0.50)',
         iconSideBarActive: '#3E85F3',
-        sliderMonthDay: '#343434',
-        sliderMonthDayDisabled: '#DCE3E5',
+        sliderMonthDay: '#DCE3E5',
+        sliderMonthDayHover: '#343434',
         scrollbar: '#E7E5E5',
         horizontalScroll: '#E7E5E5',
         userDefaults: 'rgba(62, 133, 243, 0.18)',
         buttonAddTaskHover: '#cbe6ff',
+        buttonCancelHover: '#343434',
     },
 
     shadows: {
         ...common.shadows,
+        feedbackForm: '0px 4px 16px 0px rgba(17, 17, 17, 0.1)',
     },
     borders: {
         ...common.borders,
@@ -143,10 +153,14 @@ export const lightTheme = {
         calendar: '1px solid rgba(220, 227, 229, 0.80)',
         rightMonth: '1px solid rgba(62, 133, 243, 0.20)',
         modalTask: '1px solid rgba(220, 227, 229, 0.80)',
+        feedbackInput: 'none',
     },
 
     borderRadius: {
         ...common.borderRadius,
+    },
+    fontFamily: {
+        ...common.fontFamily,
     },
     fontWeight: {
         ...common.fontWeight,
@@ -178,7 +192,6 @@ export const darkTheme = {
         textSideBarHover: '#fff',
         textSideBarCurrentPage: '#fff',
         textUserName: '#fff',
-
         textMonthDayActive: '#fff',
         textTitleModalTask: 'rgba(250, 250, 250, 0.30)',
 
@@ -189,29 +202,34 @@ export const darkTheme = {
         backgroundSideBarPageHover: '#3E85F3',
         backgroundModalTask: '#171820',
         backgroundModalTaskForm: '#171820',
+        backgroundModal: '#171820',
+        backgroundFeedbackInput: 'transparent',
 
-        backgroundBtnCanceled: '#21222C',
+        backgroundBtnCancel: '#21222C',
+        backgroundBtnCancelHover: '#fff',
         backgroundMonthDay: '#21222C',
         backgroundMonthDayActive: '#3E85F3',
         backgroundScrollbar: '#2D3037',
         backgroundHorizontalScroll: '#21222C',
 
-        backgroundPencil: '#353647',
+        backgroundEditBtn: '#353647',
 
         statisticsLine: '#rgba(227, 243, 255, 0.15)',
         iconTasks: '#fff',
         iconSideBar: '#ffffff',
         iconSideBarActive: '#fff',
-        sliderMonthDay: '#fff',
-        sliderMonthDayDisabled: 'rgba(255, 255, 255, 0.15)',
+        sliderMonthDay: 'rgba(255, 255, 255, 0.15)',
+        sliderMonthDayHover: '#fff',
         scrollbar: '#171820',
         horizontalScroll: '#2D3037',
         userDefaults: 'rgba(255, 255, 255, 0.18)',
         buttonAddTaskHover: '#2B78EF',
+        buttonCancelHover: '#343434',
     },
 
     shadows: {
         ...common.shadows,
+        feedbackForm: '0px 4px 57px 0px rgba(17, 17, 17, 0.05)',
     },
     borders: {
         ...common.borders,
@@ -222,10 +240,14 @@ export const darkTheme = {
         calendar: '1px solid rgba(255, 255, 255, 0.15)',
         rightMonth: '1px solid rgba(255, 255, 255, 0.15)',
         modalTask: 'none',
+        feedbackInput: '1px solid rgba(255, 255, 255, 0.15)',
     },
 
     borderRadius: {
         ...common.borderRadius,
+    },
+    fontFamily: {
+        ...common.fontFamily,
     },
     fontWeight: {
         ...common.fontWeight,

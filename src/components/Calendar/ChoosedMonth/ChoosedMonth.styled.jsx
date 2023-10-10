@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-
+import { tablet, min } from 'styles/media';
 
 export const Table = styled.div`
     display: grid;
@@ -20,14 +20,16 @@ export const Table = styled.div`
         overflow: hidden;
         // max-width: 165px;
         height: 95px;
-        background-color: white;
-        border: 1px solid rgba(220, 227, 229, 0.8);
-        
-            @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
-              max-width: 155px;
-              height: 134px;
-              padding: 8px;
-            };
+        background-color: ${({ theme }) => theme.colors.backgroundSecondary};
+        border: ${({ theme }) => theme.borders.calendar};
+
+        transition: ${({ theme }) =>
+            `background-color ${theme.animations.duration} ${theme.animations.cubicBezier}, border ${theme.animations.duration} ${theme.animations.cubicBezier}`};
+
+        ${min(tablet)} {
+            max-width: 155px;
+            height: 125px;
+        }
         span {
             font-family: Inter;
             font-size: 12px;
@@ -41,20 +43,24 @@ export const Table = styled.div`
             padding: 4px 8px;
             // margin: 8px 4px 0 0;
             // height: fit-content;
-            color: #343434;
-                @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
+            color: ${({ theme }) => theme.colors.textPrimary};
+
+            transition: ${({ theme }) =>
+                `color ${theme.animations.duration} ${theme.animations.cubicBezier}`};
+
+            ${min(tablet)} {
                 //   margin: 14px 14px 0 0;
-                  font-size: 16px;
-                  font-weight: 700;
-                  line-height: 18px;
-                  width: 26px;
-                  height: 26px;
-    };
+                font-size: 16px;
+                font-weight: 700;
+                line-height: 18px;
+                width: 26px;
+                height: 26px;
+            }
         }
 
         span.active {
-            color: #FFF;
-            background-color: #3E85F3;
+            color: ${({ theme }) => theme.colors.white};
+            background-color: ${({ theme }) => theme.colors.brand};
         }
         // span.active::before {
         //     color: #3e85f3;
