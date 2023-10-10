@@ -2,6 +2,8 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 
 import close from '../../../images/icons.svg';
+import plus from '../../../images/icons.svg';
+import pencil from '../../../images/icons.svg';
 
 import {
     ButtonAction,
@@ -204,9 +206,22 @@ export const TaskForm = ({ value, onClose, action, task }) => {
                     {/* <button type="submit">Ok</button> */}
 
                     <ButtonWrapper>
-                        <ButtonAction type="submit">
-                            {action === 'edit' ? 'Edit' : 'Add'}
-                        </ButtonAction>
+                        {action === 'edit' ? (
+                            <ButtonAction type="submit">
+                                <svg width="18" height="18" stroke="#fff">
+                                    <use href={`${pencil}#pencil`} />
+                                </svg>
+                                Edit
+                            </ButtonAction>
+                        ) : (
+                            <ButtonAction type="submit">
+                                <svg width="20" height="20" stroke="#fff">
+                                    <use href={`${plus}#add-plus`} />
+                                </svg>
+                                Add
+                            </ButtonAction>
+                        )}
+
                         <ButtonCancel type="button" onClick={onClose}>
                             Cancel
                         </ButtonCancel>

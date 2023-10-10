@@ -182,7 +182,7 @@ export const ButtonAction = styled.button`
     height: 42px;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     padding: 12px;
 
     border-radius: 8px;
