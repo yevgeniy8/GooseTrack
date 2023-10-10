@@ -55,7 +55,7 @@ export const UserForm = () => {
         }
 
         dispatch(editUser(formData));
-        setIsFormChanged('true');
+        setIsFormChanged('false');
 
         // actions.resetForm();
     };
@@ -239,7 +239,7 @@ export const UserForm = () => {
                                 animate={{ y: -25 }}
                                 transition={{ ease: 'easeOut', duration: 2 }}
                                 type="submit"
-                                disabled={!dirty && !isFormChanged}
+                                disabled={!dirty}
                             >
                                 Save changes
                             </Button>
