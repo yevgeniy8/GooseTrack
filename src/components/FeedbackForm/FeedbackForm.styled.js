@@ -107,7 +107,6 @@ export const Input = styled(Field)`
     color: ${({ theme }) => theme.colors.textPrimary};
     border: ${({ theme }) => theme.borders.feedbackInput};
     border-radius: 8px;
-    border: ${({ theme }) => theme.borders.modalTask};
 
     ${min(tablet)} {
         width: 404px;
