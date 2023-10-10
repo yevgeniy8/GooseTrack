@@ -1,6 +1,6 @@
 import Icons from '../../../../images/icons.svg';
-import { Icon, CardEditMenu, CardEditBtn } from './TaskToolbar.styled';
-import {} from './TaskColumnCard.styled';
+import { Icon, CardEditMenu, CardEditBtn, CtgPopUp, CtgPopBtn } from './TaskToolbar.styled';
+// import {} from './TaskColumnCard.styled';
 
 import { deleteTask } from 'redux/calendar/calendarOperations';
 
@@ -10,62 +10,74 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 const TaskToolbar = ({ taskId, task }) => {
-    const [isOpenModal, setIsOpenModal] = useState(false);
-    const dispatch = useDispatch();
+  const [isOpenModal, setIsOpenModal] = useState(false);
+  const [showCtgPopUp, setShowCtgPopUp] = useState(false);
 
-    const handleEditClick = () => setIsOpenModal(true);
-    const closeModal = () => {
-        setIsOpenModal(false);
-    };
+  const dispatch = useDispatch();
+  // Кнопка вызова категорий
+  const handleChangeCtg = () => {
+    setShowCtgPopUp(prevState => !prevState);
+  };
+  // Кнопка редактирования таски
+  const handleEditClick = () => setIsOpenModal(true);
+  const closeModal = () => {
+    setIsOpenModal(false);
+  };
+  // Кнопка удаления
+  const handleDeleteClick = () => {
+    dispatch(deleteTask(taskId));
+  };
 
-    const handleAddClick = () => {
-        alert('Вы нажали на кнопку "Добавить"');
-    };
+  return (
+    <>
+      <CardEditMenu>
+        <li>
+          {/* Кнопка стрелка, которая вызывает список категорий с маленьким попапом */}
+          <CardEditBtn type="button" onClick={handleChangeCtg}>
+            <Icon>
+              <use href={`${Icons}#arrow-circle-broken-right`} />
+            </Icon>
+          </CardEditBtn>
+          {/* Сам попап с кнопками категорий */}
+          {showCtgPopUp && (
+            <CtgPopUp>
+              {/* 1 кнопка категории */}
+              <CtgPopBtn type="button" onClick={handleChangeCtg}>
+                Category1
+                <Icon>
+                  <use href={`${Icons}#arrow-circle-broken-right`} />
+                </Icon>
+              </CtgPopBtn>
+              {/* 2 кнопка категории */}
+              <CtgPopBtn type="button" onClick={handleChangeCtg}>
+                Category2
+                <Icon>
+                  <use href={`${Icons}#arrow-circle-broken-right`} />
+                </Icon>
+              </CtgPopBtn>
+            </CtgPopUp>
+          )}
+        </li>
 
-    // const handleEditClick = () => {
-    //     setIsOpenModal(!isOpenModal);
-    //     // alert('Вы нажали на кнопку "Редактировать"');
-    // };
+        {/* Остальные 2 кнопки в меню редактирования, уже сделанные */}
+        <li>
+          <CardEditBtn type="button" onClick={handleEditClick}>
+            <Icon>
+              <use href={`${Icons}#pencil`} />
+            </Icon>
+          </CardEditBtn>
+        </li>
+        <li>
+          <CardEditBtn type="button" onClick={handleDeleteClick}>
+            <Icon>
+              <use href={`${Icons}#trash`} />
+            </Icon>
+          </CardEditBtn>
+        </li>
+      </CardEditMenu>
 
-    const handleDeleteClick = () => {
-        dispatch(deleteTask(taskId));
-        // alert('Вы нажали на кнопку "Удалить"');
-    };
-
-    return (
-        <>
-            <CardEditMenu>
-                <li>
-                    <CardEditBtn type="button" onClick={handleAddClick}>
-                        <Icon>
-                            <use href={`${Icons}#arrow-circle-broken-right`} />
-                        </Icon>
-                    </CardEditBtn>
-                </li>
-                <li>
-                    <CardEditBtn type="button" onClick={handleEditClick}>
-                        <Icon>
-                            <use href={`${Icons}#pencil`} />
-                        </Icon>
-                    </CardEditBtn>
-                </li>
-                <li>
-                    <CardEditBtn type="button" onClick={handleDeleteClick}>
-                        <Icon>
-                            <use href={`${Icons}#trash`} />
-                        </Icon>
-                    </CardEditBtn>
-                </li>
-            </CardEditMenu>
-
-            {isOpenModal && (
-                <TaskModal
-                    action={'edit'}
-                    closeModal={closeModal}
-                    task={task}
-                />
-            )}
-        </>
-    );
+      {isOpenModal && <TaskModal action={'edit'} closeModal={closeModal} task={task} />}
+    </>
+  );
 };
 export default TaskToolbar;
