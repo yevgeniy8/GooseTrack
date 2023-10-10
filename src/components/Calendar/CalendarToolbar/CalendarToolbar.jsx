@@ -16,6 +16,7 @@ import {
     BtnMonth,
     BtnDay,
 } from './CalendarToolbar.styled';
+import { useEffect } from 'react';
 
 const CalendarToolbar = ({
     currentDate,
@@ -54,6 +55,10 @@ const CalendarToolbar = ({
                 return format;
         }
     };
+
+    useEffect(() => {
+        setFormat(localStorage.getItem('type') || 'month');
+    });
 
     return (
         <ToolbarContainer>
