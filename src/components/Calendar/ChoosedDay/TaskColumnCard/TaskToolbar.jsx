@@ -9,7 +9,7 @@ import { TaskModal } from 'components/TaskModal/TaskModal';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-const TaskToolbar = ({ taskId }) => {
+const TaskToolbar = ({ taskId, task }) => {
     const [isOpenModal, setIsOpenModal] = useState(false);
     const dispatch = useDispatch();
 
@@ -59,7 +59,11 @@ const TaskToolbar = ({ taskId }) => {
             </CardEditMenu>
 
             {isOpenModal && (
-                <TaskModal action={'edit'} closeModal={closeModal} />
+                <TaskModal
+                    action={'edit'}
+                    closeModal={closeModal}
+                    task={task}
+                />
             )}
         </>
     );
