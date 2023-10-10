@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Formik} from 'formik';
+import { Formik } from 'formik';
 import { FieldsWrap } from './UserForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectUser } from 'redux/auth/authSelectors';
@@ -8,6 +8,7 @@ import { UserInfo } from './UserInfo';
 import handleInput from './helpers/handleInput';
 import schema from './schemas/userSchema';
 import { enGB } from 'date-fns/esm/locale';
+import avatarDefault from '../../images/Avatar.png';
 import { registerLocale } from 'react-datepicker';
 import {
     Button,
@@ -28,9 +29,9 @@ registerLocale('en', enGB);
 
 export const UserForm = () => {
     const dispatch = useDispatch();
-    const [isFormChanged, setIsFormChanged] = useState(false);
+    const [isFormChanged, setIsFormChanged] = useState('false');
     const [currentAvatar, setCurrentAvatar] = useState(null);
-    
+
     const user = useSelector(selectUser);
 
     const initialValues = {
@@ -39,9 +40,10 @@ export const UserForm = () => {
         phone: user.phone || '',
         skype: user.skype || '',
         birthday: user.birthday || new Date(),
+        avatarURL: user.avatarURL || avatarDefault,
     };
 
-    const handleSubmit = ({ name, phone, email, skype, birthday }, actions) => {
+    const handleSubmit = ({ name, phone, email, skype, birthday }) => {
         const formData = new FormData();
         formData.append('name', name);
         formData.append('email', email);
@@ -53,18 +55,13 @@ export const UserForm = () => {
         }
 
         dispatch(editUser(formData));
+        setIsFormChanged('true');
 
         // actions.resetForm();
     };
 
     return (
         <MainContainer>
-            <UserInfo
-                avatarURL={user.avatarURL}
-                userName={user.name}
-                setCurrentAvatar={setCurrentAvatar}
-                setIsFormChanged={setIsFormChanged}
-            />
             <Formik
                 enableReinitialize={false}
                 initialValues={initialValues}
@@ -79,12 +76,19 @@ export const UserForm = () => {
                     handleChange,
                     setFieldValue,
                     setFieldTouched,
-                    handleBlur
+                    handleBlur,
+                    isSubmitting,
                 }) => {
-                    
-                    
+                    console.log(isSubmitting);
                     return (
                         <StyledForm>
+                            <UserInfo
+                                avatarURL={user.avatarURL}
+                                userName={user.name}
+                                setCurrentAvatar={setCurrentAvatar}
+                                setIsFormChanged={setIsFormChanged}
+                                setFieldValue={setFieldValue}
+                            />
                             <FieldsWrap
                                 animate={{ y: -50 }}
                                 transition={{ ease: 'easeOut', duration: 2 }}
@@ -135,9 +139,9 @@ export const UserForm = () => {
                                                 formatWeekDay={nameOfDay =>
                                                     nameOfDay.charAt(0)
                                                 }
-                                                // showYearDropdown
-                                                // yearDropdownItemNumber={30}
-                                                // scrollableYearDropdown
+                                                showYearDropdown
+                                                yearDropdownItemNumber={30}
+                                                scrollableYearDropdown
                                                 onChange={date => {
                                                     setFieldValue(
                                                         'birthday',
@@ -235,7 +239,7 @@ export const UserForm = () => {
                                 animate={{ y: -25 }}
                                 transition={{ ease: 'easeOut', duration: 2 }}
                                 type="submit"
-                                disabled={!dirty && !isFormChanged}
+                                disabled={isFormChanged && dirty===false}
                             >
                                 Save changes
                             </Button>

@@ -61,7 +61,7 @@ export const ImgAvatar = styled.img`
     
 `;
 
-export const InputFile = styled.input`
+export const InputFile = styled(Field)`
     position: absolute;
     top: 39px;
     left: 32px;
