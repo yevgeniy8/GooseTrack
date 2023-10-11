@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/GooseTrack/static/css/main.2fd9a6dc.css",
-    "main.js": "/GooseTrack/static/js/main.d5805879.js",
+    "main.js": "/GooseTrack/static/js/main.8bbf887f.js",
     "static/css/495.b2832582.chunk.css": "/GooseTrack/static/css/495.b2832582.chunk.css",
     "static/js/495.0f8deca8.chunk.js": "/GooseTrack/static/js/495.0f8deca8.chunk.js",
     "static/js/694.dba01411.chunk.js": "/GooseTrack/static/js/694.dba01411.chunk.js",
@@ -10,7 +10,7 @@
     "static/js/340.9f8cfa9b.chunk.js": "/GooseTrack/static/js/340.9f8cfa9b.chunk.js",
     "static/js/130.937a20ab.chunk.js": "/GooseTrack/static/js/130.937a20ab.chunk.js",
     "static/js/827.a90d5441.chunk.js": "/GooseTrack/static/js/827.a90d5441.chunk.js",
-    "static/js/577.a52b1256.chunk.js": "/GooseTrack/static/js/577.a52b1256.chunk.js",
+    "static/js/308.c99567be.chunk.js": "/GooseTrack/static/js/308.c99567be.chunk.js",
     "static/js/744.cdd725ec.chunk.js": "/GooseTrack/static/js/744.cdd725ec.chunk.js",
     "static/js/579.1949e27d.chunk.js": "/GooseTrack/static/js/579.1949e27d.chunk.js",
     "static/js/256.763dbf27.chunk.js": "/GooseTrack/static/js/256.763dbf27.chunk.js",
@@ -89,7 +89,7 @@
     "static/media/goose-mobile-1x-welcome.webp": "/GooseTrack/static/media/goose-mobile-1x-welcome.85d75e08895f59b4669e.webp",
     "index.html": "/GooseTrack/index.html",
     "main.2fd9a6dc.css.map": "/GooseTrack/static/css/main.2fd9a6dc.css.map",
-    "main.d5805879.js.map": "/GooseTrack/static/js/main.d5805879.js.map",
+    "main.8bbf887f.js.map": "/GooseTrack/static/js/main.8bbf887f.js.map",
     "495.b2832582.chunk.css.map": "/GooseTrack/static/css/495.b2832582.chunk.css.map",
     "495.0f8deca8.chunk.js.map": "/GooseTrack/static/js/495.0f8deca8.chunk.js.map",
     "694.dba01411.chunk.js.map": "/GooseTrack/static/js/694.dba01411.chunk.js.map",
@@ -98,7 +98,7 @@
     "340.9f8cfa9b.chunk.js.map": "/GooseTrack/static/js/340.9f8cfa9b.chunk.js.map",
     "130.937a20ab.chunk.js.map": "/GooseTrack/static/js/130.937a20ab.chunk.js.map",
     "827.a90d5441.chunk.js.map": "/GooseTrack/static/js/827.a90d5441.chunk.js.map",
-    "577.a52b1256.chunk.js.map": "/GooseTrack/static/js/577.a52b1256.chunk.js.map",
+    "308.c99567be.chunk.js.map": "/GooseTrack/static/js/308.c99567be.chunk.js.map",
     "744.cdd725ec.chunk.js.map": "/GooseTrack/static/js/744.cdd725ec.chunk.js.map",
     "579.1949e27d.chunk.js.map": "/GooseTrack/static/js/579.1949e27d.chunk.js.map",
     "256.763dbf27.chunk.js.map": "/GooseTrack/static/js/256.763dbf27.chunk.js.map",
@@ -118,6 +118,6 @@
   },
   "entrypoints": [
     "static/css/main.2fd9a6dc.css",
-    "static/js/main.d5805879.js"
+    "static/js/main.8bbf887f.js"
   ]
 }
