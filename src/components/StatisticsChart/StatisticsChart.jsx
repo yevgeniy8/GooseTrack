@@ -77,6 +77,8 @@ const StatisticsReChart = ({ startDate, setStartDate }) => {
 
     const mom = moment(startDate).format('YYYY-MM-DD');
 
+    console.log(startDate);
+
     ///////////////////////////////////
 
     const currentDate = formattedStartDatsta;
