@@ -56,7 +56,7 @@ const RegisterForm = () => {
         dispatch(register(values));
         // navigate('/user');
         // console.log(values);
-        actions.resetForm();
+        // actions.resetForm();
     };
 
     const [icon, setIcon] = useState(<BsEyeFill />);

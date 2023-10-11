@@ -22,7 +22,7 @@ export const register = createAsyncThunk(
             return response.data;
         } catch (error) {
             Notiflix.Notify.failure(`${error.response.data.message}`);
-            return thunkApi.rejectWithValue(error);
+            return thunkApi.rejectWithValue(error.message);
         }
     }
 );
@@ -36,7 +36,7 @@ export const login = createAsyncThunk('auth/login', async (user, thunkApi) => {
         return response.data;
     } catch (error) {
         Notiflix.Notify.failure(error.response.data.message);
-        return thunkApi.rejectWithValue(error);
+        return thunkApi.rejectWithValue(error.message);
     }
 });
 
@@ -45,7 +45,7 @@ export const logout = createAsyncThunk('auth/logout', async (_, thunkApi) => {
         await axios.post('/auth/logout');
         clearAuthHeader();
     } catch (error) {
-        return thunkApi.rejectWithValue(error);
+        return thunkApi.rejectWithValue(error.message);
     }
 });
 

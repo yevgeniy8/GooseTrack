@@ -64,7 +64,7 @@ const LoginForm = () => {
     const handlerSubmit = (values, actions) => {
         dispatch(login(values));
         // console.log(values);
-        actions.resetForm();
+        // actions.resetForm();
     };
 
     return (
