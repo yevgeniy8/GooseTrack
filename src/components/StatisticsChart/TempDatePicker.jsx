@@ -5,8 +5,8 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { BtnLeft, BtnRight, Icon, PeriodTypeSelect } from './DatePicker.styled';
 import sprite from 'images/icons.svg';
 
-const TempDatePicker = () => {
-    const [startDate, setStartDate] = useState(new Date());
+const TempDatePicker = ({ startDate, setStartDate }) => {
+    // const [startDate, setStartDate] = useState(new Date());
     const ExampleCustomInput = forwardRef(({ value, onClick }, ref) => (
         <CustomDatePicker
             className="example-custom-input"

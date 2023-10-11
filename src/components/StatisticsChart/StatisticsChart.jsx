@@ -55,12 +55,14 @@ const calculateParams = width => {
     return { barGap, chartWidth, chartHeight, marginRight, barSize, fontSize };
 };
 
-const StatisticsReChart = () => {
+const StatisticsReChart = ({ startDate, setStartDate }) => {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
     const { barGap, chartWidth, chartHeight, marginRight, barSize, fontSize } =
         calculateParams(windowWidth);
     const { theme } = useThemeContext();
     const isLightTheme = theme === LIGHT;
+
+    console.log(startDate);
 
     ///////////////////////////////////
 
