@@ -76,8 +76,10 @@ export const refreshUser = createAsyncThunk(
 export const editUser = createAsyncThunk(
     'auth/edit',
     async (newUser, thunkApi) => {
+        
         try {
         const response = await axios.patch('/users/edit', newUser);
+        
 
         if (response) { Notiflix.Notify.success(`User has been updated successfuly`); }
 

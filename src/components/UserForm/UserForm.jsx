@@ -29,7 +29,7 @@ registerLocale('en', enGB);
 
 export const UserForm = () => {
     const dispatch = useDispatch();
-    const [isFormChanged, setIsFormChanged] = useState('false');
+    const [isFormChanged, setIsFormChanged] = useState(false);
     const [currentAvatar, setCurrentAvatar] = useState(null);
 
     const user = useSelector(selectUser);
@@ -43,7 +43,7 @@ export const UserForm = () => {
         avatarURL: user.avatarURL || avatarDefault,
     };
 
-    const handleSubmit = ({ name, phone, email, skype, birthday }) => {
+    const handleSubmit = ({ name, phone, email, skype, birthday }, actions) => {
         const formData = new FormData();
         formData.append('name', name);
         formData.append('email', email);
@@ -55,8 +55,9 @@ export const UserForm = () => {
         }
 
         dispatch(editUser(formData));
-        setIsFormChanged('false');
-
+        setIsFormChanged(false);
+        // console.log('actions:', actions);
+       
         // actions.resetForm();
     };
 
@@ -79,7 +80,8 @@ export const UserForm = () => {
                     handleBlur,
                     isSubmitting,
                 }) => {
-                    console.log(isSubmitting);
+                    console.log('dirty:', dirty);
+                    console.log('issUBMITTING', isSubmitting);
                     return (
                         <StyledForm>
                             <UserInfo
@@ -239,7 +241,7 @@ export const UserForm = () => {
                                 animate={{ y: -25 }}
                                 transition={{ ease: 'easeOut', duration: 2 }}
                                 type="submit"
-                                disabled={!dirty}
+                                disabled={!dirty || isSubmitting}
                             >
                                 Save changes
                             </Button>

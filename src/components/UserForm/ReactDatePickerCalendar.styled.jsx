@@ -45,7 +45,7 @@ export const DatePickerWrapp = styled.div`
     }
     .react-datepicker {
         position: absolute;
-        top: -15px;
+        top: -80px;
         left: -35px;
 
         @media (min-width: 768px) {
