@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 
 import { useThemeContext } from 'hooks/ThemeContext';
 import { createGlobalStyle } from 'styled-components';
+import TempDatePicker from 'components/StatisticsChart/TempDatePicker';
 
 const GlobalStyles = createGlobalStyle`
 
@@ -11,7 +12,6 @@ const GlobalStyles = createGlobalStyle`
     }
 `;
 // import DatePicker from 'components/StatisticsChart/DatePiker';
-import TempDatePicker from 'components/StatisticsChart/TempDatePicker';
 // import { useState } from 'react';
 
 const StatisticsPage = () => {
@@ -19,6 +19,7 @@ const StatisticsPage = () => {
 
     return (
         <>
+            <GlobalStyles theme={theme} />
             <SectionStyled>
                 <LegendBlock>
                     <CalendarBlock>
