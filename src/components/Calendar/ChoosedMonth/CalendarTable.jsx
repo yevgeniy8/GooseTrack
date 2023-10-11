@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchTasks } from 'redux/calendar/calendarOperations';
 import { selectTasks } from 'redux/calendar/calendarSelector';
@@ -25,11 +25,10 @@ const CalendarTable = () => {
         dispatch(fetchTasks(currentDate));
     }, [currentDate, dispatch]);
 
-
     // const [modalOpen, setModalOpen] = useState(false);
 
     // const openModal = () => setModalOpen(true);
-    
+
     // const closeModal = () => {
     //     setModalOpen(false);
     // };
