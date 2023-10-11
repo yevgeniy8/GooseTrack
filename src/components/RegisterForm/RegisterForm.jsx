@@ -56,7 +56,7 @@ const RegisterForm = () => {
         dispatch(register(values));
         // navigate('/user');
         // console.log(values);
-        actions.resetForm();
+        // actions.resetForm();
     };
 
     const [icon, setIcon] = useState(<BsEyeFill />);
@@ -95,7 +95,20 @@ const RegisterForm = () => {
                         </TitleContainer>
                         <div>
                             <Label htmlFor="">
-                                <Span>Name</Span>
+                                <Span
+                                    style={{
+                                        color:
+                                            (touched.name &&
+                                                errors.name &&
+                                                '#E74A3B') ||
+                                            (touched.name &&
+                                                !errors.name &&
+                                                '#3CBC81') ||
+                                            'black',
+                                    }}
+                                >
+                                    Name
+                                </Span>
                                 <InputForm
                                     type="text"
                                     name="name"
@@ -106,7 +119,6 @@ const RegisterForm = () => {
                                     errors={errors.name}
                                     touched={touched.name?.toString()}
                                 />
-
                                 {touched.name &&
                                     (errors.name ? (
                                         <Error component="div" name="name" />
@@ -115,7 +127,6 @@ const RegisterForm = () => {
                                             This is an CORRECT name
                                         </ErrorMes>
                                     ))}
-
                                 {touched.name && (
                                     <SvgStatus
                                         width="24"
@@ -136,7 +147,20 @@ const RegisterForm = () => {
 
                         <div>
                             <Label htmlFor="">
-                                <Span>Email</Span>
+                                <Span
+                                    style={{
+                                        color:
+                                            (touched.email &&
+                                                errors.email &&
+                                                '#E74A3B') ||
+                                            (touched.email &&
+                                                !errors.email &&
+                                                '#3CBC81') ||
+                                            'black',
+                                    }}
+                                >
+                                    Email
+                                </Span>
                                 <InputForm
                                     type="email"
                                     name="email"
@@ -178,7 +202,20 @@ const RegisterForm = () => {
 
                         <div>
                             <Label htmlFor="">
-                                <Span>Password</Span>
+                                <Span
+                                    style={{
+                                        color:
+                                            (touched.password &&
+                                                errors.password &&
+                                                '#E74A3B') ||
+                                            (touched.password &&
+                                                !errors.password &&
+                                                '#3CBC81') ||
+                                            'black',
+                                    }}
+                                >
+                                    Password
+                                </Span>
                                 <InputFormMargin0
                                     type={type}
                                     name="password"

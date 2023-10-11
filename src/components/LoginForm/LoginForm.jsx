@@ -64,7 +64,7 @@ const LoginForm = () => {
     const handlerSubmit = (values, actions) => {
         dispatch(login(values));
         // console.log(values);
-        actions.resetForm();
+        // actions.resetForm();
     };
 
     return (
@@ -91,7 +91,20 @@ const LoginForm = () => {
                         </TitleContainer>
                         <div>
                             <Label htmlFor="">
-                                <Span>Email</Span>
+                                <Span
+                                    style={{
+                                        color:
+                                            (touched.email &&
+                                                errors.email &&
+                                                '#E74A3B') ||
+                                            (touched.email &&
+                                                !errors.email &&
+                                                '#3CBC81') ||
+                                            'black',
+                                    }}
+                                >
+                                    Email
+                                </Span>
                                 <InputForm
                                     type="email"
                                     name="email"
@@ -133,7 +146,20 @@ const LoginForm = () => {
 
                         <div>
                             <Label htmlFor="">
-                                <Span>Password</Span>
+                                <Span
+                                    style={{
+                                        color:
+                                            (touched.password &&
+                                                errors.password &&
+                                                '#E74A3B') ||
+                                            (touched.password &&
+                                                !errors.password &&
+                                                '#3CBC81') ||
+                                            'black',
+                                    }}
+                                >
+                                    Password
+                                </Span>
                                 <InputFormMargin0
                                     type={type}
                                     name="password"
