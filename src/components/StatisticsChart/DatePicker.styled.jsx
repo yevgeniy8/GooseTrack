@@ -67,39 +67,41 @@ export const ToggleBtn = styled.div`
 `;
 
 export const Icon = styled.svg`
-    stroke: #dce3e5;
+    /* stroke: #dce3e5;
     &:hover {
         stroke: ${({ theme }) => theme.colors.nameDay};
-    }
+    } */
 `;
 
 export const BtnLeft = styled.button`
-    padding: 8px 10px;
-    width: 38px;
-    height: 34px;
+    padding: 6px;
+    width: 36px;
+    height: 30px;
     background-color: ${({ theme }) => theme.colors.backgroundSecondary};
-    border: solid 1px rgba(220, 227, 229, 0.8);
+    border: ${({ theme }) => theme.borders.calendar};
     border-radius: 8px 0 0 8px;
-    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: ${({ theme }) =>
+        `stroke ${theme.animations.duration} ${theme.animations.cubicBezier}`};
+    stroke: ${({ theme }) => theme.colors.sliderMonthDay};
     fill: none;
     &:hover {
-        stroke: ${({ theme }) => theme.colors.nameDay};
+        stroke: ${({ theme }) => theme.colors.sliderMonthDayHover};
     }
 `;
 
 export const BtnRight = styled.button`
-    padding: 8px 10px;
-    width: 38px;
-    height: 34px;
+    padding: 6px 8px;
+    width: 36px;
+    height: 30px;
     background-color: ${({ theme }) => theme.colors.backgroundSecondary};
-    border: solid 1px rgba(220, 227, 229, 0.8);
+    border: ${({ theme }) => theme.borders.calendar};
     border-radius: 0 8px 8px 0;
-    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: ${({ theme }) =>
+        `stroke ${theme.animations.duration} ${theme.animations.cubicBezier}`};
+    stroke: ${({ theme }) => theme.colors.sliderMonthDay};
     fill: none;
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
     &:hover {
-        stroke: ${({ theme }) => theme.colors.textPrimary};
+        stroke: ${({ theme }) => theme.colors.sliderMonthDayHover};
     }
 `;
 

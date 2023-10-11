@@ -28,6 +28,7 @@ const TempDatePicker = ({ startDate, setStartDate }) => {
                     onChange={date => setStartDate(date)}
                     customInput={<ExampleCustomInput />}
                     dateFormat="dd MMMM yyyy"
+                    formatWeekDay={nameOfDay => nameOfDay.charAt(0)}
                 />
             </DatePickerWrapp>
             <div>
@@ -119,10 +120,14 @@ export const DatePickerWrapp = styled.div`
             font-weight: 600;
             line-height: 1.666;
         }
+        &__day-names {
+            margin: 0;
+        }
+
         &__day {
             color: #fff;
             width: 26px;
-            height: 29px;
+            height: 27px;
             font-size: 14px;
             display: flex;
             align-items: center;
@@ -150,7 +155,7 @@ export const DatePickerWrapp = styled.div`
                 opacity: 1;
                 outline: none;
 
-                padding: 12px 15px;
+                padding: 12px 14px;
                 text-align: center;
                 background-color: white;
                 color: #3e85f3;
@@ -228,10 +233,9 @@ export const DatePickerWrapp = styled.div`
             display: flex;
         }
         &__month {
+            margin: 0;
             padding-left: 7px;
-            padding-top: 11px;
-            /* width: 197px;
-        height: 197px; */
+            padding-top: 7px;
         }
     }
 `;

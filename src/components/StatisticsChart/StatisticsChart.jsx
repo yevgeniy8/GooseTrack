@@ -18,24 +18,10 @@ import { fetchTasks } from 'redux/calendar/calendarOperations';
 import { selectTasks } from 'redux/calendar/calendarSelector';
 import moment from 'moment';
 
-// const data = [{ name: 'To Do' }, { name: 'In Progress' }, { name: 'Done' }];
-// const newData = data.map(el => ({
-//     ...el,
-//     'By Day': faker.number.int({ min: 10, max: 100 }),
-//     'By Month': faker.number.int({ min: 10, max: 100 }),
-// }));
-
 const formatPercent = value => {
     const formattedValue = value.toFixed(1);
     return isNaN(formattedValue) ? '0%' : `${formattedValue}%`;
 };
-
-// const formatStartDate = date => {
-//     const year = date.getFullYear();
-//     const month = String(date.getMonth() + 1).padStart(2, '0');
-//     const day = String(date.getDate()).padStart(2, '0');
-//     return `${year}-${month}-${day}`;
-// };
 
 const calculateParams = width => {
     let barGap, chartWidth, chartHeight, marginRight, barSize, fontSize;
@@ -75,18 +61,8 @@ const StatisticsReChart = ({ startDate, setStartDate }) => {
 
     const currentDate = moment(startDate).format('YYYY-MM-DD');
 
-    console.log(startDate);
-
-    ///////////////////////////////////
-
-    //////////////////////////////////////////
-    // const { currentDate } = useParams();
-    // const date = new Date(currentDate);
     const dispatch = useDispatch();
     const tasks = useSelector(selectTasks);
-    // console.log(tasks);
-    // console.log('tasks:>>', tasks);
-    // console.log('currentDate', currentDate);
 
     useEffect(() => {
         dispatch(fetchTasks(currentDate));
@@ -94,9 +70,7 @@ const StatisticsReChart = ({ startDate, setStartDate }) => {
             const newWidth = window.innerWidth;
             setWindowWidth(newWidth);
         };
-
         window.addEventListener('resize', handleResize);
-
         return () => {
             window.removeEventListener('resize', handleResize);
         };
@@ -104,10 +78,7 @@ const StatisticsReChart = ({ startDate, setStartDate }) => {
 
     const fill = isLightTheme ? '#343434' : '#fff';
     const gridStroke = isLightTheme ? '#E3F3FF' : '#e3f3ff26';
-
     const { formattedData } = getStatisticsCalculation(currentDate, tasks);
-
-    console.log(formattedData);
 
     return (
         <BarChart
@@ -115,7 +86,7 @@ const StatisticsReChart = ({ startDate, setStartDate }) => {
             height={chartHeight}
             data={formattedData}
             margin={{
-                top: 15,
+                top: 18,
                 right: marginRight,
                 left: 0,
                 bottom: 0,
