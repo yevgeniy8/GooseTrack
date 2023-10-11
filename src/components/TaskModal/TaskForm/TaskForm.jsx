@@ -17,8 +17,10 @@ import {
     Label,
     RadioWrapper,
     TimeWrapper,
+    RadioSpan,
+    RadioLabel,
+    RadioField,
 } from './TaskForm.styled';
-import { RadioSpan, RadioLabel, RadioField } from './TaskFormRadio.styled';
 
 import { addTask, editTask } from 'redux/calendar/calendarOperations';
 
@@ -71,7 +73,7 @@ export const TaskForm = ({ value, onClose, action, task }) => {
         dispatch(addTask(obj));
         onClose();
     };
-    console.log(theme);
+
     return (
         <Formik
             validationSchema={TaskSchema}
@@ -133,11 +135,7 @@ export const TaskForm = ({ value, onClose, action, task }) => {
                     </TimeWrapper>
 
                     <RadioWrapper role="group" aria-labelledby="my-radio-group">
-                        <RadioLabel
-                            style={{
-                                color: theme.colors.textPrimary,
-                            }}
-                        >
+                        <RadioLabel>
                             <RadioField
                                 type="radio"
                                 name="priority"
@@ -148,11 +146,7 @@ export const TaskForm = ({ value, onClose, action, task }) => {
                             <RadioSpan value="low" />
                             Low
                         </RadioLabel>
-                        <RadioLabel
-                            style={{
-                                color: theme.colors.textPrimary,
-                            }}
-                        >
+                        <RadioLabel>
                             <RadioField
                                 type="radio"
                                 name="priority"
@@ -163,11 +157,7 @@ export const TaskForm = ({ value, onClose, action, task }) => {
                             <RadioSpan value="medium" />
                             Medium
                         </RadioLabel>
-                        <RadioLabel
-                            style={{
-                                color: theme.colors.textPrimary,
-                            }}
-                        >
+                        <RadioLabel>
                             <RadioField
                                 type="radio"
                                 name="priority"

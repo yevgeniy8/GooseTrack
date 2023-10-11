@@ -1,5 +1,5 @@
-import styled from '@emotion/styled';
-
+import styled from '@emotion/styled/macro';
+import { tablet, min } from 'styles/media';
 import {
     Form as FormikForm,
     Field,
@@ -17,7 +17,7 @@ export const Form = styled(FormikForm)`
     border: ${({ theme }) => theme.borders.modalTask};
     box-shadow: ${({ theme }) => theme.shadows.modalTask};
 
-    @media (min-width: 768px) {
+    ${min(tablet)} {
         width: 396px;
         padding: 40px 28px;
     }
@@ -51,9 +51,10 @@ export const InputTitle = styled(Field)`
     line-height: 18px;
     outline: none;
 
-    transition: border 250ms linear;
+    transition: ${({ theme }) =>
+        `border ${theme.animations.duration} ${theme.animations.cubicBezier}`};
 
-    @media (min-width: 768px) {
+    ${min(tablet)} {
         width: 340px;
         height: 46px;
         padding: 14px 18px;
@@ -79,7 +80,7 @@ export const TimeWrapper = styled.div`
     gap: 14px;
     margin-top: 16px;
 
-    @media (min-width: 768px) {
+    ${min(tablet)} {
         margin-top: 18px;
     }
 `;
@@ -100,9 +101,10 @@ export const InputTime = styled(Field)`
     font-weight: 600;
     line-height: 18px;
 
-    transition: border 250ms linear;
+    transition: ${({ theme }) =>
+        `border ${theme.animations.duration} ${theme.animations.cubicBezier}`};
 
-    @media (min-width: 768px) {
+    ${min(tablet)} {
         width: 163px;
         height: 46px;
         padding: 14px 18px;
@@ -150,14 +152,15 @@ export const ButtonAction = styled.button`
     font-weight: 600;
     line-height: 18px;
 
-    transition: background-color 250ms linear;
+    transition: ${({ theme }) =>
+        `background-color ${theme.animations.duration} ${theme.animations.cubicBezier}`};
 
     &:hover,
     &:focus {
         background-color: ${({ theme }) => theme.colors.backgroundBtnHover};
     }
 
-    @media (min-width: 768px) {
+    ${min(tablet)} {
         width: 182px;
         height: 48px;
         padding: 15px;
@@ -181,14 +184,16 @@ export const ButtonCancel = styled.button`
     font-weight: 600;
     line-height: 18px;
 
-    transition: background-color 250ms linear;
+    transition: ${({ theme }) =>
+        `background-color ${theme.animations.duration} ${theme.animations.cubicBezier}`};
 
     &:hover,
     &:focus {
-        background-color: ${({ theme }) => theme.colors.buttonAddTaskHover};
+        background-color: ${({ theme }) =>
+            theme.colors.backgroundBtnCancelHover};
     }
 
-    @media (min-width: 768px) {
+    ${min(tablet)} {
         width: 182px;
         height: 48px;
         padding: 15px;
@@ -208,7 +213,8 @@ export const ButtonCloseWrap = styled.button`
     cursor: pointer;
     stroke: ${({ theme }) => theme.colors.textTitleHeader};
 
-    transition: stroke 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: ${({ theme }) =>
+        `stroke ${theme.animations.duration} ${theme.animations.cubicBezier}`};
 
     &:hover,
     &:focus {
@@ -223,4 +229,63 @@ export const ErrorMessage = styled(FormikErrorMessage)`
     font-size: 12px;
     font-family: Inter;
     line-height: 14px;
+`;
+export const RadioField = styled(Field)`
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+`;
+
+export const RadioLabel = styled.label`
+    position: relative;
+    padding-left: 16px;
+    display: flex;
+    align-items: center;
+    margin-top: 16px;
+    color: ${({ theme }) => theme.colors.textPrimary};
+    font-size: 12px;
+    font-family: Inter;
+    font-weight: 600;
+    line-height: 14px;
+    cursor: pointer;
+
+    ${min(tablet)} {
+        font-size: 14px;
+        line-height: 18px;
+        margin-top: 28px;
+    }
+`;
+
+export const RadioSpan = styled.span`
+    position: absolute;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: ${({ value }) => {
+        switch (value) {
+            case 'low':
+                return '#72C2F8';
+            case 'medium':
+                return '#F3B249';
+            case 'high':
+                return '#EA3D65';
+            default:
+                return 'black';
+        }
+    }};
+
+    ${RadioLabel} ${RadioField}:checked + & {
+        outline-offset: 1px;
+        outline: 1.2px solid
+            ${({ value }) => {
+                const colors = {
+                    low: '#72C2F8',
+                    medium: '#F3B249',
+                    high: '#EA3D65',
+                    default: 'black',
+                };
+                return colors[value] || colors['default'];
+            }};
+    }
 `;

@@ -108,6 +108,7 @@ export const lightTheme = {
         textPrimary: '#343434',
         nameDay: '#343434',
         textTitleHeader: '#111',
+
         textTitleLogo: '#3E85F3',
         textTitleSideBar: 'rgba(52, 52, 52, 0.50)',
         textSideBar: 'rgba(52, 52, 52, 0.50)',
@@ -219,8 +220,6 @@ export const darkTheme = {
         backgroundMonthDayActive: '#3E85F3',
         backgroundScrollbar: '#2D3037',
         backgroundHorizontalScroll: '#21222C',
-
-        backgroundEditBtn: '#353647',
 
         statisticsLine: '#rgba(227, 243, 255, 0.15)',
         iconTasks: '#fff',
