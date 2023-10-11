@@ -29,7 +29,7 @@ registerLocale('en', enGB);
 
 export const UserForm = () => {
     const dispatch = useDispatch();
-    const [isFormChanged, setIsFormChanged] = useState(false);
+    // const [isFormChanged, setIsFormChanged] = useState(false);
     const [currentAvatar, setCurrentAvatar] = useState(null);
 
     const user = useSelector(selectUser);
@@ -55,9 +55,9 @@ export const UserForm = () => {
         }
 
         dispatch(editUser(formData));
-        setIsFormChanged(false);
-        // console.log('actions:', actions);
        
+        // console.log('actions:', actions);
+
         // actions.resetForm();
     };
 
@@ -88,7 +88,6 @@ export const UserForm = () => {
                                 avatarURL={user.avatarURL}
                                 userName={user.name}
                                 setCurrentAvatar={setCurrentAvatar}
-                                setIsFormChanged={setIsFormChanged}
                                 setFieldValue={setFieldValue}
                             />
                             <FieldsWrap
