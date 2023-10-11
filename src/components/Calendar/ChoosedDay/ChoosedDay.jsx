@@ -2,13 +2,13 @@ import DayCalendarHead from './DayCalendarHead';
 import TasksColumnsList from './TasksColumnsList/TasksColumnsList';
 
 const ChoosedDay = () => {
-  return (
-    <>
-      <DayCalendarHead />
+    return (
+        <>
+            <DayCalendarHead />
 
-      <TasksColumnsList />
-    </>
-  );
+            <TasksColumnsList />
+        </>
+    );
 };
 
 export default ChoosedDay;

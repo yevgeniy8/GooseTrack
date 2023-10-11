@@ -64,22 +64,21 @@ export const ReviewsCardsContainer = styled.div`
 
 export const CardContainerOne = styled.div`
     max-width: 335px;
+    min-height: 194px;
 
     background-color: #ffffff;
 
     border-radius: 8px;
     border: 1px solid rgba(17, 17, 17, 0.1);
 
-    padding: 24px 20px 24px 24px;
+    padding: 24px;
 
     ${min(tablet)} {
         max-width: 580px;
         padding: 32px;
-    }
-`;
 
-export const CardContainerTwo = styled.div`
-    height: 150px;
+        min-height: 187px;
+    }
 `;
 
 export const FlexContainerTwo = styled.div`
