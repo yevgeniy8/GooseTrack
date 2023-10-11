@@ -3,7 +3,6 @@ import { LIGHT } from 'constants';
 // import { getCurrentDate } from 'helpers';
 import { useThemeContext } from 'hooks/ThemeContext';
 import { getStatisticsCalculation } from 'helpers';
-import { formatStartDate } from 'helpers';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -73,13 +72,11 @@ const StatisticsReChart = ({ startDate, setStartDate }) => {
         calculateParams(windowWidth);
     const { theme } = useThemeContext();
     const isLightTheme = theme === LIGHT;
-    const formattedStartDatsta = formatStartDate(startDate);
 
-    const mom = moment(startDate).format('YYYY-MM-DD');
+    const currentDate = moment(startDate).format('YYYY-MM-DD');
 
     ///////////////////////////////////
 
-    const currentDate = formattedStartDatsta;
     //////////////////////////////////////////
     // const { currentDate } = useParams();
     // const date = new Date(currentDate);
@@ -106,7 +103,7 @@ const StatisticsReChart = ({ startDate, setStartDate }) => {
     const fill = isLightTheme ? '#343434' : '#fff';
     const gridStroke = isLightTheme ? '#E3F3FF' : '#e3f3ff26';
 
-    const { formattedData } = getStatisticsCalculation(mom, tasks);
+    const { formattedData } = getStatisticsCalculation(currentDate, tasks);
 
     console.log(formattedData);
 
