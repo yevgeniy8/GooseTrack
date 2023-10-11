@@ -48,22 +48,22 @@ const StatisticsPage = () => {
                             <YaxisName>Tasks</YaxisName>
                             <Yticks>
                                 <li>{tasks.length}</li>
-                                {Number.isInteger((tasks.length / 5) * 4) ? (
+                                {((tasks.length / 5) * 4) % 5 === 0 ? (
                                     <li>{(tasks.length / 5) * 4}</li>
                                 ) : (
                                     <li>|</li>
                                 )}
-                                {Number.isInteger((tasks.length / 5) * 3) ? (
+                                {((tasks.length / 5) * 3) % 5 === 0 ? (
                                     <li>{(tasks.length / 5) * 3}</li>
                                 ) : (
                                     <li>|</li>
                                 )}
-                                {Number.isInteger((tasks.length / 5) * 2) ? (
+                                {((tasks.length / 5) * 2) % 5 === 0 ? (
                                     <li>{(tasks.length / 5) * 2}</li>
                                 ) : (
                                     <li>|</li>
                                 )}
-                                {Number.isInteger(tasks.length / 5) ? (
+                                {(tasks.length / 5) % 5 === 0 ? (
                                     <li>{tasks.length / 5}</li>
                                 ) : (
                                     <li>|</li>

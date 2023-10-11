@@ -22,7 +22,7 @@ export const fetchReviews = createAsyncThunk(
 export const addReview = createAsyncThunk(
     'reviews/addReviews',
     async (review, thunkAPI) => {
-        console.log(review);
+        // console.log(review);
         try {
             const { data } = await axios.post('/reviews/own', review);
             return data;
@@ -39,7 +39,7 @@ export const deleteReview = createAsyncThunk(
     async (id, thunkAPI) => {
         try {
             const { data } = await axios.delete(`/reviews/own/`);
-            console.log(data);
+            // console.log(data);
             return data;
         } catch (e) {
             return thunkAPI.rejectWithValue(e.message);

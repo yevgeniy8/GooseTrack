@@ -41,7 +41,7 @@ const reviewSlice = createSlice({
                 state.isLoading = true;
             })
             .addCase(addReview.fulfilled, (state, action) => {
-                console.log(action);
+                // console.log(action);
                 state.userReview = action.payload.review;
                 state.reviews = [...state.reviews, action.payload.review];
                 state.isLoading = false;

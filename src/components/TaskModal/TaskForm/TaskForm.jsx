@@ -69,7 +69,7 @@ export const TaskForm = ({ value, onClose, action, task }) => {
             category: value,
             date: currentDay,
         };
-        console.log(obj);
+        // console.log(obj);
         dispatch(addTask(obj));
         onClose();
     };
