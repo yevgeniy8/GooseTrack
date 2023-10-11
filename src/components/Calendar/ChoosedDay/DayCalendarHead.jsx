@@ -6,7 +6,7 @@ import {
 } from './DayCalendarHead.styled';
 import { useMediaQuery } from 'react-responsive';
 // import { DAYS, DAYS_MOB } from '../ChoosedMonth/utils';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 import moment from 'moment';
 
@@ -14,6 +14,8 @@ import { useEffect, useState } from 'react';
 
 const DayCalendarHead = () => {
     const isMobile = useMediaQuery({ maxWidth: 767 });
+
+    const navigate = useNavigate();
 
     const [isSelected, setIsSelected] = useState('');
 
@@ -36,12 +38,26 @@ const DayCalendarHead = () => {
         });
     }, [currentDay]);
 
+    const handleClick = date => {
+        const dateFormat = date.format('YYYY-MM-DD');
+        localStorage.setItem('date', dateFormat);
+        navigate(`/calendar/day/${dateFormat}`);
+    };
+
     return (
         <WeekdaysList>
             {[...Array(7)].map((_, index) => (
                 <WeekdaysItem
                     key={index}
                     // className={index === isSelected ? 'current-day' : ''}
+                    onClick={() =>
+                        handleClick(
+                            moment(currentDay)
+                                .clone()
+                                .startOf('week')
+                                .day(index + 1)
+                        )
+                    }
                 >
                     <Day>
                         {isMobile

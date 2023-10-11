@@ -29,7 +29,7 @@ import {
     deleteReview,
     editReview,
 } from 'redux/reviews/reviewsOperations';
-import { changeRating } from 'redux/reviews/reviewsSlice';
+// import { changeRating } from 'redux/reviews/reviewsSlice';
 import { Rating } from '@smastrom/react-rating';
 import '@smastrom/react-rating/style.css';
 
@@ -54,7 +54,9 @@ export const FeedbackForm = ({ onClose, existingReviewId }) => {
     const dispatch = useDispatch();
     const userReview = useSelector(selectUserReview);
     const [isEditActive, setIsEditActive] = useState(false);
+    const [isRating, setIsRating] = useState(null);
 
+    console.log(!5);
     // useEffect(() => {
     //     if (existingReviewId) {
     //         dispatch(fetchReviewById(existingReviewId));
@@ -69,17 +71,28 @@ export const FeedbackForm = ({ onClose, existingReviewId }) => {
     // console.log(userReview);
 
     const ratingChanged = newRating => {
-        // setRatingValue(newRating);
-        dispatch(changeRating(newRating));
+        console.log(newRating);
+        setIsRating(newRating);
+        // dispatch(changeRating(newRating));
     };
 
     const handleSubmit = (values, actions) => {
+        console.log(values);
+        console.log(isRating);
         values.rating = Number(userReview.rating);
         if (isEditActive) {
-            const reviewRequest = { id: userReview._id, review: values };
+            const reviewRequest = {
+                id: userReview._id,
+                review: { ...values, rating: isRating },
+            };
             dispatch(editReview(reviewRequest));
         } else {
-            dispatch(addReview(values));
+            const reviewRequest = {
+                ...values,
+                rating: isRating,
+            };
+            dispatch(addReview(reviewRequest));
+            onClose();
         }
         actions.resetForm();
         if (userReview.rating) {
@@ -89,7 +102,6 @@ export const FeedbackForm = ({ onClose, existingReviewId }) => {
 
     const handleEdit = () => {
         setIsEditActive(!isEditActive);
-
     };
 
     const handleDelete = () => {
@@ -101,7 +113,7 @@ export const FeedbackForm = ({ onClose, existingReviewId }) => {
         <Wrap>
             <Formik
                 initialValues={{
-                    rating: userReview.rating,
+                    rating: userReview.rating || isRating,
                     review: userReview.review || '',
                 }}
                 validationSchema={FeedbackSchema}
@@ -112,7 +124,7 @@ export const FeedbackForm = ({ onClose, existingReviewId }) => {
                     <Rating
                         name="rating"
                         component="div"
-                        value={Number(userReview.rating)}
+                        value={isRating || Number(userReview.rating)}
                         itemStyles={rateStyled}
                         style={{ maxWidth: 110, gap: 4, marginBottom: '20px' }}
                         onChange={ratingChanged}
@@ -155,7 +167,6 @@ export const FeedbackForm = ({ onClose, existingReviewId }) => {
                             disabled={
                                 !isEditActive && Boolean(userReview.review)
                             }
-                            
                         />
                         <ErrorMessage name="review" component="div" />
                     </WrapForInput>
@@ -164,7 +175,11 @@ export const FeedbackForm = ({ onClose, existingReviewId }) => {
                         <FormBtnWrap>
                             <FormBtn
                                 type="submit"
-                                disabled={!userReview.rating}
+                                disabled={
+                                    !userReview.rating
+                                        ? !isRating
+                                        : !userReview.rating
+                                }
                             >
                                 {isEditActive ? 'Edit' : 'Save'}
                             </FormBtn>
