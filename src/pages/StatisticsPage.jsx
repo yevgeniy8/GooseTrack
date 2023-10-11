@@ -48,26 +48,10 @@ const StatisticsPage = () => {
                             <YaxisName>Tasks</YaxisName>
                             <Yticks>
                                 <li>{tasks.length}</li>
-                                {((tasks.length / 5) * 4) % 5 === 0 ? (
-                                    <li>{(tasks.length / 5) * 4}</li>
-                                ) : (
-                                    <li>|</li>
-                                )}
-                                {((tasks.length / 5) * 3) % 5 === 0 ? (
-                                    <li>{(tasks.length / 5) * 3}</li>
-                                ) : (
-                                    <li>|</li>
-                                )}
-                                {((tasks.length / 5) * 2) % 5 === 0 ? (
-                                    <li>{(tasks.length / 5) * 2}</li>
-                                ) : (
-                                    <li>|</li>
-                                )}
-                                {(tasks.length / 5) % 5 === 0 ? (
-                                    <li>{tasks.length / 5}</li>
-                                ) : (
-                                    <li>|</li>
-                                )}
+                                <li>{((tasks.length / 5) * 4).toFixed(1)}</li>
+                                <li>{((tasks.length / 5) * 3).toFixed(1)}</li>
+                                <li>{((tasks.length / 5) * 2).toFixed(1)}</li>
+                                <li>{(tasks.length / 5).toFixed(1)}</li>
                                 <li>0</li>
                             </Yticks>
                         </Yaxis>
