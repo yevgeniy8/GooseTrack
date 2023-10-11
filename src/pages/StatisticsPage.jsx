@@ -51,7 +51,7 @@ export default StatisticsPage;
 const SectionStyled = styled.section`
     display: flex;
     flex-direction: column;
-    background-color: #fff;
+    background-color: ${({ theme }) => theme.colors.backgroundSecondary};
     border-radius: 16px;
 
     padding: 28px 14px 135px 14px;
@@ -96,7 +96,7 @@ const LegendBlock = styled.div`
 const Legend = styled.ul`
     display: flex;
     flex-direction: row;
-    color: #343434;
+    color: ${({ theme }) => theme.colors.textPrimary};
     font-family: Inter;
     font-style: normal;
     font-weight: 400;
@@ -185,12 +185,12 @@ const StatBlock = styled.section`
 const Yaxis = styled.div`
     display: flex;
     flex-direction: column;
-    margin-top: -45px;
+    margin-top: -37px;
     margin-right: 0px;
     padding-left: 0px;
     font-weight: 600;
     @media screen and (min-width: 768px) {
-        margin-top: -38px;
+        margin-top: -41px;
         margin-right: 17px;
     }
     @media screen and (min-width: 1440px) {
@@ -200,6 +200,7 @@ const Yaxis = styled.div`
 `;
 const YaxisName = styled.p`
     margin-bottom: 20px;
+    color: ${({ theme }) => theme.colors.textPrimary};
     @media screen and (min-width: 768px) {
         margin-bottom: 24px;
     }
@@ -210,13 +211,14 @@ const YaxisName = styled.p`
 const Yticks = styled.ul`
     display: flex;
     flex-direction: column;
-    gap: 28px;
+    gap: 29px;
     font-weight: 400;
+    color: ${({ theme }) => theme.colors.textPrimary};
     @media screen and (min-width: 768px) {
-        gap: 32px;
+        gap: 33px;
     }
     @media screen and (min-width: 1440px) {
-        gap: 32px;
+        gap: 33px;
     }
 `;
 const Xaxis = styled.div``;
@@ -224,7 +226,7 @@ const Xaxis = styled.div``;
 const Xticks = styled.ul`
     display: flex;
     gap: 34px;
-
+    color: ${({ theme }) => theme.colors.textPrimary};
     margin-left: 62px;
     margin-bottom: -33px;
     font-size: 12px;

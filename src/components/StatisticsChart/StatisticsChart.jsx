@@ -1,4 +1,6 @@
 import { faker } from '@faker-js/faker';
+import { LIGHT } from 'constants';
+import { useThemeContext } from 'hooks/ThemeContext';
 
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -24,38 +26,44 @@ const newData = data.map(el => ({
 const formatPercent = value => `${value}%`;
 
 const calculateParams = width => {
-    let barGap, chartWidth, chartHeight, marginRight, barSize;
+    let barGap, chartWidth, chartHeight, marginRight, barSize, fontSize;
 
     if (width >= 1440) {
         barGap = 14;
-
+        fontSize = 16;
         chartWidth = 694;
         chartHeight = 286;
         marginRight = 0;
         barSize = 27;
     } else if (width >= 768) {
         barGap = 14;
-
+        fontSize = 16;
         chartWidth = 522;
         chartHeight = 286;
         marginRight = 0;
         barSize = 27;
     } else {
         barGap = 8;
-
+        fontSize = 12;
         chartWidth = 243;
         chartHeight = 266;
         marginRight = 0;
         barSize = 22;
     }
 
-    return { barGap, chartWidth, chartHeight, marginRight, barSize };
+    return { barGap, chartWidth, chartHeight, marginRight, barSize, fontSize };
 };
 
 const StatisticsReChart = () => {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-    const { barGap, chartWidth, chartHeight, marginRight, barSize } =
+    const { barGap, chartWidth, chartHeight, marginRight, barSize, fontSize } =
         calculateParams(windowWidth);
+    const { theme } = useThemeContext();
+    const isLightTheme = theme === LIGHT;
+
+    const fill = isLightTheme ? '#343434' : '#fff';
+
+    // const[theme]
 
     ///////////////////////////////////////////////////for tasks
     const { currentDate } = useParams();
@@ -132,8 +140,8 @@ const StatisticsReChart = () => {
                 <LabelList
                     dataKey="By Day"
                     position="top"
-                    fontSize={12}
-                    fill="#000"
+                    fontSize={fontSize}
+                    fill={fill}
                     formatter={formatPercent}
                 />
             </Bar>
@@ -141,8 +149,8 @@ const StatisticsReChart = () => {
                 <LabelList
                     dataKey="By Month"
                     position="top"
-                    fontSize={12}
-                    fill="#000"
+                    fontSize={fontSize}
+                    fill={isLightTheme ? '#343434' : '#fff'}
                     formatter={formatPercent}
                 />
             </Bar>

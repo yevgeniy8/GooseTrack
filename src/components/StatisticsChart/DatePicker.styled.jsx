@@ -69,7 +69,7 @@ export const ToggleBtn = styled.div`
 export const Icon = styled.svg`
     stroke: #dce3e5;
     &:hover {
-        stroke: #343434;
+        stroke: ${({ theme }) => theme.colors.nameDay};
     }
 `;
 
@@ -77,12 +77,12 @@ export const BtnLeft = styled.button`
     padding: 8px 10px;
     width: 38px;
     height: 34px;
-    background-color: #fff;
+    background-color: ${({ theme }) => theme.colors.backgroundSecondary};
     border: solid 1px rgba(220, 227, 229, 0.8);
     border-radius: 8px 0 0 8px;
     transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
     &:hover {
-        stroke: #343434;
+        stroke: ${({ theme }) => theme.colors.nameDay};
     }
 `;
 
@@ -90,12 +90,12 @@ export const BtnRight = styled.button`
     padding: 8px 10px;
     width: 38px;
     height: 34px;
-    background-color: #fff;
+    background-color: ${({ theme }) => theme.colors.backgroundSecondary};
     border: solid 1px rgba(220, 227, 229, 0.8);
     border-radius: 0 8px 8px 0;
     transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
     &:hover {
-        stroke: #343434;
+        stroke: ${({ theme }) => theme.colors.textPrimary};
     }
 `;
 
