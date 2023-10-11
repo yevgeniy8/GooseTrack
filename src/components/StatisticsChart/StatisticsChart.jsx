@@ -65,13 +65,13 @@ const StatisticsReChart = () => {
     ///////////////////////////////////
 
     const currentDate = getCurrentDate();
-    //////////////////////////////////////////
+    // //////////////////////////////////////////
     // const { currentDate } = useParams();
     // const date = new Date(currentDate);
     const dispatch = useDispatch();
     const tasks = useSelector(selectTasks);
-    // console.log('tasks:>>', tasks);
-    // console.log('currentDate', currentDate);
+    console.log('tasks:>>', tasks);
+    console.log('currentDate', currentDate);
 
     useEffect(() => {
         dispatch(fetchTasks(currentDate));
@@ -85,7 +85,7 @@ const StatisticsReChart = () => {
         return () => {
             window.removeEventListener('resize', handleResize);
         };
-    }, [currentDate, dispatch]);
+    }, []);
 
     const fill = isLightTheme ? '#343434' : '#fff';
     const gridStroke = isLightTheme ? '#E3F3FF' : '#e3f3ff26';
