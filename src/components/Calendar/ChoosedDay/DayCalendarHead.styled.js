@@ -24,6 +24,8 @@ export const WeekdaysItem = styled.li`
     letter-spacing: 0em;
     text-align: left;
     text-transform: uppercase;
+
+    cursor: pointer;
     /* &:nth-last-child(-n + 2) {
         color: #3e85f3;
     } */
@@ -46,8 +48,8 @@ export const Number = styled.div`
     &.current-day {
         border-radius: 8px;
         color: white;
-        width: 45px;
-        padding: 2px;
+        ${'' /* width: 45px; */}
+        padding: 4px 8px;
         background-color: #3e85f3; /* Цвет выделения */
         font-weight: bold; /* Жирный шрифт для текущего дня */
     }

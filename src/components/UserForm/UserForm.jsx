@@ -129,6 +129,8 @@ export const UserForm = () => {
                                                 dateFormat="yyyy/MM/dd"
                                                 maxDate={new Date()}
                                                 locale="en"
+                                                showYearDropdown
+                                                scrollableYearDropdown
                                                 className={
                                                     errors.birthday &&
                                                     touched.birthday

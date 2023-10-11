@@ -63,7 +63,6 @@ export const UserInfo = ({
                 onChange={handleChange}
                 name="avatar"
                 accept="image/png, image/jpeg, image/jpg"
-          
             />
             <SvgPlus width="14" height="14">
                 <use href={`${sprite}#icon-image`} />

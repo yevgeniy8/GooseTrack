@@ -3,6 +3,13 @@ const common = {
         brand: '#3E85F3',
         secondary: '#DCEBF7',
 
+        colorLow: '#3E85F3',
+        bgColorLow: '#CEEEFD',
+        colorMedium: '#F3B249',
+        bgColorMedium: '#FCF0D4',
+        colorHigh: '#EA3D65',
+        bgColorHigh: '#FFD2DD',
+
         correct: '#3CBC81',
         error: '#E74A3B',
         errorMessage: '#da1414',
@@ -107,7 +114,6 @@ export const lightTheme = {
         textSideBarHover: '#3E85F3',
         textSideBarCurrentPage: '#3E85F3',
         textUserName: '#343434',
-
         textMonthDayActive: '#3E85F3',
         textTitleModalTask: 'rgba(52, 52, 52, 0.8)',
 
@@ -132,8 +138,8 @@ export const lightTheme = {
         iconTasks: '#111',
         iconSideBar: 'rgba(52, 52, 52, 0.50)',
         iconSideBarActive: '#3E85F3',
-        sliderMonthDay: '#343434',
-        sliderMonthDayDisabled: '#DCE3E5',
+        sliderMonthDay: '#DCE3E5',
+        sliderMonthDayHover: '#343434',
         scrollbar: '#E7E5E5',
         horizontalScroll: '#E7E5E5',
         userDefaults: 'rgba(62, 133, 243, 0.18)',
@@ -193,7 +199,6 @@ export const darkTheme = {
         textSideBarHover: '#fff',
         textSideBarCurrentPage: '#fff',
         textUserName: '#fff',
-
         textMonthDayActive: '#fff',
         textTitleModalTask: 'rgba(250, 250, 250, 0.30)',
 
@@ -220,8 +225,8 @@ export const darkTheme = {
         iconTasks: '#fff',
         iconSideBar: '#ffffff',
         iconSideBarActive: '#fff',
-        sliderMonthDay: '#fff',
-        sliderMonthDayDisabled: 'rgba(255, 255, 255, 0.15)',
+        sliderMonthDay: 'rgba(255, 255, 255, 0.15)',
+        sliderMonthDayHover: '#fff',
         scrollbar: '#171820',
         horizontalScroll: '#2D3037',
         userDefaults: 'rgba(255, 255, 255, 0.18)',
