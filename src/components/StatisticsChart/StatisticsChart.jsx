@@ -1,5 +1,6 @@
 import { faker } from '@faker-js/faker';
 import { LIGHT } from 'constants';
+import { getCurrentDate } from 'helpers';
 import { useThemeContext } from 'hooks/ThemeContext';
 
 import React, { useEffect, useState } from 'react';
@@ -61,28 +62,19 @@ const StatisticsReChart = () => {
     const { theme } = useThemeContext();
     const isLightTheme = theme === LIGHT;
 
-    const fill = isLightTheme ? '#343434' : '#fff';
+    ///////////////////////////////////
 
-    // const[theme]
-
-    ///////////////////////////////////////////////////for tasks
-    const { currentDate } = useParams();
-    const navigate = useNavigate();
-
-    const date = new Date(currentDate);
-
+    const currentDate = getCurrentDate();
+    //////////////////////////////////////////
+    // const { currentDate } = useParams();
+    // const date = new Date(currentDate);
     const dispatch = useDispatch();
     const tasks = useSelector(selectTasks);
-
-    // useEffect(() => {
-    //     dispatch(fetchTasks(currentDate));
-    // }, [currentDate, dispatch]);
     console.log('tasks:>>', tasks);
-    console.log('date', date);
-    ///////////////////////////////////////////////////
+    console.log('currentDate', currentDate);
 
     useEffect(() => {
-        dispatch(fetchTasks(date));
+        dispatch(fetchTasks(currentDate));
         const handleResize = () => {
             const newWidth = window.innerWidth;
             setWindowWidth(newWidth);
@@ -93,7 +85,9 @@ const StatisticsReChart = () => {
         return () => {
             window.removeEventListener('resize', handleResize);
         };
-    }, [currentDate, date, dispatch]);
+    }, [currentDate, dispatch]);
+
+    const fill = isLightTheme ? '#343434' : '#fff';
 
     return (
         <BarChart
