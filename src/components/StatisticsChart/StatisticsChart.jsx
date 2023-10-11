@@ -17,6 +17,7 @@ import {
 } from 'recharts';
 import { fetchTasks } from 'redux/calendar/calendarOperations';
 import { selectTasks } from 'redux/calendar/calendarSelector';
+import moment from 'moment';
 
 // const data = [{ name: 'To Do' }, { name: 'In Progress' }, { name: 'Done' }];
 // const newData = data.map(el => ({
@@ -74,6 +75,8 @@ const StatisticsReChart = ({ startDate, setStartDate }) => {
     const isLightTheme = theme === LIGHT;
     const formattedStartDatsta = formatStartDate(startDate);
 
+    const mom = moment(startDate).format('YYYY-MM-DD');
+
     ///////////////////////////////////
 
     const currentDate = formattedStartDatsta;
@@ -103,7 +106,9 @@ const StatisticsReChart = ({ startDate, setStartDate }) => {
     const fill = isLightTheme ? '#343434' : '#fff';
     const gridStroke = isLightTheme ? '#E3F3FF' : '#e3f3ff26';
 
-    const { formattedData } = getStatisticsCalculation(currentDate, tasks);
+    const { formattedData } = getStatisticsCalculation(mom, tasks);
+
+    console.log(formattedData);
 
     return (
         <BarChart

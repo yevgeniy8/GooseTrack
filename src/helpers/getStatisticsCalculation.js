@@ -19,20 +19,24 @@ export const getStatisticsCalculation = (currentDate, tasks) => {
         return taskMonth === currentMonth;
     });
 
-    const todoByDay = tasksForDay.filter(task => task.title === 'to do').length;
-    const inprogressByDay = tasksForDay.filter(
-        task => task.title === 'progress'
+    const todoByDay = tasksForDay.filter(
+        task => task.category === 'to-do'
     ).length;
-    const doneByDay = tasksForDay.filter(task => task.title === 'done').length;
+    const inprogressByDay = tasksForDay.filter(
+        task => task.category === 'in-progress'
+    ).length;
+    const doneByDay = tasksForDay.filter(
+        task => task.category === 'done'
+    ).length;
 
     const todoByMonth = tasksForMonth.filter(
-        task => task.title === 'to do'
+        task => task.category === 'to-do'
     ).length;
     const inprogressByMonth = tasksForMonth.filter(
-        task => task.title === 'progress'
+        task => task.category === 'in-progress'
     ).length;
     const doneByMonth = tasksForMonth.filter(
-        task => task.title === 'done'
+        task => task.category === 'done'
     ).length;
     const totalTasksForDay = todoByDay + inprogressByDay + doneByDay;
     const totalTasksForMonth = todoByMonth + inprogressByMonth + doneByMonth;
