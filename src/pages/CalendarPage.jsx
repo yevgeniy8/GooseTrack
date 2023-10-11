@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import styled from '@emotion/styled';
-import CalendarToolbar from 'components/Calendar/CalendarToolbar/CalendarToolbar';
+import CalendarToolbar from 'components/Calendar/CalendarToolbar';
 import { Outlet, useNavigate } from 'react-router';
 import moment from 'moment';
 

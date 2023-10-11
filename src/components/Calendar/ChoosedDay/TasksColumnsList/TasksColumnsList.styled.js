@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import { desktop, min } from '../../../../styles/media';
 
 export const ColumnList = styled.ul`
+    background-color: red;
     display: flex;
     justify-content: space-between;
     gap: 16px;

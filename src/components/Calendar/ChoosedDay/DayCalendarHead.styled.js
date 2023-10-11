@@ -3,13 +3,13 @@ import styled from '@emotion/styled';
 export const WeekdaysList = styled.ul`
     display: flex;
     justify-content: space-around;
-    padding: 14px 0;
+    padding: 14px 18px;
     color: ${({ theme }) => theme.colors.textTitleHeader};
     background: ${({ theme }) => theme.colors.backgroundSecondary};
-    border: 1px solid rgba(220, 227, 229, 0.8);
+    border: ${({ theme }) => theme.borders.calendar};
     border-radius: 8px;
     overflow: hidden;
-    margin-bottom: 15px;
+    margin-bottom: 14px;
 `;
 
 export const WeekdaysItem = styled.li`
@@ -17,6 +17,7 @@ export const WeekdaysItem = styled.li`
     flex-direction: column;
     align-items: center; /* Выравнивание по центру по горизонтали */
     text-align: center; /* Выравнивание текста по центру */
+    justify-content: center; /* Вирівнювання по центру по вертикалі */
     font-family: Inter;
     font-size: 16px;
     font-weight: 600;
@@ -45,11 +46,12 @@ export const WeekdaysItem = styled.li`
 `;
 
 export const Number = styled.div`
+    padding: 4px 6px;
     &.current-day {
         border-radius: 8px;
         color: white;
         ${'' /* width: 45px; */}
-        padding: 4px 8px;
+
         background-color: #3e85f3; /* Цвет выделения */
         font-weight: bold; /* Жирный шрифт для текущего дня */
     }
@@ -58,11 +60,11 @@ export const Number = styled.div`
 export const Day = styled.div`
     color: #343434;
     font-family: Inter;
-    font-size: 14px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 600;
     line-height: 18px; /* 128.571% */
     text-transform: uppercase;
 
-    margin-bottom: 4px;
+    margin-bottom: 6px;
 `;
