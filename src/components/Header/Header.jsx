@@ -44,10 +44,8 @@ export const Header = ({ onOpenClick }) => {
         setIsOpenModal(false);
     };
 
-    const locationCurrentDay = location.includes(
-        `/calendar/day/${currentDate}`
-    );
-
+    const locationCurrentDay = location.includes('calendar/day');
+    console.log(locationCurrentDay);
     return (
         <header>
             <HeaderContainer>
