@@ -2,16 +2,15 @@ import ReactDatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import styled from '@emotion/styled';
 
-
 export const DatePickerStyled = styled(ReactDatePicker)`
     width: 100%;
     padding: 12px;
     border-radius: 8px;
     border: 1px solid rgba(220, 227, 229, 0.6);
-
+    background-color: ${({ theme }) => theme.colors.backgroundSecondary};
     outline: none;
     font-family: Inter;
-
+    color: ${({ theme }) => theme.colors.textPrimary};
     line-height: 1.28;
 
     &:hover,
@@ -20,7 +19,7 @@ export const DatePickerStyled = styled(ReactDatePicker)`
     }
 
     ::placeholder {
-        color: #111;
+        color: ${({ theme }) => theme.colors.textPrimary};
         font-weight: 600;
         font-size: 14px;
     }
@@ -32,12 +31,12 @@ export const DatePickerStyled = styled(ReactDatePicker)`
             font-size: 16px;
         }
         &.input-error {
-        border: 1px solid #e74a3b;
-    }
+            border: 1px solid #e74a3b;
+        }
 
-    &.input-valid {
-        border: 1px solid #3cbc81;
-    }
+        &.input-valid {
+            border: 1px solid #3cbc81;
+        }
     }
 `;
 export const DatePickerWrapp = styled.div`
@@ -46,22 +45,21 @@ export const DatePickerWrapp = styled.div`
     }
     .react-datepicker {
         position: absolute;
-        top: 34px;
-        left: 27px;
+        top: -80px;
+        left: -35px;
 
         @media (min-width: 768px) {
             top: -60px;
             left: 110px;
         }
+        display: flex;
+        justify-content: center;
         background-color: #3e85f3;
         border-radius: 16px;
         color: #fff;
         overflow: hidden;
         border: none;
         width: 327px;
-        height: 318px;
-        display: flex;
-        justify-content: center;
         font-size: 18px;
         line-height: 1.3;
 
@@ -75,7 +73,7 @@ export const DatePickerWrapp = styled.div`
         &__header {
             background-color: #3e85f3;
             color: #fff;
-            border-bottom:1px solid rgba(255, 255, 255, 0.20);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
         }
         &__month-container {
             background-color: #3e85f3;
@@ -147,6 +145,7 @@ export const DatePickerWrapp = styled.div`
         &__year-option {
             background-color: #3e85f3;
             color: #fff;
+            line-height: 30px;
             &:hover {
                 background-color: #3e85f3;
                 font-size: 14px;
@@ -154,6 +153,7 @@ export const DatePickerWrapp = styled.div`
             }
         }
         &__year-dropdown {
+            border-radius: 0;
             &::-webkit-scrollbar {
                 width: 15px;
                 height: 20px;
@@ -164,14 +164,27 @@ export const DatePickerWrapp = styled.div`
                 background: #fff;
                 border-radius: 8px;
             }
+            &--scrollable {
+                height: 250px;
+            }
+        }
+
+        &__navigation--years-previous {
+            top: -0.5px;
+        }
+
+        &__navigation--years-upcoming {
+            top: -1px;
+        }
+
+        &__navigation--years-upcoming {
         }
         &__week {
-            
             display: flex;
-        };
-        &__month{
-            margin:0;
-            padding-bottom:9px;
+        }
+        &__month {
+            margin: 0;
+            padding-bottom: 9px;
         }
     }
 `;

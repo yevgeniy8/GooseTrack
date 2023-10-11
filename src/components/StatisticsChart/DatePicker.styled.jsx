@@ -1,12 +1,10 @@
 import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
 
-import { tablet, min } from 'styles/media';
-
 export const ToolbarContainer = styled.div`
     margin-bottom: 24px;
 
-    ${min(tablet)} {
+    @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
         display: flex;
         justify-content: space-between;
     }
@@ -15,45 +13,63 @@ export const ToolbarContainer = styled.div`
 export const PeriodTypeSelect = styled.div`
     display: flex;
     justify-content: space-between;
-    margin-bottom: 18px;
-    gap: 8px;
+    /* margin-bottom: 18px; */
+    /* gap: 8px; */
+    @media screen and (min-width: 768px) {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 8px;
+    }
+    @media screen and (min-width: 1440px) {
+        margin-right: 46px;
+    }
 `;
 
 export const DateBox = styled.div`
-    background-color: ${({ theme }) => theme.colors.brand};
-    // width: 146px;
+    background-color: #3e85f3;
+    width: 148px;
     display: flex;
-    padding: 6px 12px;
+    padding: 6px 10px;
     justify-content: center;
     align-items: center;
-    text-align: center;
     border-radius: 8px;
-
-    ${min(tablet)} {
-        max-width: 168px;
-    }
 `;
 
 export const Date = styled.span`
     text-transform: uppercase;
-    color: ${({ theme }) => theme.colors.white};
+    color: white;
     font-size: 14px;
     font-style: normal;
     font-weight: 700;
     line-height: 18px;
-
-    ${min(tablet)} {
+    @media screen and (min-width: 768px) {
+        font-size: 16px;
+    }
+    @media screen and (min-width: 1440px) {
         font-size: 16px;
     }
 `;
 
-export const Icon = styled.svg`
-    /* stroke: ${({ theme }) => theme.colors.sliderMonthDay};
-    fill: none;
-
+export const ToggleBox = styled.div`
+    display: flex;
+    background-color: #fff;
+    border: 1px solid rgba(220, 227, 229, 0.8);
+    border-radius: 8px;
+    gap: 1px;
+    overflow: hidden;
     transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+`;
+
+export const ToggleBtn = styled.div`
+    padding: 7px 10px;
+    background-color: #fff;
+`;
+
+export const Icon = styled.svg`
+    /* stroke: #dce3e5;
     &:hover {
-        stroke: ${({ theme }) => theme.colors.sliderMonthDayHover};
+        stroke: ${({ theme }) => theme.colors.nameDay};
     } */
 `;
 
@@ -71,10 +87,6 @@ export const BtnLeft = styled.button`
     &:hover {
         stroke: ${({ theme }) => theme.colors.sliderMonthDayHover};
     }
-    ${min(tablet)} {
-        padding: 8px;
-        height: 34px;
-    }
 `;
 
 export const BtnRight = styled.button`
@@ -91,12 +103,8 @@ export const BtnRight = styled.button`
     &:hover {
         stroke: ${({ theme }) => theme.colors.sliderMonthDayHover};
     }
-    ${min(tablet)} {
-        padding: 8px;
-        height: 34px;
-    }
 `;
-//якщо не потрібно прибрати PeriodPaginator Period
+
 export const PeriodPaginator = styled.div`
     display: flex;
     border-radius: 8px;
@@ -113,71 +121,57 @@ export const Period = styled.div`
     background-color: rgba(62, 133, 243, 0.2);
 `;
 
-export const NavLinkMonth = styled(NavLink)`
-    width: 76px;
+export const BtnMonth = styled.button`
+    width: 82px;
     height: 34px;
     padding: 8px 16px;
     border: none;
     border-radius: 8px 0 0 8px;
-    color: ${({ theme }) => theme.colors.brand};
-    border-right: ${({ theme }) => theme.borders.rightMonth};
-    background-color: ${({ theme }) => theme.colors.backgroundMonthDay};
+    border-right: 1px solid rgba(62, 133, 243, 0.2);
+    background-color: #e3f3ff;
     font-family: Inter;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 500;
     line-height: 18px;
     letter-spacing: 0em;
     text-align: center;
-    transition: ${({ theme }) =>
-        `background-color ${theme.animations.duration} ${theme.animations.cubicBezier}, color ${theme.animations.duration} ${theme.animations.cubicBezier}`};
+    color: #3e85f3;
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
     &:hover,
-    &:focus {
-        background-color: ${({ theme }) =>
-            theme.colors.backgroundMonthDayActive};
-        color: ${({ theme }) => theme.colors.textMonthDayActive};
-    }
-    ${min(tablet)} {
-        font-size: 16px;
-        width: 82px;
-    }
-
+    &:focus,
     &.active {
-        background-color: ${({ theme }) =>
-            theme.colors.backgroundMonthDayActive};
-        color: ${({ theme }) => theme.colors.textMonthDayActive};
+        background-color: rgba(62, 133, 243, 0.2);
     }
 `;
 
-export const NavLinkDay = styled(NavLink)`
-    width: 76px;
+export const BtnDay = styled.button`
+    width: 82px;
     height: 34px;
     padding: 8px 16px;
     border: none;
     border-radius: 0 8px 8px 0;
-    /* border-left: 1px solid rgba(62, 133, 243, 0.2); */
-    background-color: ${({ theme }) => theme.colors.backgroundMonthDay};
+    border-left: 1px solid rgba(62, 133, 243, 0.2);
+    background-color: #e3f3ff;
     font-family: Inter;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 500;
     line-height: 18px;
     letter-spacing: 0em;
     text-align: center;
-    color: ${({ theme }) => theme.colors.brand};
-    transition: ${({ theme }) =>
-        `background-color ${theme.animations.duration} ${theme.animations.cubicBezier}, color ${theme.animations.duration} ${theme.animations.cubicBezier}`};
+    color: #3e85f3;
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
     &:hover,
-    &:focus {
-        background-color: ${({ theme }) =>
-            theme.colors.backgroundMonthDayActive};
-        color: ${({ theme }) => theme.colors.textMonthDayActive};
-    }
-    ${min(tablet)} {
-        font-size: 16px;
-        width: 82px;
-    }
+    &:focus,
     &.active {
-        background-color: ${({ theme }) =>
-            theme.colors.backgroundMonthDayActive};
-        color: ${({ theme }) => theme.colors.textMonthDayActive};
+        background-color: rgba(62, 133, 243, 0.2);
     }
+`;
+
+export const TypeLink = styled(NavLink)`
+    text-decoration: none;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px;
+    color: #3e85f3;
 `;

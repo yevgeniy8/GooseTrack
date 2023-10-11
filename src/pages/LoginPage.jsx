@@ -7,9 +7,19 @@ import { NavLink } from 'react-router-dom';
 import login_goose_rocket_desktop from '../images/login_register/login_goose_rocket_desktop.png';
 import login_goose_rocket_desktop2x from '../images/login_register/login_goose_rocket_desktop@2x.png';
 
+import { createGlobalStyle } from 'styled-components';
+
+const GlobalStyles = createGlobalStyle`
+
+    body {
+        background-color: #DCEBF7;
+    }
+`;
+
 const LoginPage = () => {
     return (
         <WrapperRegister>
+            <GlobalStyles />
             <LoginForm />
             <LinkToLogin to="/register">Sign Up</LinkToLogin>
             <Picture>

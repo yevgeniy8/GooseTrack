@@ -17,6 +17,7 @@ const common = {
         editBtn: '#3E85F3',
         editBtnHover: '#fff',
         deleteFeedbackBtn: '#ea3d65',
+        disabledBtn: 'rgba(17, 17, 17, 0.15)',
 
         white: '#fff',
         black: '#111',
@@ -108,6 +109,7 @@ export const lightTheme = {
         textPrimary: '#343434',
         nameDay: '#343434',
         textTitleHeader: '#111',
+
         textTitleLogo: '#3E85F3',
         textTitleSideBar: 'rgba(52, 52, 52, 0.50)',
         textSideBar: 'rgba(52, 52, 52, 0.50)',
@@ -161,6 +163,7 @@ export const lightTheme = {
         rightMonth: '1px solid rgba(62, 133, 243, 0.20)',
         modalTask: '1px solid rgba(220, 227, 229, 0.80)',
         feedbackInput: 'none',
+        inputHover: '1px solid #111',
     },
 
     borderRadius: {
@@ -219,8 +222,6 @@ export const darkTheme = {
         backgroundScrollbar: '#2D3037',
         backgroundHorizontalScroll: '#21222C',
 
-        backgroundEditBtn: '#353647',
-
         statisticsLine: '#rgba(227, 243, 255, 0.15)',
         iconTasks: '#fff',
         iconSideBar: '#ffffff',
@@ -248,6 +249,7 @@ export const darkTheme = {
         rightMonth: '1px solid rgba(255, 255, 255, 0.15)',
         modalTask: 'none',
         feedbackInput: '1px solid rgba(255, 255, 255, 0.15)',
+        inputHover: '1px solid #fff',
     },
 
     borderRadius: {

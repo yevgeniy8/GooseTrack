@@ -13,7 +13,7 @@ export const Table = styled.div`
         `grid-template-rows: repeat(${props.is28Days ? 4 : 5}, 1fr);`}
     div {
         display: flex;
-        gap: 4px;
+        gap: 8px;
         justify-content: space-around;
         // justify-content: space-between;
         flex-direction: column;
@@ -29,6 +29,7 @@ export const Table = styled.div`
             `background-color ${theme.animations.duration} ${theme.animations.cubicBezier}, border ${theme.animations.duration} ${theme.animations.cubicBezier}`};
 
         ${min(tablet)} {
+            gap: 4px;
             max-width: 156px;
             height: 125px;
         }
