@@ -1,6 +1,7 @@
 import StatisticsChart from 'components/StatisticsChart/StatisticsChart';
 import styled from '@emotion/styled';
-import DatePicker from 'components/StatisticsChart/DatePiker';
+// import DatePicker from 'components/StatisticsChart/DatePiker';
+import TempDatePicker from 'components/StatisticsChart/TempDatePicker';
 // import { useState } from 'react';
 
 const StatisticsPage = () => {
@@ -9,7 +10,8 @@ const StatisticsPage = () => {
             <SectionStyled>
                 <LegendBlock>
                     <CalendarBlock>
-                        <DatePicker />
+                        <TempDatePicker />
+                        {/* <DatePicker /> */}
                     </CalendarBlock>
                     <Legend>
                         <li>By Day</li>

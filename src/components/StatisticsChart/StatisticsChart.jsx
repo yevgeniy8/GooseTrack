@@ -1,6 +1,8 @@
 import { faker } from '@faker-js/faker';
 
 import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate, useParams } from 'react-router';
 import {
     BarChart,
     Bar,
@@ -9,6 +11,8 @@ import {
     CartesianGrid,
     LabelList,
 } from 'recharts';
+import { fetchTasks } from 'redux/calendar/calendarOperations';
+import { selectTasks } from 'redux/calendar/calendarSelector';
 
 const data = [{ name: 'To Do' }, { name: 'In Progress' }, { name: 'Done' }];
 const newData = data.map(el => ({
@@ -53,7 +57,24 @@ const StatisticsReChart = () => {
     const { barGap, chartWidth, chartHeight, marginRight, barSize } =
         calculateParams(windowWidth);
 
+    ///////////////////////////////////////////////////for tasks
+    const { currentDate } = useParams();
+    const navigate = useNavigate();
+
+    const date = new Date(currentDate);
+
+    const dispatch = useDispatch();
+    const tasks = useSelector(selectTasks);
+
+    // useEffect(() => {
+    //     dispatch(fetchTasks(currentDate));
+    // }, [currentDate, dispatch]);
+    console.log('tasks:>>', tasks);
+    console.log('date', date);
+    ///////////////////////////////////////////////////
+
     useEffect(() => {
+        dispatch(fetchTasks(date));
         const handleResize = () => {
             const newWidth = window.innerWidth;
             setWindowWidth(newWidth);
@@ -64,7 +85,7 @@ const StatisticsReChart = () => {
         return () => {
             window.removeEventListener('resize', handleResize);
         };
-    }, []);
+    }, [currentDate, date, dispatch]);
 
     return (
         <BarChart
