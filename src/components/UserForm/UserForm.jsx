@@ -142,9 +142,9 @@ export const UserForm = () => {
                                                 formatWeekDay={nameOfDay =>
                                                     nameOfDay.charAt(0)
                                                 }
-                                                showYearDropdown
+                                               
                                                 yearDropdownItemNumber={30}
-                                                scrollableYearDropdown
+                        
                                                 onChange={date => {
                                                     setFieldValue(
                                                         'birthday',

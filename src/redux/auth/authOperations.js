@@ -77,8 +77,7 @@ export const editUser = createAsyncThunk(
     'auth/edit',
     async (newUser, thunkApi) => {
         try {
-            setAuthHeader(token);
-
+           
             // console.log(newUser);
 
             const response = await axios.patch('/users/edit', newUser);
