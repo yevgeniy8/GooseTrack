@@ -46,7 +46,7 @@ export const CtgPopUp = styled.div`
   display: flex;
   flex-direction: column;
   background: ${({ theme }) => theme.colors.backgroundSecondary};
-  left: 52%;
+  left: 53%;
   border-radius: 8px;
   border: ${({ theme }) => theme.borders.calendar};
 `;
