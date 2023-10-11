@@ -14,7 +14,8 @@ export const MainContainer = styled.div`
     padding-bottom: 40px;
     border-radius: 16px;
     background-color: ${({ theme }) => theme.colors.backgroundSecondary};
-
+    transition: ${({ theme }) =>
+        `background-color ${theme.animations.duration} ${theme.animations.cubicBezier}`};
     @media (min-width: 768px) {
         max-width: 704px;
     }
@@ -66,6 +67,8 @@ export const ImgContainer = styled.div`
         height: 124px;
         margin-bottom: 20px;
     }
+    transition: ${({ theme }) =>
+        `background-color ${theme.animations.duration} ${theme.animations.cubicBezier}`};
 `;
 
 export const ImgAvatar = styled.img`
