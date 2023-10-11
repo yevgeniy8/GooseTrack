@@ -68,7 +68,7 @@ const SectionStyled = styled.section`
     border-radius: 16px;
 
     padding: 28px 14px 135px 14px;
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    /* transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1); */
 
     @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
         padding: 132px 32px 224px 32px;
@@ -162,7 +162,7 @@ const CharContainer = styled.div`
     font-style: normal;
     font-weight: 400;
     line-height: 150%;
-    transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    /* transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1); */
     @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
         width: 640px;
         height: 424px;

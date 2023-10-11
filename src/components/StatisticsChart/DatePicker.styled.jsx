@@ -27,7 +27,7 @@ export const PeriodTypeSelect = styled.div`
 `;
 
 export const DateBox = styled.div`
-    background-color: #3e85f3;
+    background-color: ${({ theme }) => theme.colors.brand};
     width: 148px;
     display: flex;
     padding: 6px 10px;
@@ -54,11 +54,12 @@ export const Date = styled.span`
 export const ToggleBox = styled.div`
     display: flex;
     background-color: #fff;
-    border: 1px solid rgba(220, 227, 229, 0.8);
+    border: 1px solid;
+    /* border-color: ${({ theme }) => theme.colors.calendar}; */
     border-radius: 8px;
     gap: 1px;
     overflow: hidden;
-    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    /* transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1); */
 `;
 
 export const ToggleBtn = styled.div`
@@ -67,10 +68,10 @@ export const ToggleBtn = styled.div`
 `;
 
 export const Icon = styled.svg`
-    stroke: #dce3e5;
+    /* stroke: #dce3e5;
     &:hover {
         stroke: ${({ theme }) => theme.colors.nameDay};
-    }
+    } */
 `;
 
 export const BtnLeft = styled.button`
@@ -78,12 +79,14 @@ export const BtnLeft = styled.button`
     width: 38px;
     height: 34px;
     background-color: ${({ theme }) => theme.colors.backgroundSecondary};
-    border: solid 1px rgba(220, 227, 229, 0.8);
+    border: ${({ theme }) => theme.borders.calendar};
     border-radius: 8px 0 0 8px;
-    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: ${({ theme }) =>
+        `stroke ${theme.animations.duration} ${theme.animations.cubicBezier}`};
+    stroke: ${({ theme }) => theme.colors.sliderMonthDay};
     fill: none;
     &:hover {
-        stroke: ${({ theme }) => theme.colors.nameDay};
+        stroke: ${({ theme }) => theme.colors.sliderMonthDayHover};
     }
 `;
 
@@ -92,14 +95,14 @@ export const BtnRight = styled.button`
     width: 38px;
     height: 34px;
     background-color: ${({ theme }) => theme.colors.backgroundSecondary};
-    border: solid 1px rgba(220, 227, 229, 0.8);
+    border: ${({ theme }) => theme.borders.calendar};
     border-radius: 0 8px 8px 0;
-    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: ${({ theme }) =>
+        `stroke ${theme.animations.duration} ${theme.animations.cubicBezier}`};
+    stroke: ${({ theme }) => theme.colors.sliderMonthDay};
     fill: none;
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
     &:hover {
-        stroke: ${({ theme }) => theme.colors.textPrimary};
+        stroke: ${({ theme }) => theme.colors.sliderMonthDayHover};
     }
 `;
 

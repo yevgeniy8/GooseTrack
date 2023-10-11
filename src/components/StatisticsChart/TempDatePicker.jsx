@@ -5,8 +5,8 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { BtnLeft, BtnRight, Icon, PeriodTypeSelect } from './DatePicker.styled';
 import sprite from 'images/icons.svg';
 
-const TempDatePicker = () => {
-    const [startDate, setStartDate] = useState(new Date());
+const TempDatePicker = ({ setInitialDate }) => {
+    const [initialDate, setInitialDate] = useState(new Date());
     const ExampleCustomInput = forwardRef(({ value, onClick }, ref) => (
         <CustomDatePicker
             className="example-custom-input"
@@ -18,8 +18,16 @@ const TempDatePicker = () => {
     ));
 
     const handleDateChange = date => {
-        setStartDate(date);
+        setInitialDate(date);
     };
+
+    // const year = startDate.getFullYear();
+    // const month = String(startDate.getMonth() + 1).padStart(2, '0'); // Додаємо 1, оскільки місяці в JavaScript ідуть з 0 до 11
+    // const day = String(startDate.getDate()).padStart(2, '0');
+    // const actuallyDate = `${year}-${month}-${day}`;
+
+    // console.log('actuallyDate:>>', actuallyDate);
+
     return (
         <PeriodTypeSelect>
             <DatePickerWrapp>
@@ -28,6 +36,7 @@ const TempDatePicker = () => {
                     onChange={date => setStartDate(date)}
                     customInput={<ExampleCustomInput />}
                     dateFormat="dd MMMM yyyy"
+                    formatWeekDay={nameOfDay => nameOfDay.charAt(0)}
                 />
             </DatePickerWrapp>
             <div>
@@ -122,7 +131,7 @@ export const DatePickerWrapp = styled.div`
         &__day {
             color: #fff;
             width: 26px;
-            height: 29px;
+            height: 26px;
             font-size: 14px;
             display: flex;
             align-items: center;
@@ -150,7 +159,7 @@ export const DatePickerWrapp = styled.div`
                 opacity: 1;
                 outline: none;
 
-                padding: 12px 15px;
+                padding: 12px 12px;
                 text-align: center;
                 background-color: white;
                 color: #3e85f3;
@@ -165,6 +174,11 @@ export const DatePickerWrapp = styled.div`
         &__navigation {
             margin-top: 12px;
         }
+
+        &__day-names {
+            margin-bottom: 0;
+        }
+
         &__day-name {
             color: rgba(255, 255, 255, 0.5);
             font-family: Inter;
@@ -228,8 +242,10 @@ export const DatePickerWrapp = styled.div`
             display: flex;
         }
         &__month {
+            margin: 0;
             padding-left: 7px;
-            padding-top: 11px;
+            padding-top: 10px;
+
             /* width: 197px;
         height: 197px; */
         }
