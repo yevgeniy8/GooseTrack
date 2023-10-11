@@ -1,6 +1,6 @@
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-
+import { useThemeContext } from 'hooks/ThemeContext';
 import close from '../../../images/icons.svg';
 import plus from '../../../images/icons.svg';
 import pencil from '../../../images/icons.svg';
@@ -15,12 +15,10 @@ import {
     InputTime,
     InputTitle,
     Label,
-    RadioField,
-    RadioLabel,
-    RadioSpan,
     RadioWrapper,
     TimeWrapper,
 } from './TaskForm.styled';
+import { RadioSpan, RadioLabel, RadioField } from './TaskFormRadio.styled';
 
 import { addTask, editTask } from 'redux/calendar/calendarOperations';
 
@@ -53,6 +51,7 @@ const TaskSchema = Yup.object().shape({
 });
 
 export const TaskForm = ({ value, onClose, action, task }) => {
+    const { theme } = useThemeContext();
     const dispatch = useDispatch();
     const { currentDay } = useParams();
 
@@ -72,7 +71,7 @@ export const TaskForm = ({ value, onClose, action, task }) => {
         dispatch(addTask(obj));
         onClose();
     };
-
+    console.log(theme);
     return (
         <Formik
             validationSchema={TaskSchema}
@@ -134,7 +133,11 @@ export const TaskForm = ({ value, onClose, action, task }) => {
                     </TimeWrapper>
 
                     <RadioWrapper role="group" aria-labelledby="my-radio-group">
-                        <RadioLabel>
+                        <RadioLabel
+                            style={{
+                                color: theme.colors.textPrimary,
+                            }}
+                        >
                             <RadioField
                                 type="radio"
                                 name="priority"
@@ -145,7 +148,11 @@ export const TaskForm = ({ value, onClose, action, task }) => {
                             <RadioSpan value="low" />
                             Low
                         </RadioLabel>
-                        <RadioLabel>
+                        <RadioLabel
+                            style={{
+                                color: theme.colors.textPrimary,
+                            }}
+                        >
                             <RadioField
                                 type="radio"
                                 name="priority"
@@ -156,7 +163,11 @@ export const TaskForm = ({ value, onClose, action, task }) => {
                             <RadioSpan value="medium" />
                             Medium
                         </RadioLabel>
-                        <RadioLabel>
+                        <RadioLabel
+                            style={{
+                                color: theme.colors.textPrimary,
+                            }}
+                        >
                             <RadioField
                                 type="radio"
                                 name="priority"
