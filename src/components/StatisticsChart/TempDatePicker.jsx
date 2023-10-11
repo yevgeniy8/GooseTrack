@@ -1,4 +1,4 @@
-import { forwardRef, useState } from 'react';
+import { forwardRef } from 'react';
 import ReactDatePicker from 'react-datepicker';
 import styled from '@emotion/styled';
 import 'react-datepicker/dist/react-datepicker.css';
