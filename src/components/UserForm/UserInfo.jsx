@@ -53,10 +53,16 @@ export const UserInfo = ({
             transition={{ ease: 'easeOut', duration: 2 }}
         >
             <ImgContainer>
-                <ImgAvatar
-                    src={avatar || avatarURL || avatarDefault}
-                    alt="avatar"
-                />
+                {avatarURL ? (
+                    <ImgAvatar src={avatar || avatarURL} alt="avatar" />
+                ) : (
+                    <img
+                        src={avatarDefault}
+                        width={48}
+                        height={48}
+                        alt="default avatar"
+                    />
+                )}
             </ImgContainer>
             <InputFile
                 type="file"

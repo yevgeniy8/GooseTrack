@@ -170,7 +170,7 @@ export const FieldsWrap = styled(motion.div)`
 // `;
 
 export const Label = styled.label`
-    // position: relative;
+    position: relative;
 `;
 
 export const Span = styled.span`
@@ -205,15 +205,14 @@ export const InputForm = styled(Field)`
     padding: 12px;
     border-radius: 8px;
     border: 1px solid rgba(220, 227, 229, 0.6);
-
     outline: none;
     line-height: 1.28;
-
+    background-color: ${({ theme }) => theme.colors.backgroundSecondary};
+    color:${({ theme }) => theme.colors.textPrimary};
     &:hover,
     &:focus {
         border: 1px solid #111;
     }
-
     ::placeholder {
         color: ${({ theme }) => theme.colors.textPrimary};
         font-weight: 600;
@@ -230,7 +229,7 @@ export const InputForm = styled(Field)`
     @media (min-width: 768px) {
         padding: 14px;
         ::placeholder {
-            color: #111;
+            color:${({ theme }) => theme.colors.textPrimary};
             font-weight: 600;
             font-size: 16px;
         }

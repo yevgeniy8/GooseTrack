@@ -7,10 +7,10 @@ export const DatePickerStyled = styled(ReactDatePicker)`
     padding: 12px;
     border-radius: 8px;
     border: 1px solid rgba(220, 227, 229, 0.6);
-
+    background-color: ${({ theme }) => theme.colors.backgroundSecondary};
     outline: none;
     font-family: Inter;
-
+    color: ${({ theme }) => theme.colors.textPrimary};
     line-height: 1.28;
 
     &:hover,
@@ -19,7 +19,7 @@ export const DatePickerStyled = styled(ReactDatePicker)`
     }
 
     ::placeholder {
-        color: #111;
+        color: ${({ theme }) => theme.colors.textPrimary};
         font-weight: 600;
         font-size: 14px;
     }
