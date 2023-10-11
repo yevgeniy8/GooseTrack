@@ -62,12 +62,17 @@ export const BtnToAdd = styled.button`
 
     transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
     &:hover {
-        background: ${({ theme }) => theme.colors.buttonAddTaskHover};
+        background-color: ${({ theme }) => theme.colors.buttonAddTaskHover};
     }
 
     &:focus {
         outline: none;
         box-shadow: 0 0 4px #3e85f3;
+    }
+    &:disabled {
+        background-color: ${({ theme }) => theme.colors.disabledBtn};
+        color: ${({ theme }) => theme.colors.white};
+        cursor: not-allowed;
     }
 `;
 export const IconX = styled.svg`
