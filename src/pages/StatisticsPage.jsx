@@ -51,22 +51,22 @@ const StatisticsPage = () => {
                                 {Number.isInteger((tasks.length / 5) * 4) ? (
                                     <li>{(tasks.length / 5) * 4}</li>
                                 ) : (
-                                    <li></li>
+                                    <li>|</li>
                                 )}
                                 {Number.isInteger((tasks.length / 5) * 3) ? (
                                     <li>{(tasks.length / 5) * 3}</li>
                                 ) : (
-                                    <li></li>
+                                    <li>|</li>
                                 )}
                                 {Number.isInteger((tasks.length / 5) * 2) ? (
                                     <li>{(tasks.length / 5) * 2}</li>
                                 ) : (
-                                    <li></li>
+                                    <li>|</li>
                                 )}
                                 {Number.isInteger(tasks.length / 5) ? (
                                     <li>{tasks.length / 5}</li>
                                 ) : (
-                                    <li></li>
+                                    <li>|</li>
                                 )}
                                 <li>0</li>
                             </Yticks>
