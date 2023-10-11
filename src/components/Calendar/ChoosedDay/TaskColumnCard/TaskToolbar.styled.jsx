@@ -39,23 +39,32 @@ export const CardEditBtn = styled.button`
 `;
 export const CtgPopUp = styled.div`
   width: 140px;
+  gap: 14px;
   align-items: center;
-  padding: 14px 16px;
+  padding: 20px 24px;
   position: absolute;
   display: flex;
   flex-direction: column;
-  background: #fff;
+  background: ${({ theme }) => theme.colors.backgroundSecondary};
+  left: 53%;
   border-radius: 8px;
+  border: ${({ theme }) => theme.borders.calendar};
 `;
 
 export const CtgPopBtn = styled.button`
-  ${'' /* padding: 5px 10px; */}
-  background: #fff;
-  ${'' /* border-radius: 8px; */}
-  border:none;
-  padding: 7px 0px;
+  text-transform: capitalize;
+  border: ${({ theme }) => theme.borders.calendar};
+  background: none;
+  border: none;
+  width: 100%;
+  padding: 0px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  gap: 8px;
+
+  color: ${({ theme }) => theme.colors.textPrimary};
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.28;
 `;

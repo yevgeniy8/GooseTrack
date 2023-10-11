@@ -6,8 +6,9 @@ export const TaskList = styled.ul`
   flex-direction: column;
   padding: 0px;
   overflow-y: auto;
-  max-height: 380px;
+  height: 380px;
   padding-right: 7px;
+  position: relative;
 
   &::-webkit-scrollbar {
     width: 8px;
