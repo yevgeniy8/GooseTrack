@@ -9,7 +9,7 @@ export const NavWrap = styled.div`
 export const NavTitle = styled.h3`
     color: ${({ theme }) => theme.colors.textTitleSideBar};
     font-family: Inter;
-    font-size: font-size: ${({ theme }) => theme.fontSizes.xs};
+    font-size: ${({ theme }) => theme.fontSizes.xs};
     font-style: normal;
     font-weight: ${({ theme }) => theme.fontWeight.sb};
     line-height: normal;

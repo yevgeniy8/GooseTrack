@@ -1,9 +1,13 @@
-// import { NavLink } from 'react-router-dom';
-
-// import { useState } from 'react';
+import { useState } from 'react';
 import { List, Task } from './TaskList.styled';
+import { NavLink } from 'react-router-dom';
 
-const TaskList = ({ currentDate, day, tasks, openModal }) => {
+import { TaskModal } from '../../TaskModal/TaskModal';
+
+const TaskList = ({ currentDate, day, tasks }) => {
+    const [modalOpen, setModalOpen] = useState(false);
+    const [taskEdit, setTaskEdit] = useState({});
+
     if (!day) {
         return;
     }
@@ -11,17 +15,33 @@ const TaskList = ({ currentDate, day, tasks, openModal }) => {
     const date = currentDate + '-' + formattedDay;
     const filterTasks = tasks.filter(task => task.date === date);
 
+    const handleEditTask = task => {
+        setTaskEdit(task);
+        setModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setModalOpen(false);
+        setTaskEdit({});
+    };
+
     return (
         <List>
             {filterTasks?.map(task => (
-                <Task
-                    onClick={() => {
-                        openModal(task._id);
-                    }}
-                    key={task._id}
-                    priority={task.priority}
-                >
-                    {task.title}
+                <Task key={task._id} priority={task.priority}>
+                    <NavLink onClick={() => handleEditTask(task)}>
+                        {task.title}
+                    </NavLink>
+
+                    {modalOpen && (
+                        <TaskModal
+                            action={'edit'}
+                            modalOpen={modalOpen}
+                            closeModal={closeModal}
+                            category={task.category}
+                            task={taskEdit}
+                        />
+                    )}
                 </Task>
             ))}
         </List>

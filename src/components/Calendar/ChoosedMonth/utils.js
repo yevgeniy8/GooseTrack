@@ -83,3 +83,4 @@ export const getSortedDays = date => {
 //     colorHgh: '#EA3D65',
 //     bgColorHigh: '#FFD2DD',
 // };
+

@@ -1,6 +1,6 @@
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-
+// import { useThemeContext } from 'hooks/ThemeContext';
 import close from '../../../images/icons.svg';
 import plus from '../../../images/icons.svg';
 import pencil from '../../../images/icons.svg';
@@ -15,11 +15,11 @@ import {
     InputTime,
     InputTitle,
     Label,
-    RadioField,
-    RadioLabel,
-    RadioSpan,
     RadioWrapper,
     TimeWrapper,
+    RadioSpan,
+    RadioLabel,
+    RadioField,
 } from './TaskForm.styled';
 
 import { addTask, editTask } from 'redux/calendar/calendarOperations';
@@ -53,6 +53,7 @@ const TaskSchema = Yup.object().shape({
 });
 
 export const TaskForm = ({ value, onClose, action, task }) => {
+    // const { theme } = useThemeContext();
     const dispatch = useDispatch();
     const { currentDay } = useParams();
 

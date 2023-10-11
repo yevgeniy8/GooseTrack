@@ -1,15 +1,21 @@
 import { faker } from '@faker-js/faker';
-import React from 'react';
+import { LIGHT } from 'constants';
+import { getCurrentDate } from 'helpers';
+import { useThemeContext } from 'hooks/ThemeContext';
+
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
 import {
     BarChart,
     Bar,
     XAxis,
     YAxis,
     CartesianGrid,
-    // Tooltip,
-    // Legend,
     LabelList,
 } from 'recharts';
+import { fetchTasks } from 'redux/calendar/calendarOperations';
+import { selectTasks } from 'redux/calendar/calendarSelector';
 
 const data = [{ name: 'To Do' }, { name: 'In Progress' }, { name: 'Done' }];
 const newData = data.map(el => ({
@@ -18,30 +24,92 @@ const newData = data.map(el => ({
     'By Month': faker.number.int({ min: 10, max: 100 }),
 }));
 
-const formatPercent = value => `${value}%`; // Функція для форматування
+const formatPercent = value => `${value}%`;
 
-export default function StatisticsReChart() {
+const calculateParams = width => {
+    let barGap, chartWidth, chartHeight, marginRight, barSize, fontSize;
+
+    if (width >= 1440) {
+        barGap = 14;
+        fontSize = 16;
+        chartWidth = 694;
+        chartHeight = 286;
+        marginRight = 0;
+        barSize = 27;
+    } else if (width >= 768) {
+        barGap = 14;
+        fontSize = 16;
+        chartWidth = 522;
+        chartHeight = 286;
+        marginRight = 0;
+        barSize = 27;
+    } else {
+        barGap = 8;
+        fontSize = 12;
+        chartWidth = 243;
+        chartHeight = 266;
+        marginRight = 0;
+        barSize = 22;
+    }
+
+    return { barGap, chartWidth, chartHeight, marginRight, barSize, fontSize };
+};
+
+const StatisticsReChart = () => {
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    const { barGap, chartWidth, chartHeight, marginRight, barSize, fontSize } =
+        calculateParams(windowWidth);
+    const { theme } = useThemeContext();
+    const isLightTheme = theme === LIGHT;
+
+    ///////////////////////////////////
+
+    const currentDate = getCurrentDate();
+    //////////////////////////////////////////
+    // const { currentDate } = useParams();
+    // const date = new Date(currentDate);
+    const dispatch = useDispatch();
+    const tasks = useSelector(selectTasks);
+    console.log(tasks);
+    // console.log('tasks:>>', tasks);
+    // console.log('currentDate', currentDate);
+
+    useEffect(() => {
+        dispatch(fetchTasks(currentDate));
+        const handleResize = () => {
+            const newWidth = window.innerWidth;
+            setWindowWidth(newWidth);
+        };
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, [currentDate, dispatch]);
+
+    const fill = isLightTheme ? '#343434' : '#fff';
+    const gridStroke = isLightTheme ? '#E3F3FF' : '#e3f3ff26';
     return (
         <BarChart
-            width={694}
-            height={286}
+            width={chartWidth}
+            height={chartHeight}
             data={newData}
             margin={{
                 top: 15,
-                right: 0,
+                right: marginRight,
                 left: 0,
-                bottom: 1,
+                bottom: 0,
             }}
-            barSize={27}
+            barSize={barSize}
             barRadius={10}
-            barGap={14}
+            barGap={barGap}
         >
             <CartesianGrid
-                horizontal={true} // Встановлюємо horizontal=true для горизонтальної сітки
-                vertical={false} // Встановлюємо vertical=false для вимкнення вертикальної сітки
-                stroke="#E3F3FF"
+                horizontal={true}
+                vertical={false}
+                stroke={gridStroke}
             />
-            {/* <Tooltip cursor={false} isAnimationActive={false} /> */}
             <defs>
                 <linearGradient id="colorUv" x1="0" y1="1" x2="0" y2="0">
                     <stop stopColor="#FFD2DD" />
@@ -62,33 +130,27 @@ export default function StatisticsReChart() {
             </defs>
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="name" hide="true" />
-            <YAxis ticks={[0, 20, 40, 60, 80, 100]} hide="true" />
-
-            {/* <Legend
-                iconType="circle"
-                iconSize="8"
-                align="right"
-                verticalAlign="top"
-                hide="true"
-            /> */}
+            <YAxis ticks={[0, 20, 40, 60, 80, 100]} hide="true" width={25} />
             <Bar dataKey="By Day" fill="url(#colorUv)" radius={[0, 0, 7, 7]}>
-                <LabelList // Додаємо LabelList для підписів
+                <LabelList
                     dataKey="By Day"
                     position="top"
-                    fontSize={12}
-                    fill="#000"
+                    fontSize={fontSize}
+                    fill={fill}
                     formatter={formatPercent}
                 />
             </Bar>
             <Bar dataKey="By Month" fill="url(#colorPv)" radius={[0, 0, 7, 7]}>
-                <LabelList // Додаємо LabelList для підписів
+                <LabelList
                     dataKey="By Month"
                     position="top"
-                    fontSize={12}
-                    fill="#000"
+                    fontSize={fontSize}
+                    fill={isLightTheme ? '#343434' : '#fff'}
                     formatter={formatPercent}
                 />
             </Bar>
         </BarChart>
     );
-}
+};
+
+export default StatisticsReChart;
