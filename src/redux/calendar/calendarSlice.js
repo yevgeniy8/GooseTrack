@@ -28,7 +28,6 @@ const handleAddFulfilled = (state, action) => {
 };
 
 const handleEditFulfilled = (state, action) => {
-    console.log(action.payload);
     state.userTask = action.payload;
     const index = state.tasks.findIndex(
         task => task._id === action.payload._id

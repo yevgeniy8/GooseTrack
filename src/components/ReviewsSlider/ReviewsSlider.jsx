@@ -89,7 +89,7 @@ const ReviewsSlider = () => {
                     freeMode={true}
                     loop={true}
                     style={{ width: '100%', height: 'auto' }}
-                    autoplay={{ delay: 5000, disableOnInteraction: false }}
+                    autoplay={{ delay: 4000, disableOnInteraction: false }}
                     speed={500}
                     effect="slide"
                     breakpoints={{

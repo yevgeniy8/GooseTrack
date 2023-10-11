@@ -26,6 +26,7 @@ export const NameP = styled.p`
 `;
 
 export const AvatarDiv = styled.div`
+    position: relative;
     display: flex;
     justify-content: center;
     width: 32px;
@@ -40,6 +41,8 @@ export const AvatarDiv = styled.div`
     }
 `;
 export const Img = styled.img`
+    width: 100%;
+    height: 100%;
     border-radius: ${({ theme }) => theme.borderRadius.xl};
 `;
 export const FirstLetterOfName = styled.div`
@@ -50,4 +53,18 @@ export const FirstLetterOfName = styled.div`
     font-weight: ${({ theme }) => theme.fontWeight.b};
     background-color: transparent;
     color: ${({ theme }) => theme.colors.userDefaults};
+`;
+
+export const BirthdayDiv = styled.div`
+    position: absolute;
+    top: -28%;
+    left: 30px;
+    transform: translate(-50%, -50%) rotate(40deg);
+    width: 100%;
+    height: auto;
+
+    ${min(tablet)} {
+        top: -15%;
+        left: 45px;
+    }
 `;
