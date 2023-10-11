@@ -45,7 +45,6 @@ export const Header = ({ onOpenClick }) => {
     };
 
     const locationCurrentDay = location.includes('calendar/day');
-    console.log(locationCurrentDay);
     return (
         <header>
             <HeaderContainer>
