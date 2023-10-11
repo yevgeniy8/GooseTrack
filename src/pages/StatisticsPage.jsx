@@ -6,6 +6,9 @@ import { createGlobalStyle } from 'styled-components';
 import TempDatePicker from 'components/StatisticsChart/TempDatePicker';
 import { useState } from 'react';
 
+import { selectTasks } from 'redux/calendar/calendarSelector';
+import { useSelector } from 'react-redux';
+
 const GlobalStyles = createGlobalStyle`
 
     body {
@@ -17,6 +20,8 @@ const GlobalStyles = createGlobalStyle`
 
 const StatisticsPage = () => {
     const [startDate, setStartDate] = useState(new Date());
+
+    const tasks = useSelector(selectTasks);
 
     const { theme } = useThemeContext();
 
@@ -42,11 +47,27 @@ const StatisticsPage = () => {
                         <Yaxis>
                             <YaxisName>Tasks</YaxisName>
                             <Yticks>
-                                <li>100</li>
-                                <li>80</li>
-                                <li>60</li>
-                                <li>40</li>
-                                <li>20</li>
+                                <li>{tasks.length}</li>
+                                {Number.isInteger((tasks.length / 5) * 4) ? (
+                                    <li>{(tasks.length / 5) * 4}</li>
+                                ) : (
+                                    <li></li>
+                                )}
+                                {Number.isInteger((tasks.length / 5) * 3) ? (
+                                    <li>{(tasks.length / 5) * 3}</li>
+                                ) : (
+                                    <li></li>
+                                )}
+                                {Number.isInteger((tasks.length / 5) * 2) ? (
+                                    <li>{(tasks.length / 5) * 2}</li>
+                                ) : (
+                                    <li></li>
+                                )}
+                                {Number.isInteger(tasks.length / 5) ? (
+                                    <li>{tasks.length / 5}</li>
+                                ) : (
+                                    <li></li>
+                                )}
                                 <li>0</li>
                             </Yticks>
                         </Yaxis>

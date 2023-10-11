@@ -108,7 +108,7 @@ const StatisticsReChart = ({ startDate, setStartDate }) => {
 
     const { formattedData } = getStatisticsCalculation(mom, tasks);
 
-    console.log(formattedData);
+    // console.log(formattedData);
 
     return (
         <BarChart
