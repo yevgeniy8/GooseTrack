@@ -4,7 +4,19 @@ import CalendarToolbar from 'components/Calendar/CalendarToolbar/CalendarToolbar
 import { Outlet, useNavigate } from 'react-router';
 import moment from 'moment';
 
+import { useThemeContext } from 'hooks/ThemeContext';
+import { createGlobalStyle } from 'styled-components';
+
+const GlobalStyles = createGlobalStyle`
+
+    body {
+        background-color: ${({ theme }) => theme.colors.backgroundPrimary};
+    }
+`;
+
 const CalendarPage = () => {
+    const { theme } = useThemeContext();
+
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -30,6 +42,7 @@ const CalendarPage = () => {
 
     return (
         <CalendarContainer>
+            <GlobalStyles theme={theme} />
             <CalendarToolbar />
             <Outlet />
         </CalendarContainer>
