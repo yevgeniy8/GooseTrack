@@ -13,7 +13,7 @@ export const MainContainer = styled.div`
     padding-right: 18px;
     padding-bottom: 40px;
     border-radius: 16px;
-    background-color:${({ theme }) => theme.colors.backgroundSecondary};
+    background-color: ${({ theme }) => theme.colors.backgroundSecondary};
 
     @media (min-width: 768px) {
         max-width: 704px;
@@ -23,15 +23,34 @@ export const MainContainer = styled.div`
     }
 `;
 
+// export const AvatarContainer = styled(motion.div)`
+//     position: relative;
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     margin-bottom: 40px;
+//     margin-left: auto;
+//     margin-right: auto;
+// `;
+
 export const AvatarContainer = styled(motion.div)`
-    position: relative;
+    @media (max-width: 767px) {
+        position: absolute;
+        top: 132px;
+        left: 40%;
+        transform: translateX(-50%);
+    }
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-bottom: 40px;
     margin-left: auto;
     margin-right: auto;
+    @media (min-width: 768px) {
+        position: relative;
+    }
 `;
+
 export const ImgContainer = styled.div`
     display: flex;
     justify-content: center;
@@ -58,7 +77,6 @@ export const ImgAvatar = styled.img`
 
     object-fit: cover;
     object-position: 50% 50%;
-    
 `;
 
 export const InputFile = styled(Field)`
@@ -113,6 +131,9 @@ export const UserP = styled.p`
 `;
 
 export const StyledForm = styled(Form)`
+    @media (max-width: 767px) {
+        padding-top: 150px;
+    }
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -250,8 +271,8 @@ export const Button = styled(motion.button)`
     @media (min-width: 768px) {
         padding: 15px 84px;
     }
-    &:disabled{
-        opacity:0.75;
+    &:disabled {
+        opacity: 0.75;
     }
 `;
 
