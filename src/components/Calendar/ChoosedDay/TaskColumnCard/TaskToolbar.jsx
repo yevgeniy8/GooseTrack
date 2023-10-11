@@ -33,7 +33,7 @@ const TaskToolbar = ({ taskId, task }) => {
       <CardEditMenu>
         <li>
           {/* Кнопка стрелка, которая вызывает список категорий с маленьким попапом */}
-          <CardEditBtn type="button" onClick={handleChangeCtg}>
+          <CardEditBtn type="button" aria-label="change-category" onClick={handleChangeCtg}>
             <Icon>
               <use href={`${Icons}#arrow-circle-broken-right`} />
             </Icon>
@@ -61,14 +61,14 @@ const TaskToolbar = ({ taskId, task }) => {
 
         {/* Остальные 2 кнопки в меню редактирования, уже сделанные */}
         <li>
-          <CardEditBtn type="button" onClick={handleEditClick}>
+          <CardEditBtn type="button" aria-label="edit-card" onClick={handleEditClick}>
             <Icon>
               <use href={`${Icons}#pencil`} />
             </Icon>
           </CardEditBtn>
         </li>
         <li>
-          <CardEditBtn type="button" onClick={handleDeleteClick}>
+          <CardEditBtn type="button" aria-label="delete-card" onClick={handleDeleteClick}>
             <Icon>
               <use href={`${Icons}#trash`} />
             </Icon>

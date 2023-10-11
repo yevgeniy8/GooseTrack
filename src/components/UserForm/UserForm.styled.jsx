@@ -1,29 +1,57 @@
 import styled from '@emotion/styled';
-import { Form } from 'formik';
-import { Field, ErrorMessage } from 'formik';
+
+import { Field, ErrorMessage, Form } from 'formik';
 import { motion } from 'framer-motion';
 
 export const MainContainer = styled.div`
     display: flex;
+    align-items: center;
     flex-direction: column;
-    margin: 0 auto;
-    max-width: 299px;
-    padding-top: 59px;
-    padding-left: 18px;
-    padding-right: 18px;
-    padding-bottom: 40px;
+    margin: 31px auto 0;
+    max-width: 355px;
+    position: relative;
+    padding: 135px 18px 0 18px;
+
     border-radius: 16px;
-    background-color:${({ theme }) => theme.colors.backgroundSecondary};
+    background-color: ${({ theme }) => theme.colors.backgroundSecondary};
+    transition: ${({ theme }) =>
+        `background-color ${theme.animations.duration} ${theme.animations.cubicBezier}`};
     @media (min-width: 768px) {
+        padding: 40px 175px 0 175px;
+    }
+    @media (min-width: 768px) {
+        margin: 0 auto;
         max-width: 704px;
+        padding: 60px 164px 0 164px;
     }
     @media (min-width: 1440px) {
         max-width: 1087px;
     }
 `;
 
+// export const AvatarContainer = styled(motion.div)`
+//     position: relative;
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     margin-bottom: 40px;
+//     margin-left: auto;
+//     margin-right: auto;
+// `;
+
 export const AvatarContainer = styled(motion.div)`
-    position: relative;
+    @media (max-width: 767px) {
+        position: absolute;
+        top: 12px;
+        left: 40%;
+        transform: translateX(-50%);
+    }
+    @media (min-width: 768px) {
+        position: static;
+        margin-top: 51px;
+        margin-bottom: 0px;
+    }
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -31,6 +59,7 @@ export const AvatarContainer = styled(motion.div)`
     margin-left: auto;
     margin-right: auto;
 `;
+
 export const ImgContainer = styled.div`
     display: flex;
     justify-content: center;
@@ -46,6 +75,8 @@ export const ImgContainer = styled.div`
         height: 124px;
         margin-bottom: 20px;
     }
+    transition: ${({ theme }) =>
+        `background-color ${theme.animations.duration} ${theme.animations.cubicBezier}`};
 `;
 
 export const ImgAvatar = styled.img`
@@ -56,14 +87,13 @@ export const ImgAvatar = styled.img`
     border-radius: 50%;
 
     object-fit: cover;
-    object-position: 50% 50%;
-    
+    // object-position: 50% 50%;
 `;
 
-export const InputFile = styled.input`
+export const InputFile = styled(Field)`
     position: absolute;
-    top: 39px;
-    left: 32px;
+    top: 55px;
+    left: 34px;
     width: 50px;
     opacity: 0;
     z-index: 2;
@@ -116,18 +146,12 @@ export const StyledForm = styled(Form)`
     flex-direction: column;
     align-items: center;
     width: 100%;
-    margin: 0 auto;
-    @media (min-width: 768px) {
-        max-width: 354px;
-        margin: 0 auto;
-    }
-    @media (min-width: 1440px) {
-        max-width: 758px;
-    }
 `;
 
 export const FieldsWrap = styled(motion.div)`
     width: 100%;
+    // background-color: green;
+    margin-top: 40px;
     @media (min-width: 1440px) {
         max-width: 758px;
         display: grid;
@@ -163,9 +187,13 @@ export const Span = styled.span`
 
 export const LabelWrap = styled.div`
     width: 100%;
-    margin-bottom: 18px;
+    &:not(:last-child) {
+        margin-bottom: 18px;
+    }
     @media (min-width: 768px) {
-        margin-bottom: 24px;
+        &:not(:last-child) {
+            margin-bottom: 24px;
+        }
     }
     @media (min-width: 1440px) {
         width: 354px;
@@ -177,15 +205,14 @@ export const InputForm = styled(Field)`
     padding: 12px;
     border-radius: 8px;
     border: 1px solid rgba(220, 227, 229, 0.6);
-
     outline: none;
     line-height: 1.28;
-
+    background-color: ${({ theme }) => theme.colors.backgroundSecondary};
+    color:${({ theme }) => theme.colors.textPrimary};
     &:hover,
     &:focus {
         border: 1px solid #111;
     }
-
     ::placeholder {
         color: ${({ theme }) => theme.colors.textPrimary};
         font-weight: 600;
@@ -202,7 +229,7 @@ export const InputForm = styled(Field)`
     @media (min-width: 768px) {
         padding: 14px;
         ::placeholder {
-            color: #111;
+            color:${({ theme }) => theme.colors.textPrimary};
             font-weight: 600;
             font-size: 16px;
         }
@@ -223,8 +250,9 @@ export const IconErr = styled.svg`
     fill: #e74a3b;
 `;
 export const Button = styled(motion.button)`
-    margin-top: 30px;
+    // margin: 40px 0;
     /* width: 195px; */
+    margin: 20px 0;
     padding: 14px 50px;
     align-self: center;
     border: none;
@@ -243,11 +271,19 @@ export const Button = styled(motion.button)`
 
     &:hover,
     &:focus {
-        background-color: ${({ theme }) => theme.colors.backgroundBtnHover};
+        background-color: #1d56ac;
         color: ${({ theme }) => theme.colors.white};
     }
     @media (min-width: 768px) {
         padding: 15px 84px;
+    }
+
+    @media (min-width: 1440px) {
+        margin: 48px 0 26px 0;
+    }
+
+    &:disabled {
+        opacity: 0.75;
     }
 `;
 

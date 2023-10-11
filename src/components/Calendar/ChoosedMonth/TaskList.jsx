@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { List, Task } from './TaskList.styled';
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { List, Task } from './TaskList.styled';
 
 import { TaskModal } from '../../TaskModal/TaskModal';
 
@@ -46,6 +47,12 @@ const TaskList = ({ currentDate, day, tasks }) => {
             ))}
         </List>
     );
+};
+
+TaskList.propTypes = {
+    currentDate: PropTypes.string.isRequired,
+    day: PropTypes.number,
+    tasks: PropTypes.array,
 };
 
 export default TaskList;

@@ -49,7 +49,7 @@ export const Info = styled.p`
     line-height: 1.285;
     margin-bottom: 24px;
     @media (min-width: 768px) {
-        color: rgba(17, 17, 17, 0.7);
+        color:  ${({ theme }) => theme.colors.textPrimary};
         text-align: center;
         font-family: Inter;
         font-size: 14px;
