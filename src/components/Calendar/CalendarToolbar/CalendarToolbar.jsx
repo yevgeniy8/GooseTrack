@@ -13,8 +13,8 @@ import {
     // TypeLink,
     BtnRight,
     BtnLeft,
-    BtnMonth,
-    BtnDay,
+    NavLinkMonth,
+    NavLinkDay,
 } from './CalendarToolbar.styled';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
@@ -132,20 +132,12 @@ const CalendarToolbar = () => {
                 </div>
             </PeriodTypeSelect>
             <PeriodPaginator>
-                <BtnMonth
-                    type="button"
-                    onClick={handleChangeType}
-                    className={format === 'month' ? 'active' : ''}
-                >
+                <NavLinkMonth to={`month/${month}`} onClick={handleChangeType}>
                     Month
-                </BtnMonth>
-                <BtnDay
-                    type="button"
-                    onClick={handleChangeType}
-                    className={format === 'day' ? 'active' : ''}
-                >
+                </NavLinkMonth>
+                <NavLinkDay to={`day/${day}`} onClick={handleChangeType}>
                     Day
-                </BtnDay>
+                </NavLinkDay>
             </PeriodPaginator>
         </ToolbarContainer>
     );

@@ -70,11 +70,11 @@ export const BtnLeft = styled.button`
     fill: none;
     &:hover {
         stroke: ${({ theme }) => theme.colors.sliderMonthDayHover};
-    };
+    }
     ${min(tablet)} {
         padding: 8px;
         height: 34px;
-    };
+    }
 `;
 
 export const BtnRight = styled.button`
@@ -90,11 +90,11 @@ export const BtnRight = styled.button`
     fill: none;
     &:hover {
         stroke: ${({ theme }) => theme.colors.sliderMonthDayHover};
-    };
+    }
     ${min(tablet)} {
         padding: 8px;
         height: 34px;
-    };
+    }
 `;
 //якщо не потрібно прибрати PeriodPaginator Period
 export const PeriodPaginator = styled.div`
@@ -113,7 +113,7 @@ export const Period = styled.div`
     background-color: rgba(62, 133, 243, 0.2);
 `;
 
-export const BtnMonth = styled.button`
+export const NavLinkMonth = styled(NavLink)`
     width: 76px;
     height: 34px;
     padding: 8px 16px;
@@ -131,8 +131,7 @@ export const BtnMonth = styled.button`
     transition: ${({ theme }) =>
         `background-color ${theme.animations.duration} ${theme.animations.cubicBezier}, color ${theme.animations.duration} ${theme.animations.cubicBezier}`};
     &:hover,
-    &:focus,
-    &:active {
+    &:focus {
         background-color: ${({ theme }) =>
             theme.colors.backgroundMonthDayActive};
         color: ${({ theme }) => theme.colors.textMonthDayActive};
@@ -141,9 +140,15 @@ export const BtnMonth = styled.button`
         font-size: 16px;
         width: 82px;
     }
+
+    &.active {
+        background-color: ${({ theme }) =>
+            theme.colors.backgroundMonthDayActive};
+        color: ${({ theme }) => theme.colors.textMonthDayActive};
+    }
 `;
-// кнопка не виконуе сбою функцію, тож її можна прибрати а стилізувати посилання
-export const BtnDay = styled.button`
+
+export const NavLinkDay = styled(NavLink)`
     width: 76px;
     height: 34px;
     padding: 8px 16px;
@@ -161,8 +166,7 @@ export const BtnDay = styled.button`
     transition: ${({ theme }) =>
         `background-color ${theme.animations.duration} ${theme.animations.cubicBezier}, color ${theme.animations.duration} ${theme.animations.cubicBezier}`};
     &:hover,
-    &:focus,
-    &:active {
+    &:focus {
         background-color: ${({ theme }) =>
             theme.colors.backgroundMonthDayActive};
         color: ${({ theme }) => theme.colors.textMonthDayActive};
@@ -171,9 +175,6 @@ export const BtnDay = styled.button`
         font-size: 16px;
         width: 82px;
     }
-`;
-// візьми стилі з кнопок на задай клас актів як нижче у тебе буде LinkDay та LinkMonth
-export const TypeLink = styled(NavLink)`
     &.active {
         background-color: ${({ theme }) =>
             theme.colors.backgroundMonthDayActive};
