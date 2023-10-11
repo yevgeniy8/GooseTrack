@@ -91,9 +91,9 @@ export const ImgAvatar = styled.img`
 `;
 
 export const InputFile = styled(Field)`
-    // position: absolute;
-    top: 39px;
-    left: 32px;
+    position: absolute;
+    top: 55px;
+    left: 34px;
     width: 50px;
     opacity: 0;
     z-index: 2;
