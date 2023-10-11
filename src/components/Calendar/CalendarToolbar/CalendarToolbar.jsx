@@ -1,6 +1,4 @@
-// import { Link } from 'react-router-dom';
 import moment from 'moment';
-// import DayCalendarHead from '../ChoosedDay/DayCalendarHead'; // Импортируем компонент
 import sprite from 'images/icons.svg';
 
 import {
@@ -65,22 +63,6 @@ const CalendarToolbar = () => {
         }
     };
 
-    // useEffect(() => {
-    //     const storedDate = localStorage.getItem('date');
-    //     const storedType = localStorage.getItem('type');
-
-    //     if (storedDate) {
-    //         setCurrentDate(storedDate);
-    //     } else {
-    //         setCurrentDate(moment().format('YYYY-MM-DD'));
-    //     }
-
-    //     if (storedType) {
-    //         setFormat(storedType);
-    //     } else {
-    //         setFormat('month');
-    //     }
-    // }, []);
 
     const handleChangeType = e => {
         switch (e.currentTarget.textContent) {
@@ -90,7 +72,6 @@ const CalendarToolbar = () => {
                 navigate(`month/${month}`);
                 break;
             case 'Day':
-                // console.log(localStorage.getItem('date'));
                 setFormat('day');
                 localStorage.setItem('type', 'day');
                 navigate(`day/${localStorage.getItem('date')}`);
@@ -106,7 +87,6 @@ const CalendarToolbar = () => {
                 <DateBox>
                     <Date>
                         {moment(currentDate).format(
-                            // format === 'day' ? 'DD MMM YYYY' : 'MMMM YYYY'
                             format === 'day' ? 'DD MMM YYYY' : 'MMMM YYYY'
                         )}
                     </Date>

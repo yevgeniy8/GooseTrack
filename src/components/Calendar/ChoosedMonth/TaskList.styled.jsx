@@ -1,12 +1,11 @@
 import styled from '@emotion/styled';
-import { tablet, min } from 'styles/media';
+import { tablet, min, desktop } from 'styles/media';
 
 export const List = styled.ul`
     list-style: none;
     height: 65px;
     max-width: 44px;
-    padding: 0 2px;
-    margin: 0;
+    padding: 0 2px 0 8px;
     overflow: hidden;
     // overflow-y: auto;
     ${min(tablet)} {
@@ -19,6 +18,8 @@ export const Task = styled.li`
     padding: 2px 4px;
     border-radius: 8px;
     margin-bottom: 8px;
+    width: 44px;
+    height: 22px;
     max-width: 100%;
     color: ${({ theme, priority }) =>
         priority === 'low'
@@ -71,8 +72,16 @@ export const Task = styled.li`
     }
 
     ${min(tablet)} {
+        width: 92px;
+        height: 26px;
         font-size: 14px;
         line-height: 18px;
         padding: 4px 10px;
     }
+
+    ${min(desktop)} {
+        width: 140px;
+        height: 26px;
+    }
+
 `;
