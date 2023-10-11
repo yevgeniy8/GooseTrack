@@ -1,33 +1,33 @@
 import styled from '@emotion/styled';
 
 export const PlusIcon = styled.svg`
-  width: 50px;
-  height: 100%;
+    width: 50px;
+    height: 100%;
 
-  stroke: ${({ theme }) => theme.colors.textTitleHeader};
+    stroke: ${({ theme }) => theme.colors.textTitleHeader};
 
-  // @media (min-width: 768px) {
-  //   width: 34px;
-  //   height: 34px;
-  // }
+    // @media (min-width: 768px) {
+    //   width: 34px;
+    //   height: 34px;
+    // }
 `;
 export const TopBtn = styled.button`
-  display: flex;
-  width: 24px;
-  height: 24px;
-  padding: 0px;
-  border-radius: 50%;
-  border: none;
-  background: transparent;
-  align-items: center;
-  ${'' /* width: 100%; */}
+    display: flex;
+    width: 24px;
+    height: 24px;
+    padding: 0px;
+    border-radius: 50%;
+    border: none;
+    background: transparent;
+    align-items: center;
+    ${'' /* width: 100%; */}
 
-  cursor: pointer;
-  stroke: ${({ theme }) => theme.colors.textTitleHeader};
-  display: flex;
+    cursor: pointer;
+    stroke: ${({ theme }) => theme.colors.textTitleHeader};
+    display: flex;
 
-  ${
-    '' /* border: none;
+    ${
+        '' /* border: none;
 
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
 
@@ -35,48 +35,46 @@ export const TopBtn = styled.button`
   //   width: 34px;
   //   height: 34px;
   // } */
-  }
+    }
 `;
 export const BtnToAdd = styled.button`
-  color: ${({ theme }) => theme.colors.textPrimary};
-  text-align: center;
-  font-family: Inter;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 18px; /* 128.571% */
+    color: ${({ theme }) => theme.colors.textPrimary};
+    text-align: center;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 18px; /* 128.571% */
+    // margin-top: 32px;
+    border-radius: 8px;
+    border: 1px dashed #3e85f3;
+    background: ${({ theme }) => theme.colors.backgroundSideBarCurrentPage};
 
-  border-radius: 8px;
-  border: 1px dashed #3e85f3;
-  background: ${({ theme }) => theme.colors.backgroundSideBarCurrentPage};
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-  margin-top: 32px;
-  margin-bottom: 28px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    height: 52px;
+    width: 100%;
 
-  height: 52px;
-  width: 100%;
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+    &:hover {
+        background: ${({ theme }) => theme.colors.buttonAddTaskHover};
+    }
 
-  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
-  &:hover {
-    background: ${({ theme }) => theme.colors.buttonAddTaskHover};
-  }
-
-  &:focus {
-    outline: none;
-    box-shadow: 0 0 4px #3e85f3;
-  }
+    &:focus {
+        outline: none;
+        box-shadow: 0 0 4px #3e85f3;
+    }
 `;
 export const IconX = styled.svg`
-  width: 24px;
-  height: 24px;
-  margin-right: 8px;
-  stroke: ${({ theme }) => theme.colors.textTitleHeader};
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+    stroke: ${({ theme }) => theme.colors.textTitleHeader};
 
-  // @media (min-width: 768px) {
-  //   width: 34px;
-  //   height: 34px;
-  // }
+    // @media (min-width: 768px) {
+    //   width: 34px;
+    //   height: 34px;
+    // }
 `;

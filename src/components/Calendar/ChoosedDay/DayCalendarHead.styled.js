@@ -58,7 +58,7 @@ export const Number = styled.div`
 `;
 
 export const Day = styled.div`
-    color: #343434;
+    color: ${({ theme }) => theme.colors.nameDay};
     font-family: Inter;
     font-size: 16px;
     font-style: normal;

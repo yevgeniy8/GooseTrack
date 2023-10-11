@@ -1,4 +1,4 @@
-import { ColumnList } from './TasksColumnsList.styled';
+import { ColumnList, Wrapper } from './TasksColumnsList.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchTasks } from 'redux/calendar/calendarOperations';
 import { selectTasks } from 'redux/calendar/calendarSelector';
@@ -27,16 +27,18 @@ const TasksColumnsList = () => {
         filtredTasksByDay.filter(task => task.category === category);
 
     return (
-        <ColumnList>
-            {categoryOptions.map(option => (
-                <TasksColumn
-                    header={option.name}
-                    tasks={filterTasksByCategory(option.value)}
-                    value={option.value}
-                    key={option.id}
-                />
-            ))}
-        </ColumnList>
+        <Wrapper>
+            <ColumnList>
+                {categoryOptions.map(option => (
+                    <TasksColumn
+                        header={option.name}
+                        tasks={filterTasksByCategory(option.value)}
+                        value={option.value}
+                        key={option.id}
+                    />
+                ))}
+            </ColumnList>
+        </Wrapper>
     );
 };
 export default TasksColumnsList;

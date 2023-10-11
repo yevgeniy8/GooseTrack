@@ -39,9 +39,6 @@ const CalendarPage = () => {
 export default CalendarPage;
 
 const CalendarContainer = styled.div`
-    //   background-color: #f7f6f9;
-    //   max-width: 1085px;
-    // margin-top: 45px;
     @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
         margin-top: 0;
     }
