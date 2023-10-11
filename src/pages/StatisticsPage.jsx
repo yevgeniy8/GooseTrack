@@ -1,15 +1,28 @@
 import StatisticsChart from 'components/StatisticsChart/StatisticsChart';
 import styled from '@emotion/styled';
-// import DatePicker from 'components/StatisticsChart/DatePiker';
+
+import { useThemeContext } from 'hooks/ThemeContext';
+import { createGlobalStyle } from 'styled-components';
 import TempDatePicker from 'components/StatisticsChart/TempDatePicker';
 import { useState } from 'react';
 // import { useState } from 'react';
 
+const GlobalStyles = createGlobalStyle`
+
+    body {
+        background-color: ${({ theme }) => theme.colors.backgroundPrimary};
+    }
+`;
+// import DatePicker from 'components/StatisticsChart/DatePiker';
+// import { useState } from 'react';
+
 const StatisticsPage = () => {
     const [startDate, setStartDate] = useState(new Date());
+    const { theme } = useThemeContext();
 
     return (
         <>
+            <GlobalStyles theme={theme} />
             <SectionStyled>
                 <LegendBlock>
                     <CalendarBlock>
