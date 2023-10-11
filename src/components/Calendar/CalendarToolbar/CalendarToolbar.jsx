@@ -10,7 +10,6 @@ import {
     PeriodTypeSelect,
     Icon,
     ToolbarContainer,
-    // TypeLink,
     BtnRight,
     BtnLeft,
     NavLinkMonth,
@@ -24,10 +23,9 @@ const CalendarToolbar = () => {
     const [format, setFormat] = useState('');
 
     const month = moment(currentDate).format('YYYY-MM');
-    // const day = moment(currentDate).format('YYYY-MM-DD');
+    const day = moment(currentDate).format('YYYY-MM-DD');
 
     const date = useParams();
-    // console.log(date);
 
     useEffect(() => {
         if (date.currentDate) {
