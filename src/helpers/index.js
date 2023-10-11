@@ -3,4 +3,3 @@ export * from './filterUncompletedTasks';
 export * from './getPageTitle';
 export * from './getFirstName';
 export * from './getStatisticsCalculation';
-export * from './formatStartDate';
