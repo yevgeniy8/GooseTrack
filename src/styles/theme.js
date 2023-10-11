@@ -17,6 +17,7 @@ const common = {
         editBtn: '#3E85F3',
         editBtnHover: '#fff',
         deleteFeedbackBtn: '#ea3d65',
+        disabledBtn: 'rgba(17, 17, 17, 0.15)',
 
         white: '#fff',
         black: '#111',

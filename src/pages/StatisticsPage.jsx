@@ -4,6 +4,7 @@ import styled from '@emotion/styled';
 import { useThemeContext } from 'hooks/ThemeContext';
 import { createGlobalStyle } from 'styled-components';
 import TempDatePicker from 'components/StatisticsChart/TempDatePicker';
+import { useState } from 'react';
 
 const GlobalStyles = createGlobalStyle`
 
@@ -15,6 +16,7 @@ const GlobalStyles = createGlobalStyle`
 // import { useState } from 'react';
 
 const StatisticsPage = () => {
+    const [startDate, setStartDate] = useState(new Date());
     const { theme } = useThemeContext();
 
     return (
@@ -23,7 +25,10 @@ const StatisticsPage = () => {
             <SectionStyled>
                 <LegendBlock>
                     <CalendarBlock>
-                        <TempDatePicker />
+                        <TempDatePicker
+                            startDate={startDate}
+                            setStartDate={setStartDate}
+                        />
                         {/* <DatePicker /> */}
                     </CalendarBlock>
                     <Legend>
@@ -44,7 +49,10 @@ const StatisticsPage = () => {
                                 <li>0</li>
                             </Yticks>
                         </Yaxis>
-                        <StatisticsChart />
+                        <StatisticsChart
+                            startDate={startDate}
+                            setStartDate={setStartDate}
+                        />
                     </StatBlock>
                     <Xaxis>
                         <Xticks>

@@ -8,6 +8,7 @@ import { UserInfo } from './UserInfo';
 import handleInput from './helpers/handleInput';
 import schema from './schemas/userSchema';
 import { enGB } from 'date-fns/esm/locale';
+import avatarDefault from '../../images/Avatar.png';
 import { registerLocale } from 'react-datepicker';
 import {
     Button,
@@ -25,8 +26,10 @@ import {
 } from './ReactDatePickerCalendar.styled';
 
 registerLocale('en', enGB);
+
 export const UserForm = () => {
     const dispatch = useDispatch();
+    // const [isFormChanged, setIsFormChanged] = useState(false);
     const [currentAvatar, setCurrentAvatar] = useState(null);
 
     const user = useSelector(selectUser);
@@ -37,6 +40,7 @@ export const UserForm = () => {
         phone: user.phone || '',
         skype: user.skype || '',
         birthday: user.birthday || new Date(),
+        avatarURL: user.avatarURL || avatarDefault,
     };
 
     const handleSubmit = ({ name, phone, email, skype, birthday }, actions) => {
@@ -51,18 +55,16 @@ export const UserForm = () => {
         }
 
         dispatch(editUser(formData));
+       
+        // console.log('actions:', actions);
 
         // actions.resetForm();
     };
 
     return (
         <MainContainer>
-            <UserInfo
-                avatarURL={user.avatarURL}
-                userName={user.name}
-                setCurrentAvatar={setCurrentAvatar}
-            />
             <Formik
+                enableReinitialize={false}
                 initialValues={initialValues}
                 validationSchema={schema}
                 onSubmit={handleSubmit}
@@ -75,9 +77,19 @@ export const UserForm = () => {
                     handleChange,
                     setFieldValue,
                     setFieldTouched,
+                    handleBlur,
+                    isSubmitting,
                 }) => {
+                    console.log('dirty:', dirty);
+                    console.log('issUBMITTING', isSubmitting);
                     return (
                         <StyledForm>
+                            <UserInfo
+                                avatarURL={user.avatarURL}
+                                userName={user.name}
+                                setCurrentAvatar={setCurrentAvatar}
+                                setFieldValue={setFieldValue}
+                            />
                             <FieldsWrap
                                 animate={{ y: -50 }}
                                 transition={{ ease: 'easeOut', duration: 2 }}
@@ -90,6 +102,7 @@ export const UserForm = () => {
                                             name="name"
                                             placeholder="Enter your name"
                                             onChange={handleChange}
+                                            onBlur={handleBlur}
                                             value={values.name}
                                             className={
                                                 errors.name && touched.name
@@ -129,9 +142,9 @@ export const UserForm = () => {
                                                 formatWeekDay={nameOfDay =>
                                                     nameOfDay.charAt(0)
                                                 }
-                                                // showYearDropdown
-                                                // yearDropdownItemNumber={30}
-                                                // scrollableYearDropdown
+                                               
+                                                yearDropdownItemNumber={30}
+                        
                                                 onChange={date => {
                                                     setFieldValue(
                                                         'birthday',
@@ -164,7 +177,8 @@ export const UserForm = () => {
                                             type="email"
                                             name="email"
                                             placeholder="Enter your email"
-                                            // onChange={handleChange}
+                                            onChange={handleChange}
+                                            onBlur={handleBlur}
                                             value={values.email}
                                             className={
                                                 errors.email && touched.email
@@ -185,7 +199,8 @@ export const UserForm = () => {
                                             type="tel"
                                             name="phone"
                                             placeholder="Enter your phone number"
-                                            // onChange={handleChange}
+                                            onChange={handleChange}
+                                            onBlur={handleBlur}
                                             value={values.phone}
                                             className={[
                                                 errors.phone && touched.phone
@@ -207,7 +222,8 @@ export const UserForm = () => {
                                             name="skype"
                                             placeholder="Add your skype number"
                                             value={values.skype}
-                                            // onChange={handleChange}
+                                            onChange={handleChange}
+                                            onBlur={handleBlur}
                                             className={
                                                 errors.skype && touched.skype
                                                     ? 'input-error'
@@ -226,7 +242,7 @@ export const UserForm = () => {
                                 animate={{ y: -25 }}
                                 transition={{ ease: 'easeOut', duration: 2 }}
                                 type="submit"
-                                disabled={!dirty}
+                                disabled={!dirty || isSubmitting}
                             >
                                 Save changes
                             </Button>
