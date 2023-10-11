@@ -89,7 +89,7 @@ const Description = () => {
                                 (main_page_calendar_tablet1x_webp,
                                 main_page_calendar_tablet2x_webp)
                             }
-                            media="(min-width: 768px)"
+                            media="(min-width: 768px) and (max-width: 1439px)"
                             type="image/webp"
                         />
                         <source
@@ -97,7 +97,7 @@ const Description = () => {
                                 (main_page_calendar_tablet1x,
                                 main_page_calendar_tablet2x)
                             }
-                            media="(min-width: 768px)"
+                            media="(min-width: 768px) and (max-width: 1439px)"
                             type="image/jpg"
                         />
                         <source
@@ -117,29 +117,6 @@ const Description = () => {
                             type="image/jpg"
                         />
                         <Img src={main_page_calendar_mob1x} alt="calendar" />
-                        {/* <source
-                            srcSet={
-                                (main_page_calendar_desktop1x,
-                                main_page_calendar_desktop2x)
-                            }
-                            media="(min-width: 1440px)"
-                        /> */}
-                        {/* <source
-                            srcSet={
-                                (main_page_calendar_tablet1x,
-                                main_page_calendar_tablet2x)
-                            }
-                            media="(min-width: 768px)"
-                        />
-                        <Img
-                            srcSet={
-                                (main_page_calendar_mob1x,
-                                main_page_calendar_mob2x)
-                            }
-                            // width={604}
-                            // height={700}
-                            alt=""
-                        /> */}
                     </picture>
                 </Li>
                 <Li>
@@ -178,7 +155,7 @@ const Description = () => {
                                 (main_page_sidebar_tablet1x_webp,
                                 main_page_sidebar_tablet2x_webp)
                             }
-                            media="(min-width: 768px)"
+                            media="(min-width: 768px) and (max-width: 1439px)"
                             type="image/webp"
                         />
                         <source
@@ -186,7 +163,7 @@ const Description = () => {
                                 (main_page_sidebar_tablet1x,
                                 main_page_sidebar_tablet2x)
                             }
-                            media="(min-width: 768px)"
+                            media="(min-width: 768px) and (max-width: 1439px)"
                             type="image/jpg"
                         />
                         <source
@@ -206,29 +183,7 @@ const Description = () => {
                             type="image/jpg"
                         />
                         <Img src={main_page_sidebar_mob1x} alt="calendar" />
-                        {/* <source
-                            srcSet={
-                                (main_page_sidebar_desktop1x,
-                                main_page_sidebar_desktop2x)
-                            }
-                            media="(min-width: 1440px)"
-                        />
-                        <source
-                            srcSet={
-                                (main_page_sidebar_tablet1x,
-                                main_page_sidebar_tablet2x)
-                            }
-                            media="(min-width: 768px)"
-                        />
-                        <Img
-                            srcSet={
-                                (main_page_sidebar_mob1x,
-                                main_page_sidebar_mob2x)
-                            }
-                            // width={604}
-                            // height={700}
-                            alt=""
-                        /> */}
+                        =""
                     </picture>
                 </Li>
                 <Li>
@@ -263,14 +218,14 @@ const Description = () => {
                                 (main_page_all_tablet1x_webp,
                                 main_page_all_tablet2x_webp)
                             }
-                            media="(min-width: 768px)"
+                            media="(min-width: 768px) and (max-width: 1439px)"
                             type="image/webp"
                         />
                         <source
                             srcSet={
                                 (main_page_all_tablet1x, main_page_all_tablet2x)
                             }
-                            media="(min-width: 768px)"
+                            media="(min-width: 768px) and (max-width: 1439px)"
                             type="image/jpg"
                         />
                         <source
@@ -290,25 +245,6 @@ const Description = () => {
                             type="image/jpg"
                         />
                         <Img src={main_page_all_mob1x} alt="calendar" />
-                        {/* <source
-                            srcSet={
-                                (main_page_all_desktop1x,
-                                main_page_all_desktop2x)
-                            }
-                            media="(min-width: 1440px)"
-                        />
-                        <source
-                            srcSet={
-                                (main_page_all_tablet1x, main_page_all_tablet2x)
-                            }
-                            media="(min-width: 768px)"
-                        />
-                        <Img
-                            srcSet={(main_page_all_mob1x, main_page_all_mob2x)}
-                            // width={604}
-                            // height={700}
-                            alt=""
-                        /> */}
                     </picture>
                 </Li>
             </ul>
