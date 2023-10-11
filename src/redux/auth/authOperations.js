@@ -1,6 +1,8 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import Notiflix from 'notiflix';
+
+// import Notiflix from 'notiflix';
+import Notiflix from '../../styles/Notiflix';
 
 axios.defaults.baseURL = 'https://goose-track-backend-q3re.onrender.com/api';
 
@@ -86,11 +88,13 @@ export const editUser = createAsyncThunk(
         try {
             setAuthHeader(token);
 
-        // console.log(newUser);
+            // console.log(newUser);
 
-        const response = await axios.patch('/users/edit', newUser);
+            const response = await axios.patch('/users/edit', newUser);
 
-        if (response) { Notiflix.Notify.success(`User has been updated successfuly`); }
+            if (response) {
+                Notiflix.Notify.success(`User has been updated successfuly`);
+            }
 
             return response.data;
         } catch (error) {
