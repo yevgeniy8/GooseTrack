@@ -49,6 +49,9 @@ export const InputTitle = styled(Field)`
     font-family: Inter;
     font-weight: 600;
     line-height: 18px;
+    outline: none;
+
+    transition: border 250ms linear;
 
     @media (min-width: 768px) {
         width: 340px;
@@ -63,6 +66,11 @@ export const InputTitle = styled(Field)`
         font-family: Inter;
         font-weight: 600;
         line-height: 18px;
+    }
+
+    &:hover,
+    &:focus {
+        border: ${({ theme }) => theme.borders.inputHover};
     }
 `;
 
@@ -84,12 +92,15 @@ export const InputTime = styled(Field)`
     background: ${({ theme }) => theme.colors.backgroundModalTaskForm};
     border: ${({ theme }) => theme.borders.feedbackInput};
     cursor: pointer;
+    outline: none;
 
     color: ${({ theme }) => theme.colors.textPrimary};
     font-size: 14px;
     font-family: Inter;
     font-weight: 600;
     line-height: 18px;
+
+    transition: border 250ms linear;
 
     @media (min-width: 768px) {
         width: 163px;
@@ -99,6 +110,11 @@ export const InputTime = styled(Field)`
 
     &::-webkit-calendar-picker-indicator {
         display: none;
+    }
+
+    &:hover,
+    &:focus {
+        border: ${({ theme }) => theme.borders.inputHover};
     }
 `;
 

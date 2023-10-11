@@ -161,6 +161,7 @@ export const lightTheme = {
         rightMonth: '1px solid rgba(62, 133, 243, 0.20)',
         modalTask: '1px solid rgba(220, 227, 229, 0.80)',
         feedbackInput: 'none',
+        inputHover: '1px solid #111',
     },
 
     borderRadius: {
@@ -248,6 +249,7 @@ export const darkTheme = {
         rightMonth: '1px solid rgba(255, 255, 255, 0.15)',
         modalTask: 'none',
         feedbackInput: '1px solid rgba(255, 255, 255, 0.15)',
+        inputHover: '1px solid #fff',
     },
 
     borderRadius: {
