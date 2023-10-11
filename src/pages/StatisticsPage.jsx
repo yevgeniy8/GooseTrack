@@ -17,7 +17,6 @@ const GlobalStyles = createGlobalStyle`
 
 const StatisticsPage = () => {
     const [startDate, setStartDate] = useState(new Date());
-
     const { theme } = useThemeContext();
 
     return (
