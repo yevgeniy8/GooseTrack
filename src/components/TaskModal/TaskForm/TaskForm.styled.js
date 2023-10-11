@@ -1,6 +1,5 @@
-// import styled from '@emotion/styled'; 
-import styled from 'styled-components';
-
+import styled from '@emotion/styled/macro';
+import { tablet, min } from 'styles/media';
 import {
     Form as FormikForm,
     Field,
@@ -12,13 +11,13 @@ export const Form = styled(FormikForm)`
     width: 303px;
     max-height: 420px;
     padding: 48px 18px 40px;
-    background-color: #fff;
-   
+    background-color: ${({ theme }) => theme.colors.backgroundModalTask};
 
     border-radius: 8px;
-    border: #fff;
+    border: ${({ theme }) => theme.borders.modalTask};
+    box-shadow: ${({ theme }) => theme.shadows.modalTask};
 
-    @media (min-width: 768px) {
+    ${min(tablet)} {
         width: 396px;
         padding: 40px 28px;
     }
@@ -29,7 +28,7 @@ export const Label = styled.label`
     flex-direction: column;
     gap: 8px;
 
-    color: rgba(52, 52, 52, 0.8);
+    color: ${({ theme }) => theme.colors.textTitleModalTask};
 
     font-size: 12px;
     font-family: Inter;
@@ -42,16 +41,20 @@ export const InputTitle = styled(Field)`
     height: 42px;
     padding: 12px 14px;
     border-radius: 8px;
-    background: #f6f6f6;
-    border: 1px solid #f6f6f6;
+    background-color: ${({ theme }) => theme.colors.backgroundModalTaskForm};
+    border: ${({ theme }) => theme.borders.feedbackInput};
 
-    color: #343434;
+    color: ${({ theme }) => theme.colors.textPrimary};
     font-size: 14px;
     font-family: Inter;
     font-weight: 600;
     line-height: 18px;
+    outline: none;
 
-    @media (min-width: 768px) {
+    transition: ${({ theme }) =>
+        `border ${theme.animations.duration} ${theme.animations.cubicBezier}`};
+
+    ${min(tablet)} {
         width: 340px;
         height: 46px;
         padding: 14px 18px;
@@ -59,11 +62,16 @@ export const InputTitle = styled(Field)`
 
     &::placeholder {
         opacity: 1;
-        color: #343434;
+        color: ${({ theme }) => theme.colors.textPrimary};
         font-size: 14px;
         font-family: Inter;
         font-weight: 600;
         line-height: 18px;
+    }
+
+    &:hover,
+    &:focus {
+        border: ${({ theme }) => theme.borders.inputHover};
     }
 `;
 
@@ -72,7 +80,7 @@ export const TimeWrapper = styled.div`
     gap: 14px;
     margin-top: 16px;
 
-    @media (min-width: 768px) {
+    ${min(tablet)} {
         margin-top: 18px;
     }
 `;
@@ -82,17 +90,21 @@ export const InputTime = styled(Field)`
     height: 42px;
     padding: 12px 14px;
     border-radius: 8px;
-    background: #f6f6f6;
-    border: 1px solid #f6f6f6;
+    background: ${({ theme }) => theme.colors.backgroundModalTaskForm};
+    border: ${({ theme }) => theme.borders.feedbackInput};
     cursor: pointer;
+    outline: none;
 
-    color: #343434;
+    color: ${({ theme }) => theme.colors.textPrimary};
     font-size: 14px;
     font-family: Inter;
     font-weight: 600;
     line-height: 18px;
 
-    @media (min-width: 768px) {
+    transition: ${({ theme }) =>
+        `border ${theme.animations.duration} ${theme.animations.cubicBezier}`};
+
+    ${min(tablet)} {
         width: 163px;
         height: 46px;
         padding: 14px 18px;
@@ -101,73 +113,16 @@ export const InputTime = styled(Field)`
     &::-webkit-calendar-picker-indicator {
         display: none;
     }
+
+    &:hover,
+    &:focus {
+        border: ${({ theme }) => theme.borders.inputHover};
+    }
 `;
 
 export const RadioWrapper = styled.div`
     display: flex;
     gap: 16px;
-`;
-
-export const RadioField = styled(Field)`
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-`;
-
-export const RadioLabel = styled.label`
-    position: relative;
-    padding-left: 16px;
-    display: flex;
-    align-items: center;
-    margin-top: 16px;
-
-    color: #343434;
-    font-size: 12px;
-    font-family: Inter;
-    font-weight: 600;
-    line-height: 14px;
-    cursor: pointer;
-
-    @media (min-width: 768px) {
-        font-size: 14px;
-        line-height: 18px;
-        margin-top: 28px;
-    }
-`;
-
-export const RadioSpan = styled.span`
-    position: absolute;
-    left: 0;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: ${({value}) => {
-        switch (value) {
-            case 'low':
-                return '#72C2F8';
-            case 'medium':
-                return '#F3B249';
-            case 'high':
-                return '#EA3D65';
-            default:
-                return 'black';
-        }
-    }};
-
-    ${RadioLabel}:nth-child(1) ${RadioField}:checked + & {
-        outline: 1.2px solid #72c2f8;
-        outline-offset: 1px;
-    }
-
-    ${RadioLabel}:nth-child(2) ${RadioField}:checked + & {
-        outline: 1.2px solid #f3b249;
-        outline-offset: 1px;
-    }
-
-    ${RadioLabel}:nth-child(3) ${RadioField}:checked + & {
-        outline: 1.2px solid #ea3d65;
-        outline-offset: 1px;
-    }
 `;
 
 export const ButtonWrapper = styled.div`
@@ -187,24 +142,25 @@ export const ButtonAction = styled.button`
 
     border-radius: 8px;
     border: none;
-    background-color: #3e85f3;
+    background-color: ${({ theme }) => theme.colors.brand};
     cursor: pointer;
 
-    color: #fff;
+    color: ${({ theme }) => theme.colors.white};
     text-align: center;
     font-size: 14px;
     font-family: Inter;
     font-weight: 600;
     line-height: 18px;
 
-    transition: background-color 250ms linear;
+    transition: ${({ theme }) =>
+        `background-color ${theme.animations.duration} ${theme.animations.cubicBezier}`};
 
     &:hover,
     &:focus {
-        background-color: #2b78ef;
+        background-color: ${({ theme }) => theme.colors.backgroundBtnHover};
     }
 
-    @media (min-width: 768px) {
+    ${min(tablet)} {
         width: 182px;
         height: 48px;
         padding: 15px;
@@ -218,24 +174,26 @@ export const ButtonCancel = styled.button`
 
     border-radius: 8px;
     border: none;
-    background: #efefef;
+    background: ${({ theme }) => theme.colors.backgroundModalTaskCanceled};
     cursor: pointer;
 
-    color: #111;
+    color: ${({ theme }) => theme.colors.black};
     text-align: center;
     font-size: 14px;
     font-family: Inter;
     font-weight: 600;
     line-height: 18px;
 
-    transition: background-color 250ms linear;
+    transition: ${({ theme }) =>
+        `background-color ${theme.animations.duration} ${theme.animations.cubicBezier}`};
 
     &:hover,
     &:focus {
-        background-color: #e7e3e3;
+        background-color: ${({ theme }) =>
+            theme.colors.backgroundBtnCancelHover};
     }
 
-    @media (min-width: 768px) {
+    ${min(tablet)} {
         width: 182px;
         height: 48px;
         padding: 15px;
@@ -253,21 +211,81 @@ export const ButtonCloseWrap = styled.button`
     border: none;
     background-color: transparent;
     cursor: pointer;
-    stroke: #111111;
+    stroke: ${({ theme }) => theme.colors.textTitleHeader};
 
-    transition: stroke 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: ${({ theme }) =>
+        `stroke ${theme.animations.duration} ${theme.animations.cubicBezier}`};
 
     &:hover,
     &:focus {
-        stroke: #2b78ef;
+        stroke: ${({ theme }) => theme.colors.backgroundBtnHover};
     }
 `;
 
 export const ErrorMessage = styled(FormikErrorMessage)`
     margin-left: 18px;
     max-width: 100%;
-    color: #da1414;
+    color: ${({ theme }) => theme.colors.error};
     font-size: 12px;
     font-family: Inter;
     line-height: 14px;
+`;
+export const RadioField = styled(Field)`
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+`;
+
+export const RadioLabel = styled.label`
+    position: relative;
+    padding-left: 16px;
+    display: flex;
+    align-items: center;
+    margin-top: 16px;
+    color: ${({ theme }) => theme.colors.textPrimary};
+    font-size: 12px;
+    font-family: Inter;
+    font-weight: 600;
+    line-height: 14px;
+    cursor: pointer;
+
+    ${min(tablet)} {
+        font-size: 14px;
+        line-height: 18px;
+        margin-top: 28px;
+    }
+`;
+
+export const RadioSpan = styled.span`
+    position: absolute;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: ${({ value }) => {
+        switch (value) {
+            case 'low':
+                return '#72C2F8';
+            case 'medium':
+                return '#F3B249';
+            case 'high':
+                return '#EA3D65';
+            default:
+                return 'black';
+        }
+    }};
+
+    ${RadioLabel} ${RadioField}:checked + & {
+        outline-offset: 1px;
+        outline: 1.2px solid
+            ${({ value }) => {
+                const colors = {
+                    low: '#72C2F8',
+                    medium: '#F3B249',
+                    high: '#EA3D65',
+                    default: 'black',
+                };
+                return colors[value] || colors['default'];
+            }};
+    }
 `;

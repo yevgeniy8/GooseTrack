@@ -82,7 +82,7 @@ const StatisticsReChart = ({ startDate, setStartDate }) => {
     // const date = new Date(currentDate);
     const dispatch = useDispatch();
     const tasks = useSelector(selectTasks);
-
+    // console.log(tasks);
     // console.log('tasks:>>', tasks);
     // console.log('currentDate', currentDate);
 
