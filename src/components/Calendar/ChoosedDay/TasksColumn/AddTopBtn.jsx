@@ -12,7 +12,7 @@ const TopAddBtn = ({ value }) => {
   };
   return (
     <>
-      <TopBtn onClick={openModal}>
+      <TopBtn aria-label="add-task-button" type="button" onClick={openModal}>
         <PlusIcon>
           <use href={`${Icons}#icon-plus-add`} />
         </PlusIcon>
