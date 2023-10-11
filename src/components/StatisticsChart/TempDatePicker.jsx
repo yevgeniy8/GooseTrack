@@ -62,6 +62,7 @@ const TempDatePicker = () => {
 export default TempDatePicker;
 
 const CustomDatePicker = styled.button`
+    width: 171px;
     display: flex;
     padding: 8px 12px;
     justify-content: center;

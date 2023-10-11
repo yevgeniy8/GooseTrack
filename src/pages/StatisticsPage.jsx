@@ -18,7 +18,7 @@ const StatisticsPage = () => {
                         <li>By Month</li>
                     </Legend>
                 </LegendBlock>
-                <CharStat>
+                <CharContainer>
                     <StatBlock>
                         <Yaxis>
                             <YaxisName>Tasks</YaxisName>
@@ -40,7 +40,7 @@ const StatisticsPage = () => {
                             <li>Done</li>
                         </Xticks>
                     </Xaxis>
-                </CharStat>
+                </CharContainer>
             </SectionStyled>
         </>
     );
@@ -55,6 +55,8 @@ const SectionStyled = styled.section`
     border-radius: 16px;
 
     padding: 28px 14px 135px 14px;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
     @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
         padding: 132px 32px 224px 32px;
     }
@@ -134,9 +136,9 @@ const CalendarBlock = styled.div`
     /* gap: 50px; */
 `;
 
-const CharStat = styled.div`
-    border: 0.8px solid #e3f3ff;
-
+const CharContainer = styled.div`
+    border: 0.8px solid;
+    border-color: ${({ theme }) => theme.colors.statisticsLine};
     width: 307px;
     height: 413px;
     border-radius: 29px;
@@ -147,6 +149,7 @@ const CharStat = styled.div`
     font-style: normal;
     font-weight: 400;
     line-height: 150%;
+    transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
     @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
         width: 640px;
         height: 424px;

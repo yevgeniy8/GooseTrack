@@ -81,6 +81,7 @@ export const BtnLeft = styled.button`
     border: solid 1px rgba(220, 227, 229, 0.8);
     border-radius: 8px 0 0 8px;
     transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    fill: none;
     &:hover {
         stroke: ${({ theme }) => theme.colors.nameDay};
     }
@@ -94,6 +95,9 @@ export const BtnRight = styled.button`
     border: solid 1px rgba(220, 227, 229, 0.8);
     border-radius: 0 8px 8px 0;
     transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    fill: none;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
     &:hover {
         stroke: ${({ theme }) => theme.colors.textPrimary};
     }

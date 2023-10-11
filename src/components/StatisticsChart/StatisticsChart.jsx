@@ -5,7 +5,7 @@ import { useThemeContext } from 'hooks/ThemeContext';
 
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate, useParams } from 'react-router';
+
 import {
     BarChart,
     Bar,
@@ -70,8 +70,8 @@ const StatisticsReChart = () => {
     // const date = new Date(currentDate);
     const dispatch = useDispatch();
     const tasks = useSelector(selectTasks);
-    console.log('tasks:>>', tasks);
-    console.log('currentDate', currentDate);
+    // console.log('tasks:>>', tasks);
+    // console.log('currentDate', currentDate);
 
     useEffect(() => {
         dispatch(fetchTasks(currentDate));
@@ -88,7 +88,7 @@ const StatisticsReChart = () => {
     }, [currentDate, dispatch]);
 
     const fill = isLightTheme ? '#343434' : '#fff';
-
+    const gridStroke = isLightTheme ? '#E3F3FF' : '#e3f3ff26';
     return (
         <BarChart
             width={chartWidth}
@@ -107,7 +107,7 @@ const StatisticsReChart = () => {
             <CartesianGrid
                 horizontal={true}
                 vertical={false}
-                stroke="#E3F3FF"
+                stroke={gridStroke}
             />
             <defs>
                 <linearGradient id="colorUv" x1="0" y1="1" x2="0" y2="0">
