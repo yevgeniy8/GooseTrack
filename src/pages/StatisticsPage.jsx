@@ -25,6 +25,42 @@ const StatisticsPage = () => {
 
     const { theme } = useThemeContext();
 
+    let liElemntArr = [];
+
+    const calcLiElArr = tasks => {
+        liElemntArr = [];
+        liElemntArr.push({ value: tasks.length, id: tasks.length });
+        for (let i = 9; i >= 1; i--) {
+            const calculatedValue = (tasks.length / 10) * i;
+            if (Number.isInteger(calculatedValue)) {
+                liElemntArr.push({
+                    value: calculatedValue,
+                    id: calculatedValue,
+                });
+            }
+        }
+
+        liElemntArr.push({ value: 0, id: 0 });
+    };
+
+    calcLiElArr(tasks);
+
+    const width = window.innerHeight;
+
+    const calculateGapValue = quantity => {
+        if (width >= 1440) {
+            return (286 - 21 * quantity) / (quantity - 1); //291 286
+        } else if (width >= 768) {
+            return (291 - 21 * quantity) / (quantity - 1); //291 286
+        } else {
+            return (271 - 21 * quantity) / (quantity - 1); //271 266
+        }
+    };
+
+    const ulStyle = {
+        gap: calculateGapValue(liElemntArr.length),
+    };
+
     return (
         <>
             <GlobalStyles theme={theme} />
@@ -46,13 +82,10 @@ const StatisticsPage = () => {
                     <StatBlock>
                         <Yaxis>
                             <YaxisName>Tasks</YaxisName>
-                            <Yticks>
-                                <li>{tasks.length}</li>
-                                <li>{((tasks.length / 5) * 4).toFixed(1)}</li>
-                                <li>{((tasks.length / 5) * 3).toFixed(1)}</li>
-                                <li>{((tasks.length / 5) * 2).toFixed(1)}</li>
-                                <li>{(tasks.length / 5).toFixed(1)}</li>
-                                <li>0</li>
+                            <Yticks style={ulStyle}>
+                                {liElemntArr.map(el => (
+                                    <li key={el.id}>{el.value}</li>
+                                ))}
                             </Yticks>
                         </Yaxis>
                         <StatisticsChart
@@ -241,14 +274,14 @@ const YaxisName = styled.p`
 const Yticks = styled.ul`
     display: flex;
     flex-direction: column;
-    gap: 29px;
+    // gap: 29px;
     font-weight: 400;
     color: ${({ theme }) => theme.colors.textPrimary};
     @media screen and (min-width: 768px) {
-        gap: 33px;
+        // gap: 33px;
     }
     @media screen and (min-width: 1440px) {
-        gap: 33px;
+        // gap: 33px;
     }
 `;
 const Xaxis = styled.div``;
