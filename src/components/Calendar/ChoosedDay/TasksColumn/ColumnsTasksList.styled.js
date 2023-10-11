@@ -11,7 +11,7 @@ export const TaskList = styled.ul`
   padding-right: 7px;
   position: relative;
   margin-top: 24px;
-  height: 300px;
+  height: 260px;
 
   &::-webkit-scrollbar {
     width: 8px;
