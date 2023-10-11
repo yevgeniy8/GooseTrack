@@ -4,8 +4,8 @@ import { getCurrentDate } from 'helpers';
 import { useThemeContext } from 'hooks/ThemeContext';
 
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 
+import { useDispatch, useSelector } from 'react-redux';
 import {
     BarChart,
     Bar,
@@ -89,6 +89,7 @@ const StatisticsReChart = () => {
 
     const fill = isLightTheme ? '#343434' : '#fff';
     const gridStroke = isLightTheme ? '#E3F3FF' : '#e3f3ff26';
+
     return (
         <BarChart
             width={chartWidth}
