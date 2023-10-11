@@ -1,9 +1,22 @@
 import StatisticsChart from 'components/StatisticsChart/StatisticsChart';
 import styled from '@emotion/styled';
 
+import { useThemeContext } from 'hooks/ThemeContext';
+import { createGlobalStyle } from 'styled-components';
+
+const GlobalStyles = createGlobalStyle`
+
+    body {
+        background-color: ${({ theme }) => theme.colors.backgroundPrimary};
+    }
+`;
+
 const StatisticsPage = () => {
+    const { theme } = useThemeContext();
+
     return (
         <section>
+            <GlobalStyles theme={theme} />
             <LegendBlock>
                 <CalendarBlock>
                     <Calendar>/Calendar/</Calendar>
