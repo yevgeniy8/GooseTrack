@@ -8,7 +8,6 @@ import { Table } from './ChoosedMonth.styled';
 import { useNavigate } from 'react-router';
 import { useParams } from 'react-router';
 
-// import { TaskModal } from '../../TaskModal/TaskModal';
 import TaskList from './TaskList';
 import { NavLink } from 'react-router-dom';
 
@@ -25,23 +24,11 @@ const CalendarTable = () => {
         dispatch(fetchTasks(currentDate));
     }, [currentDate, dispatch]);
 
-    // const [modalOpen, setModalOpen] = useState(false);
-
-    // const openModal = () => setModalOpen(true);
-
-    // const closeModal = () => {
-    //     setModalOpen(false);
-    // };
-
     const handleClick = day => {
         if (day < 10) {
             day = `${0}${day}`;
             console.log(day);
-        }
-
-        // const loc = localStorage.getItem('type');
-
-        // console.log(loc);
+        };
 
         localStorage.setItem('type', 'day');
         localStorage.setItem('date', currentDate + '-' + day);
@@ -60,8 +47,6 @@ const CalendarTable = () => {
                     >
                         <NavLink
                             onClick={() => handleClick(day)}
-                            // to={`/calendar/day/${currentDate + '-' + day}`}
-                            // to={'/calendar/day/2023-10-10'}
                         >
                             <span
                                 className={`nonDRAG ${
@@ -81,7 +66,6 @@ const CalendarTable = () => {
                             </span>
                         </NavLink>
                         <TaskList
-                            // openModal={openModal}
                             currentDate={currentDate}
                             day={day}
                             tasks={tasks}
@@ -89,7 +73,6 @@ const CalendarTable = () => {
                     </div>
                 ))}
             </Table>
-            {/* {modalOpen && <TaskModal closeModal={closeModal} />} */}
         </>
     );
 };
