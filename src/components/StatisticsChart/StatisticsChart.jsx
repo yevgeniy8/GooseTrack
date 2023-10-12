@@ -1,11 +1,15 @@
-// import { faker } from '@faker-js/faker';
-import { LIGHT } from 'constants';
-// import { getCurrentDate } from 'helpers';
-import { useThemeContext } from 'hooks/ThemeContext';
-import { getStatisticsCalculation } from 'helpers';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useThemeContext } from 'hooks/ThemeContext';
+import moment from 'moment';
 
+import { fetchTasks } from 'redux/calendar/calendarOperations';
+import { selectTasks } from 'redux/calendar/calendarSelector';
+import {
+    calculateParams,
+    formatPercent,
+    getStatisticsCalculation,
+} from 'helpers';
 import {
     BarChart,
     Bar,
@@ -14,54 +18,16 @@ import {
     CartesianGrid,
     LabelList,
 } from 'recharts';
-import { fetchTasks } from 'redux/calendar/calendarOperations';
-import { selectTasks } from 'redux/calendar/calendarSelector';
-import moment from 'moment';
-
-const formatPercent = value => {
-    const formattedValue = value.toFixed(1);
-    return isNaN(formattedValue) ? '0%' : `${formattedValue}%`;
-};
-
-const calculateParams = width => {
-    let barGap, chartWidth, chartHeight, marginRight, barSize, fontSize;
-
-    if (width >= 1440) {
-        barGap = 14;
-        fontSize = 16;
-        chartWidth = 694;
-        chartHeight = 286;
-        marginRight = 0;
-        barSize = 27;
-    } else if (width >= 768) {
-        barGap = 14;
-        fontSize = 16;
-        chartWidth = 522;
-        chartHeight = 286;
-        marginRight = 0;
-        barSize = 27;
-    } else {
-        barGap = 8;
-        fontSize = 12;
-        chartWidth = 243;
-        chartHeight = 266;
-        marginRight = 0;
-        barSize = 22;
-    }
-
-    return { barGap, chartWidth, chartHeight, marginRight, barSize, fontSize };
-};
+import { LIGHT } from 'constants';
 
 const StatisticsReChart = ({ startDate, setStartDate }) => {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    const { theme } = useThemeContext();
+    const dispatch = useDispatch();
     const { barGap, chartWidth, chartHeight, marginRight, barSize, fontSize } =
         calculateParams(windowWidth);
-    const { theme } = useThemeContext();
     const isLightTheme = theme === LIGHT;
-
     const currentDate = moment(startDate).format('YYYY-MM-DD');
-
-    const dispatch = useDispatch();
     const tasks = useSelector(selectTasks);
 
     useEffect(() => {
@@ -76,7 +42,7 @@ const StatisticsReChart = ({ startDate, setStartDate }) => {
         };
     }, [currentDate, dispatch]);
 
-    const fill = isLightTheme ? '#343434' : '#fff';
+    const fillBarValue = isLightTheme ? '#343434' : '#fff';
     const gridStroke = isLightTheme ? '#E3F3FF' : '#e3f3ff26';
     const { formattedData } = getStatisticsCalculation(currentDate, tasks);
 
@@ -128,7 +94,7 @@ const StatisticsReChart = ({ startDate, setStartDate }) => {
                     dataKey="By Day"
                     position="top"
                     fontSize={fontSize}
-                    fill={fill}
+                    fill={fillBarValue}
                     formatter={formatPercent}
                 />
             </Bar>

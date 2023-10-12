@@ -2,11 +2,15 @@ import { forwardRef } from 'react';
 import ReactDatePicker from 'react-datepicker';
 import styled from '@emotion/styled';
 import 'react-datepicker/dist/react-datepicker.css';
-import { BtnLeft, BtnRight, Icon, PeriodTypeSelect } from './DatePicker.styled';
+import {
+    BtnLeft,
+    BtnRight,
+    Icon,
+    PeriodTypeSelect,
+} from './StatDatePicker.styled';
 import sprite from 'images/icons.svg';
 
-const TempDatePicker = ({ startDate, setStartDate }) => {
-    // const [startDate, setStartDate] = useState(new Date());
+const StatDatePicker = ({ startDate, setStartDate }) => {
     const ExampleCustomInput = forwardRef(({ value, onClick }, ref) => (
         <CustomDatePicker
             className="example-custom-input"
@@ -60,7 +64,7 @@ const TempDatePicker = ({ startDate, setStartDate }) => {
         </PeriodTypeSelect>
     );
 };
-export default TempDatePicker;
+export default StatDatePicker;
 
 const CustomDatePicker = styled.button`
     width: 171px;

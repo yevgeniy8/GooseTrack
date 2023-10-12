@@ -1,19 +1,20 @@
-import StatisticsChart from 'components/StatisticsChart/StatisticsChart';
-import styled from '@emotion/styled';
-
-import { useThemeContext } from 'hooks/ThemeContext';
-import { createGlobalStyle } from 'styled-components';
-import TempDatePicker from 'components/StatisticsChart/TempDatePicker';
 import { useState } from 'react';
+import { useThemeContext } from 'hooks/ThemeContext';
+
+// import StatDatePicker from 'components/StatisticsChart/StatDatePicker';
+import StatisticsChart from 'components/StatisticsChart/StatisticsChart';
+
+import { createGlobalStyle } from 'styled-components';
+import styled from '@emotion/styled';
+import ChartLegend from 'components/StatisticsChart/ChartLegend/ChartLegend';
+// import ChartLegend from 'components/StatisticsChart/ChartLegend/ChartLegend';
 
 const GlobalStyles = createGlobalStyle`
-
     body {
         background-color: ${({ theme }) => theme.colors.backgroundPrimary};
+        /* transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s; */
     }
 `;
-// import DatePicker from 'components/StatisticsChart/DatePiker';
-// import { useState } from 'react';
 
 const StatisticsPage = () => {
     const [startDate, setStartDate] = useState(new Date());
@@ -22,20 +23,11 @@ const StatisticsPage = () => {
     return (
         <>
             <GlobalStyles theme={theme} />
-            <SectionStyled>
-                <LegendBlock>
-                    <CalendarBlock>
-                        <TempDatePicker
-                            startDate={startDate}
-                            setStartDate={setStartDate}
-                        />
-                        {/* <DatePicker /> */}
-                    </CalendarBlock>
-                    <Legend>
-                        <li>By Day</li>
-                        <li>By Month</li>
-                    </Legend>
-                </LegendBlock>
+            <StatSectionStyled>
+                <ChartLegend
+                    startDate={startDate}
+                    setStartDate={setStartDate}
+                />
                 <CharContainer>
                     <StatBlock>
                         <Yaxis>
@@ -62,14 +54,14 @@ const StatisticsPage = () => {
                         </Xticks>
                     </Xaxis>
                 </CharContainer>
-            </SectionStyled>
+            </StatSectionStyled>
         </>
     );
 };
 
 export default StatisticsPage;
 
-const SectionStyled = styled.section`
+const StatSectionStyled = styled.section`
     display: flex;
     flex-direction: column;
     background-color: ${({ theme }) => theme.colors.backgroundSecondary};
@@ -84,77 +76,6 @@ const SectionStyled = styled.section`
     @media screen and (min-width: ${({ theme }) => theme.breakpoints.l}) {
         padding: 134px 114px 104px 113px;
     }
-`;
-const LegendBlock = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding-left: 0px;
-    margin: 0px 0px 40px 0px;
-    width: 307px;
-
-    @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        padding-left: 32px;
-        padding-right: 32px;
-        margin-bottom: 40px;
-        width: 640px;
-    }
-    @media screen and (min-width: ${({ theme }) => theme.breakpoints.l}) {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        padding-left: 40px;
-        padding-right: 40px;
-        margin-bottom: 40px;
-
-        width: 860px;
-    }
-`;
-
-const Legend = styled.ul`
-    display: flex;
-    flex-direction: row;
-    color: ${({ theme }) => theme.colors.textPrimary};
-    font-family: Inter;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 18px;
-    gap: 20px;
-    font-size: 14px;
-    li:first-of-type::before {
-        content: '';
-        display: inline-block;
-        width: 8px;
-        height: 8px;
-        background-color: #ffd2dd;
-        border-radius: 50%;
-        margin-right: 8px;
-    }
-    li:last-of-type::before {
-        content: '';
-        display: inline-block;
-        width: 8px;
-        height: 8px;
-        background-color: #3e85f3;
-        border-radius: 50%;
-        margin-right: 8px;
-    }
-    @media screen and (min-width: 768px) {
-        font-size: 16px;
-    }
-    @media screen and (min-width: 1440px) {
-        font-size: 16px;
-    }
-`;
-
-const CalendarBlock = styled.div`
-    /* display: flex; */
-    /* gap: 50px; */
 `;
 
 const CharContainer = styled.div`
