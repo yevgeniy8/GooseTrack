@@ -1,14 +1,19 @@
 import styled from '@emotion/styled';
+import { tablet, mobile, desktop, min } from '../../../../styles/media';
 
 export const TaskList = styled.ul`
-  gap: 17px;
   display: flex;
   flex-direction: column;
-  padding: 0px;
-  overflow-y: auto;
-  max-height: 380px;
-  padding-right: 7px;
+  position: relative;
+  gap: 17px;
 
+  max-height: 255px;
+  padding-right: 7px;
+  margin-top: 24px;
+
+  margin-bottom: 22px;
+  /* overflow: hidden auto; */
+  overflow-y: auto;
   &::-webkit-scrollbar {
     width: 8px;
     padding: 50px;
@@ -23,17 +28,26 @@ export const TaskList = styled.ul`
   &::-webkit-scrollbar-track {
     background-color: ${({ theme }) => theme.colors.backgroundScrollbar};
   }
+  ${min(mobile)} {
+    max-height: 255px;
+  }
+  ${min(tablet)} {
+    max-height: 324px;
+  }
+
+  ${min(desktop)} {
+    max-height: 378px;
+  }
 `;
+
 export const ColumnList = styled.ul`
   display: flex;
   gap: 27px;
 `;
+
 export const ColumnItem = styled.li`
-  flex-basis: calc((100% - 2 * 27px) / 3);
-  background: snow;
-  padding: 20px;
-  border-radius: 8px;
   border: 1px solid rgba(220, 227, 229, 0.8);
+  border-radius: 8px;
+  padding: 20px;
   background: #fff;
-  min-width: 135px;
 `;

@@ -8,13 +8,17 @@ export const TaskList = styled.ul`
     padding: 0px;
 `;
 export const Column = styled.li`
-    border-radius: 8px;
-    border: ${({ theme }) => theme.borders.calendar};
-    background: ${({ theme }) => theme.colors.backgroundSecondary};
-    /* margin-bottom: 100%; */
-    min-width: 335px;
-    padding-left: 14px;
-    padding-right: 18px;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  border-radius: 8px;
+  border: ${({ theme }) => theme.borders.calendar};
+  background: ${({ theme }) => theme.colors.backgroundSecondary};
+  min-width: 335px;
+  /* min-height: 155px; */
+  /* max-height: 568px; */
+  padding: 18px 18px 18px 14px;
+  padding-right: 18px;
 
     ${min(tablet)} {
         min-width: 344px;
