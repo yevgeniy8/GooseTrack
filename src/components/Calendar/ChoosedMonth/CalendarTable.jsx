@@ -27,8 +27,7 @@ const CalendarTable = () => {
     const handleClick = day => {
         if (day < 10) {
             day = `${0}${day}`;
-            console.log(day);
-        };
+        }
 
         localStorage.setItem('type', 'day');
         localStorage.setItem('date', currentDate + '-' + day);
@@ -45,9 +44,7 @@ const CalendarTable = () => {
                             date.getMonth() + 1
                         }-${day}`}
                     >
-                        <NavLink
-                            onClick={() => handleClick(day)}
-                        >
+                        <NavLink onClick={() => handleClick(day)}>
                             <span
                                 className={`nonDRAG ${
                                     datesAreOnSameDay(

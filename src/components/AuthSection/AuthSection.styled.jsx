@@ -42,11 +42,9 @@ export const Image = styled.img`
 
 export const Title = styled.h1`
     font-size: 44px;
-    /* font-style: italic; */
     font-weight: ${({ theme }) => theme.fontWeight.b};
     line-height: calc(48 / 44);
     letter-spacing: 0em;
-    /* text-align: left; */
     margin-bottom: 40px;
     color: ${({ theme }) => theme.colors.white};
 
@@ -136,8 +134,3 @@ export const Login = styled(NavLink)`
         min-width: 121px;
     }
 `;
-
-// export const Svg = styled.svg`
-//     fill: ${({ theme }) => theme.colors.white};
-//     stroke: ${({ theme }) => theme.colors.brand};
-// `;

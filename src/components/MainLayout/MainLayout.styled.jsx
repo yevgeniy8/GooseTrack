@@ -51,10 +51,8 @@ export const LeftField = styled.div`
 export const Section = styled.div`
     position: relative;
 
-    //можливо треба налаштувати красивий скрол
     overflow: hidden;
     overflow-y: auto;
-    //**** */
 
     width: 100%;
     max-width: 375px;

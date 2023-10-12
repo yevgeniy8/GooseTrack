@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-import { tablet, mobile, desktop, min } from '../../../../styles/media';
 export const PlusIcon = styled.svg`
     width: 100%;
     height: 100%;
@@ -57,17 +56,6 @@ export const BtnToAdd = styled.button`
         background-color: ${({ theme }) => theme.colors.disabledBtn};
         color: ${({ theme }) => theme.colors.white};
         cursor: not-allowed;
-
-        ${min(mobile)} {
-            height: 48px;
-        }
-        ${min(tablet)} {
-            height: 52px;
-        }
-
-        ${min(desktop)} {
-            height: 52px;
-        }
     }
 `;
 export const IconX = styled.svg`

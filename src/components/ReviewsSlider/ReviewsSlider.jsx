@@ -58,7 +58,6 @@ const ReviewsSlider = () => {
                 }
             })
             .catch(error => {
-                console.error('Error fetching reviews:', error);
                 setIsDataLoaded(true);
             });
     }, [dispatch]);

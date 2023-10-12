@@ -1,6 +1,5 @@
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-// import { useThemeContext } from 'hooks/ThemeContext';
 import close from '../../../images/icons.svg';
 import plus from '../../../images/icons.svg';
 import pencil from '../../../images/icons.svg';
@@ -69,7 +68,6 @@ export const TaskForm = ({ value, onClose, action, task }) => {
             category: value,
             date: currentDay,
         };
-        console.log(obj);
         dispatch(addTask(obj));
         onClose();
     };
@@ -93,7 +91,6 @@ export const TaskForm = ({ value, onClose, action, task }) => {
                 handleBlur,
                 handleSubmit,
                 isSubmitting,
-                /* and other goodies */
             }) => (
                 <Form>
                     <Label>
@@ -170,8 +167,6 @@ export const TaskForm = ({ value, onClose, action, task }) => {
                         </RadioLabel>
                         <ErrorMessage name="priority" component="div" />
                     </RadioWrapper>
-
-                    {/* <button type="submit">Ok</button> */}
 
                     <ButtonWrapper>
                         {action === 'edit' ? (
