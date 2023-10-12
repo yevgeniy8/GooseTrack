@@ -23,6 +23,8 @@ export const NameP = styled.p`
         font-size: ${({ theme }) => theme.fontSizes.l};
         line-height: calc(18 / 18);
     }
+    transition: ${({ theme }) =>
+        `color ${theme.animations.duration} ${theme.animations.cubicBezier}`};
 `;
 
 export const AvatarDiv = styled.div`
@@ -32,7 +34,7 @@ export const AvatarDiv = styled.div`
     width: 32px;
     height: 32px;
     border-radius: ${({ theme }) => theme.borderRadius.xl};
-    background-color: transparent;
+    background-color: ${({ theme }) => theme.colors.backgroundDefaultAvatar};
     border: ${({ theme }) => theme.borders.avatar};
 
     ${min(tablet)} {
