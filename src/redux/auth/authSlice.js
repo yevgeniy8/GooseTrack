@@ -28,7 +28,6 @@ export const authSlice = createSlice({
     extraReducers: builder => {
         builder
             .addCase(register.fulfilled, (state, action) => {
-                // console.log(action);
                 state.user = action.payload.user;
                 state.token = action.payload.token;
                 state.isLoggedIn = true;
@@ -38,19 +37,7 @@ export const authSlice = createSlice({
                 state.token = action.payload.token;
                 state.isLoggedIn = true;
             })
-            // .addCase(login.fulfilled, (state, { payload }) => {
-            //     state.user.name = payload.user.name;
-            //     state.user.email = payload.user.email;
-            //     state.user.birthday = payload.user.birthday;
-            //     state.user.phone = payload.user.phone;
-            //     state.user.skype = payload.user.skype;
-            //     state.user.avatarURL = payload.user.avatarURL;
-            //     state.user.birthday = payload.user.birthday;
-            //     state.token = payload.token;
-            //     state.isLoggedIn = true;
-            // })
             .addCase(logout.fulfilled, state => {
-                // console.log('slice');
                 state.user = {
                     name: null,
                     email: null,
@@ -66,20 +53,11 @@ export const authSlice = createSlice({
                 state.isRefreshing = true;
             })
             .addCase(refreshUser.fulfilled, (state, action) => {
-                // console.log(action);
-                // if (action.payload === undefined) {
-                //     state.isLoggedIn = false;
-                //     state.isRefreshing = false;
-                // }
-                // else
-                // {
                 state.user = action.payload;
                 state.isLoggedIn = true;
                 state.isRefreshing = false;
-                // }
             })
             .addCase(refreshUser.rejected, state => {
-                // console.log('object');
                 state.isRefreshing = false;
             })
             .addCase(editUser.fulfilled, (state, { payload }) => {
@@ -92,10 +70,8 @@ export const authSlice = createSlice({
                 state.user.birthday = payload.newUser.birthday;
                 state.isLoggedIn = true;
                 state.isRefreshing = false;
-                console.log(state.user.name);
             })
             .addCase(editUser.pending, (state, _) => {
-                // state.isRefreshing = true;
                 state.loading = true;
             })
             .addCase(editUser.rejected, (state, _) => {
@@ -104,7 +80,5 @@ export const authSlice = createSlice({
             });
     },
 });
-
-// export const { register, login } = authSlice.actions;
 
 export default authSlice.reducer;
