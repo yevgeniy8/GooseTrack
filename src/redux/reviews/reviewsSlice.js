@@ -41,6 +41,7 @@ const reviewSlice = createSlice({
                 state.isLoading = true;
             })
             .addCase(addReview.fulfilled, (state, action) => {
+                console.log(action);
                 state.userReview = action.payload.review;
                 state.reviews = [...state.reviews, action.payload.review];
                 state.isLoading = false;
@@ -88,6 +89,8 @@ const reviewSlice = createSlice({
                 state.isLoading = true;
             })
             .addCase(fetchReviewById.fulfilled, (state, action) => {
+                // console.log(action);
+
                 if (action.payload) {
                     state.userReview = action.payload.review;
                 } else {
@@ -106,5 +109,6 @@ const reviewSlice = createSlice({
     },
 });
 
+// export const { addReviews, deleteReviews } = reviewSlice.actions;
 export const { changeRating } = reviewSlice.actions;
 export const reviewReducer = reviewSlice.reducer;

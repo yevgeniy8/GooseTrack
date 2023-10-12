@@ -29,6 +29,7 @@ import {
     deleteReview,
     editReview,
 } from 'redux/reviews/reviewsOperations';
+// import { changeRating } from 'redux/reviews/reviewsSlice';
 import { Rating } from '@smastrom/react-rating';
 import '@smastrom/react-rating/style.css';
 
@@ -53,15 +54,35 @@ export const FeedbackForm = ({ onClose, existingReviewId }) => {
     const dispatch = useDispatch();
     const userReview = useSelector(selectUserReview);
     const [isEditActive, setIsEditActive] = useState(false);
-    const [isRating, setIsRating] = useState(null);
+    const rat = useSelector(state => state.reviews.userReview.rating);
+    // console.log(rat);
+    const [isRating, setIsRating] = useState(rat || null);
+
+    // useEffect(() => {
+    //     if (existingReviewId) {
+    //         dispatch(fetchReviewById(existingReviewId));
+    //     }
+    // }, [dispatch, existingReviewId]);
+
+    // useEffect(() => {
+    //     console.log('2');
+    //     dispatch(fetchReviewById());
+    // }, [dispatch, userReview.review]);
+
+    // console.log(userReview);
 
     const ratingChanged = newRating => {
+        console.log(newRating);
         setIsRating(newRating);
+        // dispatch(changeRating(newRating));
     };
 
     const handleSubmit = (values, actions) => {
+        console.log(values);
+        console.log(isRating);
         values.rating = Number(userReview.rating);
         if (isEditActive) {
+            console.log({ ...values, rating: isRating });
             const reviewRequest = {
                 id: userReview._id,
                 review: { ...values, rating: isRating },

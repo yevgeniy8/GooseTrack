@@ -49,6 +49,7 @@ export const editReview = createAsyncThunk(
     'reviews/editReviews',
     async ({ id, review }, thunkAPI) => {
         try {
+            console.log(review);
             const { data } = await axios.patch(`/reviews/own/`, review);
 
             return data;
