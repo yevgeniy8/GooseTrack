@@ -4,6 +4,8 @@ export const CardItem = styled.li`
   padding: 14px 14px 18px 14px;
   border-radius: 8px;
 
+  word-wrap: break-word;
+
   background: ${({ theme }) => theme.colors.backgroundPrimary};
   border: ${({ theme }) => theme.borders.calendar};
 `;
