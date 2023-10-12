@@ -43,6 +43,8 @@ export const UserForm = () => {
         avatarURL: user.avatarURL || avatarDefault,
     };
 
+    console.log(initialValues);
+
     const handleSubmit = async (
         { name, phone, email, skype, birthday },
         actions
@@ -80,6 +82,7 @@ export const UserForm = () => {
                     handleBlur,
                     isSubmitting,
                 }) => {
+                    console.log(values);
                     return (
                         <StyledForm>
                             <UserInfo
