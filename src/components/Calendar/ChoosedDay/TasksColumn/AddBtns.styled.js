@@ -69,6 +69,9 @@ export const BtnToAdd = styled.button`
         ${min(desktop)} {
             height: 52px;
         }
+<<<<<<< HEAD
+>>>>>>> parent of 7ad62ac (Update AddBtns.styled.js)
+=======
 >>>>>>> parent of 7ad62ac (Update AddBtns.styled.js)
     }
 `;
