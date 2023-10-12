@@ -10,7 +10,10 @@ import { useDispatch } from 'react-redux';
 
 import { refreshUser } from 'redux/auth/authOperations';
 import { Container } from 'styles/Container';
-import Spinner from '../Spinner/Spinner'
+import Spinner from '../Spinner/Spinner';
+
+// import { createGlobalStyle } from 'styled-components';
+// import { useThemeContext } from 'hooks/ThemeContext';
 
 const MainLayout = lazy(() => import('../MainLayout'));
 const MainPage = lazy(() => import('pages/MainPage'));
@@ -27,9 +30,17 @@ const ChoosedMonth = lazy(() =>
     import('components/Calendar/ChoosedMonth/ChoosedMonth')
 );
 
+// const GlobalStyles = createGlobalStyle`
+
+//     body {
+//         background-color: ${({ theme }) => theme.colors.backgroundPrimary};
+//     }
+// `;
+
 export const App = () => {
     const { isRefreshing } = useAuth();
     const dispatch = useDispatch();
+    // const { theme } = useThemeContext();
 
     useEffect(() => {
         dispatch(refreshUser());
@@ -43,7 +54,8 @@ export const App = () => {
         // isCompeteLoading &&
         !isRefreshing && (
             <Container>
-                <Suspense fallback={<Spinner/>}>
+                {/* <GlobalStyles theme={theme} /> */}
+                <Suspense fallback={<Spinner />}>
                     <Routes>
                         <Route
                             index

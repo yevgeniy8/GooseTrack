@@ -1,6 +1,6 @@
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-
+// import { useThemeContext } from 'hooks/ThemeContext';
 import close from '../../../images/icons.svg';
 import plus from '../../../images/icons.svg';
 import pencil from '../../../images/icons.svg';
@@ -15,77 +15,52 @@ import {
     InputTime,
     InputTitle,
     Label,
-    RadioField,
-    RadioLabel,
-    RadioSpan,
     RadioWrapper,
     TimeWrapper,
+    RadioSpan,
+    RadioLabel,
+    RadioField,
 } from './TaskForm.styled';
 
 import { addTask, editTask } from 'redux/calendar/calendarOperations';
 
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
-// import { useEffect } from 'react';
 
 const TaskSchema = Yup.object().shape({
     title: Yup.string()
         .max(250, 'Title is too long')
         .required('Title is required'),
     start: Yup.string().required('Start time is required'),
-    end: Yup.string().required('End time is required'),
-    // .test(
-    //     'is-greater',
-    //     'End time should be greater than start time',
-    //     function (value) {
-    //         const { start } = this.parent;
-    //         if (start && value) {
-    //             const startTime = new Date(`2000-01-01T${start}`);
-    //             const endTime = new Date(`2000-01-01T${value}`);
-    //             return endTime > startTime;
-    //         }
-    //         return true;
-    //     }
-    // ),
+    end: Yup.string()
+        .required('End time is required')
+        .test(
+            'is-greater',
+            'End time should be greater than start time',
+            function (value) {
+                const { start } = this.parent;
+                if (start && value) {
+                    const startTime = new Date(`2000-01-01T${start}`);
+                    const endTime = new Date(`2000-01-01T${value}`);
+                    return endTime > startTime;
+                }
+                return true;
+            }
+        ),
     priority: Yup.string()
         .oneOf(['low', 'medium', 'high'])
         .required('Priority is required'),
-    // date: Yup.date().required('Date is required'),
-    // .transform((value, originalValue) => {
-    //     if (originalValue) {
-    //         const [year, month, day] = originalValue.split('-');
-    //         return new Date(
-    //             `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`
-    //         );
-    //     }
-    //     return value;
-    // }),
-    // category: Yup.string()
-    //     .oneOf(['to-do', 'in-progress', 'done'])
-    //     .required('Category is required'),
 });
 
 export const TaskForm = ({ value, onClose, action, task }) => {
-    console.log(task);
+    // const { theme } = useThemeContext();
     const dispatch = useDispatch();
-
-    const userTask = useSelector(state => state.calendar.tasks);
-
-    console.log(userTask);
-
-    // useEffect(() => {
-    //     dispatch(fetchTasks());
-    // }, [dispatch]);
-
-    // console.log(value);
     const { currentDay } = useParams();
-    // console.log(currentDay);
 
     const handleSubmit = (values, actions) => {
         if (action) {
             dispatch(editTask({ id: task._id, task: values }));
             onClose();
-            // return console.log(action);
             return;
         }
 
@@ -101,20 +76,12 @@ export const TaskForm = ({ value, onClose, action, task }) => {
 
     return (
         <Formik
-            // initialValues=
-            // {{
-            // title: (action === 'edit' && title) || '',
-            // start: (action === 'edit' && start) || '09:00',
-            // end: (action === 'edit' && end) || '10:00',
-            // priority: (action === 'edit' && priority) || 'low',
-            // }}
             validationSchema={TaskSchema}
             initialValues={{
-                // name: ['low', 'medium', 'high'],
                 title: task?.title || '',
-                start: task?.start || '11:00',
-                end: task?.end || '11:30',
-                priority: task?.priority || '',
+                start: task?.start || '09:00',
+                end: task?.end || '09:30',
+                priority: task?.priority || 'low',
             }}
             onSubmit={handleSubmit}
         >
@@ -201,6 +168,7 @@ export const TaskForm = ({ value, onClose, action, task }) => {
                             <RadioSpan value="high" />
                             High
                         </RadioLabel>
+                        <ErrorMessage name="priority" component="div" />
                     </RadioWrapper>
 
                     {/* <button type="submit">Ok</button> */}
