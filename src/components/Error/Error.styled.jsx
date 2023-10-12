@@ -35,10 +35,7 @@ export const Text = styled.span`
     }
 `;
 
-export const Img = styled.img`
-    /* width: 81px;
-    height: 188px; */
-`;
+export const Img = styled.img``;
 
 export const Info = styled.p`
     color: rgba(17, 17, 17, 0.7);
@@ -49,7 +46,7 @@ export const Info = styled.p`
     line-height: 1.285;
     margin-bottom: 24px;
     @media (min-width: 768px) {
-        color:  ${({ theme }) => theme.colors.textPrimary};
+        color: ${({ theme }) => theme.colors.textPrimary};
         text-align: center;
         font-family: Inter;
         font-size: 14px;

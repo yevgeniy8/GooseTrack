@@ -26,9 +26,6 @@ export const WeekdaysItem = styled.li`
 
     transition: ${({ theme }) =>
         `color ${theme.animations.duration} ${theme.animations.cubicBezier}`};
-    /* &:nth-last-child(-n + 2) {
-        color: #3e85f3;
-    } */
 
     &:nth-last-of-type(-n + 2) {
         color: ${({ theme }) => theme.colors.brand};

@@ -137,7 +137,6 @@ export const NavLinkDay = styled(NavLink)`
     padding: 8px 16px;
     border: none;
     border-radius: 0 8px 8px 0;
-    /* border-left: 1px solid rgba(62, 133, 243, 0.2); */
     background-color: ${({ theme }) => theme.colors.backgroundMonthDay};
     font-family: Inter;
     font-size: 14px;

@@ -62,31 +62,9 @@ const AuthSection = () => {
                             type="image/png"
                         />
                         <Image src={goose_mobile_1x_welcome} alt="goose" />
-                        {/* <source
-                            srcSet={
-                                (goose_desktop_tablet_1x_welcome,
-                                goose_desktop_tablet_2x_welcome)
-                            }
-                            media="(min-width: 1440px)"
-                        />
-                        <source
-                            srcSet={
-                                (goose_desktop_tablet_1x_welcome,
-                                goose_desktop_tablet_2x_welcome)
-                            }
-                            media="(min-width: 768px)"
-                        />
-                        <Image
-                            srcSet={
-                                (goose_mobile_1x_welcome,
-                                goose_mobile_2x_welcome)
-                            }
-                            alt=""
-                        /> */}
                     </picture>
                 </WrapperImage>
 
-                {/* <img src={loginSvg} alt="" width={18} /> */}
                 <Title>
                     G<SpanTitle>oo</SpanTitle>seTrack
                 </Title>

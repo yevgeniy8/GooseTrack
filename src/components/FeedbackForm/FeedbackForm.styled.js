@@ -21,7 +21,6 @@ export const Wrap = styled.div`
 
 export const Label = styled.label`
     color: ${({ theme }) => theme.colors.textTitleModalTask};
-    /* background: ${({ theme }) => theme.colors.backgroundPrimary}; */
     display: block;
     margin-bottom: 8px;
     font-weight: ${({ theme }) => theme.fontWeight.m};

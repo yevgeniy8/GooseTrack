@@ -49,7 +49,6 @@ const calendarSlice = createSlice({
     initialState: {
         tasks: [],
         userTask: {
-            // нужно проверить/добавить поля тасок
             title: '',
             start: '',
             end: '',

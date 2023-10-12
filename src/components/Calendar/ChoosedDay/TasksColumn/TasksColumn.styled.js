@@ -8,12 +8,14 @@ export const TaskList = styled.ul`
     padding: 0px;
 `;
 export const Column = styled.li`
+    display: flex;
+    flex-direction: column;
     border-radius: 8px;
     border: ${({ theme }) => theme.borders.calendar};
     background: ${({ theme }) => theme.colors.backgroundSecondary};
-    /* margin-bottom: 100%; */
     min-width: 335px;
-    padding-left: 14px;
+
+    padding: 18px 18px 18px 14px;
     padding-right: 18px;
 
     ${min(tablet)} {
@@ -22,9 +24,4 @@ export const Column = styled.li`
 
     scroll-snap-align: start;
 `;
-export const Container = styled.div`
-    ${'' /* margin-bottom: 35px; */}
-`;
-// export const ColumnHeader = styled.div`
-//   list-style: none;
-// `;
+export const Container = styled.div``;

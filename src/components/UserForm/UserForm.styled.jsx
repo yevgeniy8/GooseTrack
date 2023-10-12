@@ -29,16 +29,6 @@ export const MainContainer = styled.div`
     }
 `;
 
-// export const AvatarContainer = styled(motion.div)`
-//     position: relative;
-//     display: flex;
-//     flex-direction: column;
-//     align-items: center;
-//     margin-bottom: 40px;
-//     margin-left: auto;
-//     margin-right: auto;
-// `;
-
 export const AvatarContainer = styled(motion.div)`
     @media (max-width: 767px) {
         position: absolute;
@@ -82,12 +72,8 @@ export const ImgContainer = styled.div`
 export const ImgAvatar = styled.img`
     width: 100%;
     height: 100%;
-    /* width: 48px;
-    height: 48px; */
     border-radius: 50%;
-
     object-fit: cover;
-    // object-position: 50% 50%;
 `;
 
 export const InputFile = styled(Field)`
@@ -150,7 +136,6 @@ export const StyledForm = styled(Form)`
 
 export const FieldsWrap = styled(motion.div)`
     width: 100%;
-    // background-color: green;
     margin-top: 40px;
     @media (min-width: 1440px) {
         max-width: 758px;
@@ -160,14 +145,6 @@ export const FieldsWrap = styled(motion.div)`
         gap: 18px 50px;
     }
 `;
-// export const Wrapper = styled.div`
-//     width: 299px;
-//     @media (min-width: 768px) {
-//         max-width: 354px;
-//     }
-//     @media (min-width: 1140px) {
-//     }
-// `;
 
 export const Label = styled.label`
     position: relative;
