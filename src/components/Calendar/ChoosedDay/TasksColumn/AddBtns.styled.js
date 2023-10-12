@@ -34,6 +34,7 @@ export const BtnToAdd = styled.button`
   border: 1px dashed #3e85f3;
 
   margin-top: 10px;
+  padding: 0px;
 
   height: 48px;
   width: 100%;
@@ -65,11 +66,8 @@ export const BtnToAdd = styled.button`
 export const IconX = styled.svg`
   width: 24px;
   height: 24px;
-  margin-right: 8px;
-  stroke: ${({ theme }) => theme.colors.textTitleHeader};
 
-  // @media (min-width: 768px) {
-  //   width: 34px;
-  //   height: 34px;
-  // }
+  margin-right: 8px;
+
+  stroke: ${({ theme }) => theme.colors.textTitleHeader};
 `;
