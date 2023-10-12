@@ -58,7 +58,7 @@ export const BtnToAdd = styled.button`
         color: ${({ theme }) => theme.colors.white};
         cursor: not-allowed;
 
-        ${min(mobile)} {
+        /* ${min(mobile)} {
             height: 48px;
         }
         ${min(tablet)} {
@@ -67,7 +67,7 @@ export const BtnToAdd = styled.button`
 
         ${min(desktop)} {
             height: 52px;
-        }
+        } */
     }
 `;
 export const IconX = styled.svg`
