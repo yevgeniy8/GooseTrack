@@ -80,8 +80,6 @@ export const UserForm = () => {
                     handleBlur,
                     isSubmitting,
                 }) => {
-                    console.log('dirty:', dirty);
-                    console.log('issUBMITTING', isSubmitting);
                     return (
                         <StyledForm>
                             <UserInfo
@@ -126,7 +124,6 @@ export const UserForm = () => {
                                                     new Date(values.birthday) ||
                                                     new Date()
                                                 }
-                                             
                                                 className={
                                                     errors.birthday &&
                                                     touched.birthday
@@ -157,15 +154,15 @@ export const UserForm = () => {
                                                     );
                                                 }}
                                             />
-                                             <Error
-                                            component="div"
-                                            name="birthday"
-                                        />
-                                        {handleInput(
-                                            errors,
-                                            touched,
-                                            'birthday'
-                                        )}
+                                            <Error
+                                                component="div"
+                                                name="birthday"
+                                            />
+                                            {handleInput(
+                                                errors,
+                                                touched,
+                                                'birthday'
+                                            )}
                                         </DatePickerWrapp>
                                     </Label>
                                 </LabelWrap>
