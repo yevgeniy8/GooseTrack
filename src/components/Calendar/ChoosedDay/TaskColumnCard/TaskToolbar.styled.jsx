@@ -26,7 +26,6 @@ export const CardEditBtn = styled.button`
     svg {
       stroke: #3e85f3;
     }
-  }
 
   &:focus {
     svg {
