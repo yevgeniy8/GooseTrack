@@ -29,7 +29,6 @@ registerLocale('en', enGB);
 
 export const UserForm = () => {
     const dispatch = useDispatch();
-    // const [isFormChanged, setIsFormChanged] = useState(false);
     const [currentAvatar, setCurrentAvatar] = useState(null);
 
     const user = useSelector(selectUser);
@@ -55,10 +54,6 @@ export const UserForm = () => {
         }
 
         dispatch(editUser(formData));
-       
-        // console.log('actions:', actions);
-
-        // actions.resetForm();
     };
 
     return (
@@ -80,8 +75,6 @@ export const UserForm = () => {
                     handleBlur,
                     isSubmitting,
                 }) => {
-                    console.log('dirty:', dirty);
-                    console.log('issUBMITTING', isSubmitting);
                     return (
                         <StyledForm>
                             <UserInfo
