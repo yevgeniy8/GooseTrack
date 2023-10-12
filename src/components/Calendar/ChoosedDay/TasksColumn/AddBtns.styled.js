@@ -56,6 +56,20 @@ export const BtnToAdd = styled.button`
         background-color: ${({ theme }) => theme.colors.disabledBtn};
         color: ${({ theme }) => theme.colors.white};
         cursor: not-allowed;
+<<<<<<< HEAD
+=======
+
+        ${min(mobile)} {
+            height: 48px;
+        }
+        ${min(tablet)} {
+            height: 52px;
+        }
+
+        ${min(desktop)} {
+            height: 52px;
+        }
+>>>>>>> parent of 7ad62ac (Update AddBtns.styled.js)
     }
 `;
 export const IconX = styled.svg`
