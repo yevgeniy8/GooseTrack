@@ -44,8 +44,6 @@ export const ColumnList = styled.ul`
   gap: 27px;
 `;
 export const ColumnItem = styled.li`
-    flex-basis: calc((100% - 2 * 27px) / 3);
-    background: snow;
     padding: 20px;
     border-radius: 8px;
     border: 1px solid rgba(220, 227, 229, 0.8);
