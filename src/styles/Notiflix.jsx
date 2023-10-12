@@ -1,11 +1,11 @@
 import Notiflix from 'notiflix';
 
 Notiflix.Notify.init({
+    position: 'right-bottom',
+    // position: 'left-top',
+    // position: 'center-top',
+
     success: {
-        // background: '#FFD2DD',
-        // textColor: '#3E85F3',
-        // notiflixIconColor: '#3E85F3',
-        // 🦢
         background: '#3E85F3',
         notiflixIconColor: '#fff',
     },
