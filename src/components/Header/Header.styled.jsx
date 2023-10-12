@@ -26,6 +26,11 @@ export const BurgerMenuBtn = styled.button`
     ${min(desktop)} {
         display: none;
     }
+
+    &:hover,
+    &:focus {
+        stroke: ${({ theme }) => theme.colors.iconActive};
+    }
 `;
 
 export const Svg = styled.svg`

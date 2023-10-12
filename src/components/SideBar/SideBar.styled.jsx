@@ -12,6 +12,9 @@ export const Wrapper = styled.div`
     position: fixed;
     z-index: 10;
 
+    transition: ${({ theme }) =>
+        `background-color ${theme.animations.duration} ${theme.animations.cubicBezier}`};
+
     ${min(tablet)} {
         width: 289px;
         padding: 24px 32px;
@@ -95,11 +98,19 @@ export const CloseBtn = styled.button`
 export const IconX = styled.svg`
     width: 24px;
     height: 24px;
-    stroke: ${({ theme }) => theme.colors.textTitleHeader};
+    stroke: ${({ theme }) => theme.colors.iconSideBar};
 
     ${min(tablet)} {
         width: 34px;
         height: 34px;
+    }
+
+    transition: ${({ theme }) =>
+        `stroke ${theme.animations.duration} ${theme.animations.cubicBezier}`};
+
+    &:hover,
+    &:focus {
+        stroke: ${({ theme }) => theme.colors.iconActive};
     }
 `;
 
