@@ -278,7 +278,7 @@ export const Error = styled(ErrorMessage)`
     font-weight: 400;
     line-height: 14px;
     @media (min-width: 768px) {
-        bottom: -33px;
+        bottom: -28px;
         left: 6px;
     }
 `;

@@ -119,11 +119,7 @@ export const UserForm = () => {
                                                     new Date(values.birthday) ||
                                                     new Date()
                                                 }
-                                                dateFormat="yyyy/MM/dd"
-                                                maxDate={new Date()}
-                                                locale="en"
-                                                showYearDropdown
-                                                scrollableYearDropdown
+                                                // shouldCloseOnSelect={false}
                                                 className={
                                                     errors.birthday &&
                                                     touched.birthday
@@ -132,12 +128,15 @@ export const UserForm = () => {
                                                         ? 'input-valid'
                                                         : ''
                                                 }
+                                                dateFormat="yyyy/MM/dd"
+                                                maxDate={new Date()}
+                                                locale="en"
+                                                showYearDropdown
+                                                scrollableYearDropdown
+                                                yearDropdownItemNumber={30}
                                                 formatWeekDay={nameOfDay =>
                                                     nameOfDay.charAt(0)
                                                 }
-                                               
-                                                yearDropdownItemNumber={30}
-                        
                                                 onChange={date => {
                                                     setFieldValue(
                                                         'birthday',
@@ -151,8 +150,7 @@ export const UserForm = () => {
                                                     );
                                                 }}
                                             />
-                                        </DatePickerWrapp>
-                                        <Error
+                                             <Error
                                             component="div"
                                             name="birthday"
                                         />
@@ -161,6 +159,7 @@ export const UserForm = () => {
                                             touched,
                                             'birthday'
                                         )}
+                                        </DatePickerWrapp>
                                     </Label>
                                 </LabelWrap>
                                 <LabelWrap>
