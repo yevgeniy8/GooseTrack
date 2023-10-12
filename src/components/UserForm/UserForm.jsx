@@ -34,16 +34,23 @@ export const UserForm = () => {
 
     const user = useSelector(selectUser);
 
+    // console.log(user);
+
     const initialValues = {
-        name: user.name || '',
-        email: user.email || '',
-        phone: user.phone || '',
-        skype: user.skype || '',
+        name: user.name,
+        email: user.email,
+        phone: user.phone,
+        skype: user.skype,
         birthday: user.birthday || new Date(),
         avatarURL: user.avatarURL || avatarDefault,
     };
 
-    const handleSubmit = ({ name, phone, email, skype, birthday }, actions) => {
+    // console.log(initialValues);
+
+    const handleSubmit = async (
+        { name, phone, email, skype, birthday },
+        actions
+    ) => {
         const formData = new FormData();
         formData.append('name', name);
         formData.append('email', email);
@@ -54,20 +61,21 @@ export const UserForm = () => {
             formData.append('avatar', currentAvatar);
         }
 
-        dispatch(editUser(formData));
-       
+        await dispatch(editUser(formData));
+
         // console.log('actions:', actions);
 
-        // actions.resetForm();
+        actions.resetForm();
     };
 
     return (
         <MainContainer>
             <Formik
-                enableReinitialize={false}
                 initialValues={initialValues}
                 validationSchema={schema}
                 onSubmit={handleSubmit}
+                validateOnChange={false}
+                enableReinitialize={true}
             >
                 {({
                     errors,
@@ -80,8 +88,8 @@ export const UserForm = () => {
                     handleBlur,
                     isSubmitting,
                 }) => {
-                    console.log('dirty:', dirty);
-                    console.log('issUBMITTING', isSubmitting);
+                    // console.log('dirty:', dirty);
+                    console.log('issUBMITTING', values);
                     return (
                         <StyledForm>
                             <UserInfo
@@ -142,9 +150,7 @@ export const UserForm = () => {
                                                 formatWeekDay={nameOfDay =>
                                                     nameOfDay.charAt(0)
                                                 }
-                                               
                                                 yearDropdownItemNumber={30}
-                        
                                                 onChange={date => {
                                                     setFieldValue(
                                                         'birthday',
