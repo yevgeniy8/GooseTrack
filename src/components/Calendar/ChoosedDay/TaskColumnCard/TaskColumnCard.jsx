@@ -7,7 +7,6 @@ import {
   CardMain,
   CardTitle,
   Container,
-  AvatarWrapper,
   StatusHigh,
   StatusMedium,
   StatusLow,
@@ -25,13 +24,12 @@ const TaskColumnCard = ({ tasks }) => {
             <CardTitle>{taskData.title}</CardTitle>
             <CardMain>
               <Container>
-                <AvatarWrapper>
-                  {(avatarURL === '' || !avatarURL) && name ? (
-                    <FirstLetterOfName>{name[0]}</FirstLetterOfName>
-                  ) : avatarURL !== '' ? (
-                    <Img src={avatarURL} alt={name} />
-                  ) : null}
-                </AvatarWrapper>
+                {(avatarURL === '' || !avatarURL) && name ? (
+                  <FirstLetterOfName>{name[0]}</FirstLetterOfName>
+                ) : avatarURL !== '' ? (
+                  <Img src={avatarURL} alt={name} />
+                ) : null}
+
                 {taskData.priority === 'high' && <StatusHigh>{taskData.priority}</StatusHigh>}
                 {taskData.priority === 'medium' && <StatusMedium>{taskData.priority}</StatusMedium>}
                 {taskData.priority === 'low' && <StatusLow>{taskData.priority}</StatusLow>}

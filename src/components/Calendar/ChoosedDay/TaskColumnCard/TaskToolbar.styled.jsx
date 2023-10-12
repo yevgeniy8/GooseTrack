@@ -7,47 +7,43 @@ export const Icon = styled.svg`
 `;
 
 export const CardEditMenu = styled.ul`
+  display: flex;
   padding: 0px;
   gap: 10px;
-
-  display: flex;
-  list-style: none;
 `;
 export const CardEditBtn = styled.button`
   padding: 0px;
   border: none;
-  border-radius: 2px;
   display: flex;
   background-color: inherit;
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
 
   &:hover {
-    /* outline: none;
-        border: none; */
     svg {
       stroke: #3e85f3;
     }
   }
 
   &:focus {
-    /* outline: none; */
-    /* border: none; */
-    /* box-shadow: 0 0 2px 2px #3e85f3; */
+    svg {
+      stroke: #3e85f3;
+    }
   }
 `;
 export const CtgPopUp = styled.div`
-  width: 140px;
-  gap: 14px;
-  align-items: center;
-  padding: 20px 24px;
-  position: absolute;
   display: flex;
   flex-direction: column;
-  background: ${({ theme }) => theme.colors.backgroundSecondary};
+  position: absolute;
+  align-items: center;
+
+  padding: 20px 24px;
+  width: 140px;
+  gap: 14px;
   left: 51%;
   border-radius: 8px;
+
+  background: ${({ theme }) => theme.colors.backgroundSecondary};
   border: ${({ theme }) => theme.borders.calendar};
-  ${'' /* z-index: 9999; */}
 `;
 
 export const CtgPopBtn = styled.button`
