@@ -90,8 +90,8 @@ export const Link = styled(NavLink)`
         }
 
         &.active svg {
-            stroke: ${({ theme }) => theme.colors.iconSideBarActive};
-            fill: ${({ theme }) => theme.colors.iconSideBarActive};
+            stroke: ${({ theme }) => theme.colors.iconActive};
+            fill: ${({ theme }) => theme.colors.iconActive};
         }
     }
 `;
