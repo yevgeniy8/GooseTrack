@@ -7,13 +7,14 @@ export const TaskList = styled.ul`
     position: relative;
     gap: 17px;
 
-    /* overflow: auto hidden;
-    overflow-y: auto; */
+    overflow: hidden auto;
+    /* overflow-y: auto; */
 
     padding-right: 7px;
     margin-top: 24px;
     /* height: 120px; */
     margin-bottom: 22px;
+    max-height: 378px;
 
     &::-webkit-scrollbar {
         width: 8px;

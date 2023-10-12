@@ -16,7 +16,7 @@ export const Column = styled.li`
     background: ${({ theme }) => theme.colors.backgroundSecondary};
     min-width: 335px;
     /* min-height: 155px; */
-    max-height: 568px;
+    /* max-height: 568px; */
     padding: 18px 18px 18px 14px;
     padding-right: 18px;
 
