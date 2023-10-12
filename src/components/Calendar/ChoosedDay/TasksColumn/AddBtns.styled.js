@@ -69,6 +69,7 @@ export const BtnToAdd = styled.button`
         outline: none;
         box-shadow: 0 0 4px #3e85f3;
     }
+
     &:disabled {
         background-color: ${({ theme }) => theme.colors.disabledBtn};
         color: ${({ theme }) => theme.colors.white};
