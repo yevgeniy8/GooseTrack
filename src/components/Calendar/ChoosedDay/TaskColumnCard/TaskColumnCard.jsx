@@ -29,7 +29,7 @@ const TaskColumnCard = ({ tasks }) => {
                             <Container>
                                 {(avatarURL === '' || !avatarURL) && name ? (
                                     <FirstLetterOfName>
-                              x          {name[0]}
+                                        {name[0]}
                                     </FirstLetterOfName>
                                 ) : avatarURL !== '' ? (
                                     <Img src={avatarURL} alt={name} />
