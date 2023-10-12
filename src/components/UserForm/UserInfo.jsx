@@ -4,18 +4,15 @@ import sprite from '../../images/icons.svg';
 import axios from 'axios';
 
 import {
-  AvatarContainer,
-  ImgAvatar,
-  ImgContainer,
-  InputFile,
-  SvgPlus,
-  UserName,
-  UserP,
+    AvatarContainer,
+    ImgAvatar,
+    ImgContainer,
+    InputFile,
+    SvgPlus,
+    UserName,
+    UserP,
 } from './UserForm.styled';
 import { useState } from 'react';
-// import { useSelector } from 'react-redux';
-// import { editUser } from 'redux/auth/authOperations';
-// import { selectUser } from 'redux/auth/authSelectors';
 
 axios.defaults.baseURL = 'https://goose-track-backend-q3re.onrender.com/api';
 
@@ -39,11 +36,11 @@ export const UserInfo = ({
       setFieldValue('avatarURL', e);
       setAvatar(newUser.avatarURL);
      
-      // setIsFormChanged(true);
+    
     } catch (error) {
       console.log(error);
     }
-    console.log(avatar)
+  
   };
 
   return (

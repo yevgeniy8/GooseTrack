@@ -1,6 +1,4 @@
-// import { faker } from '@faker-js/faker';
 import { LIGHT } from 'constants';
-// import { getCurrentDate } from 'helpers';
 import { useThemeContext } from 'hooks/ThemeContext';
 import { getStatisticsCalculation } from 'helpers';
 import React, { useEffect, useState } from 'react';

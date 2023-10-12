@@ -5,7 +5,6 @@ import {
     Day,
 } from './DayCalendarHead.styled';
 import { useMediaQuery } from 'react-responsive';
-// import { DAYS, DAYS_MOB } from '../ChoosedMonth/utils';
 import { useNavigate, useParams } from 'react-router-dom';
 
 import moment from 'moment';
@@ -49,7 +48,6 @@ const DayCalendarHead = () => {
             {[...Array(7)].map((_, index) => (
                 <WeekdaysItem
                     key={index}
-                    // className={index === isSelected ? 'current-day' : ''}
                     onClick={() =>
                         handleClick(
                             moment(currentDay)

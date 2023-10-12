@@ -29,20 +29,24 @@ registerLocale('en', enGB);
 
 export const UserForm = () => {
     const dispatch = useDispatch();
+    // const [isFormChanged, setIsFormChanged] = useState(false);
     const [currentAvatar, setCurrentAvatar] = useState(null);
 
     const user = useSelector(selectUser);
 
     const initialValues = {
-        name: user.name || '',
-        email: user.email || '',
-        phone: user.phone || '',
-        skype: user.skype || '',
+        name: user.name,
+        email: user.email,
+        phone: user.phone,
+        skype: user.skype,
         birthday: user.birthday || new Date(),
         avatarURL: user.avatarURL || avatarDefault,
     };
 
-    const handleSubmit = ({ name, phone, email, skype, birthday }, actions) => {
+    const handleSubmit = async (
+        { name, phone, email, skype, birthday },
+        actions
+    ) => {
         const formData = new FormData();
         formData.append('name', name);
         formData.append('email', email);
@@ -54,15 +58,20 @@ export const UserForm = () => {
         }
 
         dispatch(editUser(formData));
+       
+        // console.log('actions:', actions);
+
+        // actions.resetForm();
     };
 
     return (
         <MainContainer>
             <Formik
-                enableReinitialize={false}
                 initialValues={initialValues}
                 validationSchema={schema}
                 onSubmit={handleSubmit}
+                validateOnChange={false}
+                enableReinitialize={true}
             >
                 {({
                     errors,
@@ -75,6 +84,8 @@ export const UserForm = () => {
                     handleBlur,
                     isSubmitting,
                 }) => {
+                    console.log('dirty:', dirty);
+                    console.log('issUBMITTING', isSubmitting);
                     return (
                         <StyledForm>
                             <UserInfo

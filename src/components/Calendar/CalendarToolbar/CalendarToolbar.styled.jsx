@@ -21,7 +21,6 @@ export const PeriodTypeSelect = styled.div`
 
 export const DateBox = styled.div`
     background-color: ${({ theme }) => theme.colors.brand};
-    // width: 146px;
     display: flex;
     padding: 6px 12px;
     justify-content: center;
@@ -47,15 +46,7 @@ export const Date = styled.span`
     }
 `;
 
-export const Icon = styled.svg`
-    /* stroke: ${({ theme }) => theme.colors.sliderMonthDay};
-    fill: none;
-
-    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    &:hover {
-        stroke: ${({ theme }) => theme.colors.sliderMonthDayHover};
-    } */
-`;
+export const Icon = styled.svg``;
 
 export const BtnLeft = styled.button`
     padding: 6px;
@@ -65,7 +56,7 @@ export const BtnLeft = styled.button`
     border: ${({ theme }) => theme.borders.calendar};
     border-radius: 8px 0 0 8px;
     transition: ${({ theme }) =>
-        `stroke ${theme.animations.duration} ${theme.animations.cubicBezier}`};
+        `background-color ${theme.animations.duration} ${theme.animations.cubicBezier}, stroke ${theme.animations.duration} ${theme.animations.cubicBezier},border ${theme.animations.duration} ${theme.animations.cubicBezier}`};
     stroke: ${({ theme }) => theme.colors.sliderMonthDay};
     fill: none;
     &:hover {
@@ -84,8 +75,9 @@ export const BtnRight = styled.button`
     background-color: ${({ theme }) => theme.colors.backgroundSecondary};
     border: ${({ theme }) => theme.borders.calendar};
     border-radius: 0 8px 8px 0;
+
     transition: ${({ theme }) =>
-        `stroke ${theme.animations.duration} ${theme.animations.cubicBezier}`};
+        `background-color ${theme.animations.duration} ${theme.animations.cubicBezier}, stroke ${theme.animations.duration} ${theme.animations.cubicBezier},border ${theme.animations.duration} ${theme.animations.cubicBezier}`};
     stroke: ${({ theme }) => theme.colors.sliderMonthDay};
     fill: none;
     &:hover {
@@ -96,21 +88,12 @@ export const BtnRight = styled.button`
         height: 34px;
     }
 `;
-//якщо не потрібно прибрати PeriodPaginator Period
+
 export const PeriodPaginator = styled.div`
     display: flex;
     border-radius: 8px;
     overflow: hidden;
     height: 34px;
-`;
-
-export const Period = styled.div`
-    width: 76px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 8px 0;
-    background-color: rgba(62, 133, 243, 0.2);
 `;
 
 export const NavLinkMonth = styled(NavLink)`
@@ -154,7 +137,6 @@ export const NavLinkDay = styled(NavLink)`
     padding: 8px 16px;
     border: none;
     border-radius: 0 8px 8px 0;
-    /* border-left: 1px solid rgba(62, 133, 243, 0.2); */
     background-color: ${({ theme }) => theme.colors.backgroundMonthDay};
     font-family: Inter;
     font-size: 14px;

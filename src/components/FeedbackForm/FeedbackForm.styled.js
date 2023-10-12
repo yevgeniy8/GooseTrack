@@ -21,7 +21,6 @@ export const Wrap = styled.div`
 
 export const Label = styled.label`
     color: ${({ theme }) => theme.colors.textTitleModalTask};
-    /* background: ${({ theme }) => theme.colors.backgroundPrimary}; */
     display: block;
     margin-bottom: 8px;
     font-weight: ${({ theme }) => theme.fontWeight.m};
@@ -103,10 +102,19 @@ export const Input = styled(Field)`
     font-size: ${({ theme }) => theme.fontSizes.s};
     line-height: calc((18 / 14) * 100%);
     font-style: normal;
-    background: ${({ theme }) => theme.colors.backgroundFeedbackInput};
+    background-color: ${({ theme }) => theme.colors.backgroundFeedbackInput};
     color: ${({ theme }) => theme.colors.textPrimary};
     border: ${({ theme }) => theme.borders.feedbackInput};
     border-radius: 8px;
+    outline: none;
+
+    transition: ${({ theme }) =>
+        `border ${theme.animations.duration} ${theme.animations.cubicBezier}`};
+
+    &:hover,
+    &:focus {
+        border: ${({ theme }) => theme.borders.inputHover};
+    }
 
     ${min(tablet)} {
         width: 404px;
@@ -118,6 +126,7 @@ export const Input = styled(Field)`
 
     &:disabled {
         cursor: not-allowed;
+        border: none;
     }
 
     ::placeholder {
@@ -210,6 +219,6 @@ export const BtnCloseWrap = styled.button`
 
     &:hover,
     &:focus {
-        stroke: #2b78ef;
+        stroke: ${({ theme }) => theme.colors.iconActive};
     }
 `;

@@ -14,7 +14,6 @@ export const Container = styled.div`
 
     @media screen and (min-width: ${({ theme }) => theme.breakpoints.l}) {
         max-width: 1208px;
-        /* width: 1185px; */
         padding-left: 12px;
         padding-right: 12px;
     }
@@ -44,6 +43,7 @@ export const Li = styled.li`
         }
     }
 `;
+
 export const SideDiv = styled.div`
     @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
         margin-left: auto;
@@ -60,7 +60,7 @@ export const Number = styled.p`
     font-size: 80px;
     font-style: normal;
     font-weight: ${({ theme }) => theme.fontWeight.b};
-    line-height: 100%; /* 104px */
+    line-height: 100%; 
     letter-spacing: -4px;
 
     @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
@@ -75,7 +75,6 @@ export const Number = styled.p`
 export const H2 = styled.h2`
     margin-bottom: 8px;
     width: 214px;
-    /* float: left; */
     padding: 8px 18px;
     border-radius: ${({ theme }) => theme.borderRadius.xl};
     background: ${({ theme }) => theme.colors.secondary};

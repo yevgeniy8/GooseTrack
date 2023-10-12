@@ -11,13 +11,6 @@ export const ContainerForm = styled.div`
     padding: 40px 24px;
     background-color: ${({ theme }) => theme.colors.white};
 
-    /* @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
-        width: 100%;
-        padding: 40px 40px;
-        max-width: 480px;
-        max-height: 521px;
-    } */
-
     ${min(tablet)} {
         width: 100%;
         padding: 40px 40px;
@@ -35,7 +28,7 @@ export const Title = styled.h1`
     font-size: 18px;
     font-style: normal;
     font-weight: 600;
-    line-height: 24px; /* 100% */
+    line-height: 24px;
 
     ${min(tablet)} {
         margin-bottom: 40px;
@@ -84,7 +77,7 @@ export const InputForm = styled(Field)`
     font-size: 14px;
     font-style: normal;
     font-weight: 600;
-    line-height: 18px; /* 112.5% */
+    line-height: 18px;
 
     &:hover,
     &:focus {
@@ -97,13 +90,6 @@ export const InputForm = styled(Field)`
         font-weight: 400;
     }
 
-    /* @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
-        padding: 18px;
-        margin-bottom: 18px;
-
-        font-size: 16px;
-    } */
-
     ${min(tablet)} {
         padding: 18px;
         margin-bottom: 18px;
@@ -113,9 +99,6 @@ export const InputForm = styled(Field)`
 `;
 
 export const InputFormMargin0 = styled(InputForm)`
-    /* @media screen and (min-width: ${({ theme }) => theme.breakpoints.s}) {
-        margin-bottom: 0;
-    } */
     margin-bottom: 0;
 
     ${min(mobile)} {
@@ -152,14 +135,6 @@ export const Button = styled.button`
 
     transition: ${({ theme }) =>
         `background-color ${theme.animations.duration} ${theme.animations.cubicBezier}, color ${theme.animations.duration} ${theme.animations.cubicBezier}, fill ${theme.animations.duration} ${theme.animations.cubicBezier}, stroke ${theme.animations.duration} ${theme.animations.cubicBezier},`};
-    /* @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
-        margin-top: 48px;
-        width: 400px;
-        padding: 16px 152px;
-        font-size: 18px;
-        line-height: 24px;
-        letter-spacing: -0.36px;
-    } */
 
     ${min(tablet)} {
         margin-top: 48px;
@@ -177,13 +152,6 @@ export const Button = styled.button`
     }
 `;
 
-// export const Svg = styled.svg`
-//     stroke: white;
-//     fill: ${({ theme }) => theme.colors.brand};
-//     width: 18px;
-//     height: 18px;
-// `;
-
 export const ButtonEye = styled.svg`
     position: absolute;
     top: 70%;
@@ -193,12 +161,6 @@ export const ButtonEye = styled.svg`
     outline: none;
     border: none;
     cursor: pointer;
-
-    /* @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
-        position: absolute;
-        top: 70%;
-        left: 85%;
-    } */
 
     ${min(tablet)} {
         position: absolute;
@@ -218,7 +180,7 @@ export const Error = styled(ErrorMessage)`
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
-    line-height: 1.16; /* 116.667% */
+    line-height: 1.16;
 `;
 
 export const ErrorMes = styled.span`
@@ -230,7 +192,7 @@ export const ErrorMes = styled.span`
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
-    line-height: 1.16; /* 116.667% */
+    line-height: 1.16;
 `;
 
 export const SvgStatus = styled.svg`
@@ -250,7 +212,7 @@ export const Home = styled(NavLink)`
     font-size: 18px;
     font-style: normal;
     font-weight: 600;
-    line-height: 24px; /* 100% */
+    line-height: 24px;
     transition: ${({ theme }) =>
         ` color ${theme.animations.duration} ${theme.animations.cubicBezier}`};
 

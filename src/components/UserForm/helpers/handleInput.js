@@ -1,4 +1,4 @@
-import { IconErr, IconDone } from "../UserForm.styled";
+import { IconErr, IconDone } from '../UserForm.styled';
 import sprite from '../../../images/icons.svg';
 
 function handleInput(errors, touched, fieldName) {

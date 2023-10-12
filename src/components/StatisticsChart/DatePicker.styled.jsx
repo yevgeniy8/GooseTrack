@@ -13,8 +13,7 @@ export const ToolbarContainer = styled.div`
 export const PeriodTypeSelect = styled.div`
     display: flex;
     justify-content: space-between;
-    /* margin-bottom: 18px; */
-    /* gap: 8px; */
+
     @media screen and (min-width: 768px) {
         display: flex;
         justify-content: flex-start;
@@ -66,12 +65,7 @@ export const ToggleBtn = styled.div`
     background-color: #fff;
 `;
 
-export const Icon = styled.svg`
-    /* stroke: #dce3e5;
-    &:hover {
-        stroke: ${({ theme }) => theme.colors.nameDay};
-    } */
-`;
+export const Icon = styled.svg``;
 
 export const BtnLeft = styled.button`
     padding: 6px;
