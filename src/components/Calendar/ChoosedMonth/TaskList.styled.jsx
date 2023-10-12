@@ -7,7 +7,6 @@ export const List = styled.ul`
     max-width: 44px;
     padding: 0 2px 0 8px;
     overflow: hidden;
-    // overflow-y: auto;
     ${min(tablet)} {
         max-width: 100%;
         padding: 0 4px;
@@ -43,9 +42,9 @@ export const Task = styled.li`
     line-height: 14px;
     letter-spacing: 0em;
     text-align: left;
-    white-space: nowrap; /* Текст не переноситься */
-    overflow: hidden; /* Обрізаємо всё за межами блоку */
-    text-overflow: ellipsis; /* Додаємо многоточие */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     cursor: pointer;
 
     transition: ${({ theme }) =>
@@ -83,5 +82,4 @@ export const Task = styled.li`
         width: 140px;
         height: 26px;
     }
-
 `;

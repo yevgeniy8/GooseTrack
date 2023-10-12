@@ -7,9 +7,9 @@ const AddFeedbackBtn = ({ showModal }) => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        // console.log('1');
         dispatch(fetchReviewById());
     }, [dispatch]);
+
     return (
         <Btn onClick={showModal} type="button">
             Feedback

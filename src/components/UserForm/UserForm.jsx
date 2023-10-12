@@ -29,12 +29,9 @@ registerLocale('en', enGB);
 
 export const UserForm = () => {
     const dispatch = useDispatch();
-    // const [isFormChanged, setIsFormChanged] = useState(false);
     const [currentAvatar, setCurrentAvatar] = useState(null);
 
     const user = useSelector(selectUser);
-
-    // console.log(user);
 
     const initialValues = {
         name: user.name,
@@ -44,8 +41,6 @@ export const UserForm = () => {
         birthday: user.birthday || new Date(),
         avatarURL: user.avatarURL || avatarDefault,
     };
-
-    // console.log(initialValues);
 
     const handleSubmit = async (
         { name, phone, email, skype, birthday },
@@ -62,8 +57,6 @@ export const UserForm = () => {
         }
 
         await dispatch(editUser(formData));
-
-        // console.log('actions:', actions);
 
         actions.resetForm();
     };
@@ -88,8 +81,6 @@ export const UserForm = () => {
                     handleBlur,
                     isSubmitting,
                 }) => {
-                    // console.log('dirty:', dirty);
-                    console.log('issUBMITTING', values);
                     return (
                         <StyledForm>
                             <UserInfo

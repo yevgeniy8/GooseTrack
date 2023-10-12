@@ -1,6 +1,4 @@
 import styled from '@emotion/styled';
-// import styled from '@emotion/styled/macro';
-// import styled from 'styled-components';
 
 export const Icon = styled.svg`
     width: 16px;
