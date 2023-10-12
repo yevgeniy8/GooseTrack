@@ -14,16 +14,11 @@ export const ColumnList = styled.ul`
 `;
 
 export const Wrapper = styled.div`
-  ${'' /* height: 100vh; */}
-
-  ${'' /* background-color: red; */}
-
   overflow: auto hidden;
 
   width: 100%;
 
   ${min(mobile)} {
-    ${'' /* max-height: 432px; */}
     max-width: 335px;
   }
   ${min(tablet)} {

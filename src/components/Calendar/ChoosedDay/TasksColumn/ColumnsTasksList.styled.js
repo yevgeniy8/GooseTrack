@@ -11,7 +11,7 @@ export const TaskList = styled.ul`
   padding-right: 7px;
   position: relative;
   margin-top: 24px;
-  height: 260px;
+  height: 120px;
 
   &::-webkit-scrollbar {
     width: 8px;
@@ -28,11 +28,10 @@ export const TaskList = styled.ul`
     background-color: ${({ theme }) => theme.colors.backgroundScrollbar};
   }
   ${min(mobile)} {
-    ${'' /* max-height: 432px; */}
-    height: 260px;
+    height: 120px;
   }
   ${min(tablet)} {
-    height: 379;
+    height: 250px;
   }
 
   ${min(desktop)} {
