@@ -32,7 +32,7 @@ export const Wrapper = styled.div`
     scroll-snap-type: x mandatory;
     &::-webkit-scrollbar {
         width: 8px;
-        scrollbar-placement: bottom;
+        -webkit-scrollbar-placement: bottom;
     }
 
     &::-webkit-scrollbar-thumb {
