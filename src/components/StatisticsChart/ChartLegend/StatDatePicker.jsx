@@ -38,6 +38,7 @@ const StatDatePicker = ({ startDate, setStartDate }) => {
             <div>
                 <BtnLeft
                     type="button"
+                    aria-label="previous-date"
                     onClick={() =>
                         handleDateChange(
                             new Date(startDate.getTime() - 24 * 60 * 60 * 1000)
@@ -50,6 +51,7 @@ const StatDatePicker = ({ startDate, setStartDate }) => {
                 </BtnLeft>
                 <BtnRight
                     type="button"
+                    aria-label="next-date"
                     onClick={() =>
                         handleDateChange(
                             new Date(startDate.getTime() + 24 * 60 * 60 * 1000)

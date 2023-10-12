@@ -17,6 +17,7 @@ const common = {
         editBtn: '#3E85F3',
         editBtnHover: '#fff',
         deleteFeedbackBtn: '#ea3d65',
+        disabledBtn: 'rgba(17, 17, 17, 0.15)',
 
         white: '#fff',
         black: '#111',
@@ -127,10 +128,13 @@ export const lightTheme = {
         backgroundModalTaskForm: '#F6F6F6',
         backgroundModal: '#fff',
         backgroundFeedbackInput: '#F6F6F6',
+        backgroundDefaultAvatar: '#f8f8f8',
 
         backgroundBtnCancel: '#E5EDFA',
         backgroundBtnCancelHover: '#cae8ff',
         backgroundMonthDay: '#E3F3FF',
+        backgroundEditBtn: '#E3F3FF',
+
         backgroundMonthDayActive: '#CAE8FF',
         backgroundScrollbar: '#F2F2F2',
         backgroundHorizontalScroll: '#F2F2F2',
@@ -138,7 +142,7 @@ export const lightTheme = {
         statisticsLine: '#E3F3FF',
         iconTasks: '#111',
         iconSideBar: 'rgba(52, 52, 52, 0.50)',
-        iconSideBarActive: '#3E85F3',
+        iconActive: '#3E85F3',
         sliderMonthDay: '#DCE3E5',
         sliderMonthDayHover: '#343434',
         scrollbar: '#E7E5E5',
@@ -213,10 +217,13 @@ export const darkTheme = {
         backgroundModalTaskForm: '#171820',
         backgroundModal: '#171820',
         backgroundFeedbackInput: 'transparent',
+        backgroundDefaultAvatar: '#171820',
 
         backgroundBtnCancel: '#21222C',
         backgroundBtnCancelHover: '#fff',
         backgroundMonthDay: '#21222C',
+        backgroundEditBtn: '#353647',
+
         backgroundMonthDayActive: '#3E85F3',
         backgroundScrollbar: '#2D3037',
         backgroundHorizontalScroll: '#21222C',
@@ -224,7 +231,7 @@ export const darkTheme = {
         statisticsLine: '#rgba(227, 243, 255, 0.15)',
         iconTasks: '#fff',
         iconSideBar: '#ffffff',
-        iconSideBarActive: '#fff',
+        iconActive: '#e7e5e5',
         sliderMonthDay: 'rgba(255, 255, 255, 0.15)',
         sliderMonthDayHover: '#fff',
         scrollbar: '#171820',

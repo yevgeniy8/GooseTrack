@@ -8,6 +8,7 @@ import { UserInfo } from './UserInfo';
 import handleInput from './helpers/handleInput';
 import schema from './schemas/userSchema';
 import { enGB } from 'date-fns/esm/locale';
+import avatarDefault from '../../images/Avatar.png';
 import { registerLocale } from 'react-datepicker';
 import {
     Button,
@@ -25,21 +26,31 @@ import {
 } from './ReactDatePickerCalendar.styled';
 
 registerLocale('en', enGB);
+
 export const UserForm = () => {
     const dispatch = useDispatch();
+    // const [isFormChanged, setIsFormChanged] = useState(false);
     const [currentAvatar, setCurrentAvatar] = useState(null);
 
     const user = useSelector(selectUser);
 
+    // console.log(user);
+
     const initialValues = {
-        name: user.name || '',
-        email: user.email || '',
-        phone: user.phone || '',
-        skype: user.skype || '',
+        name: user.name,
+        email: user.email,
+        phone: user.phone,
+        skype: user.skype,
         birthday: user.birthday || new Date(),
+        avatarURL: user.avatarURL || avatarDefault,
     };
 
-    const handleSubmit = ({ name, phone, email, skype, birthday }, actions) => {
+    // console.log(initialValues);
+
+    const handleSubmit = async (
+        { name, phone, email, skype, birthday },
+        actions
+    ) => {
         const formData = new FormData();
         formData.append('name', name);
         formData.append('email', email);
@@ -50,22 +61,21 @@ export const UserForm = () => {
             formData.append('avatar', currentAvatar);
         }
 
-        dispatch(editUser(formData));
+        await dispatch(editUser(formData));
 
-        // actions.resetForm();
+        // console.log('actions:', actions);
+
+        actions.resetForm();
     };
 
     return (
         <MainContainer>
-            <UserInfo
-                avatarURL={user.avatarURL}
-                userName={user.name}
-                setCurrentAvatar={setCurrentAvatar}
-            />
             <Formik
                 initialValues={initialValues}
                 validationSchema={schema}
                 onSubmit={handleSubmit}
+                validateOnChange={false}
+                enableReinitialize={true}
             >
                 {({
                     errors,
@@ -75,9 +85,19 @@ export const UserForm = () => {
                     handleChange,
                     setFieldValue,
                     setFieldTouched,
+                    handleBlur,
+                    isSubmitting,
                 }) => {
+                    // console.log('dirty:', dirty);
+                    console.log('issUBMITTING', values);
                     return (
                         <StyledForm>
+                            <UserInfo
+                                avatarURL={user.avatarURL}
+                                userName={user.name}
+                                setCurrentAvatar={setCurrentAvatar}
+                                setFieldValue={setFieldValue}
+                            />
                             <FieldsWrap
                                 animate={{ y: -50 }}
                                 transition={{ ease: 'easeOut', duration: 2 }}
@@ -90,6 +110,7 @@ export const UserForm = () => {
                                             name="name"
                                             placeholder="Enter your name"
                                             onChange={handleChange}
+                                            onBlur={handleBlur}
                                             value={values.name}
                                             className={
                                                 errors.name && touched.name
@@ -129,9 +150,7 @@ export const UserForm = () => {
                                                 formatWeekDay={nameOfDay =>
                                                     nameOfDay.charAt(0)
                                                 }
-                                                // showYearDropdown
-                                                // yearDropdownItemNumber={30}
-                                                // scrollableYearDropdown
+                                                yearDropdownItemNumber={30}
                                                 onChange={date => {
                                                     setFieldValue(
                                                         'birthday',
@@ -164,7 +183,8 @@ export const UserForm = () => {
                                             type="email"
                                             name="email"
                                             placeholder="Enter your email"
-                                            // onChange={handleChange}
+                                            onChange={handleChange}
+                                            onBlur={handleBlur}
                                             value={values.email}
                                             className={
                                                 errors.email && touched.email
@@ -185,7 +205,8 @@ export const UserForm = () => {
                                             type="tel"
                                             name="phone"
                                             placeholder="Enter your phone number"
-                                            // onChange={handleChange}
+                                            onChange={handleChange}
+                                            onBlur={handleBlur}
                                             value={values.phone}
                                             className={[
                                                 errors.phone && touched.phone
@@ -207,7 +228,8 @@ export const UserForm = () => {
                                             name="skype"
                                             placeholder="Add your skype number"
                                             value={values.skype}
-                                            // onChange={handleChange}
+                                            onChange={handleChange}
+                                            onBlur={handleBlur}
                                             className={
                                                 errors.skype && touched.skype
                                                     ? 'input-error'
@@ -226,7 +248,7 @@ export const UserForm = () => {
                                 animate={{ y: -25 }}
                                 transition={{ ease: 'easeOut', duration: 2 }}
                                 type="submit"
-                                disabled={!dirty}
+                                disabled={!dirty || isSubmitting}
                             >
                                 Save changes
                             </Button>

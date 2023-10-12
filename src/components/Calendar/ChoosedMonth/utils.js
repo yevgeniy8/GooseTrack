@@ -1,10 +1,7 @@
-// import moment from 'moment';
-
 export const DAYS_MOB = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
 export const DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
 export const getDaysInMonth = date => {
-    // console.log(date);
     return new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
 };
 
@@ -36,7 +33,6 @@ export const getMonthYear = date => {
             month: 'long',
         })
         .split(' ');
-    // console.log(d);
     return `${d[1]} ${d[3]}`;
 };
 
@@ -74,13 +70,4 @@ export const getSortedDays = date => {
         ...Array(lastIndex === 0 ? 0 : 7 - lastIndex),
     ];
 };
-
-// export const priorityColors = {
-//     colorLow: '#3E85F3',
-//     bgColorLow: '#CEEEFD',
-//     colorMedium: '#F3B249',
-//     bgColorMedium: '#FCF0D4',
-//     colorHgh: '#EA3D65',
-//     bgColorHigh: '#FFD2DD',
-// };
 

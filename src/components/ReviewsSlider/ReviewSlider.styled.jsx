@@ -25,7 +25,7 @@ export const ReviewsSliderSection = styled.section`
 `;
 
 export const ReviewTitle = styled.h2`
-    color: #3e85f3;
+    color: ${({ theme }) => theme.colors.brand};
 
     font-family: Inter;
     font-size: 28px;
@@ -66,7 +66,7 @@ export const CardContainerOne = styled.div`
     max-width: 335px;
     min-height: 194px;
 
-    background-color: #ffffff;
+    background-color: ${({ theme }) => theme.colors.white};
 
     border-radius: 8px;
     border: 1px solid rgba(17, 17, 17, 0.1);
@@ -132,11 +132,10 @@ export const ContainerDefaultAvatar = styled.div`
     height: 50px;
 
     border-radius: 50%;
-    border: 2px solid #3e85f3;
+    border: 1px solid ${({ theme }) => theme.colors.brand};
     background: #f8f8f8;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25),
-        0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-
+    /* box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25),
+        0px 4px 4px 0px rgba(0, 0, 0, 0.25); */
     display: flex;
     align-items: center;
     justify-content: center;
