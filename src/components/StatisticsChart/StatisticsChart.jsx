@@ -20,7 +20,7 @@ import {
 } from 'recharts';
 import { LIGHT } from 'constants';
 
-const StatisticsReChart = ({ startDate, setStartDate }) => {
+const StatisticsChart = ({ startDate, setStartDate }) => {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
     const { theme } = useThemeContext();
     const dispatch = useDispatch();
@@ -111,4 +111,4 @@ const StatisticsReChart = ({ startDate, setStartDate }) => {
     );
 };
 
-export default StatisticsReChart;
+export default StatisticsChart;
