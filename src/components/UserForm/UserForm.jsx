@@ -35,10 +35,10 @@ export const UserForm = () => {
     const user = useSelector(selectUser);
 
     const initialValues = {
-        name: user.name,
-        email: user.email,
-        phone: user.phone,
-        skype: user.skype,
+        name: user.name || '',
+        email: user.email || '',
+        phone: user.phone || '',
+        skype: user.skype || '',
         birthday: user.birthday || new Date(),
         avatarURL: user.avatarURL || avatarDefault,
     };
