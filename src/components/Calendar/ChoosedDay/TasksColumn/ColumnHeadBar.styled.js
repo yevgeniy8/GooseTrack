@@ -1,11 +1,12 @@
 import styled from '@emotion/styled';
 
 export const ColumnHeader = styled.h2`
-  color: ${({ theme }) => theme.colors.textPrimary};
   font-size: 20px;
   font-style: normal;
   font-weight: 700;
   line-height: 1.2;
+
+  color: ${({ theme }) => theme.colors.textPrimary};
 `;
 export const ColumnContainer = styled.div`
   display: flex;

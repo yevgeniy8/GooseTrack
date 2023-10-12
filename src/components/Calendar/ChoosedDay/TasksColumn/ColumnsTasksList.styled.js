@@ -1,15 +1,16 @@
 import styled from '@emotion/styled';
 import { tablet, mobile, desktop, min } from '../../../../styles/media';
+
 export const TaskList = styled.ul`
-  gap: 17px;
   display: flex;
   flex-direction: column;
-  padding: 0px;
+  position: relative;
+  gap: 17px;
 
   overflow: auto hidden;
   overflow-y: auto;
+
   padding-right: 7px;
-  position: relative;
   margin-top: 24px;
   height: 120px;
 
@@ -38,15 +39,15 @@ export const TaskList = styled.ul`
     height: 380px;
   }
 `;
+
 export const ColumnList = styled.ul`
   display: flex;
   gap: 27px;
 `;
+
 export const ColumnItem = styled.li`
-    padding: 20px;
-    border-radius: 8px;
-    border: 1px solid rgba(220, 227, 229, 0.8);
-    background: #fff;
-    min-width: 135px;|
-    
+  border: 1px solid rgba(220, 227, 229, 0.8);
+  border-radius: 8px;
+  padding: 20px;
+  background: #fff;
 `;
