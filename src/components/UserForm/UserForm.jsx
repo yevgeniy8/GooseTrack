@@ -58,10 +58,6 @@ export const UserForm = () => {
         }
 
         dispatch(editUser(formData));
-       
-        // console.log('actions:', actions);
-
-        // actions.resetForm();
     };
 
     return (
@@ -130,7 +126,7 @@ export const UserForm = () => {
                                                     new Date(values.birthday) ||
                                                     new Date()
                                                 }
-                                                // shouldCloseOnSelect={false}
+                                             
                                                 className={
                                                     errors.birthday &&
                                                     touched.birthday
