@@ -1,6 +1,8 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import Notiflix from 'notiflix';
+
+// import Notiflix from 'notiflix';
+import Notiflix from '../../styles/Notiflix';
 
 axios.defaults.baseURL = 'https://goose-track-backend-q3re.onrender.com/api';
 
