@@ -13,6 +13,8 @@ import {
     StatusHigh,
     StatusMedium,
     StatusLow,
+    AvatarWrap,
+    ConteinerAvatar,
 } from './TaskColumnCard.styled';
 import TaskToolbar from './TaskToolbar';
 
@@ -26,27 +28,36 @@ const TaskColumnCard = ({ tasks }) => {
                     <CardContainer>
                         <CardTitle>{taskData.title}</CardTitle>
                         <CardMain>
-                            <Container>
-                                {(avatarURL === '' || !avatarURL) && name ? (
-                                    <FirstLetterOfName>
-                                        {name[0]}
-                                    </FirstLetterOfName>
-                                ) : avatarURL !== '' ? (
-                                    <Img src={avatarURL} alt={name} />
-                                ) : null}
+                            <ConteinerAvatar>
+                                <AvatarWrap>
+                                    {(avatarURL === '' || !avatarURL) &&
+                                    name ? (
+                                        <FirstLetterOfName>
+                                            {name[0]}
+                                        </FirstLetterOfName>
+                                    ) : avatarURL !== '' ? (
+                                        <Img src={avatarURL} alt={name} />
+                                    ) : null}
+                                </AvatarWrap>
+                                <Container>
+                                    {taskData.priority === 'high' && (
+                                        <StatusHigh>
+                                            {taskData.priority}
+                                        </StatusHigh>
+                                    )}
+                                    {taskData.priority === 'medium' && (
+                                        <StatusMedium>
+                                            {taskData.priority}
+                                        </StatusMedium>
+                                    )}
+                                    {taskData.priority === 'low' && (
+                                        <StatusLow>
+                                            {taskData.priority}
+                                        </StatusLow>
+                                    )}
+                                </Container>
+                            </ConteinerAvatar>
 
-                                {taskData.priority === 'high' && (
-                                    <StatusHigh>{taskData.priority}</StatusHigh>
-                                )}
-                                {taskData.priority === 'medium' && (
-                                    <StatusMedium>
-                                        {taskData.priority}
-                                    </StatusMedium>
-                                )}
-                                {taskData.priority === 'low' && (
-                                    <StatusLow>{taskData.priority}</StatusLow>
-                                )}
-                            </Container>
                             <TaskToolbar
                                 taskId={taskData._id}
                                 task={taskData}
