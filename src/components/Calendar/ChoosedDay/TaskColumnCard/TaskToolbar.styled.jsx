@@ -1,8 +1,6 @@
-// import styled from '@emotion/styled';
-import styled from '@emotion/styled/macro';
+import styled from '@emotion/styled';
+// import styled from '@emotion/styled/macro';
 // import styled from 'styled-components';
-
-import { CardItem } from './TaskColumnCard.styled';
 
 export const Icon = styled.svg`
     width: 16px;
@@ -28,11 +26,11 @@ export const CardEditBtn = styled.button`
         svg {
             stroke: #3e85f3;
         }
-    }
 
-    &:focus {
-        svg {
-            stroke: #3e85f3;
+        &:focus {
+            svg {
+                stroke: #3e85f3;
+            }
         }
     }
 `;
@@ -42,7 +40,7 @@ export const CtgPopUp = styled.div`
     position: absolute;
     align-items: center;
 
-    padding: 20px 24px;
+    padding: 16px 24px;
     width: 140px;
     gap: 14px;
     left: -60px;
@@ -51,10 +49,6 @@ export const CtgPopUp = styled.div`
 
     background: ${({ theme }) => theme.colors.backgroundSecondary};
     border: ${({ theme }) => theme.borders.calendar};
-
-    ${CardItem}:nth-last-of-type(-n + 1) {
-        top: 100px;
-    }
 `;
 
 export const CtgPopBtn = styled.button`

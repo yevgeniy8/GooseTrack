@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import styled from '@emotion/styled';
-import CalendarToolbar from 'components/Calendar/CalendarToolbar/CalendarToolbar';
+import CalendarToolbar from 'components/Calendar/CalendarToolbar';
 import { Outlet, useNavigate } from 'react-router';
 import moment from 'moment';
 
@@ -52,9 +52,6 @@ const CalendarPage = () => {
 export default CalendarPage;
 
 const CalendarContainer = styled.div`
-    //   background-color: #f7f6f9;
-    //   max-width: 1085px;
-    // margin-top: 45px;
     @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
         margin-top: 0;
     }
