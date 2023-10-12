@@ -72,17 +72,17 @@ export const FeedbackForm = ({ onClose, existingReviewId }) => {
     // console.log(userReview);
 
     const ratingChanged = newRating => {
-        console.log(newRating);
+        // console.log(newRating);
         setIsRating(newRating);
         // dispatch(changeRating(newRating));
     };
 
     const handleSubmit = (values, actions) => {
-        console.log(values);
-        console.log(isRating);
+        // console.log(values);
+        // console.log(isRating);
         values.rating = Number(userReview.rating);
         if (isEditActive) {
-            console.log({ ...values, rating: isRating });
+            // console.log({ ...values, rating: isRating });
             const reviewRequest = {
                 id: userReview._id,
                 review: { ...values, rating: isRating },
