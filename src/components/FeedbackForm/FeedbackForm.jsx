@@ -55,7 +55,7 @@ export const FeedbackForm = ({ onClose, existingReviewId }) => {
     const userReview = useSelector(selectUserReview);
     const [isEditActive, setIsEditActive] = useState(false);
     const rat = useSelector(state => state.reviews.userReview.rating);
-    console.log(rat);
+    // console.log(rat);
     const [isRating, setIsRating] = useState(rat || null);
 
     // useEffect(() => {
