@@ -208,7 +208,7 @@ export const InputForm = styled(Field)`
     outline: none;
     line-height: 1.28;
     background-color: ${({ theme }) => theme.colors.backgroundSecondary};
-    color:${({ theme }) => theme.colors.textPrimary};
+    color: ${({ theme }) => theme.colors.textPrimary};
     &:hover,
     &:focus {
         border: 1px solid #111;
@@ -229,7 +229,7 @@ export const InputForm = styled(Field)`
     @media (min-width: 768px) {
         padding: 14px;
         ::placeholder {
-            color:${({ theme }) => theme.colors.textPrimary};
+            color: ${({ theme }) => theme.colors.textPrimary};
             font-weight: 600;
             font-size: 16px;
         }
@@ -284,6 +284,8 @@ export const Button = styled(motion.button)`
 
     &:disabled {
         opacity: 0.75;
+        cursor: not-allowed;
+        background-color: #3e85f3;
     }
 `;
 

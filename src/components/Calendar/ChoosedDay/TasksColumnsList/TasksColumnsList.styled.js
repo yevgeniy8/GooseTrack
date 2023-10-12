@@ -15,7 +15,7 @@ export const ColumnList = styled.ul`
 
     &::-webkit-scrollbar {
         width: 8px;
-        scrollbar-placement: bottom;
+        -webkit-scrollbar-placement: bottom;
     }
 
     &::-webkit-scrollbar-thumb {

@@ -1,61 +1,77 @@
-import styled from '@emotion/styled';
+// import styled from '@emotion/styled';
+import styled from '@emotion/styled/macro';
+// import styled from 'styled-components';
+
+import { CardItem } from './TaskColumnCard.styled';
 
 export const Icon = styled.svg`
-  width: 16px;
-  height: 16px;
-  stroke: ${({ theme }) => theme.colors.iconTasks};
+    width: 16px;
+    height: 16px;
+
+    stroke: ${({ theme }) => theme.colors.iconTasks};
 `;
 
 export const CardEditMenu = styled.ul`
-  padding: 0px;
-  gap: 10px;
-  margin-left: auto;
-  margin-right: 14px;
-  margin-top: auto;
-  display: flex;
-  list-style: none;
+    display: flex;
+    padding: 0px;
+    gap: 10px;
 `;
 export const CardEditBtn = styled.button`
-  padding: 0px;
-  border: none;
-  border-radius: 2px;
-  display: flex;
-  background-color: inherit;
-  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+    display: flex;
+    position: relative;
 
-  &:hover {
-    /* outline: none;
-        border: none; */
-    svg {
-      stroke: #3e85f3;
+    border: none;
+    padding: 0px;
+
+    background-color: inherit;
+    &:hover {
+        svg {
+            stroke: #3e85f3;
+        }
     }
-  }
 
-  &:focus {
-    /* outline: none; */
-    /* border: none; */
-    /* box-shadow: 0 0 2px 2px #3e85f3; */
-  }
+    &:focus {
+        svg {
+            stroke: #3e85f3;
+        }
+    }
 `;
 export const CtgPopUp = styled.div`
-  width: 140px;
-  align-items: center;
-  padding: 14px 16px;
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  background: #fff;
-  border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    align-items: center;
+
+    padding: 20px 24px;
+    width: 140px;
+    gap: 14px;
+    left: -60px;
+    top: 20px;
+    border-radius: 8px;
+
+    background: ${({ theme }) => theme.colors.backgroundSecondary};
+    border: ${({ theme }) => theme.borders.calendar};
+
+    ${CardItem}:nth-last-of-type(-n + 1) {
+        top: 100px;
+    }
 `;
 
 export const CtgPopBtn = styled.button`
-  ${'' /* padding: 5px 10px; */}
-  background: #fff;
-  ${'' /* border-radius: 8px; */}
-  border:none;
-  padding: 7px 0px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.28;
+    text-transform: capitalize;
+
+    width: 100%;
+    padding: 0px;
+
+    background: none;
+    border: none;
+    color: ${({ theme }) => theme.colors.textPrimary};
 `;
