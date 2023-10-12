@@ -5,7 +5,7 @@ export const Table = styled.div`
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     border: ${({ theme }) => theme.borders.calendar};
-    border-radius: 8px;
+    border-radius: 12px;
     overflow: hidden;
     ${props => props.fullheight}
     ${props =>

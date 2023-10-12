@@ -1,3 +1,5 @@
+import React, { useState, useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
 import useAuth from 'hooks/useAuth';
 import hotBirthday from '../../../images/birthday.svg';
 import { getCurrentDate, isBirthdayToday, getFirstName } from 'helpers';
@@ -17,22 +19,29 @@ const UserInfo = () => {
     const currentDate = getCurrentDate();
     const isBirthday = isBirthdayToday(userBirthday, currentDate);
     const firstName = getFirstName(name);
+    const [avatar, setAvatar] = useState(avatarURL);
+
+    useEffect(() => {
+        setAvatar(avatarURL);
+    }, [avatarURL]);
 
     return (
         <InfoContainer>
             {name ? <NameP>{firstName}</NameP> : <NameP>User</NameP>}
-            <AvatarDiv>
-                {(avatarURL === '' || !avatarURL) && name ? (
-                    <FirstLetterOfName>{name[0]}</FirstLetterOfName>
-                ) : avatarURL !== '' ? (
-                    <Img src={avatarURL} alt={name} />
-                ) : null}
-                {isBirthday && (
-                    <BirthdayDiv>
-                        <img src={hotBirthday} alt="Birthday" />
-                    </BirthdayDiv>
-                )}
-            </AvatarDiv>
+            <NavLink to="account">
+                <AvatarDiv>
+                    {(avatar === '' || !avatar) && name ? (
+                        <FirstLetterOfName>{name[0]}</FirstLetterOfName>
+                    ) : avatar !== '' ? (
+                        <Img src={avatar} alt={name} />
+                    ) : null}
+                    {isBirthday && (
+                        <BirthdayDiv>
+                            <img src={hotBirthday} alt="Birthday" />
+                        </BirthdayDiv>
+                    )}
+                </AvatarDiv>
+            </NavLink>
         </InfoContainer>
     );
 };
