@@ -29,6 +29,16 @@ export const MainContainer = styled.div`
     }
 `;
 
+// export const AvatarContainer = styled(motion.div)`
+//     position: relative;
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     margin-bottom: 40px;
+//     margin-left: auto;
+//     margin-right: auto;
+// `;
+
 export const AvatarContainer = styled(motion.div)`
     @media (max-width: 767px) {
         position: absolute;
@@ -74,6 +84,7 @@ export const ImgAvatar = styled.img`
     height: 100%;
     border-radius: 50%;
     object-fit: cover;
+   
 `;
 
 export const InputFile = styled(Field)`
@@ -278,7 +289,7 @@ export const Error = styled(ErrorMessage)`
     font-weight: 400;
     line-height: 14px;
     @media (min-width: 768px) {
-        bottom: -33px;
+        bottom: -28px;
         left: 6px;
     }
 `;
