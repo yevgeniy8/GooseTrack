@@ -1,4 +1,6 @@
 import styled from '@emotion/styled';
+// import styled from '@emotion/styled/macro';
+// import styled from 'styled-components';
 
 export const Icon = styled.svg`
     width: 16px;
@@ -14,6 +16,7 @@ export const CardEditMenu = styled.ul`
 `;
 export const CardEditBtn = styled.button`
     display: flex;
+    position: relative;
 
     border: none;
     padding: 0px;
@@ -40,15 +43,12 @@ export const CtgPopUp = styled.div`
     padding: 20px 24px;
     width: 140px;
     gap: 14px;
-    left: 51%;
+    left: -60px;
+    top: 20px;
     border-radius: 8px;
 
     background: ${({ theme }) => theme.colors.backgroundSecondary};
     border: ${({ theme }) => theme.borders.calendar};
-
-    /* &:last-of-type {
-        top: 80%;
-    } */
 `;
 
 export const CtgPopBtn = styled.button`
