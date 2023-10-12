@@ -2,10 +2,15 @@ import { forwardRef } from 'react';
 import ReactDatePicker from 'react-datepicker';
 import styled from '@emotion/styled';
 import 'react-datepicker/dist/react-datepicker.css';
-import { BtnLeft, BtnRight, Icon, PeriodTypeSelect } from './DatePicker.styled';
+import {
+    BtnLeft,
+    BtnRight,
+    Icon,
+    PeriodTypeSelect,
+} from './StatDatePicker.styled';
 import sprite from 'images/icons.svg';
 
-const TempDatePicker = ({ startDate, setStartDate }) => {
+const StatDatePicker = ({ startDate, setStartDate }) => {
     const ExampleCustomInput = forwardRef(({ value, onClick }, ref) => (
         <CustomDatePicker
             className="example-custom-input"
@@ -61,7 +66,7 @@ const TempDatePicker = ({ startDate, setStartDate }) => {
         </PeriodTypeSelect>
     );
 };
-export default TempDatePicker;
+export default StatDatePicker;
 
 const CustomDatePicker = styled.button`
     width: 171px;
@@ -110,6 +115,8 @@ export const DatePickerWrapp = styled.div`
             background-color: #3e85f3;
             width: 235px;
             height: 280px;
+
+            /* padding: 0 15px 18px 15px ; */
         }
 
         &__current-month {
@@ -136,7 +143,9 @@ export const DatePickerWrapp = styled.div`
             font-weight: 400;
             line-height: 18px;
             letter-spacing: -0.28px;
-
+            /* @media (min-width: 768px) {
+                font-size: 18px;
+            } */
             &:hover {
                 border-radius: 50%;
                 background-color: #fff;
@@ -144,6 +153,7 @@ export const DatePickerWrapp = styled.div`
                 opacity: 0.7;
             }
             &--weekend {
+                /* opacity: 40%; */
             }
 
             &--selected {
