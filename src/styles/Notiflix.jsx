@@ -1,7 +1,8 @@
 import Notiflix from 'notiflix';
 
 Notiflix.Notify.init({
-    position: 'right-bottom',
+    // position: 'right-bottom',
+    position: 'right-top',
     // position: 'left-top',
     // position: 'center-top',
 
