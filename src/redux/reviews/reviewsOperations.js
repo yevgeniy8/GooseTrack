@@ -22,12 +22,10 @@ export const fetchReviews = createAsyncThunk(
 export const addReview = createAsyncThunk(
     'reviews/addReviews',
     async (review, thunkAPI) => {
-        console.log(review);
         try {
             const { data } = await axios.post('/reviews/own', review);
             return data;
         } catch (e) {
-            // console.log(e);
             Notiflix.Notify.failure('You`ve already submitted feedback');
             return thunkAPI.rejectWithValue(e.message);
         }
@@ -39,7 +37,6 @@ export const deleteReview = createAsyncThunk(
     async (id, thunkAPI) => {
         try {
             const { data } = await axios.delete(`/reviews/own/`);
-            console.log(data);
             return data;
         } catch (e) {
             return thunkAPI.rejectWithValue(e.message);
@@ -65,7 +62,6 @@ export const fetchReviewById = createAsyncThunk(
     async (_, thunkAPI) => {
         try {
             const { data } = await axios.get(`/reviews/own/`);
-            //  const { data } = await axios.get(`/reviews/own/${id}`);
             return data;
         } catch (e) {
             return thunkAPI.rejectWithValue(e.message);

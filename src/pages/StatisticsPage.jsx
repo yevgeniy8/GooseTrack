@@ -12,8 +12,6 @@ const GlobalStyles = createGlobalStyle`
         background-color: ${({ theme }) => theme.colors.backgroundPrimary};
     }
 `;
-// import DatePicker from 'components/StatisticsChart/DatePiker';
-// import { useState } from 'react';
 
 const StatisticsPage = () => {
     const [startDate, setStartDate] = useState(new Date());
@@ -29,7 +27,6 @@ const StatisticsPage = () => {
                             startDate={startDate}
                             setStartDate={setStartDate}
                         />
-                        {/* <DatePicker /> */}
                     </CalendarBlock>
                     <Legend>
                         <li>By Day</li>
@@ -152,10 +149,7 @@ const Legend = styled.ul`
     }
 `;
 
-const CalendarBlock = styled.div`
-    /* display: flex; */
-    /* gap: 50px; */
-`;
+const CalendarBlock = styled.div``;
 
 const CharContainer = styled.div`
     border: 0.8px solid;
