@@ -35,95 +35,95 @@ export const App = () => {
         dispatch(refreshUser());
     }, [dispatch]);
 
-    return (
-        !isRefreshing && (
-            <Container>
-                <Suspense fallback={<Spinner />}>
-                    <Routes>
+    return !isRefreshing ? (
+        <Container>
+            <Suspense fallback={<Spinner />}>
+                <Routes>
+                    <Route
+                        index
+                        element={
+                            <RestrictedRoute
+                                redirectTo="/calendar"
+                                component={<MainPage />}
+                            />
+                        }
+                    />
+                    <Route
+                        path="/register"
+                        element={
+                            <RestrictedRoute
+                                redirectTo="/calendar"
+                                component={<RegisterPage />}
+                            />
+                        }
+                    />
+
+                    <Route
+                        path="/login"
+                        element={
+                            <RestrictedRoute
+                                redirectTo="/calendar"
+                                component={<LoginPage />}
+                            />
+                        }
+                    />
+
+                    <Route path="/" element={<MainLayout />}>
                         <Route
-                            index
+                            path="account"
                             element={
-                                <RestrictedRoute
-                                    redirectTo="/calendar"
-                                    component={<MainPage />}
-                                />
-                            }
-                        />
-                        <Route
-                            path="/register"
-                            element={
-                                <RestrictedRoute
-                                    redirectTo="/calendar"
-                                    component={<RegisterPage />}
+                                <PrivateRoute
+                                    component={<AccountPage />}
+                                    redirectTo="/login"
                                 />
                             }
                         />
 
                         <Route
-                            path="/login"
+                            path="calendar"
                             element={
-                                <RestrictedRoute
-                                    redirectTo="/calendar"
-                                    component={<LoginPage />}
+                                <PrivateRoute
+                                    component={<CalendarPage />}
+                                    redirectTo="/login"
                                 />
                             }
-                        />
-
-                        <Route path="/" element={<MainLayout />}>
+                        >
                             <Route
-                                path="account"
+                                path="month/:currentDate"
                                 element={
                                     <PrivateRoute
-                                        component={<AccountPage />}
+                                        component={<ChoosedMonth />}
                                         redirectTo="/login"
                                     />
                                 }
                             />
-
                             <Route
-                                path="calendar"
+                                path="day/:currentDay"
                                 element={
                                     <PrivateRoute
-                                        component={<CalendarPage />}
+                                        component={<ChoosedDay />}
                                         redirectTo="/login"
-                                    />
-                                }
-                            >
-                                <Route
-                                    path="month/:currentDate"
-                                    element={
-                                        <PrivateRoute
-                                            component={<ChoosedMonth />}
-                                            redirectTo="/login"
-                                        />
-                                    }
-                                />
-                                <Route
-                                    path="day/:currentDay"
-                                    element={
-                                        <PrivateRoute
-                                            component={<ChoosedDay />}
-                                            redirectTo="/login"
-                                        />
-                                    }
-                                />
-                            </Route>
-
-                            <Route
-                                path="statistics"
-                                element={
-                                    <PrivateRoute
-                                        redirectTo="/login"
-                                        component={<StatisticsPage />}
                                     />
                                 }
                             />
                         </Route>
 
-                        <Route path="*" element={<ErrorPage />} />
-                    </Routes>
-                </Suspense>
-            </Container>
-        )
+                        <Route
+                            path="statistics"
+                            element={
+                                <PrivateRoute
+                                    redirectTo="/login"
+                                    component={<StatisticsPage />}
+                                />
+                            }
+                        />
+                    </Route>
+
+                    <Route path="*" element={<ErrorPage />} />
+                </Routes>
+            </Suspense>
+        </Container>
+    ) : (
+        <Spinner />
     );
 };

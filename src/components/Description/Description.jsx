@@ -183,7 +183,6 @@ const Description = () => {
                             type="image/jpg"
                         />
                         <Img src={main_page_sidebar_mob1x} alt="calendar" />
-                        =""
                     </picture>
                 </Li>
                 <Li>
