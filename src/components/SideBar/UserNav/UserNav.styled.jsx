@@ -41,6 +41,9 @@ export const Icon = styled.svg`
         width: 24px;
         height: 24px;
     }
+
+    transition: ${({ theme }) =>
+        `stroke ${theme.animations.duration} ${theme.animations.cubicBezier}`};
 `;
 
 export const IconStat = styled.svg`
@@ -53,6 +56,9 @@ export const IconStat = styled.svg`
         width: 24px;
         height: 24px;
     }
+
+    transition: ${({ theme }) =>
+        `fill ${theme.animations.duration} ${theme.animations.cubicBezier}`};
 `;
 
 export const Link = styled(NavLink)`

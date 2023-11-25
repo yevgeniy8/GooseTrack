@@ -76,6 +76,9 @@ export const TitleH2 = styled.h2`
     line-height: calc(32 / 32);
     text-shadow: ${({ theme }) => theme.shadows.text};
     color: ${({ theme }) => theme.colors.textTitleHeader};
+
+    transition: ${({ theme }) =>
+        `color ${theme.animations.duration} ${theme.animations.cubicBezier}`};
 `;
 
 export const MotivationTextP = styled.p`
@@ -83,10 +86,15 @@ export const MotivationTextP = styled.p`
     font-weight: ${({ theme }) => theme.fontWeight.sb};
     line-height: calc(18 / 14);
     color: ${({ theme }) => theme.colors.textTitleHeader};
+
+    transition: ${({ theme }) =>
+        `color ${theme.animations.duration} ${theme.animations.cubicBezier}`};
 `;
 
 export const Span = styled.span`
     color: ${({ theme }) => theme.colors.brand};
+    transition: ${({ theme }) =>
+        `color ${theme.animations.duration} ${theme.animations.cubicBezier}`};
 `;
 
 export const UIComponentsWrapperDiv = styled.div`
